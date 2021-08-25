@@ -10,7 +10,7 @@ target 'S.A.M' do
   pod 'FirebaseCore'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  #pod 'FirebaseFirestoreSwift'
+  pod 'FirebaseFirestoreSwift'
   #pod 'Firebase/Storage'
   #pod 'RealmSwift'
 
