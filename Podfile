@@ -12,7 +12,6 @@ target 'S.A.M' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
-  #pod 'RealmSwift'
 
 
   target 'S.A.MTests' do
