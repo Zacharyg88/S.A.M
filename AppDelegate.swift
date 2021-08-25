@@ -1,11 +1,12 @@
 //
 //  AppDelegate.swift
-//  S.A.M
+//  SWTestApp
 //
-//  Created by Zach Eidenberger on 8/25/21.
+//  Created by Zach Eidenberger on 8/19/21.
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        if let currentUserSlug = UserDefaults.standard.string(forKey: "CurrentUserSlug") {
+            databaseManager.getUserFromDatabase(slug: currentUserSlug) { (user) in
+                if user == nil {
+                    print("Couldn't get user from database")
+                    try! Auth.auth().signOut()
+                }else {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//                        userManager.currentUser = user
+//                        let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                        UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+//                    }
+                }
+            }
+        }else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+            }
+        }
+
         return true
     }
 
