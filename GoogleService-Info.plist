@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>823676311910-alij387nddqvrumsrvt9p0daduietrfh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.823676311910-alij387nddqvrumsrvt9p0daduietrfh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBwSQ4EC_Br_6fznFzNIL9sU1CCqn44ebE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>823676311910</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ZEDev.SWTestApp</string>
+	<key>PROJECT_ID</key>
+	<string>swtestapp-cfafe</string>
+	<key>STORAGE_BUCKET</key>
+	<string>swtestapp-cfafe.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:823676311910:ios:6e1eaf60170ed96a9490a7</string>
+</dict>
+</plist>

@@ -296,20 +296,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BB4A0EBC26D6ACA8000AFE66 /* Main.storyboard */ = {
+		BB804EB126D6C13B0088F96B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BB4A0EBD26D6ACA8000AFE66 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BB4A0EC126D6ACA9000AFE66 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB4A0EC226D6ACA9000AFE66 /* Base */,
+				BB804EB226D6C13B0088F96B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BB804EB726D6C1440088F96B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB804EB826D6C1440088F96B /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

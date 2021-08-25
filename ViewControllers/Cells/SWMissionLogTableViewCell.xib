@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="BrunoAce-Regular.ttf">
+            <string>BrunoAce-Regular</string>
+        </array>
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SWMissionLogTableViewCell" rowHeight="136" id="KGk-i7-Jjw" customClass="SWMissionLogTableViewCell" customModule="SWTestApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="328" height="136"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hy9-0x-uhu">
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="136"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQW-Iw-JrI">
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="136"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aG-VS-XYg">
+                        <rect key="frame" x="0.0" y="0.0" width="65" height="55"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="c76-TS-mfA"/>
+                            <constraint firstAttribute="width" constant="65" id="qvH-G0-DDc"/>
+                        </constraints>
+                        <state key="normal" image="mission_vote_button"/>
+                        <connections>
+                            <action selector="voteTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zS4-Et-Vsz"/>
+                        </connections>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assassinate_mission_banner" translatesAutoresizingMaskIntoConstraints="NO" id="fHl-Rb-Mkz">
+                        <rect key="frame" x="190" y="11" width="156" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="FVI-bE-0mf"/>
+                            <constraint firstAttribute="width" constant="156" id="ly8-tR-OK9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01m-Lw-Iyh">
+                        <rect key="frame" x="164.5" y="68" width="136.5" height="21"/>
+                        <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="17"/>
+                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sabotage a key outpost on Theridan" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-p3-zc4">
+                        <rect key="frame" x="133" y="89" width="168" height="34"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
+                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YjX-8m-Eg1">
+                        <rect key="frame" x="8" y="91" width="37" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="Qqz-9U-0sN"/>
+                            <constraint firstAttribute="width" constant="37" id="Yvs-C7-g20"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theridan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ve-cV-tkH">
+                        <rect key="frame" x="53" y="91" width="64" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="U1n-sa-L5C"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="15"/>
+                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovL-jP-sn3">
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="136"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dQW-Iw-JrI" secondAttribute="trailing" id="1Yk-wa-hqH"/>
+                    <constraint firstAttribute="bottom" secondItem="YjX-8m-Eg1" secondAttribute="bottom" constant="8" id="4Ee-fq-2zJ"/>
+                    <constraint firstItem="4ve-cV-tkH" firstAttribute="top" secondItem="YjX-8m-Eg1" secondAttribute="top" id="5eO-9z-q4t"/>
+                    <constraint firstItem="4aG-VS-XYg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="81u-R3-DkZ"/>
+                    <constraint firstItem="Hy9-0x-uhu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="C1P-L2-O1P"/>
+                    <constraint firstAttribute="bottom" secondItem="dQW-Iw-JrI" secondAttribute="bottom" id="Iht-0K-zqA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="01m-Lw-Iyh" secondAttribute="trailing" constant="7" id="J4B-tR-2qi"/>
+                    <constraint firstAttribute="trailing" secondItem="fHl-Rb-Mkz" secondAttribute="trailing" constant="-18" id="N6s-r7-t98"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qm1-p3-zc4" secondAttribute="trailing" constant="7" id="Nqc-mk-fjp"/>
+                    <constraint firstItem="01m-Lw-Iyh" firstAttribute="top" secondItem="fHl-Rb-Mkz" secondAttribute="bottom" constant="21" id="VmM-Y2-NcR"/>
+                    <constraint firstItem="dQW-Iw-JrI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f4D-eO-C5Q"/>
+                    <constraint firstItem="YjX-8m-Eg1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gp1-iq-KWo"/>
+                    <constraint firstItem="4ve-cV-tkH" firstAttribute="leading" secondItem="YjX-8m-Eg1" secondAttribute="trailing" constant="8" symbolic="YES" id="kDn-v4-8qY"/>
+                    <constraint firstItem="4ve-cV-tkH" firstAttribute="bottom" secondItem="YjX-8m-Eg1" secondAttribute="bottom" id="mda-fQ-YgP"/>
+                    <constraint firstItem="qm1-p3-zc4" firstAttribute="top" secondItem="01m-Lw-Iyh" secondAttribute="bottom" id="nul-VA-qwl"/>
+                    <constraint firstItem="dQW-Iw-JrI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oqp-cW-Tmt"/>
+                    <constraint firstAttribute="bottom" secondItem="Hy9-0x-uhu" secondAttribute="bottom" id="r2H-OV-UNH"/>
+                    <constraint firstItem="4aG-VS-XYg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sJI-bo-jbj"/>
+                    <constraint firstAttribute="trailing" secondItem="Hy9-0x-uhu" secondAttribute="trailing" id="sZY-Be-OnZ"/>
+                    <constraint firstItem="fHl-Rb-Mkz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="u0h-sx-uRT"/>
+                    <constraint firstItem="qm1-p3-zc4" firstAttribute="leading" secondItem="4ve-cV-tkH" secondAttribute="trailing" constant="16" id="wbm-xe-sdK"/>
+                    <constraint firstItem="Hy9-0x-uhu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wz4-6U-5M3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="ovL-jP-sn3" secondAttribute="bottom" id="4Mo-i3-zPT"/>
+                <constraint firstItem="ovL-jP-sn3" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="Atz-EW-kpc"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="ovL-jP-sn3" secondAttribute="trailing" id="Bll-gm-Lli"/>
+                <constraint firstItem="ovL-jP-sn3" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="eJj-FE-hbS"/>
+            </constraints>
+            <connections>
+                <outlet property="backgroundImageView" destination="Hy9-0x-uhu" id="vHQ-dD-ofB"/>
+                <outlet property="bannerImageView" destination="fHl-Rb-Mkz" id="S4d-ZT-NzN"/>
+                <outlet property="loadingLabel" destination="ovL-jP-sn3" id="sdR-w4-CjF"/>
+                <outlet property="locationImageView" destination="YjX-8m-Eg1" id="xeB-qn-l2a"/>
+                <outlet property="locationLabel" destination="4ve-cV-tkH" id="A43-Vd-8ax"/>
+                <outlet property="missionDescriptionLabel" destination="qm1-p3-zc4" id="2Uc-Ep-ljW"/>
+                <outlet property="missionTargetLabel" destination="01m-Lw-Iyh" id="Kv8-rn-UrK"/>
+                <outlet property="shadowView" destination="dQW-Iw-JrI" id="jCr-g3-9cs"/>
+                <outlet property="targeLabelTopConstraint" destination="VmM-Y2-NcR" id="JZe-de-a3T"/>
+                <outlet property="voteButton" destination="4aG-VS-XYg" id="uKr-Y4-CuZ"/>
+            </connections>
+            <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="assassinate_mission_banner" width="152" height="37"/>
+        <image name="mission_vote_button" width="66.5" height="56.5"/>
+    </resources>
+</document>

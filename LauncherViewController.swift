@@ -81,9 +81,9 @@ class LauncherViewController: UIViewController {
     }
     
     func launchTabBarController() {
-        let tabBar = SWTabBarController()
-        tabBar.modalPresentationStyle = .fullScreen
-        self.present(tabBar, animated: true, completion: nil)
+        let mainViewController = MainMenuViewController()
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: true, completion: nil)
     }
     
 }

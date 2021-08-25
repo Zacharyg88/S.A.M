@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SWCreateCollectionViewCell" id="gTV-IL-0wX" customClass="SWCreateCollectionViewCell" customModule="SWTestApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="153" height="111"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="153" height="111"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clipped_rect" translatesAutoresizingMaskIntoConstraints="NO" id="44y-jm-uDl">
+                        <rect key="frame" x="0.0" y="0.0" width="153" height="111"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Title Goes Here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wr1-yk-DJ7">
+                        <rect key="frame" x="45" y="39.5" width="88" height="32"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="16"/>
+                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="44y-jm-uDl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2Ag-r6-KPP"/>
+                <constraint firstAttribute="bottom" secondItem="44y-jm-uDl" secondAttribute="bottom" id="6EP-aX-xGu"/>
+                <constraint firstItem="Wr1-yk-DJ7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="AqA-X6-fMb"/>
+                <constraint firstAttribute="trailing" secondItem="Wr1-yk-DJ7" secondAttribute="trailing" constant="20" id="GeP-u2-VHZ"/>
+                <constraint firstItem="44y-jm-uDl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KpD-ML-5zG"/>
+                <constraint firstAttribute="right" secondItem="44y-jm-uDl" secondAttribute="right" id="c7x-mp-Wq7"/>
+                <constraint firstItem="Wr1-yk-DJ7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="45" id="m85-ka-gB7"/>
+            </constraints>
+            <connections>
+                <outlet property="backgrooundImageView" destination="44y-jm-uDl" id="WM5-jF-5dt"/>
+                <outlet property="titleLabel" destination="Wr1-yk-DJ7" id="UZR-Xa-n0e"/>
+            </connections>
+            <point key="canvasLocation" x="31.884057971014496" y="75.669642857142847"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="clipped_rect" width="175" height="133"/>
+    </resources>
+</document>
