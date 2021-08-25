@@ -8,8 +8,8 @@ target 'S.A.M' do
   # Pods for S.A.M
 
   pod 'FirebaseCore'
-  #pod 'Firebase/Auth'
-  #pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   #pod 'FirebaseFirestoreSwift'
   #pod 'Firebase/Storage'
   #pod 'RealmSwift'
