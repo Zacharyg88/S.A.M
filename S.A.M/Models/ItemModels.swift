@@ -118,7 +118,7 @@ class ArmorModel: NSObject {
         newArmor.notes = data["notes"] as? String
         newArmor.armorRating = data["armorRating"] as? Int
         newArmor.minStrength = data["minStrength"] as? Int
-        newArmor.areasProtected = data["areasProtected"] as? [String]
+        newArmor.areasProtected = data["areasProtected"] as? [String] ?? []
         newArmor.weight = data["weight"] as? Int
         
         return newArmor

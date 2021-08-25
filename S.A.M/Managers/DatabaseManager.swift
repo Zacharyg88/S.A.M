@@ -9,8 +9,6 @@ import Foundation
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
-import Realm
-import RealmSwift
 
 
 var databaseManager = DatabaseManager()
@@ -198,7 +196,6 @@ class DatabaseManager: NSObject {
 
 class UserManager: NSObject {
     
-    let realm = try! Realm()
     var currentUser: User? {
         didSet {
             UserDefaults.standard.setValue(currentUser?.slug, forKey: "CurrentUserSlug")

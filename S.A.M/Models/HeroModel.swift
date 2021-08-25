@@ -195,7 +195,7 @@ class HeroModel: NSObject {
         }
         
         if let powersDictArray: [[String: Any]] = data["powers"] as? [[String: Any]] {
-            let powersArray: [PowerModel] = []
+            var powersArray: [PowerModel] = []
             for powerDict in powersDictArray {
                 powersArray.append(PowerModel().generateModelFromDict(data: powerDict))
             }
@@ -211,7 +211,7 @@ class HeroModel: NSObject {
         }
         
         if let edgesDictArray: [[String: Any]] = data["edges"] as? [[String: Any]] {
-            let edgesArray: [EdgeModel] = []
+            var edgesArray: [EdgeModel] = []
             for edgeDict in edgesDictArray {
                 edgesArray.append(EdgeModel().generateModelFromDict(data: edgeDict))
             }
@@ -219,17 +219,17 @@ class HeroModel: NSObject {
         }
         
         if let hinderanceDictArray: [[String: Any]] = data["hinderances"] as? [[String: Any]] {
-            let hinderanceArray: [HindranceModel] = []
+            var hinderanceArray: [HindranceModel] = []
             for hinderanceDict in hinderanceDictArray {
                 hinderanceArray.append(HindranceModel().generateModelFromDict(data: hinderanceDict))
             }
             newHero.hinderances = hinderanceArray
         }
         
-        newHero.physicalDescription = data["physicalDescription"]
-        newHero.pace = data["pace"]
-        newHero.size = data["size"]
-        newHero.bennies = data["bennies"]
+        newHero.physicalDescription = data["physicalDescription"] as? String
+        newHero.pace = data["pace"] as? Int
+        newHero.size = data["size"] as? Int
+        newHero.bennies = data["bennies"] as? Int
         return newHero
     }
 }
