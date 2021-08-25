@@ -30,10 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+//            }
         }
 
         return true

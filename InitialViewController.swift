@@ -44,7 +44,11 @@ class InitialViewController: UIViewController {
     }
     
     var shouldRepeatAnimation: Bool = true
-    var hasShrunkCount = 0
+    var hasShrunkCount = 0 {
+        didSet {
+            print("\(hasShrunkCount)" + " has shrunk")
+        }
+    }
     func animateLoadingImage(state: String) {
         if self.SAMLoadingImageView?.alpha == 0 {
             UIView.animate(withDuration: 0.3) {
@@ -59,15 +63,15 @@ class InitialViewController: UIViewController {
             switch state {
             case "sam_load_b":
                 UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(),
-                                  duration: 0.2,
+                                  duration: 0.4,
                                   options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
                     self.SAMLoadingImageView?.image = UIImage(named: "sam_load_b")
-                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
                     
                 } completion: { (done) in
                     if done {
                         self.hasShrunkCount += 1
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             if self.hasShrunkCount > 8 {
                                 self.animateLoadingImage(state: "default")
                             }else {
@@ -78,7 +82,7 @@ class InitialViewController: UIViewController {
                 }
             case "sam_load":
                 UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(),
-                                  duration: 0.2,
+                                  duration: 0.4,
                                   options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
                     self.SAMLoadingImageView?.image = UIImage(named: "sam_load")
                     self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
@@ -86,7 +90,7 @@ class InitialViewController: UIViewController {
 
                 } completion: { (done) in
                     if done {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             self.animateLoadingImage(state: "sam_load_b")
                         }
                     }
@@ -94,7 +98,7 @@ class InitialViewController: UIViewController {
             default:
                 
                 UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(),
-                                  duration: 0.2,
+                                  duration: 0.5,
                                   options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
                     self.SAMLoadingImageView?.frame = CGRect(x: 36, y: 64, width: 28, height: 28)
                     self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
@@ -102,14 +106,23 @@ class InitialViewController: UIViewController {
 
                 } completion: { (done) in
                     if done {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            UIView.animate(withDuration: 0.5) {
-                                self.SAMImageView.alpha = 1
-                                self.loadingLabel.alpha = 1
-                                self.SAMLoadingImageView?.alpha = 0
-                            } completion: { (done) in
-                                if done {
-                                    self.animateLoadingLabel()
+                        
+                        UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(),
+                                          duration: 0.5,
+                                          options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
+                            self.SAMLoadingImageView?.frame = CGRect(x: 36, y: 64, width: 64, height: 28)
+                        } completion: { (done) in
+                            if done {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    UIView.animate(withDuration: 0.5) {
+                                        self.SAMImageView.alpha = 1
+                                        self.loadingLabel.alpha = 1
+                                        self.SAMLoadingImageView?.alpha = 0
+                                    } completion: { (done) in
+                                        if done {
+                                            self.animateLoadingLabel()
+                                        }
+                                    }
                                 }
                             }
                         }

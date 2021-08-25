@@ -189,11 +189,11 @@
 		BB4A0EB526D6ACA7000AFE66 /* S.A.M */ = {
 			isa = PBXGroup;
 			children = (
-				BB804F3626D6C9070088F96B /* ViewControllers */,
-				BB804F2126D6C8B30088F96B /* Models */,
-				BB804F1926D6C8A20088F96B /* Managers */,
-				BB804F0D26D6C8820088F96B /* Login_Auth */,
 				BB804EF326D6C8260088F96B /* Extensions */,
+				BB804F0D26D6C8820088F96B /* Login_Auth */,
+				BB804F1926D6C8A20088F96B /* Managers */,
+				BB804F2126D6C8B30088F96B /* Models */,
+				BB804F3626D6C9070088F96B /* ViewControllers */,
 				BB5B76F026D6C9C700544926 /* SceneDelegate.swift */,
 				BB244DE126D6CC7900BA9177 /* AppDelegate.swift */,
 				BB804F0726D6C87C0088F96B /* InitialViewController.swift */,
