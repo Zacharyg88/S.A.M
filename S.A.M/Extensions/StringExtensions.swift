@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreGraphics
 
 
@@ -40,6 +41,23 @@ extension String {
 extension CGFloat {
     func convertDegressToRadians(degrees: CGFloat) -> CGFloat {
         return degrees * .pi / 180
+    }
+}
+
+extension NSObject {
+    var className: String {
+        return String(describing: Mirror(reflecting: self).subjectType)
+    }
+}
+
+extension UIView {
+    func loadAndShowNib() {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: self.className, bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view.frame = self.bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.addSubview(view)
     }
 }
 
