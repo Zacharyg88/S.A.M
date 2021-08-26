@@ -44,11 +44,7 @@ class InitialViewController: UIViewController {
     }
     
     var shouldRepeatAnimation: Bool = true
-    var hasShrunkCount = 0 {
-        didSet {
-            print("\(hasShrunkCount)" + " has shrunk")
-        }
-    }
+    var hasShrunkCount = 1
     func animateLoadingImage(state: String) {
         if self.SAMLoadingImageView?.alpha == 0 {
             UIView.animate(withDuration: 0.3) {
@@ -59,20 +55,19 @@ class InitialViewController: UIViewController {
                 }
             }
         } else {
-            
             switch state {
             case "sam_load_b":
                 UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(),
                                   duration: 0.4,
                                   options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
                     self.SAMLoadingImageView?.image = UIImage(named: "sam_load_b")
-                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat().convertDegressToRadians(degrees: CGFloat(90 * self.hasShrunkCount)))
                     
                 } completion: { (done) in
                     if done {
                         self.hasShrunkCount += 1
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            if self.hasShrunkCount > 8 {
+                            if self.hasShrunkCount > 5 {
                                 self.animateLoadingImage(state: "default")
                             }else {
                                 self.animateLoadingImage(state: "sam_load")
@@ -85,11 +80,16 @@ class InitialViewController: UIViewController {
                                   duration: 0.4,
                                   options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
                     self.SAMLoadingImageView?.image = UIImage(named: "sam_load")
-                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+                    if self.hasShrunkCount == 5 {
+                        self.SAMLoadingImageView?.transform = .identity
+                    }else {
+                        self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat().convertDegressToRadians(degrees: CGFloat(90 * self.hasShrunkCount)))
+                    }
 
 
                 } completion: { (done) in
                     if done {
+                        self.hasShrunkCount += 1
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             self.animateLoadingImage(state: "sam_load_b")
                         }
@@ -101,7 +101,7 @@ class InitialViewController: UIViewController {
                                   duration: 0.5,
                                   options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
                     self.SAMLoadingImageView?.frame = CGRect(x: 36, y: 64, width: 28, height: 28)
-                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                    self.SAMLoadingImageView?.transform = CGAffineTransform(rotationAngle: 0 - (CGFloat.pi))
 
 
                 } completion: { (done) in
@@ -110,7 +110,7 @@ class InitialViewController: UIViewController {
                         UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(),
                                           duration: 0.5,
                                           options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
-                            self.SAMLoadingImageView?.frame = CGRect(x: 36, y: 64, width: 64, height: 28)
+                            self.SAMLoadingImageView?.image = UIImage(named: "sam_load_c")
                         } completion: { (done) in
                             if done {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

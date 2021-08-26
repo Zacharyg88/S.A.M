@@ -22,18 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Couldn't get user from database")
                     try! Auth.auth().signOut()
                 }else {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//                        userManager.currentUser = user
-//                        let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                        UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
-//                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        userManager.currentUser = user
+                        let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+                    }
                 }
             }
         }else {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
-//            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+            }
         }
 
         return true

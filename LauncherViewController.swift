@@ -9,10 +9,21 @@ import UIKit
 import FirebaseAuth
 
 
-class LauncherViewController: UIViewController {
+class LauncherViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var terminalLabel: UILabel!
+    @IBOutlet weak var usernameImageView: UIImageView!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordImageView: UIImageView!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var forgotPassButton: UIButton!
+    
+    var emailHasError: Bool  = false
+    var passwordHasError: Bool = false
     var loginViewController: LoginViewController?
     var loginStringArray = ">> PLEASE LOGIN TO CONTINUE"
     override func viewDidLoad() {
@@ -38,6 +49,28 @@ class LauncherViewController: UIViewController {
             }
 
         }
+        usernameTextField.tag = 1
+        usernameTextField.delegate = self
+        usernameTextField.keyboardType = .emailAddress
+        passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
+        
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor.white.cgColor
+        submitButton.layer.shadowColor = UIColor.white.cgColor
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        submitButton.layer.shadowRadius = 8
+        submitButton.layer.shadowOpacity = 0.8
+        
+        usernameImageView.alpha = 0
+        usernameTextField.alpha = 0
+        emailErrorLabel.isHidden = true
+        passwordImageView.alpha = 0
+        passwordTextField.alpha = 0
+        passwordErrorLabel.isHidden = true
+        submitButton.alpha = 0
+        forgotPassButton.alpha = 0
+        
     }
     var loopCount: Int = 0
     func loopAnimateTerminalLabel() {
@@ -50,6 +83,66 @@ class LauncherViewController: UIViewController {
             loopCount += 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.07) {
                 self.loopAnimateTerminalLabel()
+            }
+        }else {
+            UIView.animate(withDuration: 0.3) {
+                self.usernameImageView.alpha = 1
+                self.usernameTextField.alpha = 1
+                self.passwordImageView.alpha = 1
+                self.passwordTextField.alpha = 1
+                self.submitButton.alpha = 1
+                self.forgotPassButton.alpha = 1
+            }
+        }
+    }
+    
+    
+    @IBAction func submitTapped(_ sender: Any) {
+        if !(usernameTextField.text?.isValidEmail() ?? false) {
+            self.emailErrorLabel.text = "Submitted Email is not in the correct format"
+            self.emailErrorLabel.isHidden = false
+            self.emailHasError = true
+        }
+        
+        if !(passwordTextField.text?.isValidPassword() ?? false) {
+            self.passwordErrorLabel.text = "Submitted Password must be at least 7 characters and have no spaces."
+            self.passwordErrorLabel.isHidden = false
+            self.passwordHasError = true
+        }
+        
+        if !emailHasError && !passwordHasError {
+            Auth.auth().fetchSignInMethods(forEmail: usernameTextField.text ?? "") { (attempts, error) in
+                if attempts?.isEmpty ?? false {
+                    databaseManager.authenticateUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!) {  (user, error) in
+                        if error != nil {
+                            print(error)
+                        }else {
+                            print(user)
+                            self.launchTabBarController()
+                        }
+                    }
+                }else {
+                    databaseManager.signInUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!) { (success, error) in
+                        if error != nil {
+                            print(error)
+                        }else {
+                            self.launchTabBarController()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 1 {
+            if emailHasError {
+                self.emailErrorLabel.isHidden = true
+                self.emailHasError = false
+            }
+        }else {
+            if passwordHasError {
+                self.passwordErrorLabel.isHidden = true
+                self.passwordHasError = false
             }
         }
     }
@@ -64,9 +157,6 @@ class LauncherViewController: UIViewController {
         self.loginViewController = loginViewController
         self.view.addSubview(loginViewController.view ?? UIView())
         self.view.bringSubviewToFront(loginViewController.view ?? UIView())
-        
-        
-        //self.present(loginViewController, animated: true, completion: nil)
     }
     
     @objc func dismissLoginView() {

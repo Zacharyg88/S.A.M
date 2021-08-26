@@ -8,6 +8,8 @@
 import UIKit
 
 class SWHeroViewController: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

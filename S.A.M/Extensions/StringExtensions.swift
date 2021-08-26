@@ -6,12 +6,11 @@
 //
 
 import Foundation
+import CoreGraphics
 
 
 
 extension String {
-    
-    
     func isValidPassword() -> Bool {
         if self.count > 7 {
             var foundFault = false
@@ -36,5 +35,11 @@ extension String {
         return emailPred.evaluate(with: self)
     }
     
+}
+
+extension CGFloat {
+    func convertDegressToRadians(degrees: CGFloat) -> CGFloat {
+        return degrees * .pi / 180
+    }
 }
 

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SW_Backgrouned_Layered1.png",
+      "filename" : "icon_shield.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SW_Backgrouned_Layered1-1.png",
+      "filename" : "icon_shield@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SW_Backgrouned_Layered1-2.png",
+      "filename" : "icon_shield@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -225,6 +225,13 @@
 			path = S.A.MUITests;
 			sourceTree = "<group>";
 		};
+		BB7CA28026D7F3A50077ADC4 /* HeroViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HeroViewCells;
+			sourceTree = "<group>";
+		};
 		BB804EF326D6C8260088F96B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +304,7 @@
 		BB804F4E26D6C9240088F96B /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				BB7CA28026D7F3A50077ADC4 /* HeroViewCells */,
 				BB804F5126D6C92F0088F96B /* SWCreateCollectionViewCell.swift */,
 				BB804F5226D6C92F0088F96B /* SWCreateCollectionViewCell.xib */,
 				BB804F5026D6C92F0088F96B /* SWMissionLogTableViewCell.swift */,
