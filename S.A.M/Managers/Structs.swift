@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 
-
+var colors = Colors()
 struct DatabaseKeys {
     
     
@@ -81,73 +82,29 @@ struct DatabaseKeys {
     
 }
 
-
-enum CodingKeys: String, CodingKey {
-    case response =             "response"
-    //User
-    case slug =                  "slug"
-    case title =                 "title"
-    case firstName =             "firstName"
-    case lastName =              "lastName"
-    case email =                 "email"
-    case phoneNumber =           "phoneNumber"
-    case heros =                 "heros"
-    case isAdmin =               "isAdmin"
+struct Colors {
     
+    var lightRed        = UIColor(hexString: "913C50")
+    var blue            = UIColor(hexString: "14646D")
+    var lightBlue       = UIColor(hexString: "229AA8")
+    var green           = UIColor(hexString: "265E58")
+    var lightGreen      = UIColor(hexString: "34AD89")
+    var powerColor      = UIColor(hexString: "8142B2")
+    var powersLight     = UIColor(hexString: "BE6BFF")
+    var planetDry       = UIColor(hexString: "826D2D")
+    var planetCore      = UIColor(hexString: "384523")
+    var belt            = UIColor(hexString: "243840")
+    var backing         = UIColor(hexString: "283E46")
+    var agilityColor    = UIColor(hexString: "339B7B")
+    var spiritColor     = UIColor(hexString: "29A0D3")
+    var smartsColor     = UIColor(hexString: "8470A4")
+    var strengthColor   = UIColor(hexString: "CED2D3")
+    var vigorColor      = UIColor(hexString: "")
+    var highlightColor  = UIColor(hexString: "537681")
+    var buttonBorder    = UIColor(hexString: "FFFFFF").withAlphaComponent(0.32)
+    var buttonBackground    = UIColor(hexString: "061316").withAlphaComponent(0.8)
+    var backgroundColor     = UIColor(hexString: "0B1A1F")
+    var shakenColor         = UIColor(hexString: "9B7730")
+    var subheaderColor      = UIColor(hexString: "FFFFFF").withAlphaComponent(0.6)
     
-    //Hero
-    case imageName =             "imageName"
-    case concept =               "concept"
-    case backstory =             "backstory"
-    case skills =                "skills"
-    case items =                 "items"
-    case powers =                "powers"
-    case attributes =            "attributes"
-    case edges =                 "edges"
-    case physicalDescription =   "physicalDescription"
-    case pace =                  "pace"
-    case size =                  "size"
-    case bennies =               "bennies"
-    case parry =                 "parry"
-    case toughness =             "toughness"
-    
-    //Items
-    case cost =                  "cost"
-    case notes =                 "notes"
-    case classification =        "classification"
-    case ammoCap =               "ammoCap"
-    case damageString =          "dammageString"
-    case range =                 "range"
-    case ap =                    "ap"
-    case rof =                   "rof"
-    case shots =                 "shots"
-    case minStrength =           "minStrength"
-    case weight =                "weight"
-    case armorRating =           "armorRating"
-    case areasProtected =        "areasProtected"
-    case cover =                 "cover"
-    case handling =              "handling"
-    case topSpeed =              "topSpeed"
-    case toughnessMod =          "toughnessMod"
-    case requiredCrew =          "requiredCrew"
-    case additionalPassengers =  "additionalPassengers"
-    case totalCapacity =         "totalCapacity"
-    case rank =                  "rank"
-    case powerPoints =           "powerPoints"
-    case duration =              "duration"
-    
-    //Dice
-    case sides =                 "sides"
-    
-    //Mechanics
-    case attribute =             "attribute"
-    case dice =                  "dice"
-    case requiredExperience =    "requiredExperience"
-    case requiredSkillName =     "requiredSkillName"
-    case requiredSkillLevel =    "requiredSkillLevel"
-    case summary =               "summary"
-    case modifier =              "modifier"
-    case isPositive =            "isPositive"
-    case modInt =                "modInt"
-    case skill =                 "skill"
 }

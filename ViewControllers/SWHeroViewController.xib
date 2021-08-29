@@ -15,7 +15,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWHeroViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="SAMImageView" destination="VA2-zR-xJ0" id="Iaj-VS-uLy"/>
+                <outlet property="actionsButton" destination="Au5-AE-oP4" id="3lV-Td-RCI"/>
+                <outlet property="changeHeroButton" destination="2RC-EJ-fEh" id="Mux-cF-dxB"/>
+                <outlet property="conditionsButton" destination="omB-K0-mAr" id="C6R-mv-hpD"/>
+                <outlet property="edgesTableView" destination="IEf-NW-znu" id="TyX-30-BoW"/>
+                <outlet property="editHeroButton" destination="irK-8e-o8x" id="xjH-HC-DbO"/>
+                <outlet property="gearButton" destination="PHN-hM-fe6" id="9hN-LX-y4k"/>
+                <outlet property="heroImageView" destination="AXr-ce-JIY" id="4oO-d5-DHR"/>
+                <outlet property="heroNameLabel" destination="k03-Wf-Vjv" id="hBF-Vh-xhm"/>
+                <outlet property="hinderancesTableView" destination="el4-bD-qLR" id="9cA-zN-VPT"/>
+                <outlet property="paceLabel" destination="WSa-Fi-s5x" id="FRw-3E-SFZ"/>
+                <outlet property="parryLabel" destination="iP1-yf-qR0" id="Kqh-qp-B0e"/>
+                <outlet property="powersButton" destination="0m1-Er-Zhy" id="y7O-kr-xNe"/>
+                <outlet property="shakenButton" destination="47M-dr-8yG" id="uYR-W7-k21"/>
+                <outlet property="toughnessArmorLabel" destination="VSP-vy-Nko" id="UMq-Ku-kxJ"/>
+                <outlet property="toughnessLabel" destination="Jlw-jE-vHi" id="zku-g8-5Cz"/>
+                <outlet property="traitsButton" destination="ztQ-BK-fiz" id="exs-wu-baX"/>
+                <outlet property="view" destination="zMt-sW-hVR" id="JKm-kg-WlG"/>
+                <outlet property="woundsLabel" destination="WQ9-yT-vyB" id="3uw-fA-Ddv"/>
+                <outlet property="woundsView" destination="rEu-92-5wC" id="PMS-L4-5JS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,7 +60,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crane" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k03-Wf-Vjv">
-                    <rect key="frame" x="101" y="180" width="48.5" height="18"/>
+                    <rect key="frame" x="101" y="178.5" width="48.5" height="21"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="18"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -75,13 +94,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="122" height="48"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFE-Y9-2Ni">
-                                    <rect key="frame" x="45.5" y="0.0" width="31.5" height="14"/>
+                                    <rect key="frame" x="45" y="0.0" width="32" height="16.5"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSa-Fi-s5x">
-                                    <rect key="frame" x="52.5" y="14" width="17.5" height="30"/>
+                                    <rect key="frame" x="52.5" y="16.5" width="17" height="35"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="30"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -99,13 +118,13 @@
                             <rect key="frame" x="122" y="0.0" width="122" height="48"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ip2-Iu-Emq">
-                                    <rect key="frame" x="44" y="0.0" width="34" height="14"/>
+                                    <rect key="frame" x="44.5" y="0.0" width="33" height="16.5"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP1-yf-qR0">
-                                    <rect key="frame" x="52.5" y="14" width="17.5" height="30"/>
+                                    <rect key="frame" x="52.5" y="16.5" width="17" height="35"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="30"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -122,26 +141,26 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84n-nD-czw">
                             <rect key="frame" x="244" y="0.0" width="122" height="48"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-dJ-S9m">
-                                    <rect key="frame" x="44" y="0.0" width="34" height="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toughness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-dJ-S9m">
+                                    <rect key="frame" x="27" y="0.0" width="68" height="17"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlw-jE-vHi">
-                                    <rect key="frame" x="52.5" y="14" width="17.5" height="30"/>
+                                    <rect key="frame" x="52.5" y="17" width="17" height="35"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="30"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_shield" translatesAutoresizingMaskIntoConstraints="NO" id="Tg3-n7-Moa">
-                                    <rect key="frame" x="78" y="14" width="23" height="30"/>
+                                    <rect key="frame" x="77.5" y="17" width="23" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="23" id="eWK-dI-frn"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSP-vy-Nko">
-                                    <rect key="frame" x="78" y="14" width="23" height="30"/>
+                                    <rect key="frame" x="77.5" y="17" width="23" height="35"/>
                                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -216,19 +235,19 @@
                     <rect key="frame" x="153.5" y="317" width="107" height="63"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd9-tN-hVt">
-                            <rect key="frame" x="0.0" y="9" width="107" height="12"/>
+                            <rect key="frame" x="0.0" y="8" width="107" height="14"/>
                             <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="12"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQ9-yT-vyB">
-                            <rect key="frame" x="45" y="26" width="17.5" height="30"/>
+                            <rect key="frame" x="45" y="27" width="17" height="35"/>
                             <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="30"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="QX7-8N-K72"/>
                         <constraint firstItem="WQ9-yT-vyB" firstAttribute="top" secondItem="rd9-tN-hVt" secondAttribute="bottom" constant="5" id="RmR-Yj-jP3"/>
@@ -256,33 +275,33 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hindrances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mV9-nj-sm6">
-                    <rect key="frame" x="26" y="405" width="72.5" height="14"/>
+                    <rect key="frame" x="26" y="405" width="71.5" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="el4-bD-qLR">
-                    <rect key="frame" x="26" y="431" width="178" height="86"/>
+                    <rect key="frame" x="26" y="433.5" width="178" height="86"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="olp-Zy-UYO"/>
                     </constraints>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IEf-NW-znu">
-                    <rect key="frame" x="210" y="431" width="178" height="86"/>
+                    <rect key="frame" x="210" y="433.5" width="178" height="86"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="wBU-jy-udd"/>
                     </constraints>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jg-tg-BzU">
-                    <rect key="frame" x="210" y="409" width="178" height="14"/>
+                    <rect key="frame" x="210" y="409" width="178" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whX-bd-0sr">
-                    <rect key="frame" x="26" y="537" width="362" height="39"/>
+                    <rect key="frame" x="26" y="539.5" width="362" height="39"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztQ-BK-fiz">
                             <rect key="frame" x="0.0" y="0.0" width="118.5" height="39"/>
@@ -328,7 +347,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMt-sW-hVR">
-                    <rect key="frame" x="26" y="596" width="362" height="675"/>
+                    <rect key="frame" x="26" y="598.5" width="362" height="672.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>

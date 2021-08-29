@@ -123,17 +123,6 @@ class DatabaseManager: NSObject {
             for document in snapshot?.documents ?? [QueryDocumentSnapshot]() {
                 if let doc: QueryDocumentSnapshot = document as? QueryDocumentSnapshot, doc.exists {
                     missionArray.append(MissionModel().generateModelFromDict(data: doc.data(), slug: doc.documentID))
-//                    let slug: String? = doc.documentID
-//                    let title: String? = doc["title"] as? String
-//                    let missionDetailsShort: String? = doc["missionDetailsShort"] as? String
-//                    let target: String? = doc["target"] as? String
-//                    let missionDetailsLong: String? = doc["missionDetailsLong"] as? String
-//                    let imageURL: String?  = doc["imageURL"] as? String
-//                    let missionType: String? = doc["missionType"] as? String
-//                    let missionLocation: String? = doc["missionLocation"] as? String
-//
-//                    let newMission: MissionModel = MissionModel(slug: slug, title: title, missionDetailsShort: missionDetailsShort, target: target, missionDetailsLong: missionDetailsLong, imageURL: imageURL, missionType: missionType, missionLocation: missionLocation)
-//                    missionArray.append(newMission)
                 }
             }
             if error != nil {
@@ -143,6 +132,23 @@ class DatabaseManager: NSObject {
             }
         }
     }
+    // Hero Requests
+    
+    func getHeroFromSlug(slugs: [String], completion: @escaping (_ hero: HeroModel?, _ error: Error?)-> Void) {
+        for slug in slugs {
+            let heroRef = database.collection("heroes").document(slug)
+            heroRef.getDocument { (snapshot, error) in
+                if error != nil {
+                    print("There was an error getting the Hero from the databsse")
+                    completion(nil, error)
+                }else {
+                    let heroObject: HeroModel = HeroModel().createObjectFromDict(data: snapshot?.data() as! [String: Any])
+                    completion(heroObject, nil)
+                }
+            }
+        }
+    }
+    
     
     //Mechanics Requests
     func postSkillToDatabase(skill: SkillModel, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
@@ -168,21 +174,6 @@ class DatabaseManager: NSObject {
                 for document in snapshot?.documents ?? [QueryDocumentSnapshot]() {
                     if let doc: QueryDocumentSnapshot = document as? QueryDocumentSnapshot, doc.exists {
                         skillArray.append(SkillModel().generateModelFromDict(data: doc.data()))
-//                        let title: String? = doc["title"] as? String
-//                        let attribute: String? = doc["attribute"] as? String
-//                        let dice: [String: Any]? = doc["dice"] as? [String: Any]
-//                        let sides: Int? = dice!["sides"] as? Int
-//                        let diceTitle: String? = dice!["title"] as? String
-//
-//                        var skill: SkillModel = SkillModel()
-//                        skill.title = title
-//                        skill.attribute = attribute
-//                        var diceObject: DiceModel = DiceModel()
-//                        diceObject.sides = sides
-//                        diceObject.title = diceTitle
-//                        skill.dice = diceObject
-//
-//                        skillArray.append(skill)
                     }
                 }
                 completion(skillArray, nil)

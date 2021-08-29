@@ -14,6 +14,9 @@
 		BB4A0ED926D6ACA9000AFE66 /* S_A_MUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A0ED826D6ACA9000AFE66 /* S_A_MUITests.swift */; };
 		BB4A33A326D81AAC0050B288 /* HeroTraitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33A226D81AAC0050B288 /* HeroTraitsView.swift */; };
 		BB4A33AB26D81D810050B288 /* HeroTraitsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A33AA26D81D810050B288 /* HeroTraitsView.xib */; };
+		BB4A33B826D9305E0050B288 /* UI Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33B726D9305E0050B288 /* UI Extensions.swift */; };
+		BB4A33C226D946F60050B288 /* HeroSkillsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33C026D946F60050B288 /* HeroSkillsCollectionViewCell.swift */; };
+		BB4A33C326D946F60050B288 /* HeroSkillsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A33C126D946F60050B288 /* HeroSkillsCollectionViewCell.xib */; };
 		BB5B76F126D6C9C700544926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B76F026D6C9C700544926 /* SceneDelegate.swift */; };
 		BB5B76F726D6C9E000544926 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B76F526D6C9E000544926 /* Structs.swift */; };
 		BB5B76F826D6C9E000544926 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B76F626D6C9E000544926 /* DatabaseManager.swift */; };
@@ -85,6 +88,9 @@
 		BB4A0EDA26D6ACA9000AFE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB4A33A226D81AAC0050B288 /* HeroTraitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTraitsView.swift; sourceTree = "<group>"; };
 		BB4A33AA26D81D810050B288 /* HeroTraitsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroTraitsView.xib; sourceTree = "<group>"; };
+		BB4A33B726D9305E0050B288 /* UI Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI Extensions.swift"; sourceTree = "<group>"; };
+		BB4A33C026D946F60050B288 /* HeroSkillsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSkillsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB4A33C126D946F60050B288 /* HeroSkillsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroSkillsCollectionViewCell.xib; sourceTree = "<group>"; };
 		BB5B76F026D6C9C700544926 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BB5B76F526D6C9E000544926 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		BB5B76F626D6C9E000544926 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -234,6 +240,8 @@
 			children = (
 				BB4A33A226D81AAC0050B288 /* HeroTraitsView.swift */,
 				BB4A33AA26D81D810050B288 /* HeroTraitsView.xib */,
+				BB4A33C026D946F60050B288 /* HeroSkillsCollectionViewCell.swift */,
+				BB4A33C126D946F60050B288 /* HeroSkillsCollectionViewCell.xib */,
 			);
 			path = "Hero Stats Views";
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				BB5B771C26D6CA1700544926 /* StringExtensions.swift */,
+				BB4A33B726D9305E0050B288 /* UI Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,6 +466,7 @@
 				BB804EEF26D6C8190088F96B /* Assets.xcassets in Resources */,
 				BB804F4226D6C91A0088F96B /* SWProfileViewController.xib in Resources */,
 				BB804EFD26D6C8650088F96B /* GoogleService-Info.plist in Resources */,
+				BB4A33C326D946F60050B288 /* HeroSkillsCollectionViewCell.xib in Resources */,
 				BB4A33AB26D81D810050B288 /* HeroTraitsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,10 +607,12 @@
 				BB5B76F826D6C9E000544926 /* DatabaseManager.swift in Sources */,
 				BB804F4426D6C91A0088F96B /* SWHeroViewController.swift in Sources */,
 				BB5B770426D6C9F200544926 /* UserInfoViewController.swift in Sources */,
+				BB4A33B826D9305E0050B288 /* UI Extensions.swift in Sources */,
 				BB5B771D26D6CA1700544926 /* StringExtensions.swift in Sources */,
 				BB5B770626D6C9F200544926 /* LoginViewController.swift in Sources */,
 				BB4A33A326D81AAC0050B288 /* HeroTraitsView.swift in Sources */,
 				BB804F4826D6C91A0088F96B /* SWRulesViewController.swift in Sources */,
+				BB4A33C226D946F60050B288 /* HeroSkillsCollectionViewCell.swift in Sources */,
 				BB804F0826D6C87C0088F96B /* LauncherViewController.swift in Sources */,
 				BB5B771526D6CA0300544926 /* MissionModel.swift in Sources */,
 				BB804F4326D6C91A0088F96B /* MainMenuViewController.swift in Sources */,
