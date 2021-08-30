@@ -156,8 +156,9 @@ class HeroModel: NSObject {
     }
     
     
-    func createObjectFromDict(data: [String: Any]) -> HeroModel {
+    func createObjectFromDict(data: [String: Any], slug: String) -> HeroModel {
         var newHero = HeroModel()
+        newHero.slug = slug
         newHero.isCurrentHero = data["isCurrentHero"] as? Bool ?? false
         newHero.firstName = data["firstName"] as? String
         newHero.lastName = data["lastName"] as? String

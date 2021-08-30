@@ -24,7 +24,6 @@
 		BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33FE26DBE6930050B288 /* DiceModel.swift */; };
 		BB4A344026DBE6940050B288 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33FF26DBE6930050B288 /* HeroModel.swift */; };
 		BB4A344126DBE6940050B288 /* ItemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A340026DBE6930050B288 /* ItemModels.swift */; };
-		BB4A344226DBE6940050B288 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB4A340126DBE6930050B288 /* GoogleService-Info.plist */; };
 		BB4A344326DBE6940050B288 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A340226DBE6930050B288 /* InitialViewController.swift */; };
 		BB4A344626DBE6940050B288 /* UI Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A340826DBE6930050B288 /* UI Extensions.swift */; };
 		BB4A344726DBE6940050B288 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A340926DBE6930050B288 /* StringExtensions.swift */; };
@@ -42,7 +41,6 @@
 		BB4A345426DBE6940050B288 /* HeroTraitsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A341926DBE6930050B288 /* HeroTraitsView.xib */; };
 		BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A341A26DBE6930050B288 /* SWRulesViewController.swift */; };
 		BB4A345626DBE6940050B288 /* SWProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A341B26DBE6930050B288 /* SWProfileViewController.swift */; };
-		BB4A345726DBE6940050B288 /* SWHeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A341C26DBE6930050B288 /* SWHeroViewController.xib */; };
 		BB4A345826DBE6940050B288 /* SWProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A341D26DBE6930050B288 /* SWProfileViewController.xib */; };
 		BB4A345926DBE6940050B288 /* SWRulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A341E26DBE6930050B288 /* SWRulesViewController.xib */; };
 		BB4A345A26DBE6940050B288 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4A341F26DBE6930050B288 /* MainMenuViewController.xib */; };
@@ -52,7 +50,13 @@
 		BB4A345E26DBE6940050B288 /* BrunoAce-Regular 2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A342426DBE6930050B288 /* BrunoAce-Regular 2.ttf */; };
 		BB4A345F26DBE6940050B288 /* Oxanium-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A342526DBE6930050B288 /* Oxanium-VariableFont_wght.ttf */; };
 		BB4A346126DBE6940050B288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A342726DBE6930050B288 /* SceneDelegate.swift */; };
+		BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */; };
+		BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */; };
+		BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */; };
 		BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F6D26DC10DA0086FCE1 /* Main.storyboard */; };
+		BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */; };
+		BBB09FA526DC634E0086FCE1 /* SWTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */; };
+		BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */; };
 		C34B1C9B42AE3D8B39D1DF52 /* Pods_S_A_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */; };
 		DA94595FFD7FCBFB7ED86F5E /* Pods_S_A_MTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCE82594E4D198E1CBC690C /* Pods_S_A_MTests.framework */; };
 /* End PBXBuildFile section */
@@ -102,7 +106,6 @@
 		BB4A33FE26DBE6930050B288 /* DiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceModel.swift; sourceTree = "<group>"; };
 		BB4A33FF26DBE6930050B288 /* HeroModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		BB4A340026DBE6930050B288 /* ItemModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModels.swift; sourceTree = "<group>"; };
-		BB4A340126DBE6930050B288 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB4A340226DBE6930050B288 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		BB4A340426DBE6930050B288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB4A340826DBE6930050B288 /* UI Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UI Extensions.swift"; sourceTree = "<group>"; };
@@ -121,7 +124,6 @@
 		BB4A341926DBE6930050B288 /* HeroTraitsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroTraitsView.xib; sourceTree = "<group>"; };
 		BB4A341A26DBE6930050B288 /* SWRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWRulesViewController.swift; sourceTree = "<group>"; };
 		BB4A341B26DBE6930050B288 /* SWProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWProfileViewController.swift; sourceTree = "<group>"; };
-		BB4A341C26DBE6930050B288 /* SWHeroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHeroViewController.xib; sourceTree = "<group>"; };
 		BB4A341D26DBE6930050B288 /* SWProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWProfileViewController.xib; sourceTree = "<group>"; };
 		BB4A341E26DBE6930050B288 /* SWRulesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWRulesViewController.xib; sourceTree = "<group>"; };
 		BB4A341F26DBE6930050B288 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -134,7 +136,13 @@
 		BB4A342726DBE6930050B288 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BB5B772426D6CA2900544926 /* Oxanium-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxanium-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		BB5B772526D6CA2A00544926 /* BrunoAce-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrunoAce-Regular.ttf"; sourceTree = "<group>"; };
+		BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHeroViewController.xib; sourceTree = "<group>"; };
+		BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderanceEdgeTableViewCell.swift; sourceTree = "<group>"; };
+		BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HinderanceEdgeTableViewCell.xib; sourceTree = "<group>"; };
 		BBB09F6E26DC10DA0086FCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWTabBarControllerViewController.swift; sourceTree = "<group>"; };
+		BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWTabBarControllerViewController.xib; sourceTree = "<group>"; };
 		CC514229325D8164A8E4B3BC /* Pods-S.A.M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.M.debug.xcconfig"; path = "Target Support Files/Pods-S.A.M/Pods-S.A.M.debug.xcconfig"; sourceTree = "<group>"; };
 		EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39EF102E3CA9A78AFD01504 /* Pods-S.A.MTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.MTests.release.xcconfig"; path = "Target Support Files/Pods-S.A.MTests/Pods-S.A.MTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				BB4A33E326DBE6930050B288 /* Source */,
-				BB804EF926D6C8430088F96B /* Fonts */,
 				BB4A0ECC26D6ACA9000AFE66 /* S.A.MTests */,
 				BB4A0ED726D6ACA9000AFE66 /* S.A.MUITests */,
 				BB4A0EB426D6ACA7000AFE66 /* Products */,
@@ -225,21 +232,23 @@
 		BB4A33E326DBE6930050B288 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BBB09F7626DC5EC80086FCE1 /* SWTabBar */,
 				BB4A33E426DBE6930050B288 /* Login_Auth */,
 				BB4A33ED26DBE6930050B288 /* Managers */,
 				BB4A33F226DBE6930050B288 /* Assets.xcassets */,
 				BB4A33F326DBE6930050B288 /* LauncherViewController.swift */,
 				BB4A33F426DBE6930050B288 /* Models */,
-				BB4A340126DBE6930050B288 /* GoogleService-Info.plist */,
 				BB4A340226DBE6930050B288 /* InitialViewController.swift */,
 				BB4A340326DBE6930050B288 /* LaunchScreen.storyboard */,
 				BBB09F6D26DC10DA0086FCE1 /* Main.storyboard */,
 				BB4A340726DBE6930050B288 /* Extensions */,
 				BB4A340B26DBE6930050B288 /* ViewControllers */,
 				BB4A342026DBE6930050B288 /* AppDelegate.swift */,
+				BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */,
 				BB4A342126DBE6930050B288 /* Fonts */,
 				BB4A342626DBE6930050B288 /* Info.plist */,
 				BB4A342726DBE6930050B288 /* SceneDelegate.swift */,
+				BB804EF926D6C8430088F96B /* Fonts */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -291,16 +300,16 @@
 			children = (
 				BB4A340C26DBE6930050B288 /* Cells */,
 				BB4A341126DBE6930050B288 /* SWHeroViewController.swift */,
+				BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */,
 				BB4A341226DBE6930050B288 /* SWMissionLogViewController.swift */,
 				BB4A341326DBE6930050B288 /* SWMissionLogViewController.xib */,
 				BB4A341426DBE6930050B288 /* MainMenuViewController.swift */,
+				BB4A341F26DBE6930050B288 /* MainMenuViewController.xib */,
 				BB4A341526DBE6930050B288 /* Hero Stats Views */,
 				BB4A341A26DBE6930050B288 /* SWRulesViewController.swift */,
 				BB4A341B26DBE6930050B288 /* SWProfileViewController.swift */,
-				BB4A341C26DBE6930050B288 /* SWHeroViewController.xib */,
 				BB4A341D26DBE6930050B288 /* SWProfileViewController.xib */,
 				BB4A341E26DBE6930050B288 /* SWRulesViewController.xib */,
-				BB4A341F26DBE6930050B288 /* MainMenuViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -312,6 +321,8 @@
 				BB4A340E26DBE6930050B288 /* SWMissionLogTableViewCell.xib */,
 				BB4A340F26DBE6930050B288 /* SWCreateCollectionViewCell.swift */,
 				BB4A341026DBE6930050B288 /* SWMissionLogTableViewCell.swift */,
+				BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */,
+				BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -320,9 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				BB4A341626DBE6930050B288 /* HeroTraitsView.swift */,
+				BB4A341926DBE6930050B288 /* HeroTraitsView.xib */,
 				BB4A341726DBE6930050B288 /* HeroSkillsCollectionViewCell.swift */,
 				BB4A341826DBE6930050B288 /* HeroSkillsCollectionViewCell.xib */,
-				BB4A341926DBE6930050B288 /* HeroTraitsView.xib */,
 			);
 			path = "Hero Stats Views";
 			sourceTree = "<group>";
@@ -345,7 +356,16 @@
 				BB5B772426D6CA2900544926 /* Oxanium-VariableFont_wght.ttf */,
 			);
 			name = Fonts;
-			path = S.A.M/Fonts;
+			path = ../S.A.M/Fonts;
+			sourceTree = "<group>";
+		};
+		BBB09F7626DC5EC80086FCE1 /* SWTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */,
+				BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */,
+			);
+			path = SWTabBar;
 			sourceTree = "<group>";
 		};
 		ED79A6283628F6D602C17F02 /* Frameworks */ = {
@@ -469,8 +489,10 @@
 				BB4A342E26DBE6930050B288 /* LoginViewController.xib in Resources */,
 				BB4A345826DBE6940050B288 /* SWProfileViewController.xib in Resources */,
 				BB4A345D26DBE6940050B288 /* Oxanium-VariableFont_wght 2.ttf in Resources */,
+				BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */,
 				BB4A344F26DBE6940050B288 /* SWMissionLogViewController.xib in Resources */,
-				BB4A345726DBE6940050B288 /* SWHeroViewController.xib in Resources */,
+				BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */,
+				BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */,
 				BB4A345326DBE6940050B288 /* HeroSkillsCollectionViewCell.xib in Resources */,
 				BB4A342C26DBE6930050B288 /* UserInfoViewController.xib in Resources */,
 				BB4A345E26DBE6940050B288 /* BrunoAce-Regular 2.ttf in Resources */,
@@ -479,9 +501,9 @@
 				BB4A343426DBE6930050B288 /* Assets.xcassets in Resources */,
 				BB4A344A26DBE6940050B288 /* SWMissionLogTableViewCell.xib in Resources */,
 				BB4A344926DBE6940050B288 /* SWCreateCollectionViewCell.xib in Resources */,
-				BB4A344226DBE6940050B288 /* GoogleService-Info.plist in Resources */,
 				BB4A345926DBE6940050B288 /* SWRulesViewController.xib in Resources */,
 				BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */,
+				BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */,
 				BB4A345A26DBE6940050B288 /* MainMenuViewController.xib in Resources */,
 				BB4A345426DBE6940050B288 /* HeroTraitsView.xib in Resources */,
 			);
@@ -625,6 +647,7 @@
 				BB4A344B26DBE6940050B288 /* SWCreateCollectionViewCell.swift in Sources */,
 				BB4A342F26DBE6930050B288 /* LoginViewController.swift in Sources */,
 				BB4A344126DBE6940050B288 /* ItemModels.swift in Sources */,
+				BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */,
 				BB4A345B26DBE6940050B288 /* AppDelegate.swift in Sources */,
 				BB4A345626DBE6940050B288 /* SWProfileViewController.swift in Sources */,
 				BB4A344D26DBE6940050B288 /* SWHeroViewController.swift in Sources */,
@@ -635,6 +658,7 @@
 				BB4A342926DBE6930050B288 /* UserInfoViewController.swift in Sources */,
 				BB4A343826DBE6940050B288 /* MechanicsModels.swift in Sources */,
 				BB4A344E26DBE6940050B288 /* SWMissionLogViewController.swift in Sources */,
+				BBB09FA526DC634E0086FCE1 /* SWTabBarControllerViewController.swift in Sources */,
 				BB4A345126DBE6940050B288 /* HeroTraitsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,7 +843,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ZEDev.S-A-M";
+				PRODUCT_BUNDLE_IDENTIFIER = ZEDev.S.A.M;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -839,7 +863,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ZEDev.S-A-M";
+				PRODUCT_BUNDLE_IDENTIFIER = ZEDev.S.A.M;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

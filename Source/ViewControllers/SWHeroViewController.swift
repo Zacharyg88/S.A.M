@@ -1,6 +1,6 @@
 //
 //  SWHeroViewController.swift
-//  SWTestApp
+//  S.A.M
 //
 //  Created by Zach Eidenberger on 8/21/21.
 //
@@ -45,7 +45,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     var tabViews: [UIView] = []
-    
+    var heroesArray: [HeroModel] = []
     var hero: HeroModel? {
         didSet {
             let heroImage = databaseManager.getImageFromStorage(imageName: hero?.imageName ?? "") { (image, error) in
@@ -60,6 +60,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             paceLabel.text = "\(hero?.pace ?? 6)"
             parryLabel.text = "\(hero?.parry ?? 0)"
             toughnessLabel.text = "\(hero?.toughness)"
+            hinderancesTableView.reloadData()
+            edgesTableView.reloadData()
+            setViewInContainer(index: 0)
             //toughnessArmorLabel.text = "\(hero?.armor)"
             
             
@@ -68,6 +71,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dismissTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        self.SAMImageView.addGestureRecognizer(dismissTap)
+        self.SAMImageView.isUserInteractionEnabled = true
         
         editHeroButton.layer.cornerRadius = 8
         editHeroButton.layer.borderColor = colors.buttonBorder.cgColor
@@ -102,15 +109,27 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         hinderancesTableView.delegate = self
         hinderancesTableView.dataSource = self
         hinderancesTableView.tag = 0
+        hinderancesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         edgesTableView.delegate = self
         edgesTableView.dataSource = self
         edgesTableView.tag = 1
+        edgesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         let traitsView: HeroTraitsView = HeroTraitsView(frame: self.switchContainerView.bounds)
         traitsView.skills = hero?.skills ?? [SkillModel]()
         self.tabViews = [traitsView]
         
+        for slug in userManager.currentUser?.heroSlugs ?? [String]() {
+            databaseManager.getHeroFromSlug(slug: slug) { (hero, error) in
+                if let heroObject = hero as? HeroModel {
+                    if heroObject.isCurrentHero {
+                        self.hero = hero
+                    }
+                    self.heroesArray.append(heroObject)
+                }
+            }
+        }
     }
     
     
@@ -123,15 +142,43 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView.tag == 0 {
-            
-        }else {
-            
+        if let cell: HinderanceEdgeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HinderanceEdgeTableViewCell") as? HinderanceEdgeTableViewCell{
+            if tableView.tag == 1 {
+                cell.titleLabel.text = hero?.edges[indexPath.row].title
+            }else {
+                cell.titleLabel.text = hero?.hinderances[indexPath.row].title
+                cell.hinderanceStrengthLabel.text = hero?.hinderances[indexPath.row].level
+            }
+            cell.titleLabel.textColor = .white
+            cell.hinderanceStrengthLabel.textColor = .white
+            cell.backgroundColor = colors.buttonBackground
+            cell.layer.cornerRadius = 8
+            return cell
         }
         return UITableViewCell()
     }
     
     func setViewInContainer(index: Int) {
+        switch index {
+        case 0:
+            //Traits
+            let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
+            traitsView.skills = hero?.skills ?? [SkillModel]()
+            self.switchContainerView.addSubview(traitsView)
+        default:
+        print("Default")
+        }
+        
+    }
+    
+    
+    @objc func dismissView() {
+        UIView.animate(withDuration: 0.3) {
+            self.view.alpha = 0
+        } completion: { (done) in
+            self.dismiss(animated: false, completion: nil)
+
+        }
         
     }
 

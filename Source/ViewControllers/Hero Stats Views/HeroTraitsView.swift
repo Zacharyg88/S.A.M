@@ -34,7 +34,12 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     @IBOutlet weak var skillsCollectionView: UICollectionView!
     
     
-    var skills: [SkillModel] = []
+    var skills: [SkillModel] = [] {
+        didSet {
+            print(skills)
+            
+        }
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -50,9 +55,9 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func setupViews() {
-        skillsCollectionView.register(UINib(nibName: "HeroSkillsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroSkillsCollectionViewCell")
         skillsCollectionView.delegate = self
         skillsCollectionView.dataSource = self
+        skillsCollectionView.register(UINib(nibName: "HeroSkillsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroSkillsCollectionViewCell")
         
         
     }
@@ -84,6 +89,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
                 cell.diceLabelTrailing.constant = 36
                 cell.diceImageView.isHidden = false
             }
+            return cell
         }
         
         return UICollectionViewCell()

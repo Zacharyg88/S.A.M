@@ -15,7 +15,7 @@ class User: NSObject {
     var lastName: String?
     var email: String?
     var phoneNumber: String?
-    var heros: [HeroModel] = []
+    var heroSlugs: [String] = []
     var isAdmin: Bool = false
 
     required public init(slug: String?, firstName: String?, lastName: String?, email: String?, phoneNumber: String?, isAdmin: Bool) {
@@ -34,11 +34,7 @@ class User: NSObject {
         valueDict["lastName"] = self.lastName
         valueDict["email"] = self.email
         valueDict["phoneNumber"] = self.phoneNumber
-        var heroesDict: [[String: Any]] = [[:]]
-        for hero in self.heros {
-            heroesDict.append(hero.createDictForValues())
-        }
-        valueDict["heroes"] = heroesDict
+        valueDict["heroSlugs"] = self.heroSlugs
         valueDict["isAdmin"] = self.isAdmin
         return valueDict
     }
@@ -50,6 +46,7 @@ class User: NSObject {
                            email: data["email"] as? String,
                            phoneNumber: data["phoneNumber"] as? String,
                            isAdmin: data["isAdmin"] as? Bool ?? false)
+        newUser.heroSlugs = data["heroSlugs"] as? [String] ?? []
         return newUser
     }
     
