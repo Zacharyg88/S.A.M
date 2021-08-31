@@ -63,6 +63,8 @@
 		BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */; };
 		BBB09FA526DC634E0086FCE1 /* SWTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */; };
 		BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */; };
+		BBBC4E6B26DE86690065509A /* SWGearTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */; };
+		BBBC4E7026DE86C10065509A /* SWGearTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */; };
 		C34B1C9B42AE3D8B39D1DF52 /* Pods_S_A_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */; };
 		DA94595FFD7FCBFB7ED86F5E /* Pods_S_A_MTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCE82594E4D198E1CBC690C /* Pods_S_A_MTests.framework */; };
 /* End PBXBuildFile section */
@@ -153,6 +155,8 @@
 		BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWTabBarControllerViewController.xib; sourceTree = "<group>"; };
+		BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWGearTableViewHeaderView.swift; sourceTree = "<group>"; };
+		BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWGearTableViewHeaderView.xib; sourceTree = "<group>"; };
 		CC514229325D8164A8E4B3BC /* Pods-S.A.M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.M.debug.xcconfig"; path = "Target Support Files/Pods-S.A.M/Pods-S.A.M.debug.xcconfig"; sourceTree = "<group>"; };
 		EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39EF102E3CA9A78AFD01504 /* Pods-S.A.MTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.MTests.release.xcconfig"; path = "Target Support Files/Pods-S.A.MTests/Pods-S.A.MTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 				BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */,
 				BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */,
 				BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */,
+				BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */,
+				BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */,
 			);
 			path = "Hero Stats Views";
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				BB4A345E26DBE6940050B288 /* BrunoAce-Regular 2.ttf in Resources */,
 				BB4A345C26DBE6940050B288 /* BrunoAce-Regular.ttf in Resources */,
 				BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */,
+				BBBC4E7026DE86C10065509A /* SWGearTableViewHeaderView.xib in Resources */,
 				BB4A345F26DBE6940050B288 /* Oxanium-VariableFont_wght.ttf in Resources */,
 				BB4A343426DBE6930050B288 /* Assets.xcassets in Resources */,
 				BB4A344A26DBE6940050B288 /* SWMissionLogTableViewCell.xib in Resources */,
@@ -650,6 +657,7 @@
 				BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */,
 				BB4A346126DBE6940050B288 /* SceneDelegate.swift in Sources */,
 				BB4A344626DBE6940050B288 /* UI Extensions.swift in Sources */,
+				BBBC4E6B26DE86690065509A /* SWGearTableViewHeaderView.swift in Sources */,
 				BB4A343A26DBE6940050B288 /* MissionModel.swift in Sources */,
 				BB4A344026DBE6940050B288 /* HeroModel.swift in Sources */,
 				BB4A344B26DBE6940050B288 /* SWCreateCollectionViewCell.swift in Sources */,

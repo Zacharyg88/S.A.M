@@ -20,6 +20,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var toughnessArmorLabel: UILabel!
     @IBOutlet weak var actionsButton: UIButton!
     @IBOutlet weak var conditionsButton: UIButton!
+    @IBOutlet weak var conditionsBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var horizontalStackView: UIStackView!
     @IBOutlet weak var woundsLabel: UILabel!
     @IBOutlet weak var woundsView: UIView!
     @IBOutlet weak var shakenButton: UIButton!
@@ -30,6 +32,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var gearButton: UIButton!
     @IBOutlet weak var powersButton: UIButton!
     @IBOutlet weak var switchContainerView: UIView!
+    @IBOutlet weak var contentContainerHeight: NSLayoutConstraint!
     
     var currentSwitchSelection: Int = 0 {
         didSet {
@@ -70,6 +73,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    var actions: [String] = ["Defend", "Hold"]
+    var conditions: [String] = ["Bound", "Distracted", "Vulnerable"]
+    var stackViewIsShown: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -170,10 +176,64 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func actionTapped(_ sender: Any) {
+        var xInset: CGFloat = 0.0
+        if !stackViewIsShown {
+            self.horizontalStackView.isHidden = false
+            actionsButton.layer.borderColor = UIColor(named: "SWGreen")?.cgColor
+            for i in self.actions {
+                let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
+                actionsLabel.font = UIFont(name: "Oxanium", size: 14)
+                actionsLabel.text = i
+                actionsLabel.textColor = .white
+                actionsLabel.contentMode = .center
+                actionsLabel.backgroundColor = UIColor(named: "SWGreen")
+                CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 8, height: 24)
+                xInset += actionsLabel.intrinsicContentSize.width + 16
+                actionsLabel.layer.cornerRadius = 12
+                self.horizontalStackView.addSubview(actionsLabel)
+            }
+            self.conditionsBottomConstraint.constant = 64
+            stackViewIsShown = true
+        }else {
+            actionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+            self.conditionsBottomConstraint.constant = 24
+            self.horizontalStackView.isHidden = true
+            for view in self.horizontalStackView.subviews {
+                view.removeFromSuperview()
+            }
+            stackViewIsShown = false
+        }
         
     }
     
     @IBAction func conditionsTapped(_ sender: Any) {
+        var conditionCount = 0
+        var xInset: CGFloat = 0.0 
+        if !stackViewIsShown {
+            self.horizontalStackView.isHidden = false
+            conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
+            for i in self.conditions {
+                let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
+                actionsLabel.font = UIFont(name: "Oxanium", size: 14)
+                actionsLabel.text = i
+                actionsLabel.textColor = .white
+                actionsLabel.backgroundColor = UIColor(named: "SWRed")
+                actionsLabel.layer.cornerRadius = 12
+                actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width, height: actionsLabel.intrinsicContentSize.height)
+                xInset += actionsLabel.intrinsicContentSize.width + 8
+                self.horizontalStackView.addSubview(actionsLabel)
+            }
+            self.conditionsBottomConstraint.constant = 64
+            stackViewIsShown = true
+        }else {
+            conditionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+            self.conditionsBottomConstraint.constant = 24
+            self.horizontalStackView.isHidden = true
+            for view in self.horizontalStackView.subviews {
+                view.removeFromSuperview()
+            }
+            stackViewIsShown = false
+        }
         
     }
     
@@ -208,6 +268,11 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setViewInContainer(index: 2)
     }
     
+    func updateContentSize() {
+        //self.contentContainerHeight.constant = 568 + self.switchContainerView.intrinsicContentSize.height
+
+    }
+    
     func setViewInContainer(index: Int) {
         for view in self.switchContainerView.subviews {
             view.removeFromSuperview()
@@ -218,9 +283,39 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //Traits
             let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
             traitsView.skills = hero?.skills ?? [SkillModel]()
+            self.updateContentSize()
             self.switchContainerView.addSubview(traitsView)
         case 1:
             // Gear
+            let gearView: HeroGearView = HeroGearView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
+            var armorItems: [ArmorModel] = []
+            var weaponsItems: [WeaponModel] = []
+            var shieldItems: [ShieldModel] = []
+            var itemItems: [ItemModel] = []
+            
+            for item in hero?.items ?? [NSObject]() {
+                if let armor = item as? ArmorModel {
+                    armorItems.append(armor)
+                }
+                if let weapon = item as? WeaponModel {
+                    weaponsItems.append(weapon)
+                }
+                if let shield = item as? ShieldModel {
+                    shieldItems.append(shield)
+                }
+                if let itemObject = item as? ItemModel {
+                    itemItems.append(itemObject)
+                }
+            }
+            
+            gearView.armor = armorItems
+            gearView.weapons = weaponsItems
+            gearView.shields = shieldItems
+            gearView.items = itemItems
+            gearView.goldCountLabel.text = "\(hero?.gold ?? 0)"
+            self.updateContentSize()
+            self.switchContainerView.addSubview(gearView)
+            gearView.tableView.reloadData()
         
         default:
         print("Default")

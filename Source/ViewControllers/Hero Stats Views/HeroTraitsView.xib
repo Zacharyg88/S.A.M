@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Oxanium-VariableFont_wght 2.ttf">
+        <array key="Oxanium-VariableFont_wght.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
@@ -142,7 +142,7 @@
                         <constraint firstAttribute="height" constant="1" id="qNm-mA-7MZ"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5Qe-XM-zrm">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5Qe-XM-zrm">
                     <rect key="frame" x="0.0" y="151.5" width="414" height="354.5"/>
                     <color key="backgroundColor" name="SWGreen"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uh8-DK-Xb3">
