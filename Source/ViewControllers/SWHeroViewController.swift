@@ -43,13 +43,14 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    
+    var isShaken: Bool = false
     var tabViews: [UIView] = []
     var heroesArray: [HeroModel] = []
     var hero: HeroModel? {
         didSet {
             let heroImage = databaseManager.getImageFromStorage(imageName: hero?.imageName ?? "") { (image, error) in
                 if error != nil {
+                    print("There was an error getting the image \(error)")
                     self.heroImageView.image = UIImage(named: "")
                 }else {
                     self.heroImageView.image = image
@@ -59,7 +60,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             heroNameLabel.text = (hero?.firstName ?? "") + " " + (hero?.lastName ?? "")
             paceLabel.text = "\(hero?.pace ?? 6)"
             parryLabel.text = "\(hero?.parry ?? 0)"
-            toughnessLabel.text = "\(hero?.toughness)"
+            toughnessLabel.text = "\(hero?.toughness ?? 0)"
             hinderancesTableView.reloadData()
             edgesTableView.reloadData()
             setViewInContainer(index: 0)
@@ -75,6 +76,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let dismissTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         self.SAMImageView.addGestureRecognizer(dismissTap)
         self.SAMImageView.isUserInteractionEnabled = true
+        
+        
         
         editHeroButton.layer.cornerRadius = 8
         editHeroButton.layer.borderColor = colors.buttonBorder.cgColor
@@ -108,12 +111,12 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         hinderancesTableView.delegate = self
         hinderancesTableView.dataSource = self
-        hinderancesTableView.tag = 0
+        hinderancesTableView.tag = 1
         hinderancesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         edgesTableView.delegate = self
         edgesTableView.dataSource = self
-        edgesTableView.tag = 1
+        edgesTableView.tag = 0
         edgesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         let traitsView: HeroTraitsView = HeroTraitsView(frame: self.switchContainerView.bounds)
@@ -145,6 +148,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let cell: HinderanceEdgeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HinderanceEdgeTableViewCell") as? HinderanceEdgeTableViewCell{
             if tableView.tag == 1 {
                 cell.titleLabel.text = hero?.edges[indexPath.row].title
+                cell.hinderanceStrengthLabel.isHidden = true
             }else {
                 cell.titleLabel.text = hero?.hinderances[indexPath.row].title
                 cell.hinderanceStrengthLabel.text = hero?.hinderances[indexPath.row].level
@@ -158,18 +162,74 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return UITableViewCell()
     }
     
+    @IBAction func editHeroTapped(_ sender: Any) {
+    }
+    
+    @IBAction func changeHeroTapped(_ sender: Any) {
+    }
+    
+    
+    @IBAction func actionTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func conditionsTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func shakenTapped(_ sender: Any) {
+        if isShaken {
+            shakenButton.backgroundColor = UIColor(named: "SWBackground")
+            self.isShaken = false
+        }else {
+            shakenButton.backgroundColor = UIColor(named: "SWShaken")
+            self.isShaken = true
+        }
+    }
+    
+    @IBAction func traitsTapped(_ sender: Any) {
+        traitsButton.backgroundColor = UIColor(named: "SWBacking")
+        gearButton.backgroundColor = UIColor(named: "SWBackground")
+        powersButton.backgroundColor = UIColor(named: "SWBackground")
+        self.setViewInContainer(index: 0)
+    }
+    
+    @IBAction func gearTapped(_ sender: Any) {
+        traitsButton.backgroundColor = UIColor(named: "SWBackground")
+        gearButton.backgroundColor = UIColor(named: "SWBacking")
+        powersButton.backgroundColor = UIColor(named: "SWBackground")
+        self.setViewInContainer(index: 1)
+    }
+    
+    @IBAction func powersTapped(_ sender: Any) {
+        traitsButton.backgroundColor = UIColor(named: "SWBackground")
+        gearButton.backgroundColor = UIColor(named: "SWBackground")
+        powersButton.backgroundColor = UIColor(named: "SWBacking")
+        self.setViewInContainer(index: 2)
+    }
+    
     func setViewInContainer(index: Int) {
+        for view in self.switchContainerView.subviews {
+            view.removeFromSuperview()
+            view.willMove(toSuperview: nil)
+        }
         switch index {
         case 0:
             //Traits
             let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
             traitsView.skills = hero?.skills ?? [SkillModel]()
             self.switchContainerView.addSubview(traitsView)
+        case 1:
+            // Gear
+        
         default:
         print("Default")
         }
         
     }
+    
+    
+    
     
     
     @objc func dismissView() {

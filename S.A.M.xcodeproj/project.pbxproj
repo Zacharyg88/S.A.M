@@ -53,6 +53,12 @@
 		BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */; };
 		BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */; };
 		BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */; };
+		BB91EE9326DDBCAA00D3FD15 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EE9226DDBCAA00D3FD15 /* TabBarItem.swift */; };
+		BB91EE9826DDBF9C00D3FD15 /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EE9726DDBF9C00D3FD15 /* TabNavigationMenu.swift */; };
+		BB91EEA326DDCD1200D3FD15 /* HeroGearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EEA226DDCD1200D3FD15 /* HeroGearView.swift */; };
+		BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */; };
+		BB91EEAE26DDCF2800D3FD15 /* HeroGearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */; };
+		BB91EEAF26DDCF2800D3FD15 /* HeroGearTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */; };
 		BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F6D26DC10DA0086FCE1 /* Main.storyboard */; };
 		BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */; };
 		BBB09FA526DC634E0086FCE1 /* SWTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */; };
@@ -134,11 +140,15 @@
 		BB4A342526DBE6930050B288 /* Oxanium-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxanium-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		BB4A342626DBE6930050B288 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB4A342726DBE6930050B288 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB5B772426D6CA2900544926 /* Oxanium-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxanium-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-		BB5B772526D6CA2A00544926 /* BrunoAce-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrunoAce-Regular.ttf"; sourceTree = "<group>"; };
 		BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHeroViewController.xib; sourceTree = "<group>"; };
 		BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderanceEdgeTableViewCell.swift; sourceTree = "<group>"; };
 		BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HinderanceEdgeTableViewCell.xib; sourceTree = "<group>"; };
+		BB91EE9226DDBCAA00D3FD15 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		BB91EE9726DDBF9C00D3FD15 /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
+		BB91EEA226DDCD1200D3FD15 /* HeroGearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroGearView.swift; sourceTree = "<group>"; };
+		BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroGearView.xib; sourceTree = "<group>"; };
+		BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroGearTableViewCell.swift; sourceTree = "<group>"; };
+		BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroGearTableViewCell.xib; sourceTree = "<group>"; };
 		BBB09F6E26DC10DA0086FCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWTabBarControllerViewController.swift; sourceTree = "<group>"; };
@@ -232,23 +242,22 @@
 		BB4A33E326DBE6930050B288 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				BBB09F7626DC5EC80086FCE1 /* SWTabBar */,
+				BB4A340726DBE6930050B288 /* Extensions */,
+				BB4A342126DBE6930050B288 /* Fonts */,
 				BB4A33E426DBE6930050B288 /* Login_Auth */,
 				BB4A33ED26DBE6930050B288 /* Managers */,
-				BB4A33F226DBE6930050B288 /* Assets.xcassets */,
-				BB4A33F326DBE6930050B288 /* LauncherViewController.swift */,
 				BB4A33F426DBE6930050B288 /* Models */,
-				BB4A340226DBE6930050B288 /* InitialViewController.swift */,
-				BB4A340326DBE6930050B288 /* LaunchScreen.storyboard */,
-				BBB09F6D26DC10DA0086FCE1 /* Main.storyboard */,
-				BB4A340726DBE6930050B288 /* Extensions */,
+				BBB09F7626DC5EC80086FCE1 /* SWTabBar */,
 				BB4A340B26DBE6930050B288 /* ViewControllers */,
+				BB4A33F226DBE6930050B288 /* Assets.xcassets */,
 				BB4A342026DBE6930050B288 /* AppDelegate.swift */,
 				BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */,
-				BB4A342126DBE6930050B288 /* Fonts */,
+				BB4A340226DBE6930050B288 /* InitialViewController.swift */,
 				BB4A342626DBE6930050B288 /* Info.plist */,
+				BB4A33F326DBE6930050B288 /* LauncherViewController.swift */,
+				BB4A340326DBE6930050B288 /* LaunchScreen.storyboard */,
+				BBB09F6D26DC10DA0086FCE1 /* Main.storyboard */,
 				BB4A342726DBE6930050B288 /* SceneDelegate.swift */,
-				BB804EF926D6C8430088F96B /* Fonts */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -334,6 +343,10 @@
 				BB4A341926DBE6930050B288 /* HeroTraitsView.xib */,
 				BB4A341726DBE6930050B288 /* HeroSkillsCollectionViewCell.swift */,
 				BB4A341826DBE6930050B288 /* HeroSkillsCollectionViewCell.xib */,
+				BB91EEA226DDCD1200D3FD15 /* HeroGearView.swift */,
+				BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */,
+				BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */,
+				BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */,
 			);
 			path = "Hero Stats Views";
 			sourceTree = "<group>";
@@ -349,21 +362,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		BB804EF926D6C8430088F96B /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				BB5B772526D6CA2A00544926 /* BrunoAce-Regular.ttf */,
-				BB5B772426D6CA2900544926 /* Oxanium-VariableFont_wght.ttf */,
-			);
-			name = Fonts;
-			path = ../S.A.M/Fonts;
-			sourceTree = "<group>";
-		};
 		BBB09F7626DC5EC80086FCE1 /* SWTabBar */ = {
 			isa = PBXGroup;
 			children = (
 				BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */,
 				BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */,
+				BB91EE9226DDBCAA00D3FD15 /* TabBarItem.swift */,
+				BB91EE9726DDBF9C00D3FD15 /* TabNavigationMenu.swift */,
 			);
 			path = SWTabBar;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				BB4A342C26DBE6930050B288 /* UserInfoViewController.xib in Resources */,
 				BB4A345E26DBE6940050B288 /* BrunoAce-Regular 2.ttf in Resources */,
 				BB4A345C26DBE6940050B288 /* BrunoAce-Regular.ttf in Resources */,
+				BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */,
 				BB4A345F26DBE6940050B288 /* Oxanium-VariableFont_wght.ttf in Resources */,
 				BB4A343426DBE6930050B288 /* Assets.xcassets in Resources */,
 				BB4A344A26DBE6940050B288 /* SWMissionLogTableViewCell.xib in Resources */,
@@ -505,6 +511,7 @@
 				BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */,
 				BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */,
 				BB4A345A26DBE6940050B288 /* MainMenuViewController.xib in Resources */,
+				BB91EEAF26DDCF2800D3FD15 /* HeroGearTableViewCell.xib in Resources */,
 				BB4A345426DBE6940050B288 /* HeroTraitsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +644,7 @@
 				BB4A343326DBE6930050B288 /* DatabaseManager.swift in Sources */,
 				BB4A343526DBE6930050B288 /* LauncherViewController.swift in Sources */,
 				BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */,
+				BB91EE9826DDBF9C00D3FD15 /* TabNavigationMenu.swift in Sources */,
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,
 				BB4A343C26DBE6940050B288 /* User.swift in Sources */,
 				BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */,
@@ -646,11 +654,14 @@
 				BB4A344026DBE6940050B288 /* HeroModel.swift in Sources */,
 				BB4A344B26DBE6940050B288 /* SWCreateCollectionViewCell.swift in Sources */,
 				BB4A342F26DBE6930050B288 /* LoginViewController.swift in Sources */,
+				BB91EEAE26DDCF2800D3FD15 /* HeroGearTableViewCell.swift in Sources */,
 				BB4A344126DBE6940050B288 /* ItemModels.swift in Sources */,
 				BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */,
 				BB4A345B26DBE6940050B288 /* AppDelegate.swift in Sources */,
 				BB4A345626DBE6940050B288 /* SWProfileViewController.swift in Sources */,
 				BB4A344D26DBE6940050B288 /* SWHeroViewController.swift in Sources */,
+				BB91EEA326DDCD1200D3FD15 /* HeroGearView.swift in Sources */,
+				BB91EE9326DDBCAA00D3FD15 /* TabBarItem.swift in Sources */,
 				BB4A344326DBE6940050B288 /* InitialViewController.swift in Sources */,
 				BB4A344C26DBE6940050B288 /* SWMissionLogTableViewCell.swift in Sources */,
 				BB4A345226DBE6940050B288 /* HeroSkillsCollectionViewCell.swift in Sources */,

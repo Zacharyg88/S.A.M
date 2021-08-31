@@ -171,9 +171,12 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func launchTabBarController() {
-        let mainViewController = MainMenuViewController()
-        mainViewController.modalPresentationStyle = .fullScreen
-        self.present(mainViewController, animated: true, completion: nil)
+        let tabBarController: SWTabBarControllerViewController = SWTabBarControllerViewController()
+        tabBarController.modalPresentationStyle = .overCurrentContext
+        self.present(tabBarController, animated: true, completion: nil)
+//        let mainViewController = MainMenuViewController()
+//        mainViewController.modalPresentationStyle = .fullScreen
+//        self.present(mainViewController, animated: true, completion: nil)
     }
     
 }
