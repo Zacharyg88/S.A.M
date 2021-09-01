@@ -11,9 +11,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var SAMImageView: UIImageView!
     @IBOutlet weak var heroImageView: UIImageView!
+    @IBOutlet weak var heroProfileView: UIView!
+    @IBOutlet weak var heroLevelLabel: UILabel!
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var editHeroButton: UIButton!
-    @IBOutlet weak var changeHeroButton: UIButton!
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var parryLabel: UILabel!
     @IBOutlet weak var toughnessLabel: UILabel!
@@ -60,7 +61,11 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             
-            heroNameLabel.text = (hero?.firstName ?? "") + " " + (hero?.lastName ?? "")
+            heroNameLabel.text = (hero?.firstName ?? "")
+            if hero?.lastName != nil {
+                heroNameLabel.text = (heroNameLabel.text ?? "") + " " + (hero?.lastName ?? "")
+            }
+            
             paceLabel.text = "\(hero?.pace ?? 6)"
             parryLabel.text = "\(hero?.parry ?? 0)"
             toughnessLabel.text = "\(hero?.toughness ?? 0)"
@@ -76,6 +81,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var actions: [String] = ["Defend", "Hold"]
     var conditions: [String] = ["Bound", "Distracted", "Vulnerable"]
     var stackViewIsShown: Bool = false
+    var currentStackHost: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,17 +89,14 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.SAMImageView.addGestureRecognizer(dismissTap)
         self.SAMImageView.isUserInteractionEnabled = true
         
+        heroProfileView.layer.cornerRadius = heroProfileView.frame.height / 2
+        heroImageView.layer.cornerRadius = heroImageView.frame.height / 2
+        heroImageView.layer.borderColor = UIColor(named: "SWBlue")?.cgColor
+        heroImageView.layer.borderWidth = 2
+        heroImageView.clipsToBounds = true
+        let changeHeroTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeHeroTapped(_:)))
+        heroProfileView.addGestureRecognizer(changeHeroTap)
         
-        
-        editHeroButton.layer.cornerRadius = 8
-        editHeroButton.layer.borderColor = colors.buttonBorder.cgColor
-        editHeroButton.layer.borderWidth = 1
-        editHeroButton.backgroundColor = colors.buttonBackground
-        
-        changeHeroButton.layer.cornerRadius = 8
-        changeHeroButton.layer.borderColor = colors.buttonBorder.cgColor
-        changeHeroButton.layer.borderWidth = 1
-        changeHeroButton.backgroundColor = colors.buttonBackground
         
         actionsButton.layer.cornerRadius = 8
         actionsButton.layer.borderColor = colors.buttonBorder.cgColor
@@ -118,11 +121,13 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         hinderancesTableView.delegate = self
         hinderancesTableView.dataSource = self
         hinderancesTableView.tag = 1
+        hinderancesTableView.tableFooterView = UIView()
         hinderancesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         edgesTableView.delegate = self
         edgesTableView.dataSource = self
         edgesTableView.tag = 0
+        edgesTableView.tableFooterView = UIView()
         edgesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         let traitsView: HeroTraitsView = HeroTraitsView(frame: self.switchContainerView.bounds)
@@ -171,13 +176,15 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func editHeroTapped(_ sender: Any) {
     }
     
-    @IBAction func changeHeroTapped(_ sender: Any) {
+    @objc func changeHeroTapped(_ sender: Any) {
+        
     }
     
     
     @IBAction func actionTapped(_ sender: Any) {
         var xInset: CGFloat = 0.0
         if !stackViewIsShown {
+            self.currentStackHost = "actions"
             self.horizontalStackView.isHidden = false
             actionsButton.layer.borderColor = UIColor(named: "SWGreen")?.cgColor
             for i in self.actions {
@@ -185,56 +192,101 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 actionsLabel.font = UIFont(name: "Oxanium", size: 14)
                 actionsLabel.text = i
                 actionsLabel.textColor = .white
-                actionsLabel.contentMode = .center
+                actionsLabel.textAlignment = .center
+                actionsLabel.clipsToBounds = true
                 actionsLabel.backgroundColor = UIColor(named: "SWGreen")
-                CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 8, height: 24)
-                xInset += actionsLabel.intrinsicContentSize.width + 16
+                actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+                xInset += actionsLabel.intrinsicContentSize.width + 24
                 actionsLabel.layer.cornerRadius = 12
                 self.horizontalStackView.addSubview(actionsLabel)
             }
             self.conditionsBottomConstraint.constant = 64
             stackViewIsShown = true
         }else {
-            actionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
-            self.conditionsBottomConstraint.constant = 24
-            self.horizontalStackView.isHidden = true
             for view in self.horizontalStackView.subviews {
                 view.removeFromSuperview()
             }
-            stackViewIsShown = false
+            if currentStackHost == "actions" {
+                actionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+                self.conditionsBottomConstraint.constant = 24
+                self.horizontalStackView.isHidden = true
+                stackViewIsShown = false
+            }else {
+                self.conditionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+                self.currentStackHost = "actions"
+                self.horizontalStackView.isHidden = false
+                actionsButton.layer.borderColor = UIColor(named: "SWGreen")?.cgColor
+                for i in self.actions {
+                    let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
+                    actionsLabel.font = UIFont(name: "Oxanium", size: 14)
+                    actionsLabel.text = i
+                    actionsLabel.textColor = .white
+                    actionsLabel.textAlignment = .center
+                    actionsLabel.clipsToBounds = true
+                    actionsLabel.backgroundColor = UIColor(named: "SWGreen")
+                    actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+                    xInset += actionsLabel.intrinsicContentSize.width + 24
+                    actionsLabel.layer.cornerRadius = 12
+                    self.horizontalStackView.addSubview(actionsLabel)
+                }
+            }
         }
         
     }
     
     @IBAction func conditionsTapped(_ sender: Any) {
         var conditionCount = 0
-        var xInset: CGFloat = 0.0 
+        var xInset: CGFloat = 0.0
         if !stackViewIsShown {
+            self.currentStackHost = "conditions"
             self.horizontalStackView.isHidden = false
             conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
             for i in self.conditions {
                 let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
                 actionsLabel.font = UIFont(name: "Oxanium", size: 14)
                 actionsLabel.text = i
+                actionsLabel.textAlignment = .center
                 actionsLabel.textColor = .white
                 actionsLabel.backgroundColor = UIColor(named: "SWRed")
                 actionsLabel.layer.cornerRadius = 12
-                actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width, height: actionsLabel.intrinsicContentSize.height)
-                xInset += actionsLabel.intrinsicContentSize.width + 8
+                actionsLabel.clipsToBounds = true
+                actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+                xInset += actionsLabel.intrinsicContentSize.width + 24
                 self.horizontalStackView.addSubview(actionsLabel)
             }
             self.conditionsBottomConstraint.constant = 64
             stackViewIsShown = true
         }else {
-            conditionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
-            self.conditionsBottomConstraint.constant = 24
-            self.horizontalStackView.isHidden = true
             for view in self.horizontalStackView.subviews {
                 view.removeFromSuperview()
             }
-            stackViewIsShown = false
+            if self.currentStackHost == "conditions" {
+                conditionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+                self.conditionsBottomConstraint.constant = 24
+                self.horizontalStackView.isHidden = true
+                stackViewIsShown = false
+            }else {
+                self.actionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+                self.currentStackHost = "conditions"
+                self.horizontalStackView.isHidden = false
+                conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
+                for i in self.conditions {
+                    let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
+                    actionsLabel.font = UIFont(name: "Oxanium", size: 14)
+                    actionsLabel.text = i
+                    actionsLabel.textAlignment = .center
+                    actionsLabel.textColor = .white
+                    actionsLabel.backgroundColor = UIColor(named: "SWRed")
+                    actionsLabel.layer.cornerRadius = 12
+                    actionsLabel.clipsToBounds = true
+                    actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+                    xInset += actionsLabel.intrinsicContentSize.width + 24
+                    self.horizontalStackView.addSubview(actionsLabel)
+                }
+                self.conditionsBottomConstraint.constant = 64
+                stackViewIsShown = true
+            }
         }
-        
     }
     
     @IBAction func shakenTapped(_ sender: Any) {
