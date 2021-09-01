@@ -55,7 +55,7 @@ class InitialViewController: UIViewController {
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     UIView.transition(with: self.SAMLoadingImageView ?? UIImageView(), duration: 0.5, options: [.preferredFramesPerSecond60, .transitionCrossDissolve]) {
-                        self.SAMLoadingImageView?.frame = CGRect(x: 36, y: 64, width: 45, height: 45)
+                        self.SAMLoadingImageView?.frame = CGRect(x: 36, y: 36, width: 36, height: 36)
                         self.SAMLoadingImageView?.transform = .identity
                         
                     } completion: { (done) in

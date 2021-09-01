@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, HeroItemDetailDelegate {
 
     @IBOutlet weak var SAMImageView: UIImageView!
     @IBOutlet weak var heroImageView: UIImageView!
@@ -133,7 +133,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let traitsView: HeroTraitsView = HeroTraitsView(frame: self.switchContainerView.bounds)
         traitsView.skills = hero?.skills ?? [SkillModel]()
         self.tabViews = [traitsView]
-        
+        self.traitsButton.backgroundColor = UIColor(named: "SWBacking")
         for slug in userManager.currentUser?.heroSlugs ?? [String]() {
             databaseManager.getHeroFromSlug(slug: slug) { (hero, error) in
                 if let heroObject = hero as? HeroModel {
@@ -177,6 +177,18 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @objc func changeHeroTapped(_ sender: Any) {
+        let heroListView: SWHeroListView = SWHeroListView(frame: CGRect(x: UIScreen.main.bounds.maxX, y: 0, width: 230, height: UIScreen.main.bounds.height))
+        heroListView.heroes = self.heroesArray
+        self.view.addSubview(heroListView)
+        self.view.bringSubviewToFront(heroListView)
+        heroListView.layer.shadowOffset = CGSize(width: -8, height: 8)
+        heroListView.layer.shadowColor = UIColor.black.cgColor
+        heroListView.layer.shadowOpacity = 0.75
+        heroListView.layer.shadowRadius = 8
+        heroListView.hostVC = self
+        UIView.animate(withDuration: 0.5) {
+            heroListView.frame = CGRect(x: UIScreen.main.bounds.maxX - 230, y: 0, width: 230, height: UIScreen.main.bounds.height)
+        }
         
     }
     
@@ -320,11 +332,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setViewInContainer(index: 2)
     }
     
-    func updateContentSize() {
-        //self.contentContainerHeight.constant = 568 + self.switchContainerView.intrinsicContentSize.height
-
-    }
-    
     func setViewInContainer(index: Int) {
         for view in self.switchContainerView.subviews {
             view.removeFromSuperview()
@@ -335,7 +342,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //Traits
             let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
             traitsView.skills = hero?.skills ?? [SkillModel]()
-            self.updateContentSize()
             self.switchContainerView.addSubview(traitsView)
         case 1:
             // Gear
@@ -365,16 +371,98 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             gearView.shields = shieldItems
             gearView.items = itemItems
             gearView.goldCountLabel.text = "\(hero?.gold ?? 0)"
-            self.updateContentSize()
             self.switchContainerView.addSubview(gearView)
             gearView.tableView.reloadData()
         
         default:
-        print("Default")
+        print("Powers")
+            let powersView: HeroPowersView = HeroPowersView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
+            powersView.powers = hero?.powers ?? [PowerModel]()
+            powersView.hostVC = self
+            self.switchContainerView.addSubview(powersView)
+            powersView.tableView.reloadData()
         }
         
     }
     
+    func showDetailForItem(object: Any) {
+        var detailView: HeroObjectDetailsView = HeroObjectDetailsView(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2))
+        
+        if let weapon: WeaponModel = object as? WeaponModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWRed")
+            detailView.typeLabel.text = "Weapon"
+            detailView.nameLabel.text = weapon.title ?? ""
+            detailView.leftHeader1.text = "Damage"
+            detailView.leftDescription1.text = weapon.damageString ?? ""
+            detailView.rightHeader1.text = "ROF"
+            detailView.rightDescription1.text = "\(weapon.rof ?? 0)"
+            detailView.leftHeader2.text = "Range"
+            detailView.leftDescription2.text = weapon.range ?? ""
+            detailView.rightHeader2.text = "AP"
+            detailView.rightHeader2.text = "\(weapon.ap ?? 0)"
+            detailView.leftHeader3.text = "Notes"
+            detailView.leftDescription3.text = weapon.notes ?? ""
+            detailView.rightHeader3.text = "Weight"
+            detailView.rightDescription3.text = "\(weapon.weight ?? 0) lbs"
+            detailView.leftHeader4.text = weapon.classification ?? ""
+            detailView.leftDescription4.text = weapon.description ?? ""
+            
+        }
+        if let armor: ArmorModel = object as? ArmorModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWBlue")
+            detailView.typeLabel.text = "Armor"
+            detailView.nameLabel.text = armor.title ?? ""
+            detailView.leftHeader1.text = "Armor Value"
+            detailView.leftDescription1.text = "+\(armor.armorRating ?? 0)"
+            detailView.rightHeader1.text = "Weight"
+            detailView.rightDescription1.text = "\(armor.weight ?? 0) lbs"
+            detailView.leftHeader2.text = "Areas Protected"
+            var protectedString = ""
+            for area in armor.areasProtected {
+                if protectedString == "" {
+                    protectedString.append(area ?? "")
+                }else {
+                    protectedString.append(", " + area ?? "")
+                }
+            }
+            detailView.leftDescription2.text = protectedString
+            detailView.rightHeader2.isHidden = true
+            detailView.rightHeader2.isHidden = true
+            detailView.leftHeader3.text = "Notes"
+            detailView.leftDescription3.text = armor.notes ?? ""
+            detailView.rightHeader3.isHidden = true
+            detailView.rightDescription3.isHidden = true
+            detailView.leftHeader4.isHidden = true
+            detailView.leftDescription4.isHidden = true
+            
+        }
+        if let shield: ShieldModel = object as? ShieldModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWBlue")
+            detailView.typeLabel.text = "Shield"
+            detailView.nameLabel.text = shield.title ?? ""
+            detailView.leftHeader1.text = "Shield Rating"
+            detailView.leftDescription1.text = "+\(shield.cover ?? 0)"
+            detailView.rightHeader1.text = "Weight"
+            detailView.rightDescription1.text = "\(shield.weight ?? 0) lbs"
+            detailView.leftHeader2.text = "Parry"
+            detailView.leftDescription2.text = "+ \(shield.parry ?? 0) to parry"
+            detailView.rightHeader2.isHidden = true
+            detailView.rightHeader2.isHidden = true
+            detailView.leftHeader3.text = "Notes"
+            detailView.leftDescription3.text = shield.notes ?? ""
+            detailView.rightHeader3.isHidden = true
+            detailView.rightDescription3.isHidden = true
+            detailView.leftHeader4.isHidden = true
+            detailView.leftDescription4.isHidden = true
+        }
+        
+        if let power: PowerModel = object as? PowerModel {
+            
+        }
+        if let item: ItemModel = object as? ItemModel {
+            
+        }
+    }
     
     
     

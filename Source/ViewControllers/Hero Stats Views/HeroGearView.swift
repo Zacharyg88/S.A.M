@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol HeroItemDetailDelegate {
+    func showDetailForItem(object: Any)
+}
+
 class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +23,7 @@ class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
     var shields: [ShieldModel] = []
     var items: [ItemModel] = []
     
+    var delegate: HeroItemDetailDelegate?
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()
@@ -35,6 +40,7 @@ class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "HeroGearTableViewCell", bundle: nil), forCellReuseIdentifier: "HeroGearTableViewCell")
+
         manageInventoryButton.layer.borderWidth = 2
         manageInventoryButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
     }
@@ -64,7 +70,7 @@ class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 103
+        return 113
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,6 +101,22 @@ class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            //weapons
+            delegate?.showDetailForItem(object: weapons[indexPath.row])
+        case 1:
+            if indexPath.row > self.armor.count {
+                delegate?.showDetailForItem(object: self.armor[indexPath.row])
+            }else {
+                delegate?.showDetailForItem(object: self.shields[indexPath.row - self.armor.count])
+            }
+        default:
+            delegate?.showDetailForItem(object: items[indexPath.row])
+        }
     }
     
 }

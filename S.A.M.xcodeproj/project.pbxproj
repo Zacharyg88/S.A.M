@@ -65,6 +65,14 @@
 		BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */; };
 		BBBC4E6B26DE86690065509A /* SWGearTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */; };
 		BBBC4E7026DE86C10065509A /* SWGearTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */; };
+		BBBC4EBD26DFCC9D0065509A /* SWHeroListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4EBC26DFCC9D0065509A /* SWHeroListView.swift */; };
+		BBBC4EC226DFCCD60065509A /* SWHeroListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4EC126DFCCD60065509A /* SWHeroListView.xib */; };
+		BBBC4EC826DFD0420065509A /* SWHeroListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4EC626DFD0420065509A /* SWHeroListTableViewCell.swift */; };
+		BBBC4EC926DFD0420065509A /* SWHeroListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4EC726DFD0420065509A /* SWHeroListTableViewCell.xib */; };
+		BBBC4ECE26DFF4D90065509A /* HeroPowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4ECD26DFF4D90065509A /* HeroPowersView.swift */; };
+		BBBC4ED326DFF4EB0065509A /* HeroPowersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4ED226DFF4EB0065509A /* HeroPowersView.xib */; };
+		BBBC4EF026E00EA40065509A /* HeroObjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4EEF26E00EA40065509A /* HeroObjectDetailsView.swift */; };
+		BBBC4EF526E00FC60065509A /* HeroObjectDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4EF426E00FC60065509A /* HeroObjectDetailsView.xib */; };
 		C34B1C9B42AE3D8B39D1DF52 /* Pods_S_A_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */; };
 		DA94595FFD7FCBFB7ED86F5E /* Pods_S_A_MTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCE82594E4D198E1CBC690C /* Pods_S_A_MTests.framework */; };
 /* End PBXBuildFile section */
@@ -157,6 +165,14 @@
 		BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWTabBarControllerViewController.xib; sourceTree = "<group>"; };
 		BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWGearTableViewHeaderView.swift; sourceTree = "<group>"; };
 		BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWGearTableViewHeaderView.xib; sourceTree = "<group>"; };
+		BBBC4EBC26DFCC9D0065509A /* SWHeroListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroListView.swift; sourceTree = "<group>"; };
+		BBBC4EC126DFCCD60065509A /* SWHeroListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroListView.xib; sourceTree = "<group>"; };
+		BBBC4EC626DFD0420065509A /* SWHeroListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroListTableViewCell.swift; sourceTree = "<group>"; };
+		BBBC4EC726DFD0420065509A /* SWHeroListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroListTableViewCell.xib; sourceTree = "<group>"; };
+		BBBC4ECD26DFF4D90065509A /* HeroPowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroPowersView.swift; sourceTree = "<group>"; };
+		BBBC4ED226DFF4EB0065509A /* HeroPowersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroPowersView.xib; sourceTree = "<group>"; };
+		BBBC4EEF26E00EA40065509A /* HeroObjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroObjectDetailsView.swift; sourceTree = "<group>"; };
+		BBBC4EF426E00FC60065509A /* HeroObjectDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroObjectDetailsView.xib; sourceTree = "<group>"; };
 		CC514229325D8164A8E4B3BC /* Pods-S.A.M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.M.debug.xcconfig"; path = "Target Support Files/Pods-S.A.M/Pods-S.A.M.debug.xcconfig"; sourceTree = "<group>"; };
 		EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39EF102E3CA9A78AFD01504 /* Pods-S.A.MTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.MTests.release.xcconfig"; path = "Target Support Files/Pods-S.A.MTests/Pods-S.A.MTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -312,8 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				BB4A340C26DBE6930050B288 /* Cells */,
-				BB4A341126DBE6930050B288 /* SWHeroViewController.swift */,
-				BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */,
 				BB4A341226DBE6930050B288 /* SWMissionLogViewController.swift */,
 				BB4A341326DBE6930050B288 /* SWMissionLogViewController.xib */,
 				BB4A341426DBE6930050B288 /* MainMenuViewController.swift */,
@@ -343,16 +357,19 @@
 		BB4A341526DBE6930050B288 /* Hero Stats Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBBC4EBB26DFCC760065509A /* cells */,
+				BB4A341126DBE6930050B288 /* SWHeroViewController.swift */,
+				BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */,
 				BB4A341626DBE6930050B288 /* HeroTraitsView.swift */,
 				BB4A341926DBE6930050B288 /* HeroTraitsView.xib */,
-				BB4A341726DBE6930050B288 /* HeroSkillsCollectionViewCell.swift */,
-				BB4A341826DBE6930050B288 /* HeroSkillsCollectionViewCell.xib */,
 				BB91EEA226DDCD1200D3FD15 /* HeroGearView.swift */,
 				BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */,
-				BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */,
-				BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */,
-				BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */,
-				BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */,
+				BBBC4EBC26DFCC9D0065509A /* SWHeroListView.swift */,
+				BBBC4EC126DFCCD60065509A /* SWHeroListView.xib */,
+				BBBC4ECD26DFF4D90065509A /* HeroPowersView.swift */,
+				BBBC4ED226DFF4EB0065509A /* HeroPowersView.xib */,
+				BBBC4EEF26E00EA40065509A /* HeroObjectDetailsView.swift */,
+				BBBC4EF426E00FC60065509A /* HeroObjectDetailsView.xib */,
 			);
 			path = "Hero Stats Views";
 			sourceTree = "<group>";
@@ -377,6 +394,21 @@
 				BB91EE9726DDBF9C00D3FD15 /* TabNavigationMenu.swift */,
 			);
 			path = SWTabBar;
+			sourceTree = "<group>";
+		};
+		BBBC4EBB26DFCC760065509A /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				BB4A341726DBE6930050B288 /* HeroSkillsCollectionViewCell.swift */,
+				BB4A341826DBE6930050B288 /* HeroSkillsCollectionViewCell.xib */,
+				BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */,
+				BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */,
+				BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */,
+				BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */,
+				BBBC4EC626DFD0420065509A /* SWHeroListTableViewCell.swift */,
+				BBBC4EC726DFD0420065509A /* SWHeroListTableViewCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		ED79A6283628F6D602C17F02 /* Frameworks */ = {
@@ -499,7 +531,11 @@
 			files = (
 				BB4A342E26DBE6930050B288 /* LoginViewController.xib in Resources */,
 				BB4A345826DBE6940050B288 /* SWProfileViewController.xib in Resources */,
+				BBBC4EC226DFCCD60065509A /* SWHeroListView.xib in Resources */,
+				BBBC4EC926DFD0420065509A /* SWHeroListTableViewCell.xib in Resources */,
+				BBBC4ED326DFF4EB0065509A /* HeroPowersView.xib in Resources */,
 				BB4A345D26DBE6940050B288 /* Oxanium-VariableFont_wght 2.ttf in Resources */,
+				BBBC4EF526E00FC60065509A /* HeroObjectDetailsView.xib in Resources */,
 				BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */,
 				BB4A344F26DBE6940050B288 /* SWMissionLogViewController.xib in Resources */,
 				BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */,
@@ -650,11 +686,14 @@
 				BB4A344726DBE6940050B288 /* StringExtensions.swift in Sources */,
 				BB4A343326DBE6930050B288 /* DatabaseManager.swift in Sources */,
 				BB4A343526DBE6930050B288 /* LauncherViewController.swift in Sources */,
+				BBBC4EC826DFD0420065509A /* SWHeroListTableViewCell.swift in Sources */,
 				BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */,
 				BB91EE9826DDBF9C00D3FD15 /* TabNavigationMenu.swift in Sources */,
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,
 				BB4A343C26DBE6940050B288 /* User.swift in Sources */,
+				BBBC4EF026E00EA40065509A /* HeroObjectDetailsView.swift in Sources */,
 				BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */,
+				BBBC4ECE26DFF4D90065509A /* HeroPowersView.swift in Sources */,
 				BB4A346126DBE6940050B288 /* SceneDelegate.swift in Sources */,
 				BB4A344626DBE6940050B288 /* UI Extensions.swift in Sources */,
 				BBBC4E6B26DE86690065509A /* SWGearTableViewHeaderView.swift in Sources */,
@@ -671,6 +710,7 @@
 				BB91EEA326DDCD1200D3FD15 /* HeroGearView.swift in Sources */,
 				BB91EE9326DDBCAA00D3FD15 /* TabBarItem.swift in Sources */,
 				BB4A344326DBE6940050B288 /* InitialViewController.swift in Sources */,
+				BBBC4EBD26DFCC9D0065509A /* SWHeroListView.swift in Sources */,
 				BB4A344C26DBE6940050B288 /* SWMissionLogTableViewCell.swift in Sources */,
 				BB4A345226DBE6940050B288 /* HeroSkillsCollectionViewCell.swift in Sources */,
 				BB4A343226DBE6930050B288 /* Structs.swift in Sources */,

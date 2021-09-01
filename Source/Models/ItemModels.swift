@@ -240,6 +240,8 @@ class PowerModel: NSObject {
     var range: String?
     var duration: Int?
     var notes: String?
+    var isActive: Bool = false
+    var modifier: ModifierModel?
     
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
@@ -249,6 +251,7 @@ class PowerModel: NSObject {
         valuesDict["range"] = self.range
         valuesDict["duration"] = self.duration
         valuesDict["notes"] = self.notes
+        valuesDict["modifier"] = self.modifier?.generateDictForValues()
         return valuesDict
     }
     
@@ -260,6 +263,9 @@ class PowerModel: NSObject {
         newPower.range = data["range"] as? String
         newPower.duration = data["duration"] as? Int
         newPower.notes = data["notes"] as? String
+        if let modData: [String: Any] = data["modifier"] as? [String : Any] {
+            newPower.modifier = ModifierModel().generateModelFromDict(data: modData)
+        }
         return newPower
     }
 

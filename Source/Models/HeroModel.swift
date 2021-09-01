@@ -21,6 +21,7 @@ class HeroModel: NSObject {
     var gold: Int?
     var items: [NSObject] = []
     var powers: [PowerModel] = []
+    var powerPoints: Int?
     var attributes: [AttributeModel] = []
     var edges: [EdgeModel] = []
     var hinderances: [HindranceModel] = []
@@ -93,6 +94,7 @@ class HeroModel: NSObject {
         valueDict["concept"] = self.concept
         valueDict["backstory"] = self.backstory
         valueDict["gold"] = self.gold
+        valueDict["powerPoints"] = self.powerPoints
         var skillsDictArray: [[String: Any]] = [[:]]
         for skill in self.skills {
             //run skills dict func here
@@ -161,7 +163,8 @@ class HeroModel: NSObject {
         var newHero = HeroModel()
         newHero.slug = slug
         newHero.isCurrentHero = data["isCurrentHero"] as? Bool ?? false
-        newHero.gold = ["gold"] as? Int
+        newHero.gold = data["gold"] as? Int
+        newHero.powerPoints = data["powerPoints"] as? Int
         newHero.firstName = data["firstName"] as? String
         newHero.lastName = data["lastName"] as? String
         newHero.imageName = data["imageName"] as? String
