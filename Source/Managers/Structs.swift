@@ -82,8 +82,7 @@ struct DatabaseKeys {
     
 }
 
-struct Colors {
-    
+struct Colors {    
     var lightRed        = UIColor(hexString: "913C50")
     var blue            = UIColor(hexString: "14646D")
     var lightBlue       = UIColor(hexString: "229AA8")

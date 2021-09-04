@@ -16,6 +16,7 @@ class HeroModel: NSObject {
     var lastName: String?
     var imageName: String?
     var concept: String?
+    var race: String?
     var backstory: String?
     var skills: [SkillModel] = []
     var gold: Int?
@@ -91,6 +92,7 @@ class HeroModel: NSObject {
         valueDict["firstName"] = self.firstName
         valueDict["lastName"] = self.lastName
         valueDict["imageName"] = self.imageName
+        valueDict["race"] = self.race
         valueDict["concept"] = self.concept
         valueDict["backstory"] = self.backstory
         valueDict["gold"] = self.gold
@@ -166,6 +168,7 @@ class HeroModel: NSObject {
         newHero.gold = data["gold"] as? Int
         newHero.powerPoints = data["powerPoints"] as? Int
         newHero.firstName = data["firstName"] as? String
+        newHero.race = data["race"] as? String
         newHero.lastName = data["lastName"] as? String
         newHero.imageName = data["imageName"] as? String
         newHero.concept = data["concept"] as? String

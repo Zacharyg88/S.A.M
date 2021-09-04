@@ -50,6 +50,20 @@
 		BB4A345E26DBE6940050B288 /* BrunoAce-Regular 2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A342426DBE6930050B288 /* BrunoAce-Regular 2.ttf */; };
 		BB4A345F26DBE6940050B288 /* Oxanium-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A342526DBE6930050B288 /* Oxanium-VariableFont_wght.ttf */; };
 		BB4A346126DBE6940050B288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A342726DBE6930050B288 /* SceneDelegate.swift */; };
+		BB8B00CD26E2A17E00C3646F /* HeroCreationRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B00CC26E2A17E00C3646F /* HeroCreationRaceView.swift */; };
+		BB8B00D226E2A18900C3646F /* HeroCreationRaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B00D126E2A18900C3646F /* HeroCreationRaceView.xib */; };
+		BB8B00D726E2A1C200C3646F /* HeroCreationHindrancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B00D626E2A1C200C3646F /* HeroCreationHindrancesView.swift */; };
+		BB8B00DC26E2A1DB00C3646F /* HeroCreationHindrancesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B00DB26E2A1DB00C3646F /* HeroCreationHindrancesView.xib */; };
+		BB8B00E126E2A1FA00C3646F /* HeroCreationAttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B00E026E2A1FA00C3646F /* HeroCreationAttributesView.swift */; };
+		BB8B00E626E2A22300C3646F /* HeroCreationAttributesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B00E526E2A22300C3646F /* HeroCreationAttributesView.xib */; };
+		BB8B00EB26E2A24C00C3646F /* HeroCreationSkillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B00EA26E2A24C00C3646F /* HeroCreationSkillsView.swift */; };
+		BB8B00F026E2A26100C3646F /* HeroCreationSkillsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B00EF26E2A26100C3646F /* HeroCreationSkillsView.xib */; };
+		BB8B00F526E2A28100C3646F /* HeroCreationStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B00F426E2A28100C3646F /* HeroCreationStatsView.swift */; };
+		BB8B00FA26E2A29A00C3646F /* HeroCreationStatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B00F926E2A29A00C3646F /* HeroCreationStatsView.xib */; };
+		BB8B00FF26E2A2D100C3646F /* HeroCreationEdgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B00FE26E2A2D100C3646F /* HeroCreationEdgesView.swift */; };
+		BB8B010426E2A31700C3646F /* HeroCreationEdgesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B010326E2A31700C3646F /* HeroCreationEdgesView.xib */; };
+		BB8B010926E2A34200C3646F /* HeroCreationGearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B010826E2A34200C3646F /* HeroCreationGearView.swift */; };
+		BB8B010E26E2A35C00C3646F /* HeroCreationGearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B010D26E2A35C00C3646F /* HeroCreationGearView.xib */; };
 		BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */; };
 		BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */; };
 		BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */; };
@@ -59,6 +73,11 @@
 		BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */; };
 		BB91EEAE26DDCF2800D3FD15 /* HeroGearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */; };
 		BB91EEAF26DDCF2800D3FD15 /* HeroGearTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */; };
+		BBA411A926E062100019EC39 /* SWHeroCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA411A726E062100019EC39 /* SWHeroCreationViewController.swift */; };
+		BBA411AA26E062100019EC39 /* SWHeroCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA411A826E062100019EC39 /* SWHeroCreationViewController.xib */; };
+		BBA411AF26E0681B0019EC39 /* HeroConceptCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA411AE26E0681B0019EC39 /* HeroConceptCreationView.swift */; };
+		BBA411B426E0685C0019EC39 /* HeroConceptCreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA411B326E0685C0019EC39 /* HeroConceptCreationView.xib */; };
+		BBA411B926E06FFB0019EC39 /* RulebookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA411B826E06FFB0019EC39 /* RulebookModel.swift */; };
 		BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F6D26DC10DA0086FCE1 /* Main.storyboard */; };
 		BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */; };
 		BBB09FA526DC634E0086FCE1 /* SWTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */; };
@@ -150,6 +169,20 @@
 		BB4A342526DBE6930050B288 /* Oxanium-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxanium-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		BB4A342626DBE6930050B288 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB4A342726DBE6930050B288 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BB8B00CC26E2A17E00C3646F /* HeroCreationRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationRaceView.swift; sourceTree = "<group>"; };
+		BB8B00D126E2A18900C3646F /* HeroCreationRaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationRaceView.xib; sourceTree = "<group>"; };
+		BB8B00D626E2A1C200C3646F /* HeroCreationHindrancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationHindrancesView.swift; sourceTree = "<group>"; };
+		BB8B00DB26E2A1DB00C3646F /* HeroCreationHindrancesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationHindrancesView.xib; sourceTree = "<group>"; };
+		BB8B00E026E2A1FA00C3646F /* HeroCreationAttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationAttributesView.swift; sourceTree = "<group>"; };
+		BB8B00E526E2A22300C3646F /* HeroCreationAttributesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationAttributesView.xib; sourceTree = "<group>"; };
+		BB8B00EA26E2A24C00C3646F /* HeroCreationSkillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationSkillsView.swift; sourceTree = "<group>"; };
+		BB8B00EF26E2A26100C3646F /* HeroCreationSkillsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationSkillsView.xib; sourceTree = "<group>"; };
+		BB8B00F426E2A28100C3646F /* HeroCreationStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationStatsView.swift; sourceTree = "<group>"; };
+		BB8B00F926E2A29A00C3646F /* HeroCreationStatsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationStatsView.xib; sourceTree = "<group>"; };
+		BB8B00FE26E2A2D100C3646F /* HeroCreationEdgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationEdgesView.swift; sourceTree = "<group>"; };
+		BB8B010326E2A31700C3646F /* HeroCreationEdgesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationEdgesView.xib; sourceTree = "<group>"; };
+		BB8B010826E2A34200C3646F /* HeroCreationGearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationGearView.swift; sourceTree = "<group>"; };
+		BB8B010D26E2A35C00C3646F /* HeroCreationGearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationGearView.xib; sourceTree = "<group>"; };
 		BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHeroViewController.xib; sourceTree = "<group>"; };
 		BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderanceEdgeTableViewCell.swift; sourceTree = "<group>"; };
 		BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HinderanceEdgeTableViewCell.xib; sourceTree = "<group>"; };
@@ -159,6 +192,11 @@
 		BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroGearView.xib; sourceTree = "<group>"; };
 		BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroGearTableViewCell.swift; sourceTree = "<group>"; };
 		BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroGearTableViewCell.xib; sourceTree = "<group>"; };
+		BBA411A726E062100019EC39 /* SWHeroCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroCreationViewController.swift; sourceTree = "<group>"; };
+		BBA411A826E062100019EC39 /* SWHeroCreationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroCreationViewController.xib; sourceTree = "<group>"; };
+		BBA411AE26E0681B0019EC39 /* HeroConceptCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroConceptCreationView.swift; sourceTree = "<group>"; };
+		BBA411B326E0685C0019EC39 /* HeroConceptCreationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroConceptCreationView.xib; sourceTree = "<group>"; };
+		BBA411B826E06FFB0019EC39 /* RulebookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulebookModel.swift; sourceTree = "<group>"; };
 		BBB09F6E26DC10DA0086FCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWTabBarControllerViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +349,7 @@
 				BB4A33FB26DBE6930050B288 /* User.swift */,
 				BB4A33FE26DBE6930050B288 /* DiceModel.swift */,
 				BB4A340026DBE6930050B288 /* ItemModels.swift */,
+				BBA411B826E06FFB0019EC39 /* RulebookModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +396,7 @@
 		BB4A341526DBE6930050B288 /* Hero Stats Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBA411A626E061E60019EC39 /* Hero Creation */,
 				BBBC4EBB26DFCC760065509A /* cells */,
 				BB4A341126DBE6930050B288 /* SWHeroViewController.swift */,
 				BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */,
@@ -383,6 +423,31 @@
 				BB4A342526DBE6930050B288 /* Oxanium-VariableFont_wght.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BBA411A626E061E60019EC39 /* Hero Creation */ = {
+			isa = PBXGroup;
+			children = (
+				BBA411A726E062100019EC39 /* SWHeroCreationViewController.swift */,
+				BBA411A826E062100019EC39 /* SWHeroCreationViewController.xib */,
+				BBA411AE26E0681B0019EC39 /* HeroConceptCreationView.swift */,
+				BBA411B326E0685C0019EC39 /* HeroConceptCreationView.xib */,
+				BB8B00CC26E2A17E00C3646F /* HeroCreationRaceView.swift */,
+				BB8B00D126E2A18900C3646F /* HeroCreationRaceView.xib */,
+				BB8B00D626E2A1C200C3646F /* HeroCreationHindrancesView.swift */,
+				BB8B00DB26E2A1DB00C3646F /* HeroCreationHindrancesView.xib */,
+				BB8B00E026E2A1FA00C3646F /* HeroCreationAttributesView.swift */,
+				BB8B00E526E2A22300C3646F /* HeroCreationAttributesView.xib */,
+				BB8B00EA26E2A24C00C3646F /* HeroCreationSkillsView.swift */,
+				BB8B00EF26E2A26100C3646F /* HeroCreationSkillsView.xib */,
+				BB8B00F426E2A28100C3646F /* HeroCreationStatsView.swift */,
+				BB8B00F926E2A29A00C3646F /* HeroCreationStatsView.xib */,
+				BB8B00FE26E2A2D100C3646F /* HeroCreationEdgesView.swift */,
+				BB8B010326E2A31700C3646F /* HeroCreationEdgesView.xib */,
+				BB8B010826E2A34200C3646F /* HeroCreationGearView.swift */,
+				BB8B010D26E2A35C00C3646F /* HeroCreationGearView.xib */,
+			);
+			path = "Hero Creation";
 			sourceTree = "<group>";
 		};
 		BBB09F7626DC5EC80086FCE1 /* SWTabBar */ = {
@@ -529,16 +594,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB8B00D226E2A18900C3646F /* HeroCreationRaceView.xib in Resources */,
+				BB8B00F026E2A26100C3646F /* HeroCreationSkillsView.xib in Resources */,
 				BB4A342E26DBE6930050B288 /* LoginViewController.xib in Resources */,
+				BB8B00FA26E2A29A00C3646F /* HeroCreationStatsView.xib in Resources */,
+				BB8B010426E2A31700C3646F /* HeroCreationEdgesView.xib in Resources */,
 				BB4A345826DBE6940050B288 /* SWProfileViewController.xib in Resources */,
 				BBBC4EC226DFCCD60065509A /* SWHeroListView.xib in Resources */,
 				BBBC4EC926DFD0420065509A /* SWHeroListTableViewCell.xib in Resources */,
 				BBBC4ED326DFF4EB0065509A /* HeroPowersView.xib in Resources */,
 				BB4A345D26DBE6940050B288 /* Oxanium-VariableFont_wght 2.ttf in Resources */,
+				BB8B010E26E2A35C00C3646F /* HeroCreationGearView.xib in Resources */,
 				BBBC4EF526E00FC60065509A /* HeroObjectDetailsView.xib in Resources */,
 				BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */,
 				BB4A344F26DBE6940050B288 /* SWMissionLogViewController.xib in Resources */,
+				BB8B00DC26E2A1DB00C3646F /* HeroCreationHindrancesView.xib in Resources */,
 				BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */,
+				BBA411AA26E062100019EC39 /* SWHeroCreationViewController.xib in Resources */,
 				BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */,
 				BB4A345326DBE6940050B288 /* HeroSkillsCollectionViewCell.xib in Resources */,
 				BB4A342C26DBE6930050B288 /* UserInfoViewController.xib in Resources */,
@@ -546,6 +618,8 @@
 				BB4A345C26DBE6940050B288 /* BrunoAce-Regular.ttf in Resources */,
 				BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */,
 				BBBC4E7026DE86C10065509A /* SWGearTableViewHeaderView.xib in Resources */,
+				BB8B00E626E2A22300C3646F /* HeroCreationAttributesView.xib in Resources */,
+				BBA411B426E0685C0019EC39 /* HeroConceptCreationView.xib in Resources */,
 				BB4A345F26DBE6940050B288 /* Oxanium-VariableFont_wght.ttf in Resources */,
 				BB4A343426DBE6930050B288 /* Assets.xcassets in Resources */,
 				BB4A344A26DBE6940050B288 /* SWMissionLogTableViewCell.xib in Resources */,
@@ -685,15 +759,21 @@
 			files = (
 				BB4A344726DBE6940050B288 /* StringExtensions.swift in Sources */,
 				BB4A343326DBE6930050B288 /* DatabaseManager.swift in Sources */,
+				BB8B00EB26E2A24C00C3646F /* HeroCreationSkillsView.swift in Sources */,
+				BBA411AF26E0681B0019EC39 /* HeroConceptCreationView.swift in Sources */,
 				BB4A343526DBE6930050B288 /* LauncherViewController.swift in Sources */,
+				BBA411B926E06FFB0019EC39 /* RulebookModel.swift in Sources */,
 				BBBC4EC826DFD0420065509A /* SWHeroListTableViewCell.swift in Sources */,
 				BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */,
 				BB91EE9826DDBF9C00D3FD15 /* TabNavigationMenu.swift in Sources */,
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,
 				BB4A343C26DBE6940050B288 /* User.swift in Sources */,
+				BB8B00D726E2A1C200C3646F /* HeroCreationHindrancesView.swift in Sources */,
 				BBBC4EF026E00EA40065509A /* HeroObjectDetailsView.swift in Sources */,
 				BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */,
 				BBBC4ECE26DFF4D90065509A /* HeroPowersView.swift in Sources */,
+				BB8B00E126E2A1FA00C3646F /* HeroCreationAttributesView.swift in Sources */,
+				BBA411A926E062100019EC39 /* SWHeroCreationViewController.swift in Sources */,
 				BB4A346126DBE6940050B288 /* SceneDelegate.swift in Sources */,
 				BB4A344626DBE6940050B288 /* UI Extensions.swift in Sources */,
 				BBBC4E6B26DE86690065509A /* SWGearTableViewHeaderView.swift in Sources */,
@@ -703,13 +783,17 @@
 				BB4A342F26DBE6930050B288 /* LoginViewController.swift in Sources */,
 				BB91EEAE26DDCF2800D3FD15 /* HeroGearTableViewCell.swift in Sources */,
 				BB4A344126DBE6940050B288 /* ItemModels.swift in Sources */,
+				BB8B010926E2A34200C3646F /* HeroCreationGearView.swift in Sources */,
 				BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */,
+				BB8B00F526E2A28100C3646F /* HeroCreationStatsView.swift in Sources */,
 				BB4A345B26DBE6940050B288 /* AppDelegate.swift in Sources */,
+				BB8B00FF26E2A2D100C3646F /* HeroCreationEdgesView.swift in Sources */,
 				BB4A345626DBE6940050B288 /* SWProfileViewController.swift in Sources */,
 				BB4A344D26DBE6940050B288 /* SWHeroViewController.swift in Sources */,
 				BB91EEA326DDCD1200D3FD15 /* HeroGearView.swift in Sources */,
 				BB91EE9326DDBCAA00D3FD15 /* TabBarItem.swift in Sources */,
 				BB4A344326DBE6940050B288 /* InitialViewController.swift in Sources */,
+				BB8B00CD26E2A17E00C3646F /* HeroCreationRaceView.swift in Sources */,
 				BBBC4EBD26DFCC9D0065509A /* SWHeroListView.swift in Sources */,
 				BB4A344C26DBE6940050B288 /* SWMissionLogTableViewCell.swift in Sources */,
 				BB4A345226DBE6940050B288 /* HeroSkillsCollectionViewCell.swift in Sources */,

@@ -77,16 +77,20 @@ class SWHeroListView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBAction func createNewTapped(_ sender: Any) {
-        
-        
+        self.shouldLaunchCreation = true
+        self.swipeToDismiss()
     }
     
+    var shouldLaunchCreation: Bool = false
     @objc func swipeToDismiss() {
         UIView.animate(withDuration: 0.5) {
             self.frame = CGRect(x: UIScreen.main.bounds.maxX, y: 0, width: 230, height: UIScreen.main.bounds.height)
 
         } completion: { (done) in
             if done {
+                if self.shouldLaunchCreation {
+                    self.hostVC?.launchCharacterCreation()
+                }
                 self.removeFromSuperview()
                 self.willMove(toSuperview: nil)
             }

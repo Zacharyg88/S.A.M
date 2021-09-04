@@ -43,7 +43,25 @@ class HeroObjectDetailsView: UIView {
     }
     
     func setupView() {
-        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 8, height: -20)
+        self.layer.shadowRadius = 20
+        self.layer.shadowOpacity = 0.75
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDismiss))
+        swipeGestureRecognizer.direction = .down
+        self.addGestureRecognizer(swipeGestureRecognizer)
+    }
+    
+    @objc func swipeToDismiss() {
+        UIView.animate(withDuration: 0.5) {
+            self.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY / 2, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+        } completion: { (done) in
+            if done {
+                self.removeFromSuperview()
+                self.willMove(toSuperview: nil)
+            }
+        }
+
     }
     
 }

@@ -370,6 +370,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             gearView.weapons = weaponsItems
             gearView.shields = shieldItems
             gearView.items = itemItems
+            gearView.delegate = self
             gearView.goldCountLabel.text = "\(hero?.gold ?? 0)"
             self.switchContainerView.addSubview(gearView)
             gearView.tableView.reloadData()
@@ -379,6 +380,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let powersView: HeroPowersView = HeroPowersView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
             powersView.powers = hero?.powers ?? [PowerModel]()
             powersView.hostVC = self
+            powersView.delegate = self
             self.switchContainerView.addSubview(powersView)
             powersView.tableView.reloadData()
         }
@@ -386,7 +388,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func showDetailForItem(object: Any) {
-        var detailView: HeroObjectDetailsView = HeroObjectDetailsView(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2))
+        var detailView: HeroObjectDetailsView = HeroObjectDetailsView(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: self.view.frame.width, height: UIScreen.main.bounds.height / 2))
         
         if let weapon: WeaponModel = object as? WeaponModel {
             detailView.bannerView.backgroundColor = UIColor(named: "SWRed")
@@ -427,7 +429,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             detailView.leftDescription2.text = protectedString
             detailView.rightHeader2.isHidden = true
-            detailView.rightHeader2.isHidden = true
+            detailView.rightDescription2.isHidden = true
             detailView.leftHeader3.text = "Notes"
             detailView.leftDescription3.text = armor.notes ?? ""
             detailView.rightHeader3.isHidden = true
@@ -447,7 +449,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             detailView.leftHeader2.text = "Parry"
             detailView.leftDescription2.text = "+ \(shield.parry ?? 0) to parry"
             detailView.rightHeader2.isHidden = true
-            detailView.rightHeader2.isHidden = true
+            detailView.rightDescription2.isHidden = true
             detailView.leftHeader3.text = "Notes"
             detailView.leftDescription3.text = shield.notes ?? ""
             detailView.rightHeader3.isHidden = true
@@ -457,11 +459,55 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if let power: PowerModel = object as? PowerModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWPower")
+            detailView.typeLabel.text = "Power"
+            detailView.nameLabel.text = power.title ?? ""
+            detailView.leftHeader1.text = "Range"
+            detailView.leftDescription1.text = power.range ?? ""
+            detailView.rightHeader1.text = "PP"
+            detailView.rightDescription1.text = "\(power.powerPoints ?? 0)"
+            detailView.leftHeader2.text = "Rank"
+            detailView.leftDescription2.text = power.rank ?? ""
+            detailView.rightHeader2.isHidden = true
+            detailView.rightDescription2.isHidden = true
+            detailView.leftHeader3.text = "Notes"
+            detailView.leftDescription3.text = power.notes ?? ""
+            detailView.rightHeader3.isHidden = true
+            detailView.rightDescription3.isHidden = true
+            detailView.leftHeader4.isHidden = true
+            detailView.leftDescription4.isHidden = true
             
         }
         if let item: ItemModel = object as? ItemModel {
-            
+            detailView.bannerView.backgroundColor = UIColor(named: "SWBGreen")
+            detailView.typeLabel.text = "Item"
+            detailView.nameLabel.text = item.title ?? ""
+            detailView.leftHeader1.text = "Notes"
+            detailView.leftDescription1.text = item.notes
+            detailView.rightHeader1.isHidden = true
+            detailView.rightDescription1.isHidden = true
+            detailView.leftHeader2.isHidden = true
+            detailView.leftDescription2.isHidden = true
+            detailView.rightHeader2.isHidden = true
+            detailView.rightDescription2.isHidden = true
+            detailView.leftHeader3.isHidden = true
+            detailView.leftDescription3.isHidden = true
+            detailView.rightHeader3.isHidden = true
+            detailView.rightDescription3.isHidden = true
+            detailView.leftHeader4.isHidden = true
+            detailView.leftDescription4.isHidden = true
         }
+        self.view.addSubview(detailView)
+        self.view.bringSubviewToFront(detailView)
+        UIView.animate(withDuration: 0.5) {
+            detailView.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY / 2, width: self.view.frame.width, height: UIScreen.main.bounds.height / 2)
+        }
+    }
+    
+    func launchCharacterCreation() {
+        let characterCreationVC: SWHeroCreationViewController = SWHeroCreationViewController()
+        
+        self.present(characterCreationVC, animated: true, completion: nil)
     }
     
     

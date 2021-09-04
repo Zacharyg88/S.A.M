@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="453" width="230" height="443"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chL-ax-Obf">
-                    <rect key="frame" x="50" y="28" width="130" height="37"/>
+                    <rect key="frame" x="50" y="45" width="130" height="37"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="X27-Ml-sJn"/>
                         <constraint firstAttribute="width" constant="130" id="dFk-cC-giL"/>
@@ -42,7 +42,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4R6-KQ-ts7">
-                    <rect key="frame" x="0.0" y="93" width="230" height="803"/>
+                    <rect key="frame" x="0.0" y="110" width="230" height="786"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
@@ -53,7 +53,7 @@
                 <constraint firstAttribute="bottom" secondItem="4R6-KQ-ts7" secondAttribute="bottom" id="9we-G4-5ey"/>
                 <constraint firstAttribute="bottom" secondItem="HzQ-zf-Tq9" secondAttribute="bottom" id="DTr-1p-tRO"/>
                 <constraint firstAttribute="trailing" secondItem="HzQ-zf-Tq9" secondAttribute="trailing" id="Ezb-mR-fgF"/>
-                <constraint firstItem="chL-ax-Obf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="28" id="Gtj-tZ-kjl"/>
+                <constraint firstItem="chL-ax-Obf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="Gtj-tZ-kjl"/>
                 <constraint firstAttribute="trailing" secondItem="4R6-KQ-ts7" secondAttribute="trailing" id="RBu-Hq-dGu"/>
                 <constraint firstItem="HzQ-zf-Tq9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Wlj-Bc-qDn"/>
                 <constraint firstItem="HzQ-zf-Tq9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="dqw-K7-khK"/>
