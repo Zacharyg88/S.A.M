@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="BrunoAce-Regular.ttf">
+            <string>BrunoAce-Regular</string>
+        </array>
+        <array key="Oxanium-VariableFont_wght 2.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroConceptCreationView" customModule="S_A_M" customModuleProvider="target">
+            <connections>
+                <outlet property="addImageButton" destination="W3b-Ao-qRq" id="ZNM-bt-pTu"/>
+                <outlet property="conceptTextView" destination="rhL-Wa-SLh" id="Hdw-DW-uva"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concept" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBb-S9-igM">
+                    <rect key="frame" x="24" y="24" width="77" height="23.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type your concept here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rhL-Wa-SLh">
+                    <rect key="frame" x="24" y="71.5" width="366" height="250"/>
+                    <color key="backgroundColor" name="SWButton_Background"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="p3P-af-5Jx"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3b-Ao-qRq">
+                    <rect key="frame" x="342" y="13" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="8CZ-Hm-BG1"/>
+                        <constraint firstAttribute="width" constant="48" id="IbW-RC-AUd"/>
+                    </constraints>
+                    <color key="tintColor" name="SWStrength_Vigor"/>
+                    <state key="normal">
+                        <imageReference key="image" image="person.crop.circle.fill.badge.plus" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="addPhoto:" destination="-1" eventType="touchUpInside" id="yV9-bs-esm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="SWBackground"/>
+            <constraints>
+                <constraint firstItem="W3b-Ao-qRq" firstAttribute="firstBaseline" secondItem="gBb-S9-igM" secondAttribute="firstBaseline" id="82g-5t-Dcv"/>
+                <constraint firstItem="gBb-S9-igM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="CQy-Zx-Ihb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rhL-Wa-SLh" secondAttribute="trailing" constant="24" id="bBc-T7-cKR"/>
+                <constraint firstItem="gBb-S9-igM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="dOP-2n-f8q"/>
+                <constraint firstAttribute="trailing" secondItem="W3b-Ao-qRq" secondAttribute="trailing" constant="24" id="dhC-QV-hOd"/>
+                <constraint firstItem="rhL-Wa-SLh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="gVO-eX-V6A"/>
+                <constraint firstItem="rhL-Wa-SLh" firstAttribute="top" secondItem="gBb-S9-igM" secondAttribute="bottom" constant="24" id="hJQ-DJ-II9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="127.53623188405798" y="104.46428571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="person.crop.circle.fill.badge.plus" catalog="system" width="128" height="113"/>
+        <namedColor name="SWBackground">
+            <color red="0.043137254901960784" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWButton_Background">
+            <color red="0.023529411764705882" green="0.074509803921568626" blue="0.086274509803921567" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWStrength_Vigor">
+            <color red="0.80784313725490198" green="0.82352941176470584" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

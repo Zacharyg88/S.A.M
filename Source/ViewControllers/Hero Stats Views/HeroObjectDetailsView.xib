@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroObjectDetailsView" customModule="S_A_M" customModuleProvider="target">
+            <connections>
+                <outlet property="bannerView" destination="mZ3-5b-in6" id="30a-2U-WJl"/>
+                <outlet property="leftDescription1" destination="2FW-Ca-t4C" id="bAS-ik-AIa"/>
+                <outlet property="leftDescription2" destination="yCF-ck-uAv" id="ruL-Jp-qIB"/>
+                <outlet property="leftDescription3" destination="2lk-l4-jfy" id="KBc-DP-A0x"/>
+                <outlet property="leftDescription4" destination="PnO-eB-PVy" id="byW-QQ-edb"/>
+                <outlet property="leftHeader1" destination="shU-Qu-OBJ" id="uta-Kc-UCW"/>
+                <outlet property="leftHeader2" destination="dCb-1Z-0VN" id="Obc-J6-Hwb"/>
+                <outlet property="leftHeader3" destination="EOd-o4-vPZ" id="J5r-Vo-Sus"/>
+                <outlet property="leftHeader4" destination="PV3-bg-ffF" id="mmV-x2-aUt"/>
+                <outlet property="nameLabel" destination="ov1-fo-0OD" id="T1L-da-WeZ"/>
+                <outlet property="rightDescription1" destination="ps0-fo-vr3" id="STU-kY-6K9"/>
+                <outlet property="rightDescription2" destination="Uut-Mk-pHg" id="wM3-3M-AUJ"/>
+                <outlet property="rightDescription3" destination="9Ig-QV-L10" id="QL3-xS-PCn"/>
+                <outlet property="rightHeader1" destination="kTp-px-gj8" id="4ri-A5-Qs0"/>
+                <outlet property="rightHeader2" destination="BJM-bJ-A1P" id="euf-Bs-FnO"/>
+                <outlet property="rightHeader3" destination="bny-OI-gpo" id="YQY-9B-6qY"/>
+                <outlet property="typeLabel" destination="ixF-u3-LQq" id="zfd-iG-dmN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="470"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZ3-5b-in6">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixF-u3-LQq">
+                            <rect key="frame" x="32" y="24" width="29.5" height="16.5"/>
+                            <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                            <color key="textColor" name="SWSubheading"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Object Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-fo-0OD">
+                            <rect key="frame" x="32" y="54.5" width="106.5" height="21"/>
+                            <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="SWPower"/>
+                    <constraints>
+                        <constraint firstItem="ov1-fo-0OD" firstAttribute="leading" secondItem="ixF-u3-LQq" secondAttribute="leading" id="8Bj-5l-e4w"/>
+                        <constraint firstAttribute="height" constant="82" id="Bom-dp-R2G"/>
+                        <constraint firstItem="ov1-fo-0OD" firstAttribute="top" secondItem="ixF-u3-LQq" secondAttribute="bottom" constant="14" id="fdT-Kw-KKX"/>
+                        <constraint firstItem="ixF-u3-LQq" firstAttribute="leading" secondItem="mZ3-5b-in6" secondAttribute="leading" constant="32" id="iHQ-og-5K6"/>
+                        <constraint firstItem="ixF-u3-LQq" firstAttribute="top" secondItem="mZ3-5b-in6" secondAttribute="top" constant="24" id="qDr-Je-VQ1"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Header 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shU-Qu-OBJ">
+                    <rect key="frame" x="32" y="114" width="85.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Header 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-1Z-0VN">
+                    <rect key="frame" x="32" y="179" width="85.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Header 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOd-o4-vPZ">
+                    <rect key="frame" x="32" y="244" width="85.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Header 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PV3-bg-ffF">
+                    <rect key="frame" x="32" y="309" width="85.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Header 1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTp-px-gj8">
+                    <rect key="frame" x="287.5" y="114" width="94.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Header 2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-bJ-A1P">
+                    <rect key="frame" x="287.5" y="179" width="94.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Header 3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bny-OI-gpo">
+                    <rect key="frame" x="287.5" y="244" width="94.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-Ca-t4C">
+                    <rect key="frame" x="32" y="138.5" width="358" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 2" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCF-ck-uAv">
+                    <rect key="frame" x="32" y="203.5" width="358" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 3" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lk-l4-jfy">
+                    <rect key="frame" x="32" y="268.5" width="358" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 2" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uut-Mk-pHg">
+                    <rect key="frame" x="32" y="203.5" width="350" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 3" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ig-QV-L10">
+                    <rect key="frame" x="32" y="268.5" width="350" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 1" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps0-fo-vr3">
+                    <rect key="frame" x="24" y="138.5" width="358" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Desc. 4" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnO-eB-PVy">
+                    <rect key="frame" x="32" y="333.5" width="358" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="SWBacking"/>
+            <constraints>
+                <constraint firstItem="ps0-fo-vr3" firstAttribute="top" secondItem="kTp-px-gj8" secondAttribute="bottom" constant="8" id="2Ms-Gn-Ts6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yCF-ck-uAv" secondAttribute="trailing" constant="24" id="2iq-oV-Bch"/>
+                <constraint firstItem="mZ3-5b-in6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4xA-i9-cz7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bny-OI-gpo" secondAttribute="trailing" constant="32" id="6FC-Bj-EEI"/>
+                <constraint firstItem="Uut-Mk-pHg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="7Y0-xs-x3R"/>
+                <constraint firstItem="PV3-bg-ffF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="9ad-HP-r77"/>
+                <constraint firstItem="PV3-bg-ffF" firstAttribute="top" secondItem="2lk-l4-jfy" secondAttribute="bottom" constant="24" id="A71-La-WAk"/>
+                <constraint firstItem="2lk-l4-jfy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Acu-UK-3ec"/>
+                <constraint firstItem="dCb-1Z-0VN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Gg1-G5-Vji"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9Ig-QV-L10" secondAttribute="trailing" constant="32" id="KRT-nw-ye4"/>
+                <constraint firstItem="PnO-eB-PVy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Lem-Zf-SEF"/>
+                <constraint firstItem="kTp-px-gj8" firstAttribute="top" secondItem="mZ3-5b-in6" secondAttribute="bottom" constant="32" id="LgR-Tg-FuG"/>
+                <constraint firstItem="BJM-bJ-A1P" firstAttribute="top" secondItem="ps0-fo-vr3" secondAttribute="bottom" constant="24" id="MCn-hh-2h2"/>
+                <constraint firstItem="9Ig-QV-L10" firstAttribute="top" secondItem="bny-OI-gpo" secondAttribute="bottom" constant="8" id="MWD-mt-ymK"/>
+                <constraint firstItem="bny-OI-gpo" firstAttribute="top" secondItem="Uut-Mk-pHg" secondAttribute="bottom" constant="24" id="Oja-Ey-hHd"/>
+                <constraint firstItem="EOd-o4-vPZ" firstAttribute="top" secondItem="yCF-ck-uAv" secondAttribute="bottom" constant="24" id="RPc-hd-9hv"/>
+                <constraint firstItem="9Ig-QV-L10" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="UYL-bM-4QD"/>
+                <constraint firstItem="PnO-eB-PVy" firstAttribute="top" secondItem="PV3-bg-ffF" secondAttribute="bottom" constant="8" id="ZKz-Hc-7wF"/>
+                <constraint firstItem="yCF-ck-uAv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="ZUr-gm-Se0"/>
+                <constraint firstItem="ps0-fo-vr3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="bNF-h2-hk1"/>
+                <constraint firstItem="shU-Qu-OBJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="cFS-PR-xd9"/>
+                <constraint firstItem="2lk-l4-jfy" firstAttribute="top" secondItem="EOd-o4-vPZ" secondAttribute="bottom" constant="8" id="g5Q-WM-QcT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ps0-fo-vr3" secondAttribute="trailing" constant="32" id="g71-LT-fy9"/>
+                <constraint firstItem="shU-Qu-OBJ" firstAttribute="top" secondItem="mZ3-5b-in6" secondAttribute="bottom" constant="32" id="gak-u3-ziL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BJM-bJ-A1P" secondAttribute="trailing" constant="32" id="gvs-4s-HdT"/>
+                <constraint firstItem="mZ3-5b-in6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="icn-ZX-RUk"/>
+                <constraint firstItem="yCF-ck-uAv" firstAttribute="top" secondItem="dCb-1Z-0VN" secondAttribute="bottom" constant="8" id="j9g-bA-2hf"/>
+                <constraint firstItem="Uut-Mk-pHg" firstAttribute="top" secondItem="BJM-bJ-A1P" secondAttribute="bottom" constant="8" id="jb3-fZ-h2I"/>
+                <constraint firstItem="EOd-o4-vPZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="jlu-yc-jlO"/>
+                <constraint firstItem="dCb-1Z-0VN" firstAttribute="top" secondItem="2FW-Ca-t4C" secondAttribute="bottom" constant="24" id="lYq-RC-zJ4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2FW-Ca-t4C" secondAttribute="trailing" constant="24" id="mhe-zp-UhD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2lk-l4-jfy" secondAttribute="trailing" constant="24" id="nrs-ZQ-NwJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PnO-eB-PVy" secondAttribute="trailing" constant="24" id="peF-4s-CJS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mZ3-5b-in6" secondAttribute="trailing" id="qpV-tK-VEh"/>
+                <constraint firstItem="2FW-Ca-t4C" firstAttribute="top" secondItem="shU-Qu-OBJ" secondAttribute="bottom" constant="8" id="qxh-7i-Tdg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kTp-px-gj8" secondAttribute="trailing" constant="32" id="tdy-Pd-nlg"/>
+                <constraint firstItem="2FW-Ca-t4C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="vW2-S8-aTs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Uut-Mk-pHg" secondAttribute="trailing" constant="32" id="xof-Bs-KUa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="11.594202898550726" y="-50.892857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="SWBacking">
+            <color red="0.15686274509803921" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWPower">
+            <color red="0.2627450980392157" green="0.24705882352941178" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWSubheading">
+            <color red="1" green="1" blue="1" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

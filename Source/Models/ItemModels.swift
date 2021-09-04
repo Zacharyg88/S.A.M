@@ -11,6 +11,7 @@ import Foundation
 
 class ItemModel: NSObject {
     var title: String?
+    var quantity: Int?
     var cost: Int?
     var notes: String?
 
@@ -18,6 +19,7 @@ class ItemModel: NSObject {
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
         valuesDict["title"] = self.title
+        valuesDict["quantity"] = self.quantity
         valuesDict["cost"] = self.cost
         valuesDict["notes"] = self.notes
         return valuesDict
@@ -27,6 +29,7 @@ class ItemModel: NSObject {
         var newItem = ItemModel()
         
         newItem.title = data["title"] as? String
+        newItem.quantity = data["quantity"] as? Int
         newItem.cost = data["cost"] as? Int
         newItem.notes = data["notes"] as? String
         
@@ -36,6 +39,7 @@ class ItemModel: NSObject {
 
 class WeaponModel: NSObject {
     var title: String?
+    var quantity: Int?
     var cost: Int?
     var notes: String?
     var classification: String?
@@ -51,6 +55,7 @@ class WeaponModel: NSObject {
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
         valuesDict["title"] = self.title
+        valuesDict["quantity"] = self.quantity
         valuesDict["cost"] = self.title
         valuesDict["notes"] = self.notes
         valuesDict["classification"] = self.classification
@@ -69,6 +74,7 @@ class WeaponModel: NSObject {
         var newWeapon = WeaponModel()
         
         newWeapon.title = data["title"] as? String
+        newWeapon.quantity = data["quantity"] as? Int
         newWeapon.cost = data["cost"] as? Int
         newWeapon.notes = data["notes"] as? String
         newWeapon.classification = data["classification"] as? String
@@ -91,6 +97,7 @@ class WeaponModel: NSObject {
 
 class ArmorModel: NSObject {
     var title: String?
+    var quantity: Int?
     var cost: Int?
     var notes: String?
     var armorRating: Int?
@@ -101,6 +108,7 @@ class ArmorModel: NSObject {
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
         valuesDict["title"] = self.title
+        valuesDict["quantity"] = self.quantity
         valuesDict["cost"] = self.title
         valuesDict["notes"] = self.notes
         valuesDict["armorRating"] = self.armorRating
@@ -114,6 +122,7 @@ class ArmorModel: NSObject {
         var newArmor = ArmorModel()
         
         newArmor.title = data["title"] as? String
+        newArmor.quantity = data["quantity"] as? Int
         newArmor.cost = data["cost"] as? Int
         newArmor.notes = data["notes"] as? String
         newArmor.armorRating = data["armorRating"] as? Int
@@ -129,6 +138,7 @@ class ArmorModel: NSObject {
 
 class ShieldModel: NSObject {
     var title: String?
+    var quantity: Int?
     var cost: Int?
     var notes: String?
     var parry: Int?
@@ -139,6 +149,7 @@ class ShieldModel: NSObject {
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
         valuesDict["title"] = self.title
+        valuesDict["quantity"] = self.quantity
         valuesDict["cost"] = self.title
         valuesDict["notes"] = self.notes
         valuesDict["parry"] = self.parry
@@ -152,6 +163,7 @@ class ShieldModel: NSObject {
         var newShield = ShieldModel()
         
         newShield.title = data["title"] as? String
+        newShield.quantity = data["quantity"] as? Int
         newShield.cost = data["cost"] as? Int
         newShield.notes = data["notes"] as? String
         newShield.parry = data["parry"] as? Int
@@ -167,6 +179,7 @@ class ShieldModel: NSObject {
 
 class VehicleModel: NSObject {
     var title: String?
+    var quantity: Int?
     var cost: Int?
     var notes: String?
     var size: String?
@@ -186,6 +199,7 @@ class VehicleModel: NSObject {
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
         valuesDict["title"] = self.title
+        valuesDict["quantity"] = self.quantity
         valuesDict["cost"] = self.title
         valuesDict["notes"] = self.notes
         valuesDict["size"] = self.size
@@ -202,6 +216,7 @@ class VehicleModel: NSObject {
         var newVehicle = VehicleModel()
         
         newVehicle.title = data["title"] as? String
+        newVehicle.quantity = data["quantity"] as? Int
         newVehicle.cost = data["cost"] as? Int
         newVehicle.notes = data["notes"] as? String
         newVehicle.size = data["size"] as? String
@@ -225,6 +240,8 @@ class PowerModel: NSObject {
     var range: String?
     var duration: Int?
     var notes: String?
+    var isActive: Bool = false
+    var modifier: ModifierModel?
     
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
@@ -234,6 +251,7 @@ class PowerModel: NSObject {
         valuesDict["range"] = self.range
         valuesDict["duration"] = self.duration
         valuesDict["notes"] = self.notes
+        valuesDict["modifier"] = self.modifier?.generateDictForValues()
         return valuesDict
     }
     
@@ -245,6 +263,9 @@ class PowerModel: NSObject {
         newPower.range = data["range"] as? String
         newPower.duration = data["duration"] as? Int
         newPower.notes = data["notes"] as? String
+        if let modData: [String: Any] = data["modifier"] as? [String : Any] {
+            newPower.modifier = ModifierModel().generateModelFromDict(data: modData)
+        }
         return newPower
     }
 

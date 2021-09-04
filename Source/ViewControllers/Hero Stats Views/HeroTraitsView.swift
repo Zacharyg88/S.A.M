@@ -34,7 +34,12 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     @IBOutlet weak var skillsCollectionView: UICollectionView!
     
     
-    var skills: [SkillModel] = []
+    var skills: [SkillModel] = [] {
+        didSet {
+            print(skills)
+            
+        }
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -50,9 +55,11 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func setupViews() {
-        skillsCollectionView.register(UINib(nibName: "HeroSkillsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroSkillsCollectionViewCell")
         skillsCollectionView.delegate = self
         skillsCollectionView.dataSource = self
+        skillsCollectionView.register(UINib(nibName: "HeroSkillsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroSkillsCollectionViewCell")
+        skillsCollectionView.backgroundColor = .clear
+        self.backgroundColor = .clear
         
         
     }
@@ -62,7 +69,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.frame.width / 2) - 20
+        let width = (self.frame.width / 2) - 5
         return CGSize(width: width, height: 24)
         
     }
@@ -76,7 +83,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             cell.diceLabel.text = skill.dice?.title
             cell.diceImageView.image = UIImage(named: "icon_" + (skill.dice?.title ?? ""))
             
-            if skill.dice == nil {
+            if skill.dice?.title == nil || skill.dice?.sides == 0 {
                 cell.diceLabelTrailing.constant = 8
                 cell.diceImageView.isHidden = true
                 cell.diceLabel.text = " - "
@@ -84,6 +91,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
                 cell.diceLabelTrailing.constant = 36
                 cell.diceImageView.isHidden = false
             }
+            return cell
         }
         
         return UICollectionViewCell()
@@ -92,14 +100,14 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func getColorFromAttribute(attribute: String) -> UIColor {
         switch attribute {
-        case "agility":
-            return colors.agilityColor
-        case "spirit":
-            return colors.spiritColor
-        case "smarts":
-            return colors.smartsColor
+        case "Agility":
+            return colors.AgilityColor
+        case "Spirit":
+            return colors.SpiritColor
+        case "Smarts":
+            return colors.SmartsColor
         default:
-            return colors.strengthColor
+            return colors.StrengthColor
         }
     }
     

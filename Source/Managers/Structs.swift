@@ -82,8 +82,7 @@ struct DatabaseKeys {
     
 }
 
-struct Colors {
-    
+struct Colors {    
     var lightRed        = UIColor(hexString: "913C50")
     var blue            = UIColor(hexString: "14646D")
     var lightBlue       = UIColor(hexString: "229AA8")
@@ -95,11 +94,11 @@ struct Colors {
     var planetCore      = UIColor(hexString: "384523")
     var belt            = UIColor(hexString: "243840")
     var backing         = UIColor(hexString: "283E46")
-    var agilityColor    = UIColor(hexString: "339B7B")
-    var spiritColor     = UIColor(hexString: "29A0D3")
-    var smartsColor     = UIColor(hexString: "8470A4")
-    var strengthColor   = UIColor(hexString: "CED2D3")
-    var vigorColor      = UIColor(hexString: "")
+    var AgilityColor    = UIColor(hexString: "339B7B")
+    var SpiritColor     = UIColor(hexString: "29A0D3")
+    var SmartsColor     = UIColor(hexString: "8470A4")
+    var StrengthColor   = UIColor(hexString: "CED2D3")
+    var VigorColor      = UIColor(hexString: "")
     var highlightColor  = UIColor(hexString: "537681")
     var buttonBorder    = UIColor(hexString: "FFFFFF").withAlphaComponent(0.32)
     var buttonBackground    = UIColor(hexString: "061316").withAlphaComponent(0.8)

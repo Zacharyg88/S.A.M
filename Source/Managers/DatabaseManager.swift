@@ -49,6 +49,7 @@ class DatabaseManager: NSObject {
                 documentReference.getDocument { (document, error) in
                     if let doc = document, doc.exists {
                         let currentUser: User = User(slug: doc.documentID, firstName: doc["firstName"] as! String, lastName: doc["lastName"] as! String, email: doc["email"] as! String, phoneNumber: doc["phoneNumber"] as! String, isAdmin: doc["isAdmin"] as! Bool)
+                        currentUser.heroSlugs = doc["heroSlugs"] as? [String] ?? [String]()
                         userManager.currentUser = currentUser
                         completion(true, nil)
                         
@@ -70,6 +71,7 @@ class DatabaseManager: NSObject {
                 let phoneNumber: String = (doc["phoneNumber"]) as? String ?? ""
                 let isAdmin: Bool = doc["isAdmin"] as? Bool ?? false
                 let currentUser: User = User(slug: slug, firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, isAdmin: isAdmin)
+                currentUser.heroSlugs = doc["heroSlugs"] as? [String] ?? [String]()
                 userManager.currentUser = currentUser
                 completion(currentUser)
             }else {
@@ -85,7 +87,7 @@ class DatabaseManager: NSObject {
             dbKeys.lastName : user.lastName,
             dbKeys.email: user.email,
             dbKeys.phoneNumber: user.phoneNumber,
-            dbKeys.heroSlugs: user.heros,
+            "heroSlugs": user.heroSlugs,
             dbKeys.isAdmin: user.isAdmin
         ], merge: true) { err in
             if err != nil {
@@ -132,21 +134,21 @@ class DatabaseManager: NSObject {
             }
         }
     }
-    // Hero Requests
     
-    func getHeroFromSlug(slugs: [String], completion: @escaping (_ hero: HeroModel?, _ error: Error?)-> Void) {
-        for slug in slugs {
-            let heroRef = database.collection("heroes").document(slug)
-            heroRef.getDocument { (snapshot, error) in
-                if error != nil {
-                    print("There was an error getting the Hero from the databsse")
-                    completion(nil, error)
-                }else {
-                    let heroObject: HeroModel = HeroModel().createObjectFromDict(data: snapshot?.data() as! [String: Any])
-                    completion(heroObject, nil)
-                }
+    // Hero Requests
+    func getHeroFromSlug(slug: String, completion: @escaping (_ hero: HeroModel?, _ error: Error?)-> Void) {
+        let heroRef = database.collection("heroes").document(slug)
+        heroRef.getDocument { (snapshot, error) in
+            if error != nil {
+                print("There was an error getting the Hero from the databsse")
+                completion(nil, error)
+            }else {
+                let heroObject: HeroModel = HeroModel().createObjectFromDict(data: snapshot?.data() as! [String: Any], slug: snapshot?.documentID ?? "")
+                completion(heroObject, nil)
             }
         }
+        
+        //completion(heroes, nil)
     }
     
     

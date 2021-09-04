@@ -53,15 +53,15 @@ class MainMenuViewController: UIViewController, UICollectionViewDelegate, UIColl
         switch indexPath.row {
         case 0:
             print("Characters Cell Tapped")
-            let heroViewController: SWHeroViewController = SWHeroViewController()
-            for hero in userManager.currentUser?.heros ?? [HeroModel]() {
-                if hero.isCurrentHero {
-                    heroViewController.hero = hero
-                }
-            }
+            let VC: UIViewController = UIViewController()
+            let scrollView = UIScrollView(frame: VC.view.bounds)
             
+            
+            let heroViewController: SWHeroViewController = SWHeroViewController()
+            heroViewController.view.frame = UIScreen.main.bounds
             heroViewController.modalPresentationStyle = .fullScreen
-            self.present(heroViewController, animated: true, completion: nil)
+            self.present(heroViewController, animated: false, completion: nil)
+            
             
         case 1:
             print("Missions Cell Tapped")
