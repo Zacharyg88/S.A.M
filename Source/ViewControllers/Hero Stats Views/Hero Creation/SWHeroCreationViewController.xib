@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWHeroCreationViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
@@ -42,38 +47,38 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp4-Fu-YQY">
-                    <rect key="frame" x="0.0" y="84" width="414" height="24"/>
+                    <rect key="frame" x="0.0" y="108" width="414" height="8"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQM-bt-Gu0">
-                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="24"/>
+                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UB-Y6-sKx">
-                            <rect key="frame" x="51.5" y="0.0" width="50" height="24"/>
+                            <rect key="frame" x="51.5" y="0.0" width="50" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ug-OU-gJk">
-                            <rect key="frame" x="103.5" y="0.0" width="49.5" height="24"/>
+                            <rect key="frame" x="103.5" y="0.0" width="49.5" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prx-wD-MTt">
-                            <rect key="frame" x="155" y="0.0" width="49.5" height="24"/>
+                            <rect key="frame" x="155" y="0.0" width="49.5" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7u-nF-gnG">
-                            <rect key="frame" x="206.5" y="0.0" width="50" height="24"/>
+                            <rect key="frame" x="206.5" y="0.0" width="50" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ru0-dG-qGo">
-                            <rect key="frame" x="258.5" y="0.0" width="49.5" height="24"/>
+                            <rect key="frame" x="258.5" y="0.0" width="49.5" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmR-nP-lQa">
-                            <rect key="frame" x="310" y="0.0" width="50" height="24"/>
+                            <rect key="frame" x="310" y="0.0" width="50" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jp-Ho-pKh">
-                            <rect key="frame" x="362" y="0.0" width="49.5" height="24"/>
+                            <rect key="frame" x="362" y="0.0" width="49.5" height="8"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </subviews>
@@ -86,7 +91,7 @@
                         <constraint firstItem="Ru0-dG-qGo" firstAttribute="width" secondItem="Y7u-nF-gnG" secondAttribute="width" id="Ess-C8-pGl"/>
                         <constraint firstAttribute="bottom" secondItem="zQM-bt-Gu0" secondAttribute="bottom" id="Fsd-Wp-uXM"/>
                         <constraint firstItem="7UB-Y6-sKx" firstAttribute="bottom" secondItem="zQM-bt-Gu0" secondAttribute="bottom" id="GfW-Cb-Pfe"/>
-                        <constraint firstAttribute="height" constant="24" id="IeZ-Sr-W6Y"/>
+                        <constraint firstAttribute="height" constant="8" id="IeZ-Sr-W6Y"/>
                         <constraint firstItem="Y7u-nF-gnG" firstAttribute="width" secondItem="prx-wD-MTt" secondAttribute="width" id="JF1-P6-fBq"/>
                         <constraint firstItem="lmR-nP-lQa" firstAttribute="top" secondItem="Ru0-dG-qGo" secondAttribute="top" id="Klp-o2-1eT"/>
                         <constraint firstItem="Ru0-dG-qGo" firstAttribute="leading" secondItem="Y7u-nF-gnG" secondAttribute="trailing" constant="2" id="M5c-PM-ZrZ"/>
@@ -115,14 +120,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztx-tY-Sg7">
-                    <rect key="frame" x="0.0" y="132" width="414" height="618"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="140" width="414" height="610"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o2-RQ-46Q">
                     <rect key="frame" x="24" y="774" width="171" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="he4-yg-SJM"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="20"/>
                     <state key="normal" title="Back">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -133,6 +138,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-77-J5a">
                     <rect key="frame" x="219" y="774" width="171" height="64"/>
                     <color key="backgroundColor" name="SWBacking"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="20"/>
                     <state key="normal" title="Continue">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -150,7 +156,7 @@
                 <constraint firstItem="vni-98-5h2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CW1-MC-ghb"/>
                 <constraint firstItem="eRs-fA-6Ae" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="G1x-xX-cDX"/>
                 <constraint firstAttribute="bottom" secondItem="vni-98-5h2" secondAttribute="bottom" id="GBl-eC-4xh"/>
-                <constraint firstItem="xp4-Fu-YQY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="H5Y-06-ZdS"/>
+                <constraint firstItem="xp4-Fu-YQY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="H5Y-06-ZdS"/>
                 <constraint firstItem="eRs-fA-6Ae" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HsX-DB-TVp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xp4-Fu-YQY" secondAttribute="trailing" id="InE-hH-Gbp"/>
                 <constraint firstItem="ztx-tY-Sg7" firstAttribute="top" secondItem="xp4-Fu-YQY" secondAttribute="bottom" constant="24" id="KOf-5o-q7c"/>

@@ -506,7 +506,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func launchCharacterCreation() {
         let characterCreationVC: SWHeroCreationViewController = SWHeroCreationViewController()
-        
+        characterCreationVC.modalPresentationStyle = .overCurrentContext
         self.present(characterCreationVC, animated: true, completion: nil)
     }
     

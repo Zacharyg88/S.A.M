@@ -36,6 +36,11 @@ class HeroConceptCreationView: UIView, UITextViewDelegate, UIImagePickerControll
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         conceptTextView.keyboardDismissMode = .onDrag
+        addImageButton.layer.cornerRadius = addImageButton.frame.height / 2
+        addImageButton.layer.borderWidth = 2
+        addImageButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
+        
+        
 
     }
     

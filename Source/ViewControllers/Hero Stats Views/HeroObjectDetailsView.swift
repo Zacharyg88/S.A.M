@@ -47,6 +47,7 @@ class HeroObjectDetailsView: UIView {
         self.layer.shadowOffset = CGSize(width: 8, height: -20)
         self.layer.shadowRadius = 20
         self.layer.shadowOpacity = 0.75
+        self.layer.cornerRadius = 12
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDismiss))
         swipeGestureRecognizer.direction = .down
         self.addGestureRecognizer(swipeGestureRecognizer)

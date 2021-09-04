@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="BrunoAce-Regular.ttf">
+        <array key="BrunoAce-Regular 2.ttf">
             <string>BrunoAce-Regular</string>
         </array>
-        <array key="Oxanium-VariableFont_wght 2.ttf">
+        <array key="Oxanium-VariableFont_wght.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
@@ -29,13 +28,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concept" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBb-S9-igM">
-                    <rect key="frame" x="24" y="24" width="77" height="23.5"/>
-                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="20"/>
+                    <rect key="frame" x="24" y="24" width="104" height="27"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="27"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type your concept here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rhL-Wa-SLh">
-                    <rect key="frame" x="24" y="71.5" width="366" height="250"/>
+                    <rect key="frame" x="24" y="115" width="366" height="250"/>
                     <color key="backgroundColor" name="SWButton_Background"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="p3P-af-5Jx"/>
@@ -44,15 +43,16 @@
                     <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3b-Ao-qRq">
-                    <rect key="frame" x="342" y="13" width="48" height="48"/>
+                <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3b-Ao-qRq">
+                    <rect key="frame" x="326" y="24" width="64" height="64"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="48" id="8CZ-Hm-BG1"/>
-                        <constraint firstAttribute="width" constant="48" id="IbW-RC-AUd"/>
+                        <constraint firstAttribute="height" constant="64" id="8CZ-Hm-BG1"/>
+                        <constraint firstAttribute="width" constant="64" id="IbW-RC-AUd"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <color key="tintColor" name="SWStrength_Vigor"/>
-                    <state key="normal">
-                        <imageReference key="image" image="person.crop.circle.fill.badge.plus" catalog="system" symbolScale="large"/>
+                    <state key="normal" image="plus" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                     </state>
                     <connections>
                         <action selector="addPhoto:" destination="-1" eventType="touchUpInside" id="yV9-bs-esm"/>
@@ -60,25 +60,21 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" name="SWBackground"/>
             <constraints>
-                <constraint firstItem="W3b-Ao-qRq" firstAttribute="firstBaseline" secondItem="gBb-S9-igM" secondAttribute="firstBaseline" id="82g-5t-Dcv"/>
                 <constraint firstItem="gBb-S9-igM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="CQy-Zx-Ihb"/>
+                <constraint firstItem="W3b-Ao-qRq" firstAttribute="top" secondItem="gBb-S9-igM" secondAttribute="top" id="VXf-PU-5Dv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rhL-Wa-SLh" secondAttribute="trailing" constant="24" id="bBc-T7-cKR"/>
                 <constraint firstItem="gBb-S9-igM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="dOP-2n-f8q"/>
                 <constraint firstAttribute="trailing" secondItem="W3b-Ao-qRq" secondAttribute="trailing" constant="24" id="dhC-QV-hOd"/>
                 <constraint firstItem="rhL-Wa-SLh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="gVO-eX-V6A"/>
-                <constraint firstItem="rhL-Wa-SLh" firstAttribute="top" secondItem="gBb-S9-igM" secondAttribute="bottom" constant="24" id="hJQ-DJ-II9"/>
+                <constraint firstItem="rhL-Wa-SLh" firstAttribute="top" secondItem="gBb-S9-igM" secondAttribute="bottom" constant="64" id="hJQ-DJ-II9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="127.53623188405798" y="104.46428571428571"/>
         </view>
     </objects>
     <resources>
-        <image name="person.crop.circle.fill.badge.plus" catalog="system" width="128" height="113"/>
-        <namedColor name="SWBackground">
-            <color red="0.043137254901960784" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="SWButton_Background">
             <color red="0.023529411764705882" green="0.074509803921568626" blue="0.086274509803921567" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -1,26 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCreationRaceView" customModule="S_A_M" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCreationRaceView" customModule="S_A_M" customModuleProvider="target">
+            <connections>
+                <outlet property="cardSubtitleLabel" destination="Wyp-F0-gBI" id="Neb-3b-SUi"/>
+                <outlet property="cardTitleLabel" destination="EjW-0V-PeF" id="nFK-Wb-33K"/>
+                <outlet property="raceTableView" destination="zdi-A7-j0w" id="jfZ-QK-EU2"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjW-0V-PeF">
+                    <rect key="frame" x="24" y="24" width="61.5" height="27"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="27"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a race from below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyp-F0-gBI">
+                    <rect key="frame" x="24" y="59" width="159.5" height="14"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                    <color key="textColor" name="SWSubheading"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zdi-A7-j0w">
+                    <rect key="frame" x="24" y="97" width="366" height="653"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="-148" y="129"/>
+            <constraints>
+                <constraint firstItem="zdi-A7-j0w" firstAttribute="top" secondItem="Wyp-F0-gBI" secondAttribute="bottom" constant="24" id="6gl-ly-HoA"/>
+                <constraint firstItem="zdi-A7-j0w" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="FxN-Z9-r4d"/>
+                <constraint firstItem="EjW-0V-PeF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="QHT-t6-nxh"/>
+                <constraint firstItem="Wyp-F0-gBI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="VU1-D7-QI6"/>
+                <constraint firstItem="EjW-0V-PeF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="dek-yV-6ra"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zdi-A7-j0w" secondAttribute="trailing" constant="24" id="iI4-CW-NFh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zdi-A7-j0w" secondAttribute="bottom" id="uuJ-49-99k"/>
+                <constraint firstItem="Wyp-F0-gBI" firstAttribute="top" secondItem="EjW-0V-PeF" secondAttribute="bottom" constant="8" id="xpb-hT-lO9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-149.27536231884059" y="79.6875"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="SWSubheading">
+            <color red="1" green="1" blue="1" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

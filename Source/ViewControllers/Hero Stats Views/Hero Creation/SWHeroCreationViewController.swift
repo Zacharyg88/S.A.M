@@ -45,7 +45,7 @@ class SWHeroCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        continueButton.layer.cornerRadius = 8
         progressViewArray = [progress1View, progress2View, progress3View, progress4View, progress5View, progress6View, progress7View, progress8View]
         for view in progressViewArray {
             view.layer.cornerRadius = view.frame.height / 2
@@ -54,7 +54,13 @@ class SWHeroCreationViewController: UIViewController {
         let conceptView: HeroConceptCreationView = HeroConceptCreationView(frame: self.creationStageContainerView.bounds)
         conceptView.hostVC = self
         
-        creationStageViewsArray = [conceptView]
+        let raceView: HeroCreationRaceView = HeroCreationRaceView(frame: self.creationStageContainerView.bounds)
+        raceView.hostVC = self
+        
+        let hindranceView: HeroCreationHindrancesView = HeroCreationHindrancesView(frame: self.creationStageContainerView.bounds)
+        hindranceView.hostVC = self
+        
+        creationStageViewsArray = [conceptView, raceView, hindranceView]
         
         currentStage = 0
     }
@@ -74,6 +80,10 @@ class SWHeroCreationViewController: UIViewController {
                 if conceptView.image != nil {
                     self.heroImage = conceptView.image
                 }
+            }
+        case 1:
+            if let raceView: HeroCreationRaceView = creationStageViewsArray[1] as? HeroCreationRaceView {
+                self.newHero.race = raceView.currentRace
             }
         default:
             print("default")

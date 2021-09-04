@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B2B685777DBE713B2216B8A4 /* Pods_S_A_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B99F57D4726D0308E47682 /* Pods_S_A_M.framework */; };
+		BB15CFFA26E3E2180094DB39 /* HeroCreationRaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15CFF826E3E2180094DB39 /* HeroCreationRaceTableViewCell.swift */; };
+		BB15CFFB26E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15CFF926E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib */; };
+		BB15CFFE26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15CFFC26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift */; };
+		BB15CFFF26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15CFFD26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib */; };
 		BB4A0ECE26D6ACA9000AFE66 /* S_A_MTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A0ECD26D6ACA9000AFE66 /* S_A_MTests.swift */; };
 		BB4A0ED926D6ACA9000AFE66 /* S_A_MUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A0ED826D6ACA9000AFE66 /* S_A_MUITests.swift */; };
 		BB4A342926DBE6930050B288 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33E626DBE6930050B288 /* UserInfoViewController.swift */; };
@@ -92,8 +96,6 @@
 		BBBC4ED326DFF4EB0065509A /* HeroPowersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4ED226DFF4EB0065509A /* HeroPowersView.xib */; };
 		BBBC4EF026E00EA40065509A /* HeroObjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4EEF26E00EA40065509A /* HeroObjectDetailsView.swift */; };
 		BBBC4EF526E00FC60065509A /* HeroObjectDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4EF426E00FC60065509A /* HeroObjectDetailsView.xib */; };
-		C34B1C9B42AE3D8B39D1DF52 /* Pods_S_A_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */; };
-		DA94595FFD7FCBFB7ED86F5E /* Pods_S_A_MTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCE82594E4D198E1CBC690C /* Pods_S_A_MTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,10 @@
 		84B99F57D4726D0308E47682 /* Pods_S_A_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B2F662364E925EF82E450A /* Pods-S.A.MTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.MTests.release.xcconfig"; path = "Target Support Files/Pods-S.A.MTests/Pods-S.A.MTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F0EC2267A4A3030559F09D /* Pods_S_A_MTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_MTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB15CFF826E3E2180094DB39 /* HeroCreationRaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationRaceTableViewCell.swift; sourceTree = "<group>"; };
+		BB15CFF926E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationRaceTableViewCell.xib; sourceTree = "<group>"; };
+		BB15CFFC26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationHindranceTableViewCell.swift; sourceTree = "<group>"; };
+		BB15CFFD26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationHindranceTableViewCell.xib; sourceTree = "<group>"; };
 		BB4A0EB326D6ACA7000AFE66 /* S.A.M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S.A.M.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4A0EC926D6ACA9000AFE66 /* S.A.MTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = S.A.MTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4A0ECD26D6ACA9000AFE66 /* S_A_MTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S_A_MTests.swift; sourceTree = "<group>"; };
@@ -213,9 +219,6 @@
 		BBBC4ED226DFF4EB0065509A /* HeroPowersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroPowersView.xib; sourceTree = "<group>"; };
 		BBBC4EEF26E00EA40065509A /* HeroObjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroObjectDetailsView.swift; sourceTree = "<group>"; };
 		BBBC4EF426E00FC60065509A /* HeroObjectDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroObjectDetailsView.xib; sourceTree = "<group>"; };
-		CC514229325D8164A8E4B3BC /* Pods-S.A.M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.M.debug.xcconfig"; path = "Target Support Files/Pods-S.A.M/Pods-S.A.M.debug.xcconfig"; sourceTree = "<group>"; };
-		EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F39EF102E3CA9A78AFD01504 /* Pods-S.A.MTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.MTests.release.xcconfig"; path = "Target Support Files/Pods-S.A.MTests/Pods-S.A.MTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +234,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB43E8C426EF1BE3B08C8326 /* Pods_S_A_MTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +241,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD479E7324EDD61CD353D920 /* Pods_S_A_M_S_A_MUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				3A12359B04B4D555203111D9 /* Pods-S.A.M.debug.xcconfig */,
-				E30521F4FCCB93AC2CD19C15 /* Pods-S.A.M.release.xcconfig */,
 				74395C2F881BCD2F4AA9E757 /* Pods-S.A.M-S.A.MUITests.debug.xcconfig */,
 				0B1E018F715E31110CE6EA1B /* Pods-S.A.M-S.A.MUITests.release.xcconfig */,
 				3E3AD16D86BDAF5CC79A1B60 /* Pods-S.A.MTests.debug.xcconfig */,
@@ -484,18 +484,12 @@
 				BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */,
 				BBBC4EC626DFD0420065509A /* SWHeroListTableViewCell.swift */,
 				BBBC4EC726DFD0420065509A /* SWHeroListTableViewCell.xib */,
+				BB15CFF826E3E2180094DB39 /* HeroCreationRaceTableViewCell.swift */,
+				BB15CFF926E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib */,
+				BB15CFFC26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift */,
+				BB15CFFD26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib */,
 			);
 			path = cells;
-			sourceTree = "<group>";
-		};
-		ED79A6283628F6D602C17F02 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EF01B2414670F5981AF287EB /* Pods_S_A_M.framework */,
-				99C4714F094F86BF87895F8F /* Pods_S_A_M_S_A_MUITests.framework */,
-				3FCE82594E4D198E1CBC690C /* Pods_S_A_MTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -619,6 +613,7 @@
 				BB8B010E26E2A35C00C3646F /* HeroCreationGearView.xib in Resources */,
 				BBBC4EF526E00FC60065509A /* HeroObjectDetailsView.xib in Resources */,
 				BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */,
+				BB15CFFF26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib in Resources */,
 				BB4A344F26DBE6940050B288 /* SWMissionLogViewController.xib in Resources */,
 				BB8B00DC26E2A1DB00C3646F /* HeroCreationHindrancesView.xib in Resources */,
 				BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */,
@@ -631,6 +626,7 @@
 				BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */,
 				BBBC4E7026DE86C10065509A /* SWGearTableViewHeaderView.xib in Resources */,
 				BB8B00E626E2A22300C3646F /* HeroCreationAttributesView.xib in Resources */,
+				BB15CFFB26E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib in Resources */,
 				BBA411B426E0685C0019EC39 /* HeroConceptCreationView.xib in Resources */,
 				BB4A345F26DBE6940050B288 /* Oxanium-VariableFont_wght.ttf in Resources */,
 				BB4A343426DBE6930050B288 /* Assets.xcassets in Resources */,
@@ -774,6 +770,7 @@
 				BB8B00EB26E2A24C00C3646F /* HeroCreationSkillsView.swift in Sources */,
 				BBA411AF26E0681B0019EC39 /* HeroConceptCreationView.swift in Sources */,
 				BB4A343526DBE6930050B288 /* LauncherViewController.swift in Sources */,
+				BB15CFFE26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift in Sources */,
 				BBA411B926E06FFB0019EC39 /* RulebookModel.swift in Sources */,
 				BBBC4EC826DFD0420065509A /* SWHeroListTableViewCell.swift in Sources */,
 				BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */,
@@ -794,6 +791,7 @@
 				BB4A344B26DBE6940050B288 /* SWCreateCollectionViewCell.swift in Sources */,
 				BB4A342F26DBE6930050B288 /* LoginViewController.swift in Sources */,
 				BB91EEAE26DDCF2800D3FD15 /* HeroGearTableViewCell.swift in Sources */,
+				BB15CFFA26E3E2180094DB39 /* HeroCreationRaceTableViewCell.swift in Sources */,
 				BB4A344126DBE6940050B288 /* ItemModels.swift in Sources */,
 				BB8B010926E2A34200C3646F /* HeroCreationGearView.swift in Sources */,
 				BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */,
@@ -1007,7 +1005,6 @@
 		};
 		BB4A0EDF26D6ACA9000AFE66 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E30521F4FCCB93AC2CD19C15 /* Pods-S.A.M.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

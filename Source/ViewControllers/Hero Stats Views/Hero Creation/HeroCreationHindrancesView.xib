@@ -1,20 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCreationHindrancesView" customModule="S_A_M" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCreationHindrancesView" customModule="S_A_M" customModuleProvider="target">
+            <connections>
+                <outlet property="hindranceCountLabel" destination="Cjr-i2-B0J" id="A6c-ln-vxQ"/>
+                <outlet property="hindranceTableView" destination="pmm-c8-A6r" id="f6S-Js-92Z"/>
+                <outlet property="hindrancesSubtitleLabel" destination="0uD-zQ-ZDB" id="MkF-eq-V1e"/>
+                <outlet property="hindrancesTitleLabel" destination="5Qy-Gl-8gc" id="nzT-ut-UkU"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hindrances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qy-Gl-8gc">
+                    <rect key="frame" x="24" y="24" width="140" height="27"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select up to four points of Hindrances (Major are worth 2, Minor are worth 1)." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uD-zQ-ZDB">
+                    <rect key="frame" x="24" y="59" width="270" height="51"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjr-i2-B0J">
+                    <rect key="frame" x="374" y="24" width="16" height="27"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pmm-c8-A6r">
+                    <rect key="frame" x="24" y="134" width="366" height="762"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="pmm-c8-A6r" secondAttribute="bottom" id="6Ou-p7-0ya"/>
+                <constraint firstItem="Cjr-i2-B0J" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="CIG-Ve-Hp0"/>
+                <constraint firstItem="5Qy-Gl-8gc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="Hj4-WI-7Mn"/>
+                <constraint firstAttribute="trailing" secondItem="0uD-zQ-ZDB" secondAttribute="trailing" constant="120" id="L9X-YI-8m0"/>
+                <constraint firstItem="5Qy-Gl-8gc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="OFe-7e-HZC"/>
+                <constraint firstItem="pmm-c8-A6r" firstAttribute="top" secondItem="0uD-zQ-ZDB" secondAttribute="bottom" constant="24" id="Shj-tc-U1p"/>
+                <constraint firstItem="0uD-zQ-ZDB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Vwd-Ls-sNr"/>
+                <constraint firstItem="pmm-c8-A6r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="akV-2o-hmh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cjr-i2-B0J" secondAttribute="trailing" constant="24" id="bjL-wT-TuR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pmm-c8-A6r" secondAttribute="trailing" constant="24" id="o5m-gr-Ete"/>
+                <constraint firstItem="0uD-zQ-ZDB" firstAttribute="top" secondItem="5Qy-Gl-8gc" secondAttribute="bottom" constant="8" id="smk-44-lru"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="125" y="129"/>
         </view>
     </objects>
