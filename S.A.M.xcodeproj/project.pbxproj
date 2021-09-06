@@ -68,6 +68,8 @@
 		BB8B010426E2A31700C3646F /* HeroCreationEdgesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B010326E2A31700C3646F /* HeroCreationEdgesView.xib */; };
 		BB8B010926E2A34200C3646F /* HeroCreationGearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B010826E2A34200C3646F /* HeroCreationGearView.swift */; };
 		BB8B010E26E2A35C00C3646F /* HeroCreationGearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B010D26E2A35C00C3646F /* HeroCreationGearView.xib */; };
+		BB8B015C26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8B015A26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.swift */; };
+		BB8B015D26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8B015B26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.xib */; };
 		BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */; };
 		BB91EE8D26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */; };
 		BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */; };
@@ -191,6 +193,8 @@
 		BB8B010326E2A31700C3646F /* HeroCreationEdgesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationEdgesView.xib; sourceTree = "<group>"; };
 		BB8B010826E2A34200C3646F /* HeroCreationGearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationGearView.swift; sourceTree = "<group>"; };
 		BB8B010D26E2A35C00C3646F /* HeroCreationGearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationGearView.xib; sourceTree = "<group>"; };
+		BB8B015A26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationSkillsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB8B015B26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationSkillsCollectionViewCell.xib; sourceTree = "<group>"; };
 		BB91EE8626DD409100D3FD15 /* SWHeroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHeroViewController.xib; sourceTree = "<group>"; };
 		BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderanceEdgeTableViewCell.swift; sourceTree = "<group>"; };
 		BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HinderanceEdgeTableViewCell.xib; sourceTree = "<group>"; };
@@ -488,6 +492,8 @@
 				BB15CFF926E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib */,
 				BB15CFFC26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift */,
 				BB15CFFD26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib */,
+				BB8B015A26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.swift */,
+				BB8B015B26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				BB8B010E26E2A35C00C3646F /* HeroCreationGearView.xib in Resources */,
 				BBBC4EF526E00FC60065509A /* HeroObjectDetailsView.xib in Resources */,
 				BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */,
+				BB8B015D26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.xib in Resources */,
 				BB15CFFF26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib in Resources */,
 				BB4A344F26DBE6940050B288 /* SWMissionLogViewController.xib in Resources */,
 				BB8B00DC26E2A1DB00C3646F /* HeroCreationHindrancesView.xib in Resources */,
@@ -778,6 +785,7 @@
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,
 				BB4A343C26DBE6940050B288 /* User.swift in Sources */,
 				BB8B00D726E2A1C200C3646F /* HeroCreationHindrancesView.swift in Sources */,
+				BB8B015C26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.swift in Sources */,
 				BBBC4EF026E00EA40065509A /* HeroObjectDetailsView.swift in Sources */,
 				BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */,
 				BBBC4ECE26DFF4D90065509A /* HeroPowersView.swift in Sources */,

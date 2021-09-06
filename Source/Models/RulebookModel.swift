@@ -151,10 +151,10 @@ Attempts on page 89.
     
     var Academics: RB_Skill = RB_Skill(summary: "Academics reflects knowledge of the liberal arts, social sciences, literature, history, archaeology, and similar fields. If an explorer wants to remember when the Mayan calendar ended or cite a line from Macbeth, this is the skill to have.", attribute: "Smarts", title: "Academics")
     
-    var Athletics: RB_Skill = RB_Skill(summary: "Athletics combines an individual’s coordin- ation with learned skills such as climbing, jumping, balancing, biking, wrestling, skiing, swimming, throwing, or catching. Characters who rely on physical power more than coordination can take the Brute Edge (page 38) to link this skill to Strength instead of Agility.", attribute: "Agility", title: "Athletics")
+    var Athletics: RB_Skill = RB_Skill(summary: "Athletics combines an individual’s coordin- ation with learned skills such as climbing, jumping, balancing, biking, wrestling, skiing, swimming, throwing, or catching. Characters who rely on physical power more than coordination can take the Brute Edge (page 38) to link this skill to Strength instead of Agility.", attribute: "Agility", title: "Athletics*")
     var Battle: RB_Skill = RB_Skill(summary: "Battle is an individual’s command of strategy and tactics. It can be used for general military knowledge and is critical when commanding troops in Mass Battles (see page 131).", attribute: "Smarts", title: "Battle")
     var Boating: RB_Skill = RB_Skill(summary: "Characters with this skill can handle most any boat or ship common to their setting. They also know how to handle common tasks associated with their vessel such as tying knots, rigging sails, or following currents.", attribute: "Agility", title: "Boating")
-    var Common_Knowledge: RB_Skill = RB_Skill(summary: "Characters roll Common Knowledge to know people, places, and things of their world, including etiquette, geography, culture, popular technology, contacts, and customs.", attribute: "Smarts", title: "Common Knowledge")
+    var Common_Knowledge: RB_Skill = RB_Skill(summary: "Characters roll Common Knowledge to know people, places, and things of their world, including etiquette, geography, culture, popular technology, contacts, and customs.", attribute: "Smarts", title: "Common Knowledge*")
     var Driving: RB_Skill = RB_Skill(summary: """
 Driving allows a hero to control any powered ground vehicle common to his setting. This includes cars, motorcycles, tanks, and the like.(Bikes and other self-powered transports use Athletics, beast-drawn transports use Riding.)
 Characters in modern settings where vehicles are ubiquitous don’t need Driving for ordinary travel. Driving rolls are typically only needed in dangerous or stressful conditions, such as Chases (page 113).
@@ -212,7 +212,7 @@ This limitation never applies to a character’s native tongue.
 Notice is a hero’s general awareness and alertness. It’s used to sense sights, sounds, tastes, and smells, spot clues, detect ambushes, spot hidden weapons on a foe, or tell if a rival is lying, frightened, happy, etc.
 Success conveys basic information—the character hears movement in the forest, smells distant smoke, or senses someone isn’t being completely truthful.
 A raise grants more detail, such as the direction of a sound or odor or what topic a person is avoiding or lying about.
-""", attribute: "Smarts", title: "Notice")
+""", attribute: "Smarts", title: "Notice*")
     
     var Occult: RB_Skill = RB_Skill(summary: """
 Occult reflects knowledge and experience with the paranormal most others don’t even believe exists. It can be used to decipher strange pictograms, recall information about supernatural creatures, remember cures for monstrous maladies like lycanthropy or vampirism, or perform rituals.
@@ -234,7 +234,7 @@ Success improves the target’s attitude one level and a raise improves it two. 
 Failure means the target won’t change his mind this scene or until the situation changes in some important way. A Critical Failure also reduces the target’s attitude two levels.
 Only one roll should generally be allowed per interaction unless new information is revealed, a substantial reward is offered, etc.
 Networking: Characters can also use Persuasion as a “macro skill,” simulating a few hours or an evening’s time hobnobbing and socializing to gain favors or information. See Networking on page 133.
-""", attribute: "Spirit", title: "Persuasion")
+""", attribute: "Spirit", title: "Persuasion*")
     
     var Piloting: RB_Skill = RB_Skill(summary: """
 Piloting allows a character to maneuver airplanes, helicopters, jet packs, or spaceships. Rules for Chases and vehicular combat can be found in Chapter Four.
@@ -280,7 +280,7 @@ Sneak Attack: Sneaking up close enough to make a melee attack always requires an
 Vulnerable (page 100) to the attacker, but only until the attacker’s turn ends. With a raise, the attacker has The Drop (page 100) instead.
 Movement: In combat, characters roll Stealth each turn as a free action at the end of their move or any action the GM thinks might draw attention.
 Out of combat, the distance moved depends entirely on the situation. The GM might want a roll every minute if the group is sneaking around the perimeter of a defensive position, or every few miles if they’re trying to quietly walk the path through a dark forest without alerting the creatures that live there.
-""", attribute: "Agility", title: "Stealth")
+""", attribute: "Agility", title: "Stealth*")
     
     var Survival: RB_Skill = RB_Skill(summary: """
 Survivalallowsacharactertofindfood,water, or shelter in hostile environments. It can also be used to navigate wilderness environments, figure out which plants are good to eat and which aren’t, and so on.

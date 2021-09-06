@@ -60,7 +60,11 @@ class SWHeroCreationViewController: UIViewController {
         let hindranceView: HeroCreationHindrancesView = HeroCreationHindrancesView(frame: self.creationStageContainerView.bounds)
         hindranceView.hostVC = self
         
-        creationStageViewsArray = [conceptView, raceView, hindranceView]
+        let attributesView: HeroCreationAttributesView = HeroCreationAttributesView(frame: self.creationStageContainerView.bounds)
+        
+        let skillsView: HeroCreationSkillsView = HeroCreationSkillsView(frame: self.creationStageContainerView.bounds)
+        
+        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView]
         
         currentStage = 0
     }
@@ -84,6 +88,34 @@ class SWHeroCreationViewController: UIViewController {
         case 1:
             if let raceView: HeroCreationRaceView = creationStageViewsArray[1] as? HeroCreationRaceView {
                 self.newHero.race = raceView.currentRace
+            }
+        case 2:
+            if let hindrancesView: HeroCreationHindrancesView = creationStageViewsArray[2] as? HeroCreationHindrancesView {
+                self.newHero.hinderances = hindrancesView.selectedHindrances
+            }
+        case 3:
+            if let attributesView: HeroCreationAttributesView = creationStageViewsArray[3] as? HeroCreationAttributesView {
+                let agility = AttributeModel()
+                agility.dice = attributesView.agilityDice
+                agility.title = "Agility"
+                
+                let smarts = AttributeModel()
+                smarts.title = "Smarts"
+                smarts.dice = attributesView.smartsDice
+                
+                let spirit = AttributeModel()
+                spirit.title = "Spirit"
+                spirit.dice = attributesView.spiritDice
+                
+                 let strength = AttributeModel()
+                strength.title = "Strength"
+                strength.dice = attributesView.strengthDice
+                
+                let vigor = AttributeModel()
+                vigor.title = "Vigor"
+                vigor.dice = attributesView.vigorDice
+                
+                self.newHero.attributes = [agility, smarts, spirit, strength, vigor]
             }
         default:
             print("default")

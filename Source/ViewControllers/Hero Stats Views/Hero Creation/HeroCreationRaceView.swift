@@ -17,7 +17,11 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var races = ruleBook.races.racesArray
     var hostVC: SWHeroCreationViewController?
-    var currentRace: String?
+    var currentRace: String? {
+        didSet {
+            self.layoutCellsForSelection()
+        }
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()
@@ -70,14 +74,13 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let race = races[indexPath.row]
-        self.currentRace = race.title
         let detailView: HeroObjectDetailsView = HeroObjectDetailsView(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: self.hostVC?.view.frame.width ?? 0, height: UIScreen.main.bounds.height / 2))
         
         let raceImageView: UIImageView = UIImageView(frame: detailView.bannerView.frame)
         raceImageView.contentMode = .scaleAspectFill
         if let raceCell: HeroCreationRaceTableViewCell = tableView.cellForRow(at: indexPath) as? HeroCreationRaceTableViewCell {
             raceImageView.image = raceCell.raceImageView.image
-            raceCell.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor
+            //raceCell.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor
         }
         
         detailView.bannerView.addSubview(raceImageView)
@@ -104,10 +107,17 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
         UIView.animate(withDuration: 0.5) {
             detailView.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY / 2, width: self.hostVC?.view.frame.width ?? 0, height: UIScreen.main.bounds.height / 2)
         }
-
-
-
     }
     
-    
+    func layoutCellsForSelection() {
+        for i in 0...races.count {
+            if let cell: HeroCreationRaceTableViewCell = raceTableView.cellForRow(at: IndexPath(item: i, section: 0)) as? HeroCreationRaceTableViewCell {
+                if cell.raceTitleLabel.text == self.currentRace {
+                    cell.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor
+                }else {
+                    cell.contentView.layer.borderColor = UIColor(named: "SWStrength_Vigor")?.cgColor
+                }
+            }
+        }
+    }
 }

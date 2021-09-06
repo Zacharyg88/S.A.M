@@ -7,14 +7,70 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCreationSkillsView" customModule="S_A_M" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCreationSkillsView" customModule="S_A_M" customModuleProvider="target">
+            <connections>
+                <outlet property="pointsRemainingLabel" destination="Hz8-zw-9tQ" id="i6o-ds-G0Z"/>
+                <outlet property="skillsCollectionView" destination="R0t-jX-aVZ" id="ltF-Kl-xW4"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BK0-Av-Fx0">
+                    <rect key="frame" x="24" y="24" width="64" height="27"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points Remaining" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-Iz-dlf">
+                    <rect key="frame" x="310" y="24" width="80" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="OMp-I5-Guz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz8-zw-9tQ">
+                    <rect key="frame" x="248.5" y="24" width="46.5" height="41"/>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="40"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="R0t-jX-aVZ">
+                    <rect key="frame" x="0.0" y="75" width="414" height="821"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ybg-o0-afs">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="R0t-jX-aVZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="5O6-gE-yQD"/>
+                <constraint firstItem="bcz-Iz-dlf" firstAttribute="leading" secondItem="Hz8-zw-9tQ" secondAttribute="trailing" constant="15" id="5TE-lb-Kq2"/>
+                <constraint firstItem="Hz8-zw-9tQ" firstAttribute="top" secondItem="bcz-Iz-dlf" secondAttribute="top" id="9Q5-YY-kJy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bcz-Iz-dlf" secondAttribute="trailing" constant="24" id="PJq-ED-cnW"/>
+                <constraint firstItem="Hz8-zw-9tQ" firstAttribute="bottom" secondItem="bcz-Iz-dlf" secondAttribute="bottom" id="SK3-Ll-oQw"/>
+                <constraint firstItem="R0t-jX-aVZ" firstAttribute="top" secondItem="BK0-Av-Fx0" secondAttribute="bottom" constant="24" id="avr-Cx-Cca"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="R0t-jX-aVZ" secondAttribute="trailing" id="bap-sc-jXy"/>
+                <constraint firstItem="BK0-Av-Fx0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="f13-e0-dY4"/>
+                <constraint firstItem="bcz-Iz-dlf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="gzl-Jz-E1e"/>
+                <constraint firstAttribute="bottom" secondItem="R0t-jX-aVZ" secondAttribute="bottom" id="p2L-5I-StV"/>
+                <constraint firstItem="BK0-Av-Fx0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="xSx-UV-ye1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="125" y="129"/>
         </view>
     </objects>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroCreationSkillsCollectionViewCell" id="gTV-IL-0wX" customClass="HeroCreationSkillsCollectionViewCell" customModule="S_A_M" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0I7-MT-brf">
+                        <rect key="frame" x="8" y="16.5" width="42.5" height="17"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob6-Pg-9cr">
+                        <rect key="frame" x="159.5" y="8" width="36" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="chv-bM-GYN"/>
+                        </constraints>
+                        <state key="normal" image="icon_minus_button"/>
+                        <connections>
+                            <action selector="minusTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fUc-64-qDx"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFL-T5-CYh">
+                        <rect key="frame" x="246" y="8" width="36" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="Vja-Ey-8Nk"/>
+                        </constraints>
+                        <state key="normal" image="icon_plus_button"/>
+                        <connections>
+                            <action selector="plusTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="9tP-dF-Xpq"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yea-sE-Db6">
+                        <rect key="frame" x="203.5" y="18" width="16.5" height="14"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_d4" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-gs-XAv">
+                        <rect key="frame" x="220" y="14" width="18" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="CqA-VC-Fwt"/>
+                            <constraint firstAttribute="height" constant="18" id="dVv-cb-o6Z"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="vcj-gs-XAv" firstAttribute="leading" secondItem="Yea-sE-Db6" secondAttribute="trailing" id="GKD-8Y-ZeY"/>
+                <constraint firstItem="ob6-Pg-9cr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="HUJ-O4-NOw"/>
+                <constraint firstItem="Yea-sE-Db6" firstAttribute="leading" secondItem="ob6-Pg-9cr" secondAttribute="trailing" constant="8" id="Piq-8N-7Gm"/>
+                <constraint firstItem="0I7-MT-brf" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="S2y-aL-m44"/>
+                <constraint firstItem="vcj-gs-XAv" firstAttribute="bottom" secondItem="Yea-sE-Db6" secondAttribute="bottom" id="UWA-TD-33C"/>
+                <constraint firstAttribute="trailing" secondItem="wFL-T5-CYh" secondAttribute="trailing" constant="8" id="dDO-4G-w74"/>
+                <constraint firstItem="wFL-T5-CYh" firstAttribute="leading" secondItem="vcj-gs-XAv" secondAttribute="trailing" constant="8" id="fYh-AS-fhR"/>
+                <constraint firstItem="wFL-T5-CYh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="mY7-jW-qsb"/>
+                <constraint firstAttribute="bottom" secondItem="wFL-T5-CYh" secondAttribute="bottom" constant="8" id="ufG-He-86h"/>
+                <constraint firstAttribute="bottom" secondItem="ob6-Pg-9cr" secondAttribute="bottom" constant="8" id="yzQ-dk-Qdl"/>
+                <constraint firstItem="0I7-MT-brf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="zXC-hX-x1B"/>
+                <constraint firstItem="ob6-Pg-9cr" firstAttribute="centerY" secondItem="Yea-sE-Db6" secondAttribute="centerY" id="zc3-Aj-GMb"/>
+            </constraints>
+            <size key="customSize" width="290" height="50"/>
+            <point key="canvasLocation" x="259.4202898550725" y="104.46428571428571"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_d4" width="14" height="12"/>
+        <image name="icon_minus_button" width="83" height="65"/>
+        <image name="icon_plus_button" width="83" height="65"/>
+    </resources>
+</document>
