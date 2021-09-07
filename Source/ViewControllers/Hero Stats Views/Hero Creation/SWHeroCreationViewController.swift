@@ -24,6 +24,7 @@ class SWHeroCreationViewController: UIViewController {
 
     var newHero: HeroModel = HeroModel()
     var heroImage: UIImage?
+    var hindrancePoints: Int = 0
     var progressViewArray: [UIView] = []
     var creationStageViewsArray: [UIView] = []
     var currentStage: Int = 0 {
@@ -50,7 +51,7 @@ class SWHeroCreationViewController: UIViewController {
         for view in progressViewArray {
             view.layer.cornerRadius = view.frame.height / 2
         }
-        
+        self.creationStageContainerView.clipsToBounds = true
         let conceptView: HeroConceptCreationView = HeroConceptCreationView(frame: self.creationStageContainerView.bounds)
         conceptView.hostVC = self
         
@@ -64,7 +65,12 @@ class SWHeroCreationViewController: UIViewController {
         
         let skillsView: HeroCreationSkillsView = HeroCreationSkillsView(frame: self.creationStageContainerView.bounds)
         
-        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView]
+        
+        let edgesView: HeroCreationEdgesView = HeroCreationEdgesView(frame: self.creationStageContainerView.bounds)
+        edgesView.hostVC = self
+        
+        
+        creationStageViewsArray = [edgesView, conceptView, raceView, hindranceView, attributesView]
         
         currentStage = 0
     }
@@ -92,6 +98,7 @@ class SWHeroCreationViewController: UIViewController {
         case 2:
             if let hindrancesView: HeroCreationHindrancesView = creationStageViewsArray[2] as? HeroCreationHindrancesView {
                 self.newHero.hinderances = hindrancesView.selectedHindrances
+                self.hindrancePoints = hindrancesView.totalPoints
             }
         case 3:
             if let attributesView: HeroCreationAttributesView = creationStageViewsArray[3] as? HeroCreationAttributesView {
@@ -114,7 +121,9 @@ class SWHeroCreationViewController: UIViewController {
                 let vigor = AttributeModel()
                 vigor.title = "Vigor"
                 vigor.dice = attributesView.vigorDice
-                
+                if attributesView.isUsingHindrancePoints {
+                    self.hindrancePoints = attributesView.remainingPoints
+                }
                 self.newHero.attributes = [agility, smarts, spirit, strength, vigor]
             }
         default:

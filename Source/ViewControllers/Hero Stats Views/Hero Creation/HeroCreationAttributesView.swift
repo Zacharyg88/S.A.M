@@ -52,12 +52,24 @@ class HeroCreationAttributesView: UIView {
             vigorDieImageView.image = UIImage(named: "icon_\(vigorDice.title ?? "")")
         }
     }
-    
+    var hostVC: SWHeroCreationViewController?
+    var isUsingHindrancePoints: Bool = false
     var remainingPoints = 5 {
         didSet {
             self.remainingPointsLabel.text = "\(remainingPoints)"
             if remainingPoints < 0 {
                 self.remainingPointsLabel.textColor = .red
+                if !isUsingHindrancePoints {
+                    let hindranceAlert = UIAlertController(title: "Out of Points!", message: "You've spent all your allotted points for increasing attributes. Would you like to spend Hindrance points to continue raising attribute levels?", preferredStyle: .alert)
+                    let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                        self.remainingPoints = self.hostVC?.hindrancePoints ?? 0
+                    }
+                    let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                    
+                    hindranceAlert.addAction(yesAction)
+                    hindranceAlert.addAction(cancelAction)
+                    self.hostVC?.present(hindranceAlert, animated: true, completion: nil)
+                }
             }else {
                 self.remainingPointsLabel.textColor = .white
             }

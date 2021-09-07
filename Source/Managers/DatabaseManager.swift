@@ -147,8 +147,25 @@ class DatabaseManager: NSObject {
                 completion(heroObject, nil)
             }
         }
-        
-        //completion(heroes, nil)
+    }
+    
+    func postHeroToDatabase(hero: HeroModel, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        let heroesRef = database.collection("heroes").document()
+        let id = heroesRef.documentID
+        heroesRef.setData(hero.createDictForValues(), merge: true) { (error) in
+            if error != nil {
+                completion(false, error)
+            }else {
+                userManager.currentUser?.heroSlugs.append(id)
+                self.updateUserInDataBase(user: userManager.currentUser!) { (success, error) in
+                    if error != nil {
+                        completion(true, error)
+                    }else {
+                        completion(true, nil)
+                    }
+                }
+            }
+        }
     }
     
     
