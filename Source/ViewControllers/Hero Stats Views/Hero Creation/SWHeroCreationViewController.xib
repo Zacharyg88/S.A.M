@@ -164,8 +164,8 @@
                 <constraint firstItem="6o2-RQ-46Q" firstAttribute="top" secondItem="ztx-tY-Sg7" secondAttribute="bottom" constant="24" id="Mqf-bN-M0N"/>
                 <constraint firstItem="vni-98-5h2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="RLa-zF-fCU"/>
                 <constraint firstItem="vni-98-5h2" firstAttribute="centerX" secondItem="6o2-RQ-46Q" secondAttribute="trailing" constant="12" id="Txq-tQ-dwi"/>
-                <constraint firstItem="ztx-tY-Sg7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VHA-rL-Rs3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ztx-tY-Sg7" secondAttribute="trailing" id="XEi-r1-6hE"/>
+                <constraint firstItem="ztx-tY-Sg7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VHA-rL-Rs3"/>
+                <constraint firstAttribute="trailing" secondItem="ztx-tY-Sg7" secondAttribute="trailing" id="XEi-r1-6hE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6o2-RQ-46Q" secondAttribute="bottom" constant="24" id="kkY-V3-pLV"/>
                 <constraint firstItem="6o2-RQ-46Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="mFy-mO-QCc"/>
                 <constraint firstItem="vni-98-5h2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pIb-SQ-Xwr"/>
