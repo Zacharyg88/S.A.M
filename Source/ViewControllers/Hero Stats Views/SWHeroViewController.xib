@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -39,7 +39,9 @@
                 <outlet property="toughnessLabel" destination="Jlw-jE-vHi" id="zku-g8-5Cz"/>
                 <outlet property="traitsButton" destination="ztQ-BK-fiz" id="exs-wu-baX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="fjE-uA-cjG"/>
+                <outlet property="woundsDownButton" destination="5Uy-yh-k67" id="PEy-on-Jqa"/>
                 <outlet property="woundsLabel" destination="WQ9-yT-vyB" id="3uw-fA-Ddv"/>
+                <outlet property="woundsUpButton" destination="V0Z-V1-ydh" id="mOL-v2-dyg"/>
                 <outlet property="woundsView" destination="rEu-92-5wC" id="PMS-L4-5JS"/>
             </connections>
         </placeholder>
@@ -212,26 +214,45 @@
                                     <rect key="frame" x="153.5" y="225" width="107" height="63"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd9-tN-hVt">
-                                            <rect key="frame" x="0.0" y="8" width="107" height="14"/>
+                                            <rect key="frame" x="8" y="8" width="44" height="14"/>
                                             <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQ9-yT-vyB">
-                                            <rect key="frame" x="45" y="27" width="17" height="35"/>
+                                            <rect key="frame" x="21.5" y="27" width="17" height="35"/>
                                             <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Z-V1-ydh">
+                                            <rect key="frame" x="79" y="8" width="20" height="22"/>
+                                            <color key="tintColor" name="SWSubheading"/>
+                                            <state key="normal" image="chevron.up.circle.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="increaseWoundCount:" destination="-1" eventType="touchUpInside" id="QT5-fC-Vob"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uy-yh-k67">
+                                            <rect key="frame" x="79" y="37" width="20" height="22"/>
+                                            <color key="tintColor" name="SWSubheading"/>
+                                            <state key="normal" image="chevron.down.circle.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="decreseWoundCount:" destination="-1" eventType="touchUpInside" id="ssw-EV-FTf"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" name="SWBackground"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="V0Z-V1-ydh" secondAttribute="trailing" constant="8" id="4zb-cb-NSv"/>
+                                        <constraint firstAttribute="trailing" secondItem="5Uy-yh-k67" secondAttribute="trailing" constant="8" id="6qW-mz-BFG"/>
+                                        <constraint firstItem="WQ9-yT-vyB" firstAttribute="centerX" secondItem="rd9-tN-hVt" secondAttribute="centerX" id="FFj-Ra-gQS"/>
                                         <constraint firstAttribute="height" constant="63" id="QX7-8N-K72"/>
                                         <constraint firstItem="WQ9-yT-vyB" firstAttribute="top" secondItem="rd9-tN-hVt" secondAttribute="bottom" constant="5" id="RmR-Yj-jP3"/>
-                                        <constraint firstItem="rd9-tN-hVt" firstAttribute="leading" secondItem="rEu-92-5wC" secondAttribute="leading" id="Snu-Ai-Ywj"/>
+                                        <constraint firstItem="rd9-tN-hVt" firstAttribute="leading" secondItem="rEu-92-5wC" secondAttribute="leading" constant="8" id="Snu-Ai-Ywj"/>
                                         <constraint firstAttribute="width" constant="107" id="jbA-OR-LM7"/>
-                                        <constraint firstAttribute="trailing" secondItem="rd9-tN-hVt" secondAttribute="trailing" id="kH6-iL-l9C"/>
-                                        <constraint firstItem="WQ9-yT-vyB" firstAttribute="centerX" secondItem="rd9-tN-hVt" secondAttribute="centerX" id="sak-Wn-1O9"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Uy-yh-k67" secondAttribute="bottom" constant="4" id="w5X-C0-N6F"/>
+                                        <constraint firstItem="V0Z-V1-ydh" firstAttribute="top" secondItem="rd9-tN-hVt" secondAttribute="top" id="x5O-P2-cT5"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omB-K0-mAr">
@@ -482,6 +503,8 @@
     <resources>
         <image name="SAM" width="123" height="71"/>
         <image name="SW_Background_Layered" width="187.5" height="399"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="icon_shield" width="24" height="29"/>
         <namedColor name="SWBackground">
             <color red="0.043137254901960784" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

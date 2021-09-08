@@ -34,13 +34,30 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     @IBOutlet weak var skillsCollectionView: UICollectionView!
     
     
-    var skills: [SkillModel] = [] {
+    var skills: [SkillModel] = []
+    var attributes: [AttributeModel] = [] {
         didSet {
-            print(skills)
-            
+            for attribute in attributes {
+                switch attribute.title {
+                case "Agility":
+                    self.agilityDiceLabel.text = attribute.dice?.title ?? ""
+                    self.agilityDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+                case "Smarts":
+                    self.smartsDiceLabel.text = attribute.dice?.title ?? ""
+                    self.smartsDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+                case "Spirit":
+                    self.spiritDiceLabel.text = attribute.dice?.title ?? ""
+                    self.spiritDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+                case "Strength":
+                    self.strengthDiceLabel.text = attribute.dice?.title ?? ""
+                    self.strengthDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+                default:
+                    self.vigorDiceLabel.text = attribute.dice?.title ?? ""
+                    self.vigorDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+                }
+            }
         }
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()

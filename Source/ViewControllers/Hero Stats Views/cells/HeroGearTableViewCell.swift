@@ -143,7 +143,7 @@ class HeroGearTableViewCell: UITableViewCell {
             self.damageLabel.isHidden = true
             self.damageStatsLabel.isHidden = true
             self.rangeLabel.text = "PP"
-            self.rangeStatsLabel.text = "\(powerItem?.powerPoints)"
+            self.rangeStatsLabel.text = "\(powerItem?.powerPoints ?? 0)"
             self.notesLabel.text = "Range"
             self.notesDescriptionLabel.text = powerItem?.range ?? ""
             self.weightLabel.text = "Duration"

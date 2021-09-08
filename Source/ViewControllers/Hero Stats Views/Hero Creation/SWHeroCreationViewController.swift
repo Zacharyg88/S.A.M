@@ -63,8 +63,9 @@ class SWHeroCreationViewController: UIViewController {
         let attributesView: HeroCreationAttributesView = HeroCreationAttributesView(frame: self.creationStageContainerView.bounds)
         
         let skillsView: HeroCreationSkillsView = HeroCreationSkillsView(frame: self.creationStageContainerView.bounds)
+        skillsView.hostVC = self
         
-        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView]
+        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView, skillsView]
         
         currentStage = 0
     }

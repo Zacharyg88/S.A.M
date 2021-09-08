@@ -25,6 +25,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var horizontalStackView: UIStackView!
     @IBOutlet weak var woundsLabel: UILabel!
     @IBOutlet weak var woundsView: UIView!
+    @IBOutlet weak var woundsUpButton: UIButton!
+    @IBOutlet weak var woundsDownButton: UIButton!
     @IBOutlet weak var shakenButton: UIButton!
     @IBOutlet weak var hinderancesTableView: UITableView!
     @IBOutlet weak var edgesTableView: UITableView!
@@ -48,6 +50,11 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     var isShaken: Bool = false
+    var woundCount: Int = 0 {
+        didSet {
+            self.woundsLabel.text = "\(woundCount)"
+        }
+    }
     var tabViews: [UIView] = []
     var heroesArray: [HeroModel] = []
     var hero: HeroModel? {
@@ -146,6 +153,12 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    @IBAction func increaseWoundCount(_ sender: Any) {
+        self.woundCount += 1
+    }
+    @IBAction func decreseWoundCount(_ sender: Any) {
+        self.woundCount -= 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 0 {
@@ -342,6 +355,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //Traits
             let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
             traitsView.skills = hero?.skills ?? [SkillModel]()
+            traitsView.attributes = hero?.attributes ?? [AttributeModel]()
             self.switchContainerView.addSubview(traitsView)
         case 1:
             // Gear
@@ -379,6 +393,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("Powers")
             let powersView: HeroPowersView = HeroPowersView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
             powersView.powers = hero?.powers ?? [PowerModel]()
+            powersView.ppCountLabel.text = "\(hero?.powerPoints ?? 0)"
             powersView.hostVC = self
             powersView.delegate = self
             self.switchContainerView.addSubview(powersView)

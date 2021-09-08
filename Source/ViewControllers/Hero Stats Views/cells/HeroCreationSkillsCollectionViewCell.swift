@@ -26,8 +26,11 @@ class HeroCreationSkillsCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     @IBAction func minusTapped(_ sender: Any) {
+        hostVC?.subtractPoint(skillName: skillName)
+        
     }
     
     @IBAction func plusTapped(_ sender: Any) {
+        hostVC?.spendPoint(skillName: skillName)
     }
 }
