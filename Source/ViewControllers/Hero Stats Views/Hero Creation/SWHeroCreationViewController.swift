@@ -24,7 +24,13 @@ class SWHeroCreationViewController: UIViewController {
 
     var newHero: HeroModel = HeroModel()
     var heroImage: UIImage?
-    var hindrancePoints: Int = 0
+    var hindrancePoints: Int = 0 {
+        didSet {
+            if let edgesView: HeroCreationEdgesView = creationStageViewsArray[5] as? HeroCreationEdgesView {
+                edgesView.pointsRemaining = hindrancePoints
+            }
+        }
+    }
     var progressViewArray: [UIView] = []
     var creationStageViewsArray: [UIView] = []
     var currentStage: Int = 0 {
@@ -129,6 +135,10 @@ class SWHeroCreationViewController: UIViewController {
                     self.hindrancePoints = attributesView.remainingPoints
                 }
                 self.newHero.attributes = [agility, smarts, spirit, strength, vigor]
+            }
+        case 4:
+            if let skillsView: HeroCreationSkillsView = creationStageViewsArray[4] as? HeroCreationSkillsView {
+                self.newHero.skills = skillsView.allSkills
             }
         default:
             print("default")

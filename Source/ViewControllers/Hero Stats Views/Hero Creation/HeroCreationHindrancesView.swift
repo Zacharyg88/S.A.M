@@ -15,7 +15,11 @@ class HeroCreationHindrancesView: UIView, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var hindranceCountLabel: UILabel!
     @IBOutlet weak var hindranceTableView: UITableView!
     
-    var hindrances = ruleBook.hinderances.hinderances
+    var hindrances: [HindranceModel] {
+        get {
+            return ruleBook.hinderances.hinderances ?? [HindranceModel]()
+        }
+    }
     var hostVC: SWHeroCreationViewController?
     var totalPoints = 0 {
         didSet {

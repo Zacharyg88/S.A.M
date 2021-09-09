@@ -151,7 +151,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
-        
+//        databaseManager.postRulebookToServer(rulebook: ruleBook) { (success, error) in
+//            print(success, error)
+//        }
     }
     
     @IBAction func increaseWoundCount(_ sender: Any) {

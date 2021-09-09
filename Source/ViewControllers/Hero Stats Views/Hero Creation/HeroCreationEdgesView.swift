@@ -39,7 +39,7 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource,
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SWHeroEdgesTableViewCell", bundle: nil), forCellReuseIdentifier: "SWHeroEdgesTableViewCell")
-        self.pointsRemaining = self.hostVC?.hindrancePoints ?? 0
+        //self.pointsRemaining = self.hostVC?.hindrancePoints ?? 0
         self.clipsToBounds = true
         
     }
