@@ -212,6 +212,26 @@ class DatabaseManager: NSObject {
         }
     }
     
+    func getRulebooksFromServer(completion: @escaping(_ rulebooks: [RulebookModel], _ error: Error?) -> Void) {
+        var rulebookArray: [RulebookModel] = []
+        let rulebookRef = database.collection("rulebooks")
+        rulebookRef.getDocuments { (snapshot, error) in
+            if error != nil {
+                completion(rulebookArray, error)
+            }else {
+                for document in snapshot?.documents ?? [QueryDocumentSnapshot]() {
+                    if let doc: QueryDocumentSnapshot = document as? QueryDocumentSnapshot, doc.exists {
+                        var newRulebook = RulebookModel().generateObjectFromDict(dict: doc.data())
+                        newRulebook.slug = doc.documentID
+                        rulebookArray.append(newRulebook)
+                    }
+                }
+                completion(rulebookArray, nil)
+            }
+            
+        }
+    }
+    
     
 }
 

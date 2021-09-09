@@ -35,9 +35,6 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
     }
     
     func setupView() {
-        skillsCollectionView.delegate = self
-        skillsCollectionView.dataSource = self
-        skillsCollectionView.register(UINib(nibName: "HeroCreationSkillsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroCreationSkillsCollectionViewCell")
         self.availablePoints = 12
         for skill in ruleBook.skills.skills {
             var newSkill = SkillModel()
@@ -51,10 +48,18 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
             }
             allSkills.append(newSkill)
         }
+        setDefaultDiceValues()
+        skillsCollectionView.delegate = self
+        skillsCollectionView.dataSource = self
+        skillsCollectionView.register(UINib(nibName: "HeroCreationSkillsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroCreationSkillsCollectionViewCell")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return rulebookSkills.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 2) - 10, height: 48)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,8 +67,10 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
             _ = cell.contentView
             let skill: SkillModel = allSkills[indexPath.row]
             cell.skillName = skill.title ?? ""
+            cell.diceLabel.text = skill.dice?.title ?? ""
+            cell.diceImageView.image = UIImage(named: "icon_\(skill.dice?.title ?? "")")
             if skill.attribute != "Strength" && skill.attribute != "Vigor" {
-                let colorString: String = "SW\(skill.attribute)"
+                let colorString: String = "SW\(skill.attribute ?? "")"
                 cell.skillLabel.textColor = UIColor(named: colorString)
             }else {
                 cell.skillLabel.textColor = UIColor(named: "SWStrength_Vigor")
@@ -82,6 +89,7 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
                     let userAttributes = hostVC?.newHero.attributes
                     if skill.dice?.sides ?? 0 < 12 {
                         skill.dice?.sides = diceDenoms[(diceIndex ?? 0) + 1]
+                        skill.dice?.title = "d\(skill.dice?.sides ?? 4)"
                         for attribute in userAttributes ?? [AttributeModel]() {
                             if attribute.title == skill.attribute {
                                 if (skill.dice?.sides ?? 0) > (attribute.dice?.sides ?? 0) {
@@ -101,6 +109,7 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
                 }
             }
         }
+        skillsCollectionView.reloadData()
     }
     
     func subtractPoint(skillName: String) {
@@ -125,6 +134,19 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
                     skill.dice = nil
                     self.availablePoints += 1
                 }
+            }
+        }
+        skillsCollectionView.reloadData()
+
+    }
+    
+    func setDefaultDiceValues() {
+        for skill in allSkills {
+            if skill.title?.contains("*") ?? false {
+                var newDice = DiceModel()
+                newDice.sides = 4
+                newDice.title = "d4"
+                skill.dice = newDice
             }
         }
     }

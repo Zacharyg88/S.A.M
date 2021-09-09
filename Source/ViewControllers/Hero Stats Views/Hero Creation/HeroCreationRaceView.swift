@@ -44,7 +44,7 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return races.count
+        return races.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -53,7 +53,7 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: HeroCreationRaceTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeroCreationRaceTableViewCell", for: indexPath) as? HeroCreationRaceTableViewCell {
-            var race = races[indexPath.row]
+            var race = races[indexPath.row] ?? RB_Race()
             databaseManager.getImageFromStorage(imageName: race.imageLocation ?? "") { Image, error in
                 if error != nil {
                     print("There was an error getting the image \(error)")
@@ -73,7 +73,7 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let race = races[indexPath.row]
+        let race = races[indexPath.row] ?? RB_Race()
         let detailView: HeroObjectDetailsView = HeroObjectDetailsView(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: self.hostVC?.view.frame.width ?? 0, height: UIScreen.main.bounds.height / 2))
         
         let raceImageView: UIImageView = UIImageView(frame: detailView.bannerView.frame)
@@ -110,7 +110,7 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func layoutCellsForSelection() {
-        for i in 0...races.count {
+        for i in 0...(races.count ?? 0) {
             if let cell: HeroCreationRaceTableViewCell = raceTableView.cellForRow(at: IndexPath(item: i, section: 0)) as? HeroCreationRaceTableViewCell {
                 if cell.raceTitleLabel.text == self.currentRace {
                     cell.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor

@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        databaseManager.getRulebooksFromServer { (rulebooks, error) in
+            if error != nil {
+                print("There was an error getting the rulebooks from the server \(error)")
+            }else {
+                ruleBook = rulebooks.first ?? RulebookModel()
+            }
+        }
         if let currentUserSlug = UserDefaults.standard.string(forKey: "CurrentUserSlug") {
             databaseManager.getUserFromDatabase(slug: currentUserSlug) { (user) in
                 if user == nil {
