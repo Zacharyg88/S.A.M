@@ -51,27 +51,30 @@ class SWHeroCreationViewController: UIViewController {
         for view in progressViewArray {
             view.layer.cornerRadius = view.frame.height / 2
         }
+        var frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.creationStageContainerView.frame.height)
         self.creationStageContainerView.clipsToBounds = true
-        let conceptView: HeroConceptCreationView = HeroConceptCreationView(frame: self.creationStageContainerView.bounds)
+        self.view.clipsToBounds = true
+        let conceptView: HeroConceptCreationView = HeroConceptCreationView(frame: frame)
         conceptView.hostVC = self
         
-        let raceView: HeroCreationRaceView = HeroCreationRaceView(frame: self.creationStageContainerView.bounds)
+        let raceView: HeroCreationRaceView = HeroCreationRaceView(frame: frame)
         raceView.hostVC = self
         
-        let hindranceView: HeroCreationHindrancesView = HeroCreationHindrancesView(frame: self.creationStageContainerView.bounds)
+        let hindranceView: HeroCreationHindrancesView = HeroCreationHindrancesView(frame: frame)
         hindranceView.hostVC = self
         
-        let attributesView: HeroCreationAttributesView = HeroCreationAttributesView(frame: self.creationStageContainerView.bounds)
+        let attributesView: HeroCreationAttributesView = HeroCreationAttributesView(frame: frame)
         
-        let skillsView: HeroCreationSkillsView = HeroCreationSkillsView(frame: self.creationStageContainerView.bounds)
+        let skillsView: HeroCreationSkillsView = HeroCreationSkillsView(frame: frame)
         skillsView.hostVC = self
         
         
-        let edgesView: HeroCreationEdgesView = HeroCreationEdgesView(frame: self.creationStageContainerView.bounds)
+        let edgesView: HeroCreationEdgesView = HeroCreationEdgesView(frame: frame)
+        edgesView.pointsRemaining = self.hindrancePoints
         edgesView.hostVC = self
         
         
-        creationStageViewsArray = [edgesView, conceptView, raceView, hindranceView, attributesView]
+        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView, skillsView, edgesView]
         
         currentStage = 0
     }

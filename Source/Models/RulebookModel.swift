@@ -30,6 +30,21 @@ class RB_Race: NSObject {
         self.raceSpecificTraits = traits
         self.imageLocation = imageLocation
     }
+    
+    func generateDictFromObject() -> [String: Any] {
+        var objectDict: [String: Any] = [
+            "generalDescription": self.generalDescription,
+            "raceSpecificTraits": self.raceSpecificTraits,
+            "imageLocation": self.imageLocation,
+            "title": self.title
+        ]
+        return objectDict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> RB_Race {
+        var newRace: RB_Race = RB_Race(title: dict["title"] as! String, generalDescription: dict["generalDescription"] as! String, traits: dict["raceSpecificTraits"] as! String, imageLocation: dict["imageLocation"] as! String)
+        return newRace
+    }
 }
 
 class Races: NSObject {
@@ -130,6 +145,30 @@ Attributes don’t directly affect skill rolls. Savage Worlds treats learned kno
     var Spirit = "Spirit is self-confidence, backbone, and willpower. It’s used to resist social and supernatural attacks as well as fear."
     var Strength = "Strength is physical power and fitness. It’s also used as the basis of a warrior’s damage in hand-to-hand combat, and to determine how much he can wear or carry."
     var Vigor = "Vigor represents an individual’s endurance, resistance to disease, poison, or toxins, and how much physical damage she can take before she can’t go on. It is most often used to resist Fatigue effects, and as the basis for the derived stat of Toughness."
+    
+    func generateDictFromObject() -> [String: Any] {
+        var dict: [String: Any] = [
+            "generalDescription": self.generalDescription,
+            "Agility": self.Agility,
+            "Smarts": self.Smarts,
+            "Spirit": self.Spirit,
+            "Strength": self.Strength,
+            "Vigor": self.Vigor
+        ]
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> Attributes {
+        var newAttributes: Attributes = Attributes()
+        newAttributes.generalDescription = dict["generalDescription"] as! String
+        newAttributes.Agility = dict["Agility"] as! String
+        newAttributes.Smarts = dict["Smarts"] as! String
+        newAttributes.Spirit = dict["Spirit"] as! String
+        newAttributes.Strength = dict["Strength"] as! String
+        newAttributes.Vigor = dict["Vigor"] as! String
+        
+        return newAttributes
+    }
 }
 
 class Skills: NSObject {
@@ -319,25 +358,117 @@ class RB_Skill: NSObject {
     override init() {
         super.init()
     }
-    
-    
     convenience init(summary: String, attribute: String, title: String) {
         self.init()
         self.summary = summary
         self.attribute = attribute
         self.title = title
     }
+    
+    func generateDictFromObject() -> [String: Any] {
+        let dict: [String: Any] = [
+            "title": self.title,
+            "summary": self.summary,
+            "attribute": self.attribute
+        ]
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> RB_Skill {
+        let newSkill: RB_Skill = RB_Skill(summary: dict["summary"] as! String, attribute: dict["attribute"] as! String, title: dict["title"] as! String)
+        return newSkill
+    }
 }
 
 
 class Hinderances: NSObject {
     
-    var Hinderances: [HindranceModel] = []
+    var hinderances: [HindranceModel] = []
     
     override init() {
         super.init()
-        Hinderances = [All_Thumbs, Anemic, Arrogant, Bad_Eyes, Bad_Luck, Big_Mouth, Blind, Bloodthirsty, Cant_Swim, Cautious, Clueless, Clumsy, Code_of_Honor, Curious, Deathwish, Delusional,Doubting_Thomas, Driven, Elderly, Enemy, Greedy, Habit, Hard_of_Hearing, Heroic, Hesitant, Illiterate, Impulsive, Jealous, Loyal, Mean, Mild_Mannered, Mute, Obese, Obligation, One_Arm, One_Eye, Outsider, Overconfident, Pacifist, Phobia, Poverty, Quirk, Ruthless, Secret, Shamed, Slow, Small, Stubborn, Suspicious, Thin_Skinned, Tongue_Tied, Ugly, Vengeful, Vow, Wanted, Yellow, Young]
+        hinderances = [All_Thumbs, Anemic, Arrogant, Bad_Eyes, Bad_Luck, Big_Mouth, Blind, Bloodthirsty, Cant_Swim, Cautious, Clueless, Clumsy, Code_of_Honor, Curious, Deathwish, Delusional,Doubting_Thomas, Driven, Elderly, Enemy, Greedy, Habit, Hard_of_Hearing, Heroic, Hesitant, Illiterate, Impulsive, Jealous, Loyal, Mean, Mild_Mannered, Mute, Obese, Obligation, One_Arm, One_Eye, Outsider, Overconfident, Pacifist, Phobia, Poverty, Quirk, Ruthless, Secret, Shamed, Slow, Small, Stubborn, Suspicious, Thin_Skinned, Tongue_Tied, Ugly, Vengeful, Vow, Wanted, Yellow, Young]
     }
+    func generateDictFromObject() -> [String: Any] {
+        let dict: [String: Any] = [
+            "generalDescription": self.generalDescription,
+            "All_Thumbs": self.All_Thumbs.generateDictForValues(),
+            "Anemic": self.Anemic.generateDictForValues(),
+            "Arrogant": self.Arrogant.generateDictForValues(),
+            "Bad_Eyes": self.Bad_Eyes.generateDictForValues(),
+            "Bad_Luck": self.Bad_Luck.generateDictForValues(),
+            "Big_Mouth": self.Big_Mouth.generateDictForValues(),
+            "Blind": self.Blind.generateDictForValues(),
+            "Bloodthirsty": self.Bloodthirsty.generateDictForValues(),
+            "Cant_Swim": self.Cant_Swim.generateDictForValues(),
+            "Cautious": self.Cautious.generateDictForValues(),
+            "Clueless": self.Clueless.generateDictForValues(),
+            "Clumsy": self.Clumsy.generateDictForValues(),
+            "Code_of_Honor": self.Code_of_Honor.generateDictForValues(),
+            "Curious": self.Curious.generateDictForValues(),
+            "Deathwish": self.Deathwish.generateDictForValues(),
+            "Delusional": self.Delusional.generateDictForValues(),
+            "Doubting_Thomas": self.Doubting_Thomas.generateDictForValues(),
+            "Driven": self.Driven.generateDictForValues(),
+            "Elderly": self.Elderly.generateDictForValues(),
+            "Enemy": self.Enemy.generateDictForValues(),
+            "Greedy": self.Greedy.generateDictForValues(),
+            "Habit": self.Habit.generateDictForValues(),
+            "Hard_of_Hearing": self.Hard_of_Hearing.generateDictForValues(),
+            "Heroic": self.Heroic.generateDictForValues(),
+            "Hesitant": self.Hesitant.generateDictForValues(),
+            "Illiterate": self.Illiterate.generateDictForValues(),
+            "Impulsive": self.Impulsive.generateDictForValues(),
+            "Jealous": self.Jealous.generateDictForValues(),
+            "Loyal": self.Loyal.generateDictForValues(),
+            "Mean": self.Mean.generateDictForValues(),
+            "Mild_Mannered": self.Mild_Mannered.generateDictForValues(),
+            "Mute": self.Mute.generateDictForValues(),
+            "Obese": self.Obese.generateDictForValues(),
+            "Obligation": self.Obligation.generateDictForValues(),
+            "One_Arm": self.One_Arm.generateDictForValues(),
+            "Outsider": self.Outsider.generateDictForValues(),
+            "Overconfident": self.Overconfident.generateDictForValues(),
+            "Pacifist": self.Pacifist.generateDictForValues(),
+            "Phobia": self.Phobia.generateDictForValues(),
+            "Poverty": self.Poverty.generateDictForValues(),
+            "Quirk": self.Quirk.generateDictForValues(),
+            "Ruthless": self.Ruthless.generateDictForValues(),
+            "Secret": self.Secret.generateDictForValues(),
+            "Shamed": self.Shamed.generateDictForValues(),
+            "Slow": self.Slow.generateDictForValues(),
+            "Small": self.Small.generateDictForValues(),
+            "Stubborn": self.Stubborn.generateDictForValues(),
+            "Suspicious": self.Suspicious.generateDictForValues(),
+            "Thin_Skinned": self.Thin_Skinned.generateDictForValues(),
+            "Tongue_Tied": self.Tongue_Tied.generateDictForValues(),
+            "Ugly": self.Ugly.generateDictForValues(),
+            "Vengeful": self.Vengeful.generateDictForValues(),
+            "Vow": self.Vow.generateDictForValues(),
+            "Wanted": self.Wanted.generateDictForValues(),
+            "Yellow": self.Yellow.generateDictForValues(),
+            "Young": self.Young.generateDictForValues()
+        ]
+        
+        return dict
+    }
+    
+    func generateModelFromDict(dict: [String: Any]) -> Hinderances {
+        var hinderances: Hinderances = Hinderances()
+        hinderances.generalDescription = dict["generalDescription"] as! String
+        if let All_Thumbs: [String: Any] = dict["All_Thumbs"] as? [String: Any] {
+            hinderances.All_Thumbs = HindranceModel().generateModelFromDict(data: All_Thumbs)
+        }
+        if let Anemic: [String: Any] = dict["Anemic"] as? [String: Any] {
+            hinderances.Anemic = HindranceModel().generateModelFromDict(data: Anemic)
+        }
+        if let Arrogant: [String: Any] = dict["Arrogant"] as? [String: Any] {
+            hinderances.Arrogant = HindranceModel().generateModelFromDict(data: Arrogant)
+        }
+        
+        return hinderances
+    }
+    
     var generalDescription = """
     Constructs are designed with a particular purpose. Player character constructs have broad directives such as serving a particular corporation or political faction. This acts as a Major Vow to that particular directive. If this ever causes a conflict of interest, the player and GM must figure out what the construct’s programming requires.
     """
@@ -1254,6 +1385,31 @@ class EdgeCategory: NSObject {
         
         self.generalDescription = generalDescription
         self.edges = edges
+    }
+    
+    func generateDictFromObject() -> [String: Any] {
+        var dict: [String: Any] = [
+            "generalDescription": self.generalDescription
+        ]
+        var edgeDictArray: [[String: Any]] = []
+        for edge in self.edges {
+            edgeDictArray.append(edge.generateDictForValues())
+        }
+        dict["edges"] = edgeDictArray
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> EdgeCategory {
+        var edges: [EdgeModel] = []
+        if let edgesDictArray = dict["edges"] as? [[String: Any]] {
+            for dict in edgesDictArray {
+                let parsedEdge: EdgeModel = EdgeModel().generateModelFromDict(data: dict)
+                edges.append(parsedEdge)
+                
+            }
+        }
+        let edgeCategory: EdgeCategory = EdgeCategory(generalDescription: dict["generalDescription"] as! String, edges: edges)
+        return edgeCategory
     }
 }
 

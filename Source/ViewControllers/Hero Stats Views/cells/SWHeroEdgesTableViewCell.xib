@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,23 +23,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfa-MF-f4g">
-                        <rect key="frame" x="8" y="12" width="42" height="20"/>
+                        <rect key="frame" x="8" y="13.5" width="42" height="17"/>
                         <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reD-mI-Yxh">
-                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                        <rect key="frame" x="260" y="0.0" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="reD-mI-Yxh" secondAttribute="height" multiplier="1:1" id="cdV-fs-FmA"/>
                         </constraints>
                         <state key="normal" image="icon_plus_button"/>
+                        <connections>
+                            <action selector="selectEdgeTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tLu-oT-iR6"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="reD-mI-Yxh" secondAttribute="bottom" id="IaC-G7-Gqp"/>
                     <constraint firstItem="qfa-MF-f4g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="MkD-3z-ybB"/>
-                    <constraint firstAttribute="trailing" secondItem="reD-mI-Yxh" secondAttribute="trailing" id="NZN-gj-mBn"/>
+                    <constraint firstAttribute="trailing" secondItem="reD-mI-Yxh" secondAttribute="trailing" constant="16" id="NZN-gj-mBn"/>
                     <constraint firstItem="reD-mI-Yxh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dal-3g-LEV"/>
                     <constraint firstItem="qfa-MF-f4g" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oVC-6I-oew"/>
                 </constraints>

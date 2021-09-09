@@ -39,7 +39,7 @@ class HeroConceptCreationView: UIView, UITextViewDelegate, UIImagePickerControll
         addImageButton.layer.cornerRadius = addImageButton.frame.height / 2
         addImageButton.layer.borderWidth = 2
         addImageButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
-        
+        self.clipsToBounds = true
         
 
     }

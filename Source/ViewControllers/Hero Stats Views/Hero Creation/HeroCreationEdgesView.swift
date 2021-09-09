@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource {
+class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource, edgeSelectionDelegate {
+    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -16,6 +17,7 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var pointsRemainingLabel: UILabel!
     
     var hostVC: SWHeroCreationViewController?
+    var selectedEdges: [EdgeModel] = []
     var pointsRemaining: Int = 0 {
         didSet {
             self.pointsRemainingLabel.text = "\(pointsRemaining)"
@@ -38,6 +40,7 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource 
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SWHeroEdgesTableViewCell", bundle: nil), forCellReuseIdentifier: "SWHeroEdgesTableViewCell")
         self.pointsRemaining = self.hostVC?.hindrancePoints ?? 0
+        self.clipsToBounds = true
         
     }
     
@@ -76,6 +79,15 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource 
         let edges: [EdgeModel] = getLibraryForSection(section: indexPath.section).edges
         if let edgeCell: SWHeroEdgesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SWHeroEdgesTableViewCell", for: indexPath) as? SWHeroEdgesTableViewCell {
             edgeCell.edgeLabel.text = edges[indexPath.row].title
+            edgeCell.cellEdge = edges[indexPath.row]
+            if self.selectedEdges.contains(edges[indexPath.row]) {
+                edgeCell.addButton.setImage(UIImage(named: "icon_minus_button"), for: UIControl.State())
+                edgeCell.backgroundColor = UIColor(named: "SWPower_Light")
+            }else {
+                edgeCell.addButton.setImage(UIImage(named: "icon_plus_button"), for: UIControl.State())
+                edgeCell.backgroundColor = UIColor(named: "SWStrength_Vigor")
+            }
+            edgeCell.delegate = self
             return edgeCell
         }
         return UITableViewCell()
@@ -125,6 +137,26 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource 
             return ruleBook.edges.Legendary_Edges ?? EdgeCategory()
         }
 
+    }
+    
+    func didSelectEdge(edge: EdgeModel) {
+        if pointsRemaining > 1 {
+            self.selectedEdges.append(edge)
+            self.pointsRemaining -= 2
+        }else {
+            let pointsAlert: UIAlertController = UIAlertController(title: "Not Enough Points!", message: "You do not have enough Hindrance Points to aquire this Edge. Either remove a currently selected Edge or return to the Hindrance page to take additional Hindrances and get more points.", preferredStyle: .alert)
+            let okAction: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            pointsAlert.addAction(okAction)
+            self.hostVC?.present(pointsAlert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func didDeSelectEdge(edge: EdgeModel) {
+        if selectedEdges.contains(edge) {
+            self.selectedEdges.remove(at: self.selectedEdges.firstIndex(of: edge) ?? 0)
+            self.pointsRemaining += 2
+        }
     }
     
     

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Oxanium-VariableFont_wght 2.ttf">
+        <array key="Oxanium-VariableFont_wght.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
@@ -78,6 +78,13 @@
                 <constraint firstItem="ob6-Pg-9cr" firstAttribute="centerY" secondItem="Yea-sE-Db6" secondAttribute="centerY" id="zc3-Aj-GMb"/>
             </constraints>
             <size key="customSize" width="290" height="50"/>
+            <connections>
+                <outlet property="diceImageView" destination="vcj-gs-XAv" id="2sz-0H-vxg"/>
+                <outlet property="diceLabel" destination="Yea-sE-Db6" id="Jgn-97-85j"/>
+                <outlet property="minusButton" destination="ob6-Pg-9cr" id="7Mv-zc-Tyh"/>
+                <outlet property="plusButton" destination="wFL-T5-CYh" id="CWu-QU-xYS"/>
+                <outlet property="skillLabel" destination="0I7-MT-brf" id="qFA-zM-ONN"/>
+            </connections>
             <point key="canvasLocation" x="259.4202898550725" y="104.46428571428571"/>
         </collectionViewCell>
     </objects>

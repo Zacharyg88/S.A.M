@@ -59,6 +59,7 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: HeroCreationSkillsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCreationSkillsCollectionViewCell", for: indexPath) as? HeroCreationSkillsCollectionViewCell {
+            _ = cell.contentView
             let skill: SkillModel = allSkills[indexPath.row]
             cell.skillName = skill.title ?? ""
             if skill.attribute != "Strength" && skill.attribute != "Vigor" {
