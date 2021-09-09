@@ -14,6 +14,39 @@ class RulebookModel: NSObject {
     var hinderances = Hinderances()
     var edges = Edges()
     
+    func generateDictFromModel() -> [String: Any] {
+        let dict: [String: Any] = [
+            "attributes": attributes.generateDictFromObject(),
+            "skills": skills.generateDictFromObject(),
+            "races": races.generateDictFromObject(),
+            "hindrances": hinderances.generateDictFromObject(),
+            "edges": edges.generateDictFromObject(),
+        ]
+        
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> RulebookModel {
+        let newRulebook = RulebookModel()
+        if let attributes: [String: Any] = dict["attributes"] as? [String: Any] {
+            newRulebook.attributes = Attributes().generateObjectFromDict(dict: attributes)
+        }
+        if let skills: [String: Any] = dict["skills"] as? [String: Any] {
+            newRulebook.skills = Skills().generateModelFromDict(dict: skills)
+        }
+        if let races: [String: Any] = dict["races"] as? [String: Any] {
+            newRulebook.races = Races().generateObjectFromDict(dict: races)
+        }
+        if let hinderances: [String: Any] = dict["hinderances"] as? [String: Any] {
+            newRulebook.hinderances = Hinderances().generateModelFromDict(dict: hinderances)
+        }
+        if let edges: [String: Any] = dict["edges"] as? [String: Any] {
+            newRulebook.edges = Edges().generateObjectFromDict(dict: edges)
+        }
+        
+        return newRulebook
+    }
+    
     
 }
 
@@ -132,6 +165,67 @@ Not every hero is human. Below are sample races common to many science fiction a
             KEEN SENSES: Saurians have acute senses, giving them the Alertness Edge.
             OUTSIDER (Minor): Most races distrust saurians for some reason. Perhaps it is their strange ways and customs, their often-sibilant speech, or an ancient subconscious fear of their reptilian ancestors. Saurians subtract 2 from Persuasion rolls with all but others of their kind.
         """, imageLocation: "/Images/SW_Saurian_Race.png")
+    
+    func generateDictFromObject() -> [String: Any] {
+        let dict: [String: Any] = [
+            "generalDescription": self.generalDescription,
+            "Android": self.Android.generateDictFromObject(),
+            "Aquarian": self.Aquarian.generateDictFromObject(),
+            "Avion": self.Avion.generateDictFromObject(),
+            "Dwarves": self.Dwarves.generateDictFromObject(),
+            "Elves": self.Elves.generateDictFromObject(),
+            "Half_Elves": self.Half_Elves.generateDictFromObject(),
+            "Half_Folk": self.Half_Folk.generateDictFromObject(),
+            "Humans": self.Humans.generateDictFromObject(),
+            "Rakashans": self.Rakashans.generateDictFromObject(),
+            "Saurians": self.Saurians.generateDictFromObject()
+        ]
+        
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> Races {
+        let newRaces = Races()
+        newRaces.generalDescription = dict["generalDescription"] as? String  ?? ""
+        if let Android: [String: Any] = dict["Android"] as? [String: Any] {
+            newRaces.Android = RB_Race().generateObjectFromDict(dict: Android)
+        }
+        
+        if let Aquarian: [String: Any] = dict["Aquarian"] as? [String: Any] {
+            newRaces.Aquarian = RB_Race().generateObjectFromDict(dict: Aquarian)
+        }
+        
+        if let Avion: [String: Any] = dict["Avion"] as? [String: Any] {
+            newRaces.Avion = RB_Race().generateObjectFromDict(dict: Avion)
+        }
+        
+        if let Dwarves: [String: Any] = dict["Dwarves"] as? [String: Any] {
+            newRaces.Dwarves = RB_Race().generateObjectFromDict(dict: Dwarves)
+        }
+        
+        if let Elves: [String: Any] = dict["Elves"] as? [String: Any] {
+            newRaces.Elves = RB_Race().generateObjectFromDict(dict: Elves)
+        }
+        
+        if let Half_Elves: [String: Any] = dict["Half_Elves"] as? [String: Any] {
+            newRaces.Half_Elves = RB_Race().generateObjectFromDict(dict: Half_Elves)
+        }
+        
+        if let Half_Folk: [String: Any] = dict["Half_Folk"] as? [String: Any] {
+            newRaces.Half_Folk = RB_Race().generateObjectFromDict(dict: Half_Folk)
+        }
+        
+        if let Humans: [String: Any] = dict["Humans"] as? [String: Any] {
+            newRaces.Humans = RB_Race().generateObjectFromDict(dict: Humans)
+        }
+        if let Rakashans: [String: Any] = dict["Rakashans"] as? [String: Any] {
+            newRaces.Rakashans = RB_Race().generateObjectFromDict(dict: Rakashans)
+        }
+        if let Saurians: [String: Any] = dict["Saurians"] as? [String: Any] {
+            newRaces.Saurians = RB_Race().generateObjectFromDict(dict: Saurians)
+        }
+        return newRaces
+    }
 }
 
 class Attributes: NSObject {
@@ -349,6 +443,180 @@ Limited: Using Thievery on an electronic device, such as a keypad, is limited by
 Though their techniques may vary, all use Weird Science as their arcane skill. See the Arcane Background (Weird Science) Edge on page 148 to learn more of their wondrous ways.
 """, attribute: "Smarts", title: "Weird Science")
     
+    func generateDictFromObject() -> [String: Any] {
+        let dict: [String: Any] = [
+            "generalDescription": self.generalDescription,
+            "Academics": self.Academics.generateDictFromObject(),
+            "Athletics": self.Athletics.generateDictFromObject(),
+            "Battle": self.Battle.generateDictFromObject(),
+            "Boating": self.Boating.generateDictFromObject(),
+            "Common_Knowledge": self.Common_Knowledge.generateDictFromObject(),
+            "Driving": self.Driving.generateDictFromObject(),
+            "Electronics": self.Electronics.generateDictFromObject(),
+            "Faith": self.Faith.generateDictFromObject(),
+            "Fighting": self.Fighting.generateDictFromObject(),
+            "Focus": self.Focus.generateDictFromObject(),
+            "Gambling": self.Gambling.generateDictFromObject(),
+            "Hacking": self.Hacking.generateDictFromObject(),
+            "Healing": self.Healing.generateDictFromObject(),
+            "Intimidation": self.Intimidation.generateDictFromObject(),
+            "Language": self.Language.generateDictFromObject(),
+            "Notice": self.Notice.generateDictFromObject(),
+            "Occult": self.Occult.generateDictFromObject(),
+            "Performance": self.Performance.generateDictFromObject(),
+            "Piloting": self.Piloting.generateDictFromObject(),
+            "Psionics": self.Psionics.generateDictFromObject(),
+            "Repair": self.Repair.generateDictFromObject(),
+            "Research": self.Research.generateDictFromObject(),
+            "Riding": self.Riding.generateDictFromObject(),
+            "Science": self.Science.generateDictFromObject(),
+            "Shooting": self.Shooting.generateDictFromObject(),
+            "Spellcasting": self.Spellcasting.generateDictFromObject(),
+            "Stealth": self.Stealth.generateDictFromObject(),
+            "Survival": self.Survival.generateDictFromObject(),
+            "Taunt": self.Taunt.generateDictFromObject(),
+            "Thievery": self.Thievery.generateDictFromObject(),
+            "Weird_Science": self.Weird_Science.generateDictFromObject()
+        ]
+        
+        return dict
+    }
+    
+    func generateModelFromDict(dict: [String: Any]) -> Skills {
+        let newSkills: Skills = Skills()
+        newSkills.generalDescription = dict["generalDescription"] as? String ?? ""
+
+        if let Weird_Science: [String: Any] = dict["Weird_Science"] as? [String: Any] {
+            newSkills.Weird_Science = RB_Skill().generateObjectFromDict(dict: Weird_Science)
+        }
+        
+        if let Thievery: [String: Any] = dict["Thievery"] as? [String: Any] {
+            newSkills.Thievery = RB_Skill().generateObjectFromDict(dict: Thievery)
+        }
+        
+        if let Taunt: [String: Any] = dict["Taunt"] as? [String: Any] {
+            newSkills.Taunt = RB_Skill().generateObjectFromDict(dict: Taunt)
+        }
+        
+        if let Survival: [String: Any] = dict["Survival"] as? [String: Any] {
+            newSkills.Survival = RB_Skill().generateObjectFromDict(dict: Survival)
+        }
+        
+        if let Stealth: [String: Any] = dict["Stealth"] as? [String: Any] {
+            newSkills.Stealth = RB_Skill().generateObjectFromDict(dict: Stealth)
+        }
+        
+        if let Spellcasting: [String: Any] = dict["Spellcasting"] as? [String: Any] {
+            newSkills.Spellcasting = RB_Skill().generateObjectFromDict(dict: Spellcasting)
+        }
+        
+        if let Shooting: [String: Any] = dict["Shooting"] as? [String: Any] {
+            newSkills.Shooting = RB_Skill().generateObjectFromDict(dict: Shooting)
+        }
+        
+        if let Science: [String: Any] = dict["Science"] as? [String: Any] {
+            newSkills.Science = RB_Skill().generateObjectFromDict(dict: Science)
+        }
+        
+        if let Riding: [String: Any] = dict["Riding"] as? [String: Any] {
+            newSkills.Riding = RB_Skill().generateObjectFromDict(dict: Riding)
+        }
+        
+        if let Research: [String: Any] = dict["Research"] as? [String: Any] {
+            newSkills.Research = RB_Skill().generateObjectFromDict(dict: Research)
+        }
+        
+        if let Repair: [String: Any] = dict["Repair"] as? [String: Any] {
+            newSkills.Repair = RB_Skill().generateObjectFromDict(dict: Repair)
+        }
+        
+        if let Psionics: [String: Any] = dict["Psionics"] as? [String: Any] {
+            newSkills.Psionics = RB_Skill().generateObjectFromDict(dict: Psionics)
+        }
+        
+        if let Piloting: [String: Any] = dict["Piloting"] as? [String: Any] {
+            newSkills.Piloting = RB_Skill().generateObjectFromDict(dict: Piloting)
+        }
+        
+        if let Persuasion: [String: Any] = dict["Persuasion"] as? [String: Any] {
+            newSkills.Persuasion = RB_Skill().generateObjectFromDict(dict: Persuasion)
+        }
+        
+        if let Performance: [String: Any] = dict["Performance"] as? [String: Any] {
+            newSkills.Performance = RB_Skill().generateObjectFromDict(dict: Performance)
+        }
+        
+        if let Occult: [String: Any] = dict["Occult"] as? [String: Any] {
+            newSkills.Occult = RB_Skill().generateObjectFromDict(dict: Occult)
+        }
+        
+        if let Notice: [String: Any] = dict["Notice"] as? [String: Any] {
+            newSkills.Notice = RB_Skill().generateObjectFromDict(dict: Notice)
+        }
+        
+        if let Language: [String: Any] = dict["Language"] as? [String: Any] {
+            newSkills.Language = RB_Skill().generateObjectFromDict(dict: Language)
+        }
+        
+        if let Intimidation: [String: Any] = dict["Intimidation"] as? [String: Any] {
+            newSkills.Intimidation = RB_Skill().generateObjectFromDict(dict: Intimidation)
+        }
+        
+        if let Healing: [String: Any] = dict["Healing"] as? [String: Any] {
+            newSkills.Healing = RB_Skill().generateObjectFromDict(dict: Healing)
+        }
+        
+        if let Hacking: [String: Any] = dict["Hacking"] as? [String: Any] {
+            newSkills.Hacking = RB_Skill().generateObjectFromDict(dict: Hacking)
+        }
+        
+        if let Gambling: [String: Any] = dict["Gambling"] as? [String: Any] {
+            newSkills.Gambling = RB_Skill().generateObjectFromDict(dict: Gambling)
+        }
+        
+        if let Focus: [String: Any] = dict["Focus"] as? [String: Any] {
+            newSkills.Focus = RB_Skill().generateObjectFromDict(dict: Focus)
+        }
+        
+        if let Fighting: [String: Any] = dict["Fighting"] as? [String: Any] {
+            newSkills.Fighting = RB_Skill().generateObjectFromDict(dict: Fighting)
+        }
+        
+        if let Faith: [String: Any] = dict["Faith"] as? [String: Any] {
+            newSkills.Faith = RB_Skill().generateObjectFromDict(dict: Faith)
+        }
+        
+        if let Electronics: [String: Any] = dict["Electronics"] as? [String: Any] {
+            newSkills.Electronics = RB_Skill().generateObjectFromDict(dict: Electronics)
+        }
+        
+        if let Driving: [String: Any] = dict["Driving"] as? [String: Any] {
+            newSkills.Driving = RB_Skill().generateObjectFromDict(dict: Driving)
+        }
+        
+        if let Common_Knowledge: [String: Any] = dict["Common_Knowledge"] as? [String: Any] {
+            newSkills.Common_Knowledge = RB_Skill().generateObjectFromDict(dict: Common_Knowledge)
+        }
+        
+        if let Boating: [String: Any] = dict["Boating"] as? [String: Any] {
+            newSkills.Boating = RB_Skill().generateObjectFromDict(dict: Boating)
+        }
+        
+        if let Battle: [String: Any] = dict["Battle"] as? [String: Any] {
+            newSkills.Battle = RB_Skill().generateObjectFromDict(dict: Battle)
+        }
+        
+        if let Athletics: [String: Any] = dict["Athletics"] as? [String: Any] {
+            newSkills.Athletics = RB_Skill().generateObjectFromDict(dict: Athletics)
+        }
+        
+        if let Academics: [String: Any] = dict["Academics"] as? [String: Any] {
+            newSkills.Academics = RB_Skill().generateObjectFromDict(dict: Academics)
+        }
+        
+        return newSkills
+    }
+    
 }
 class RB_Skill: NSObject {
     var title = ""
@@ -456,6 +724,119 @@ class Hinderances: NSObject {
     func generateModelFromDict(dict: [String: Any]) -> Hinderances {
         var hinderances: Hinderances = Hinderances()
         hinderances.generalDescription = dict["generalDescription"] as! String
+
+        if let Young: [String: Any] = dict["Young"] as? [String: Any] {
+            hinderances.Young = HindranceModel().generateModelFromDict(data: Young)
+        }
+        
+        if let Yellow: [String: Any] = dict["Yellow"] as? [String: Any] {
+            hinderances.Yellow = HindranceModel().generateModelFromDict(data: Yellow)
+        }
+        
+        if let Wanted: [String: Any] = dict["Wanted"] as? [String: Any] {
+            hinderances.Wanted = HindranceModel().generateModelFromDict(data: Wanted)
+        }
+        
+        if let Vow: [String: Any] = dict["Vow"] as? [String: Any] {
+            hinderances.Vow = HindranceModel().generateModelFromDict(data: Vow)
+        }
+        
+        if let Vengeful: [String: Any] = dict["Vengeful"] as? [String: Any] {
+            hinderances.Vengeful = HindranceModel().generateModelFromDict(data: Vengeful)
+        }
+        
+        if let Ugly: [String: Any] = dict["Ugly"] as? [String: Any] {
+            hinderances.Ugly = HindranceModel().generateModelFromDict(data: Ugly)
+        }
+        
+        if let Tongue_Tied: [String: Any] = dict["Tongue_Tied"] as? [String: Any] {
+            hinderances.Tongue_Tied = HindranceModel().generateModelFromDict(data: Tongue_Tied)
+        }
+        
+        if let Thin_Skinned: [String: Any] = dict["Thin_Skinned"] as? [String: Any] {
+            hinderances.Thin_Skinned = HindranceModel().generateModelFromDict(data: Thin_Skinned)
+        }
+        
+        if let Suspicious: [String: Any] = dict["Suspicious"] as? [String: Any] {
+            hinderances.Suspicious = HindranceModel().generateModelFromDict(data: Suspicious)
+        }
+        
+        if let Stubborn: [String: Any] = dict["Stubborn"] as? [String: Any] {
+            hinderances.Stubborn = HindranceModel().generateModelFromDict(data: Stubborn)
+        }
+        
+        if let Small: [String: Any] = dict["Small"] as? [String: Any] {
+            hinderances.Small = HindranceModel().generateModelFromDict(data: Small)
+        }
+        
+        if let Slow: [String: Any] = dict["Slow"] as? [String: Any] {
+            hinderances.Slow = HindranceModel().generateModelFromDict(data: Slow)
+        }
+        
+        if let Shamed: [String: Any] = dict["Shamed"] as? [String: Any] {
+            hinderances.Shamed = HindranceModel().generateModelFromDict(data: Shamed)
+        }
+        
+        if let Secret: [String: Any] = dict["Secret"] as? [String: Any] {
+            hinderances.Secret = HindranceModel().generateModelFromDict(data: Secret)
+        }
+        
+        if let Ruthless: [String: Any] = dict["Ruthless"] as? [String: Any] {
+            hinderances.Ruthless = HindranceModel().generateModelFromDict(data: Ruthless)
+        }
+        
+        if let Quirk: [String: Any] = dict["Quirk"] as? [String: Any] {
+            hinderances.Quirk = HindranceModel().generateModelFromDict(data: Quirk)
+        }
+        
+        if let Poverty: [String: Any] = dict["Poverty"] as? [String: Any] {
+            hinderances.Poverty = HindranceModel().generateModelFromDict(data: Poverty)
+        }
+        
+        if let Phobia: [String: Any] = dict["Phobia"] as? [String: Any] {
+            hinderances.Phobia = HindranceModel().generateModelFromDict(data: Phobia)
+        }
+        
+        if let Pacifist: [String: Any] = dict["Pacifist"] as? [String: Any] {
+            hinderances.Pacifist = HindranceModel().generateModelFromDict(data: Pacifist)
+        }
+        
+        if let Overconfident: [String: Any] = dict["Overconfident"] as? [String: Any] {
+            hinderances.Overconfident = HindranceModel().generateModelFromDict(data: Overconfident)
+        }
+        
+        if let Outsider: [String: Any] = dict["Outsider"] as? [String: Any] {
+            hinderances.Outsider = HindranceModel().generateModelFromDict(data: Outsider)
+        }
+        
+        if let One_Eye: [String: Any] = dict["One_Eye"] as? [String: Any] {
+            hinderances.One_Eye = HindranceModel().generateModelFromDict(data: One_Eye)
+        }
+        
+        if let One_Arm: [String: Any] = dict["One_Arm"] as? [String: Any] {
+            hinderances.One_Arm = HindranceModel().generateModelFromDict(data: One_Arm)
+        }
+        
+        if let Obligation: [String: Any] = dict["Obligation"] as? [String: Any] {
+            hinderances.Obligation = HindranceModel().generateModelFromDict(data: Obligation)
+        }
+        
+        if let Obese: [String: Any] = dict["Obese"] as? [String: Any] {
+            hinderances.Obese = HindranceModel().generateModelFromDict(data: Obese)
+        }
+        
+        if let Mute: [String: Any] = dict["Mute"] as? [String: Any] {
+            hinderances.Mute = HindranceModel().generateModelFromDict(data: Mute)
+        }
+        
+        if let Mild_Mannered: [String: Any] = dict["Mild_Mannered"] as? [String: Any] {
+            hinderances.Mild_Mannered = HindranceModel().generateModelFromDict(data: Mild_Mannered)
+        }
+        
+        if let Mean: [String: Any] = dict["Mean"] as? [String: Any] {
+            hinderances.Mean = HindranceModel().generateModelFromDict(data: Mean)
+        }
+        
         if let All_Thumbs: [String: Any] = dict["All_Thumbs"] as? [String: Any] {
             hinderances.All_Thumbs = HindranceModel().generateModelFromDict(data: All_Thumbs)
         }
@@ -465,6 +846,85 @@ class Hinderances: NSObject {
         if let Arrogant: [String: Any] = dict["Arrogant"] as? [String: Any] {
             hinderances.Arrogant = HindranceModel().generateModelFromDict(data: Arrogant)
         }
+        if let Bad_Eyes: [String: Any] = dict["Bad_Eyes"] as? [String: Any] {
+            hinderances.Bad_Eyes = HindranceModel().generateModelFromDict(data: Bad_Eyes)
+        }
+        if let Bad_Luck: [String: Any] = dict["Bad_Luck"] as? [String: Any] {
+            hinderances.Bad_Luck = HindranceModel().generateModelFromDict(data: Bad_Luck)
+        }
+        if let Big_Mouth: [String: Any] = dict["Big_Mouth"] as? [String: Any] {
+            hinderances.Big_Mouth = HindranceModel().generateModelFromDict(data: Big_Mouth)
+        }
+        if let Blind: [String: Any] = dict["Blind"] as? [String: Any] {
+            hinderances.Blind = HindranceModel().generateModelFromDict(data: Blind)
+        }
+        if let Bloodthirsty: [String: Any] = dict["Bloodthirsty"] as? [String: Any] {
+            hinderances.Bloodthirsty = HindranceModel().generateModelFromDict(data: Bloodthirsty)
+        }
+        if let Cant_Swim: [String: Any] = dict["Cant_Swim"] as? [String: Any] {
+            hinderances.Cant_Swim = HindranceModel().generateModelFromDict(data: Cant_Swim)
+        }
+        if let Cautious: [String: Any] = dict["Cautious"] as? [String: Any] {
+            hinderances.Cautious = HindranceModel().generateModelFromDict(data: Cautious)
+        }
+        if let Clueless: [String: Any] = dict["Clueless"] as? [String: Any] {
+            hinderances.Clueless = HindranceModel().generateModelFromDict(data: Clueless)
+        }
+        if let Clumsy: [String: Any] = dict["Clumsy"] as? [String: Any] {
+            hinderances.Clumsy = HindranceModel().generateModelFromDict(data: Clumsy)
+        }
+        if let Code_of_Honor: [String: Any] = dict["Code_of_Honor"] as? [String: Any] {
+            hinderances.Code_of_Honor = HindranceModel().generateModelFromDict(data: Code_of_Honor)
+        }
+        if let Curious: [String: Any] = dict["Curious"] as? [String: Any] {
+            hinderances.Curious = HindranceModel().generateModelFromDict(data: Curious)
+        }
+        if let Deathwish: [String: Any] = dict["Deathwish"] as? [String: Any] {
+            hinderances.Deathwish = HindranceModel().generateModelFromDict(data: Deathwish)
+        }
+        if let Delusional: [String: Any] = dict["Delusional"] as? [String: Any] {
+            hinderances.Delusional = HindranceModel().generateModelFromDict(data: Delusional)
+        }
+        if let Doubting_Thomas: [String: Any] = dict["Doubting_Thomas"] as? [String: Any] {
+            hinderances.Doubting_Thomas = HindranceModel().generateModelFromDict(data: Doubting_Thomas)
+        }
+        if let Driven: [String: Any] = dict["Driven"] as? [String: Any] {
+            hinderances.Driven = HindranceModel().generateModelFromDict(data: Driven)
+        }
+        if let Elderly: [String: Any] = dict["Elderly"] as? [String: Any] {
+            hinderances.Elderly = HindranceModel().generateModelFromDict(data: Elderly)
+        }
+        if let Enemy: [String: Any] = dict["Enemy"] as? [String: Any] {
+            hinderances.Enemy = HindranceModel().generateModelFromDict(data: Enemy)
+        }
+        if let Greedy: [String: Any] = dict["Greedy"] as? [String: Any] {
+            hinderances.Greedy = HindranceModel().generateModelFromDict(data: Greedy)
+        }
+        if let Habit: [String: Any] = dict["Habit"] as? [String: Any] {
+            hinderances.Habit = HindranceModel().generateModelFromDict(data: Habit)
+        }
+        if let Hard_of_Hearing: [String: Any] = dict["Hard_of_Hearing"] as? [String: Any] {
+            hinderances.Hard_of_Hearing = HindranceModel().generateModelFromDict(data: Hard_of_Hearing)
+        }
+        if let Heroic: [String: Any] = dict["Heroic"] as? [String: Any] {
+            hinderances.Heroic = HindranceModel().generateModelFromDict(data: Heroic)
+        }
+        if let Hesitant: [String: Any] = dict["Hesitant"] as? [String: Any] {
+            hinderances.Hesitant = HindranceModel().generateModelFromDict(data: Hesitant)
+        }
+        if let Illiterate: [String: Any] = dict["Illiterate"] as? [String: Any] {
+            hinderances.Illiterate = HindranceModel().generateModelFromDict(data: Illiterate)
+        }
+        if let Impulsive: [String: Any] = dict["Impulsive"] as? [String: Any] {
+            hinderances.Impulsive = HindranceModel().generateModelFromDict(data: Impulsive)
+        }
+        if let Jealous: [String: Any] = dict["Jealous"] as? [String: Any] {
+            hinderances.Jealous = HindranceModel().generateModelFromDict(data: Jealous)
+        }
+        if let Loyal: [String: Any] = dict["Loyal"] as? [String: Any] {
+            hinderances.Loyal = HindranceModel().generateModelFromDict(data: Loyal)
+        }
+        
         
         return hinderances
     }
@@ -3708,7 +4168,183 @@ Command Range: Allies must be within 5′′ (10 yards) to benefit from her abil
     ])
     
     
+    func generateDictFromObject() -> [String: Any] {
+        let dict: [String: Any] = [
+            "Background_Edges": self.Background_Edges?.generateDictFromObject(),
+            "Combat_Edges": self.Combat_Edges?.generateDictFromObject(),
+            "Leadership_Edges": self.Leadership_Edges?.generateDictFromObject(),
+            "Power_Edges": self.Power_Edges?.generateDictFromObject(),
+            "Professional_Edges": self.Professional_Edges?.generateDictFromObject(),
+            "Social_Edges": self.Social_Edges?.generateDictFromObject(),
+            "Weird_Edges": self.Weird_Edges?.generateDictFromObject(),
+            "Legendary_Edges": self.Legendary_Edges?.generateDictFromObject(),
+            "Alertness": self.Alertness.generateDictForValues(),
+            "Ambidextrous": self.Ambidextrous.generateDictForValues(),
+            "Arcane_Background": self.Arcane_Background.generateDictForValues(),
+            "Arcane_Resistance": self.Arcane_Resistance.generateDictForValues(),
+            "Improved_Arcane_Resistance": self.Improved_Arcane_Resistance.generateDictForValues(),
+            "Aristocrat": self.Aristocrat.generateDictForValues(),
+            "Attractive": self.Attractive.generateDictForValues(),
+            "Very_Attractive": self.Very_Attractive.generateDictForValues(),
+            "Berserk": self.Berserk.generateDictForValues(),
+            "Brave": self.Brave.generateDictForValues(),
+            "Brawny": self.Brawny.generateDictForValues(),
+            "Brute": self.Brute.generateDictForValues(),
+            "Charismatic": self.Charismatic.generateDictForValues(),
+            "Elan": self.Elan.generateDictForValues(),
+            "Fame": self.Fame.generateDictForValues(),
+            "Famous": self.Famous.generateDictForValues(),
+            "Fast_Healer": self.Fast_Healer.generateDictForValues(),
+            "Fleet_Footed": self.Fleet_Footed.generateDictForValues(),
+            "Linguist": self.Linguist.generateDictForValues(),
+            "Luck": self.Luck.generateDictForValues(),
+            "Great_Luck": self.Great_Luck.generateDictForValues(),
+            "Quick": self.Quick.generateDictForValues(),
+            "Rich": self.Rich.generateDictForValues(),
+            "Filthy_Rich": self.Filthy_Rich.generateDictForValues(),
+            "Block": self.Block.generateDictForValues(),
+            "Improved_Block": self.Improved_Block.generateDictForValues(),
+            "Brawler": self.Brawler.generateDictForValues(),
+            "Bruiser": self.Bruiser.generateDictForValues(),
+            "Calculating": self.Calculating.generateDictForValues(),
+            "Combat_Reflexes": self.Combat_Reflexes.generateDictForValues(),
+            "Counterattack": self.Counterattack.generateDictForValues(),
+            "Improved_Counterattack": self.Improved_Counterattack.generateDictForValues(),
+            "Dead_Shot": self.Dead_Shot.generateDictForValues(),
+            "Dodge": self.Dodge.generateDictForValues(),
+            "Improved_Dodge": self.Improved_Dodge.generateDictForValues(),
+            "Double_Tap": self.Double_Tap.generateDictForValues(),
+            "Extraction": self.Extraction.generateDictForValues(),
+            "Improved_Extraction": self.Improved_Extraction.generateDictForValues(),
+            "Feint": self.Feint.generateDictForValues(),
+            "First_Strike": self.First_Strike.generateDictForValues(),
+            "Improved_First_Strike": self.Improved_First_Strike.generateDictForValues(),
+            "Free_Runner": self.Free_Runner.generateDictForValues(),
+            "Frenzy": self.Frenzy.generateDictForValues(),
+            "Improved_Frenzy": self.Improved_Frenzy.generateDictForValues(),
+            "Giant_Killer": self.Giant_Killer.generateDictForValues(),
+            "Hard_to_Kill": self.Hard_to_Kill.generateDictForValues(),
+            "Harder_to_Kill": self.Harder_to_Kill.generateDictForValues(),
+            "Improvisational_Fighter": self.Improvisational_Fighter.generateDictForValues(),
+            "Iron_Jaw": self.Iron_Jaw.generateDictForValues(),
+            "Killer_Instinct": self.Killer_Instinct.generateDictForValues(),
+            "Level_Headed": self.Level_Headed.generateDictForValues(),
+            "Improved_Level_Headed": self.Improved_Level_Headed.generateDictForValues(),
+            "Marksman": self.Marksman.generateDictForValues(),
+            "Martial_Artist": self.Martial_Artist.generateDictForValues(),
+            "Martial_Warrior": self.Martial_Warrior.generateDictForValues(),
+            "Mighty_Blow": self.Mighty_Blow.generateDictForValues(),
+            "Nerves_of_Steel": self.Nerves_of_Steel.generateDictForValues(),
+            "Improved_Nerves_of_Steel": self.Improved_Nerves_of_Steel.generateDictForValues(),
+            "No_Mercy": self.No_Mercy.generateDictForValues(),
+            "Rapid_Fire": self.Rapid_Fire.generateDictForValues(),
+            "Improved_Rapid_Fire": self.Improved_Rapid_Fire.generateDictForValues(),
+            "Rock_and_Roll": self.Rock_and_Roll.generateDictForValues(),
+            "Steady_Hands": self.Steady_Hands.generateDictForValues(),
+            "Sweep": self.Sweep.generateDictForValues(),
+            "Improved_Sweep": self.Improved_Sweep.generateDictForValues(),
+            "Trademark_Weapon": self.Trademark_Weapon.generateDictForValues(),
+            "Improved_Trademark_Weapon": self.Improved_Trademark_Weapon.generateDictForValues(),
+            "Two_Fisted": self.Two_Fisted.generateDictForValues(),
+            "Two_Gun_Kid": self.Two_Gun_Kid.generateDictForValues(),
+            "Command": self.Command.generateDictForValues(),
+            "Command_Presence": self.Command_Presence.generateDictForValues(),
+            "Fervor": self.Fervor.generateDictForValues(),
+            "Hold_the_Line": self.Hold_the_Line.generateDictForValues(),
+            "Inspire": self.Inspire.generateDictForValues(),
+            "Natural_Leader": self.Natural_Leader.generateDictForValues(),
+            "Tactician": self.Tactician.generateDictForValues(),
+            "Master_Tactician": self.Master_Tactician.generateDictForValues(),
+            "Artificer": self.Artificer.generateDictForValues(),
+            "Channeling": self.Channeling.generateDictForValues(),
+            "Concentration": self.Concentration.generateDictForValues(),
+            "Extra_Effort": self.Extra_Effort.generateDictForValues(),
+            "Gadgeteer": self.Gadgeteer.generateDictForValues(),
+            "Holy_UnHoly_Warrior": self.Holy_UnHoly_Warrior.generateDictForValues(),
+            "Mentalist": self.Mentalist.generateDictForValues(),
+            "New_Powers": self.New_Powers.generateDictForValues(),
+            "Power_Points": self.Power_Points.generateDictForValues(),
+            "Power_Surge": self.Power_Surge.generateDictForValues(),
+            "Rapid_Recharge": self.Rapid_Recharge.generateDictForValues(),
+            "Improved_Rapid_Recharge": self.Improved_Rapid_Recharge.generateDictForValues(),
+            "Soul_Drain": self.Soul_Drain.generateDictForValues(),
+            "Wizard": self.Wizard.generateDictForValues(),
+            "Ace": self.Ace.generateDictForValues(),
+            "Acrobat": self.Acrobat.generateDictForValues(),
+            "Combat_Acrobat": self.Combat_Acrobat.generateDictForValues(),
+            "Assassin": self.Assassin.generateDictForValues(),
+            "Investigator": self.Investigator.generateDictForValues(),
+            "Jack_of_all_Trades": self.Jack_of_all_Trades.generateDictForValues(),
+            "McGyver": self.McGyver.generateDictForValues(),
+            "MR_Fix_It": self.MR_Fix_It.generateDictForValues(),
+            "Scholar": self.Scholar.generateDictForValues(),
+            "Soldier": self.Soldier.generateDictForValues(),
+            "Thief": self.Thief.generateDictForValues(),
+            "Woodsman": self.Woodsman.generateDictForValues(),
+            "Bolster": self.Bolster.generateDictForValues(),
+            "Common_Bond": self.Common_Bond.generateDictForValues(),
+            "Connections": self.Connections.generateDictForValues(),
+            "Humiliate": self.Humiliate.generateDictForValues(),
+            "Menacing": self.Menacing.generateDictForValues(),
+            "Provoke": self.Provoke.generateDictForValues(),
+            "Rabble_Rouser": self.Rabble_Rouser.generateDictForValues(),
+            "Reliable": self.Reliable.generateDictForValues(),
+            "Retort": self.Retort.generateDictForValues(),
+            "Streetwise": self.Streetwise.generateDictForValues(),
+            "Strong_Willed": self.Strong_Willed.generateDictForValues(),
+            "Iron_Will": self.Iron_Will.generateDictForValues(),
+            "Work_the_Room": self.Work_the_Room.generateDictForValues(),
+            "Work_the_Crowd": self.Work_the_Crowd.generateDictForValues(),
+            "Beast_Bond": self.Beast_Bond.generateDictForValues(),
+            "Beast_Master": self.Beast_Master.generateDictForValues(),
+            "Champion": self.Champion.generateDictForValues(),
+            "Chi": self.Chi.generateDictForValues(),
+            "Danger_Sense": self.Danger_Sense.generateDictForValues(),
+            "Healer": self.Healer.generateDictForValues(),
+            "Liquid_Courage": self.Liquid_Courage.generateDictForValues(),
+            "Scavanger": self.Scavanger.generateDictForValues(),
+            "Followers": self.Followers.generateDictForValues(),
+            "Professional": self.Professional.generateDictForValues(),
+            "Expert": self.Expert.generateDictForValues(),
+            "Master": self.Master.generateDictForValues(),
+            "Sidekick": self.Sidekick.generateDictForValues(),
+            "Tough_as_Nails": self.Tough_as_Nails.generateDictForValues(),
+            "Tougher_than_Nails": self.Tougher_than_Nails.generateDictForValues(),
+            "Weapons_Master": self.Weapons_Master.generateDictForValues(),
+            "Master_of_Arms": self.Master_of_Arms.generateDictForValues(),
+        ]
+        return dict
+    }
     
+    func generateObjectFromDict(dict: [String: Any]) -> Edges {
+        let newEdges: Edges = Edges()
+        if let Background_Edges = dict["Background_Edges"] as? [String: Any] {
+            newEdges.Background_Edges = EdgeCategory().generateObjectFromDict(dict: Background_Edges)
+        }
+        if let Combat_Edges = dict["Combat_Edges"] as? [String: Any] {
+            newEdges.Combat_Edges = EdgeCategory().generateObjectFromDict(dict: Combat_Edges)
+        }
+        if let Leadership_Edges = dict["Leadership_Edges"] as? [String: Any] {
+            newEdges.Leadership_Edges = EdgeCategory().generateObjectFromDict(dict: Leadership_Edges)
+        }
+        if let Power_Edges = dict["Power_Edges"] as? [String: Any] {
+            newEdges.Power_Edges = EdgeCategory().generateObjectFromDict(dict: Power_Edges)
+        }
+        if let Professional_Edges = dict["Professional_Edges"] as? [String: Any] {
+            newEdges.Professional_Edges = EdgeCategory().generateObjectFromDict(dict: Professional_Edges)
+        }
+        if let Social_Edges = dict["Social_Edges"] as? [String: Any] {
+            newEdges.Social_Edges = EdgeCategory().generateObjectFromDict(dict: Social_Edges)
+        }
+        if let Weird_Edges = dict["Weird_Edges"] as? [String: Any] {
+            newEdges.Weird_Edges = EdgeCategory().generateObjectFromDict(dict: Weird_Edges)
+        }
+        if let Legendary_Edges = dict["Legendary_Edges"] as? [String: Any] {
+            newEdges.Legendary_Edges = EdgeCategory().generateObjectFromDict(dict: Legendary_Edges)
+        }
+        
+        return newEdges
+    }
     
     
 }

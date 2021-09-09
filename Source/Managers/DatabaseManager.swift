@@ -201,6 +201,18 @@ class DatabaseManager: NSObject {
     }
     
     
+    func postRulebookToServer(rulebook: RulebookModel, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        let rulebookRef = database.collection("rulebooks")
+        rulebookRef.addDocument(data: rulebook.generateDictFromModel()) { err in
+            if err != nil {
+                completion(false, err)
+            }else {
+                completion(true, nil)
+            }
+        }
+    }
+    
+    
 }
 
 

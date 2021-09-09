@@ -151,6 +151,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
+        
     }
     
     @IBAction func increaseWoundCount(_ sender: Any) {
