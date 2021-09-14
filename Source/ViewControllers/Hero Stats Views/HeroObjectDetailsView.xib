@@ -25,6 +25,7 @@
                 <outlet property="leftHeader3" destination="EOd-o4-vPZ" id="J5r-Vo-Sus"/>
                 <outlet property="leftHeader4" destination="PV3-bg-ffF" id="mmV-x2-aUt"/>
                 <outlet property="nameLabel" destination="ov1-fo-0OD" id="T1L-da-WeZ"/>
+                <outlet property="plusButton" destination="CGx-k8-PWW" id="ooP-Mp-RLt"/>
                 <outlet property="rightDescription1" destination="ps0-fo-vr3" id="STU-kY-6K9"/>
                 <outlet property="rightDescription2" destination="Uut-Mk-pHg" id="wM3-3M-AUJ"/>
                 <outlet property="rightDescription3" destination="9Ig-QV-L10" id="QL3-xS-PCn"/>
@@ -54,11 +55,25 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGx-k8-PWW">
+                            <rect key="frame" x="354" y="24" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="CGx-k8-PWW" secondAttribute="height" multiplier="1:1" id="OZV-J1-F64"/>
+                                <constraint firstAttribute="width" constant="36" id="zC8-xe-z9g"/>
+                            </constraints>
+                            <color key="tintColor" name="SWSubheading"/>
+                            <state key="normal" image="plus" catalog="system"/>
+                            <connections>
+                                <action selector="plusButtonTapped:" destination="-1" eventType="touchUpInside" id="ZJL-yR-v8y"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" name="SWPower"/>
                     <constraints>
                         <constraint firstItem="ov1-fo-0OD" firstAttribute="leading" secondItem="ixF-u3-LQq" secondAttribute="leading" id="8Bj-5l-e4w"/>
                         <constraint firstAttribute="height" constant="82" id="Bom-dp-R2G"/>
+                        <constraint firstAttribute="trailing" secondItem="CGx-k8-PWW" secondAttribute="trailing" constant="24" id="aoF-XD-7ua"/>
+                        <constraint firstItem="CGx-k8-PWW" firstAttribute="top" secondItem="mZ3-5b-in6" secondAttribute="top" constant="24" id="c7Y-Ps-Guj"/>
                         <constraint firstItem="ov1-fo-0OD" firstAttribute="top" secondItem="ixF-u3-LQq" secondAttribute="bottom" constant="14" id="fdT-Kw-KKX"/>
                         <constraint firstItem="ixF-u3-LQq" firstAttribute="leading" secondItem="mZ3-5b-in6" secondAttribute="leading" constant="32" id="iHQ-og-5K6"/>
                         <constraint firstItem="ixF-u3-LQq" firstAttribute="top" secondItem="mZ3-5b-in6" secondAttribute="top" constant="24" id="qDr-Je-VQ1"/>
@@ -196,6 +211,7 @@
         </view>
     </objects>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="SWBacking">
             <color red="0.15686274509803921" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -18,7 +18,11 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
     var powers: [PowerModel] = []
     var hostVC: SWHeroViewController?
     var delegate: HeroItemDetailDelegate?
-
+    var currentPowerPoints: Int = 0 {
+        didSet {
+            self.ppCountLabel.text = "\(currentPowerPoints)"
+        }
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()
@@ -38,6 +42,7 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HeroGearTableViewCell", bundle: nil), forCellReuseIdentifier: "HeroGearTableViewCell")
+        self.currentPowerPoints = hostVC?.hero?.powerPoints ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,17 +56,16 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: HeroGearTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeroGearTableViewCell", for: indexPath) as? HeroGearTableViewCell {
             cell.powerItem = powers[indexPath.row]
+            cell.heroViewController = self.hostVC
             return cell
         }
         return UITableViewCell()
     }
     @IBAction func plusButtonTapped(_ sender: Any) {
-        self.hostVC?.hero?.powerPoints = (self.hostVC?.hero?.powerPoints ?? 0) + 1
-        self.ppCountLabel.text = "\(self.hostVC?.hero?.powerPoints ?? 0)"
+        self.currentPowerPoints += 1
     }
     @IBAction func minusButtonTapped(_ sender: Any) {
-        self.hostVC?.hero?.powerPoints = (self.hostVC?.hero?.powerPoints ?? 0) - 1
-        self.ppCountLabel.text = "\(self.hostVC?.hero?.powerPoints ?? 0)"
+        self.currentPowerPoints -= 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

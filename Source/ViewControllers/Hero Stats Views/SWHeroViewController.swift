@@ -38,14 +38,29 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var contentContainerHeight: NSLayoutConstraint!
     
     
-    var isBound: Bool = false
+    var isBound: Bool = false {
+        didSet {
+            if isBound {
+                //self.hero?.pace = 0
+                self.paceLabel.text = "0"
+                self.paceLabel.textColor = .red
+            }else {
+                self.paceLabel.text = "\(self.hero?.pace ?? 0)"
+                self.paceLabel.textColor = .white
+            }
+        }
+    }
     var isDistracted: Bool = false
     var isEntangled: Bool = false
     var isExhausted: Bool = false
     var isFatigued: Bool = false
     var isIncapacitated: Bool = false
     var isStunned: Bool = false
-    var isVulnerable: Bool = false
+    var isVulnerable: Bool = false {
+        didSet {
+            
+        }
+    }
     var currentSwitchSelection: Int = 0 {
         didSet {
             switch currentSwitchSelection {
@@ -58,6 +73,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    var switchContainerViews:[UIView] = []
     var isShaken: Bool = false
     var woundCount: Int = 0 {
         didSet {
@@ -88,9 +104,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             toughnessLabel.text = "\(hero?.toughness ?? 0)"
             hinderancesTableView.reloadData()
             edgesTableView.reloadData()
-            setViewInContainer(index: 0)
-            
-            
+            self.setViewsForContainer()
+            self.traitsTapped(self)
         }
     }
     
@@ -100,7 +115,43 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return ruleBook.conditions.conditions
         }
     }
-    var activeConditions: [ConditionModel] = []
+    var activeConditions: [ConditionModel] = [] {
+        didSet {
+            for condition in activeConditions {
+                switch condition.title {
+                case "Bound":
+                    if !activeConditions.contains(self.getConditionFromName(name: "Vulnerable")) {
+                        activeConditions.append(self.getConditionFromName(name: "Vulnerable"))
+                    }
+                    self.isBound = true
+                case "Distracted":
+                    self.isDistracted = true
+                case "Entangled":
+                    self.isEntangled = true
+                    if !activeConditions.contains(self.getConditionFromName(name: "Distracted")) {
+                        activeConditions.append(self.getConditionFromName(name: "Distracted"))
+                    }
+                case "Fatigued":
+                    self.isFatigued = true
+                case "Exhausted":
+                    self.isExhausted = true
+                case "Incapacitated":
+                    self.isIncapacitated = true
+                case "Shaken":
+                    self.isShaken = true
+                case "Stunned":
+                    self.isStunned = true
+                    if !activeConditions.contains(self.getConditionFromName(name: "Distracted")) {
+                        activeConditions.append(self.getConditionFromName(name: "Distracted"))
+                    }
+                case "Vulnerable":
+                    self.isVulnerable = true
+                default:
+                    print("Wounded")
+                }
+            }
+        }
+    }
     var stackViewIsShown: Bool = false
     var currentStackHost: String = ""
     override func viewDidLoad() {
@@ -155,12 +206,18 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         edgesTableView.tableFooterView = UIView()
         edgesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
-        let traitsView: HeroTraitsView = HeroTraitsView(frame: self.switchContainerView.bounds)
-        traitsView.skills = hero?.skills ?? [SkillModel]()
-        self.tabViews = [traitsView]
-        self.traitsButton.backgroundColor = UIColor(named: "SWBacking")
         getHeroesFromDB()
         
+    }
+    
+    func setViewsForContainer() {
+        let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
+        
+        let gearView: HeroGearView = HeroGearView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
+        
+        let powersView: HeroPowersView = HeroPowersView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
+        powersView.currentPowerPoints = self.hero?.powerPoints ?? 0
+        switchContainerViews = [traitsView, gearView, powersView]
     }
     
     func getHeroesFromDB() {
@@ -175,6 +232,14 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
+    }
+    func getConditionFromName(name: String) -> ConditionModel {
+        for condition in conditions {
+            if condition.title == name {
+                return condition
+            }
+        }
+        return ConditionModel()
     }
     
     @IBAction func increaseWoundCount(_ sender: Any) {
@@ -228,9 +293,17 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
-    
+    var isPresentingConditionView: Bool = false
     @objc func handleConditionsLongPress(_ sender: UILongPressGestureRecognizer) {
-        
+        let conditionsView: SWHeroConditionActionSelectionView = SWHeroConditionActionSelectionView()
+        conditionsView.hostVC = self
+        if !isPresentingConditionView {
+            conditionsView.conditions = self.conditions
+            self.view.addSubview(conditionsView)
+            self.view.bringSubviewToFront(conditionsView)
+            conditionsView.animateToHalf()
+            isPresentingConditionView = true
+        }
     }
     
     @IBAction func actionTapped(_ sender: Any) {
@@ -286,14 +359,28 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    @objc func activeConditionTapped(_ sender: UITapGestureRecognizer) {
+        if let label: UILabel = sender.view as? UILabel {
+            let condition = getConditionFromName(name: label.text ?? "")
+            self.activeConditions.removeAll { (checkCondition) -> Bool in
+                if condition.title == checkCondition.title {
+                    return true
+                }else {
+                    return false
+                }
+            }
+        }
+    }
+    
     @IBAction func conditionsTapped(_ sender: Any) {
         var conditionCount = 0
         var xInset: CGFloat = 0.0
+        var activeConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
         if !stackViewIsShown {
             self.currentStackHost = "conditions"
             self.horizontalStackView.isHidden = false
             conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
-            for i in self.conditions {
+            for i in self.activeConditions {
                 let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
                 actionsLabel.font = UIFont(name: "Oxanium", size: 14)
                 actionsLabel.text = i.title
@@ -303,6 +390,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 actionsLabel.layer.cornerRadius = 12
                 actionsLabel.clipsToBounds = true
                 actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+                actionsLabel.addGestureRecognizer(activeConditionTap)
+                actionsLabel.isUserInteractionEnabled = true
                 xInset += actionsLabel.intrinsicContentSize.width + 24
                 self.horizontalStackView.addSubview(actionsLabel)
             }
@@ -339,6 +428,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 stackViewIsShown = true
             }
         }
+    }
+    
+    func setViewsInStack(isConditions: Bool) {
+        
     }
     
     @IBAction func shakenTapped(_ sender: Any) {
@@ -380,51 +473,54 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         switch index {
         case 0:
             //Traits
-            let traitsView: HeroTraitsView = HeroTraitsView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
-            traitsView.skills = hero?.skills ?? [SkillModel]()
-            traitsView.attributes = hero?.attributes ?? [AttributeModel]()
-            self.switchContainerView.addSubview(traitsView)
+            if let traitsView: HeroTraitsView = switchContainerViews[0] as? HeroTraitsView {
+                traitsView.skills = hero?.skills ?? [SkillModel]()
+                traitsView.attributes = hero?.attributes ?? [AttributeModel]()
+                self.switchContainerView.addSubview(traitsView)
+            }
         case 1:
             // Gear
-            let gearView: HeroGearView = HeroGearView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
-            var armorItems: [ArmorModel] = []
-            var weaponsItems: [WeaponModel] = []
-            var shieldItems: [ShieldModel] = []
-            var itemItems: [ItemModel] = []
-            
-            for item in hero?.items ?? [NSObject]() {
-                if let armor = item as? ArmorModel {
-                    armorItems.append(armor)
+            if let gearView: HeroGearView = switchContainerViews[1] as? HeroGearView {
+                var armorItems: [ArmorModel] = []
+                var weaponsItems: [WeaponModel] = []
+                var shieldItems: [ShieldModel] = []
+                var itemItems: [ItemModel] = []
+                
+                for item in hero?.items ?? [NSObject]() {
+                    if let armor = item as? ArmorModel {
+                        armorItems.append(armor)
+                    }
+                    if let weapon = item as? WeaponModel {
+                        weaponsItems.append(weapon)
+                    }
+                    if let shield = item as? ShieldModel {
+                        shieldItems.append(shield)
+                    }
+                    if let itemObject = item as? ItemModel {
+                        itemItems.append(itemObject)
+                    }
                 }
-                if let weapon = item as? WeaponModel {
-                    weaponsItems.append(weapon)
-                }
-                if let shield = item as? ShieldModel {
-                    shieldItems.append(shield)
-                }
-                if let itemObject = item as? ItemModel {
-                    itemItems.append(itemObject)
-                }
+                
+                gearView.armor = armorItems
+                gearView.weapons = weaponsItems
+                gearView.shields = shieldItems
+                gearView.items = itemItems
+                gearView.delegate = self
+                gearView.goldCountLabel.text = "\(hero?.gold ?? 0)"
+                self.switchContainerView.addSubview(gearView)
+                gearView.tableView.reloadData()
             }
-            
-            gearView.armor = armorItems
-            gearView.weapons = weaponsItems
-            gearView.shields = shieldItems
-            gearView.items = itemItems
-            gearView.delegate = self
-            gearView.goldCountLabel.text = "\(hero?.gold ?? 0)"
-            self.switchContainerView.addSubview(gearView)
-            gearView.tableView.reloadData()
         
         default:
         print("Powers")
-            let powersView: HeroPowersView = HeroPowersView(frame: CGRect(x: 0, y: 0, width: self.switchContainerView.frame.width, height: self.switchContainerView.frame.height))
-            powersView.powers = hero?.powers ?? [PowerModel]()
-            powersView.ppCountLabel.text = "\(hero?.powerPoints ?? 0)"
-            powersView.hostVC = self
-            powersView.delegate = self
-            self.switchContainerView.addSubview(powersView)
-            powersView.tableView.reloadData()
+            if let powersView: HeroPowersView = switchContainerViews[2] as? HeroPowersView {
+                powersView.powers = hero?.powers ?? [PowerModel]()
+                powersView.ppCountLabel.text = "\(hero?.powerPoints ?? 0)"
+                powersView.hostVC = self
+                powersView.delegate = self
+                self.switchContainerView.addSubview(powersView)
+                powersView.tableView.reloadData()
+            }
         }
         
     }
@@ -554,7 +650,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func activatePower(power: PowerModel) {
-        
+        if let powersView: HeroPowersView = switchContainerViews[2] as? HeroPowersView {
+            powersView.currentPowerPoints -= (power.powerPoints ?? 0)
+        }
     }
     
     
@@ -563,9 +661,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.view.alpha = 0
         } completion: { (done) in
             self.dismiss(animated: false, completion: nil)
-
         }
-        
     }
 
 }

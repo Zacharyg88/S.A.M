@@ -14,7 +14,7 @@ class SWHeroConditionActionCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.cornerRadius = 12
     }
 
 }
