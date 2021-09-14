@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SWHeroConditionActionCollectionViewCell" id="gTV-IL-0wX" customClass="SWHeroConditionActionCollectionViewCell" customModule="S_A_M" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="136" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="136" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dE-3H-p19">
+                        <rect key="frame" x="0.0" y="0.0" width="136" height="50"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="4dE-3H-p19" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DTI-e6-Aae"/>
+                <constraint firstItem="4dE-3H-p19" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RG6-cD-h01"/>
+                <constraint firstAttribute="bottom" secondItem="4dE-3H-p19" secondAttribute="bottom" id="bV1-X3-jhf"/>
+                <constraint firstAttribute="trailing" secondItem="4dE-3H-p19" secondAttribute="trailing" id="pxI-2s-I0l"/>
+            </constraints>
+            <size key="customSize" width="136" height="50"/>
+            <connections>
+                <outlet property="label" destination="4dE-3H-p19" id="HCP-Uw-Iil"/>
+            </connections>
+            <point key="canvasLocation" x="23.188405797101453" y="135.9375"/>
+        </collectionViewCell>
+    </objects>
+</document>

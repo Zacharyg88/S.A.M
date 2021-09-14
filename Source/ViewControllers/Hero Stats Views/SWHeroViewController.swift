@@ -37,6 +37,15 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var switchContainerView: UIView!
     @IBOutlet weak var contentContainerHeight: NSLayoutConstraint!
     
+    
+    var isBound: Bool = false
+    var isDistracted: Bool = false
+    var isEntangled: Bool = false
+    var isExhausted: Bool = false
+    var isFatigued: Bool = false
+    var isIncapacitated: Bool = false
+    var isStunned: Bool = false
+    var isVulnerable: Bool = false
     var currentSwitchSelection: Int = 0 {
         didSet {
             switch currentSwitchSelection {
@@ -72,6 +81,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if hero?.lastName != nil {
                 heroNameLabel.text = (heroNameLabel.text ?? "") + " " + (hero?.lastName ?? "")
             }
+            heroLevelLabel.text = hero?.getLevelString()
             
             paceLabel.text = "\(hero?.pace ?? 6)"
             parryLabel.text = "\(hero?.parry ?? 0)"
@@ -79,14 +89,18 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             hinderancesTableView.reloadData()
             edgesTableView.reloadData()
             setViewInContainer(index: 0)
-            //toughnessArmorLabel.text = "\(hero?.armor)"
             
             
         }
     }
     
     var actions: [String] = ["Defend", "Hold"]
-    var conditions: [String] = ["Bound", "Distracted", "Vulnerable"]
+    var conditions: [ConditionModel] {
+        get {
+            return ruleBook.conditions.conditions
+        }
+    }
+    var activeConditions: [ConditionModel] = []
     var stackViewIsShown: Bool = false
     var currentStackHost: String = ""
     override func viewDidLoad() {
@@ -115,6 +129,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         conditionsButton.layer.borderWidth = 1
         conditionsButton.backgroundColor = colors.buttonBackground
         
+        let conditionsHold: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleConditionsLongPress(_:)))
+        conditionsHold.minimumPressDuration = 1
+        self.conditionsButton.addGestureRecognizer(conditionsHold)
+        
         shakenButton.layer.cornerRadius = 8
         shakenButton.layer.borderColor = colors.buttonBorder.cgColor
         shakenButton.layer.borderWidth = 1
@@ -141,6 +159,12 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         traitsView.skills = hero?.skills ?? [SkillModel]()
         self.tabViews = [traitsView]
         self.traitsButton.backgroundColor = UIColor(named: "SWBacking")
+        getHeroesFromDB()
+        
+    }
+    
+    func getHeroesFromDB() {
+        self.heroesArray.removeAll()
         for slug in userManager.currentUser?.heroSlugs ?? [String]() {
             databaseManager.getHeroFromSlug(slug: slug) { (hero, error) in
                 if let heroObject = hero as? HeroModel {
@@ -151,9 +175,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
-//        databaseManager.postRulebookToServer(rulebook: ruleBook) { (success, error) in
-//            print(success, error)
-//        }
     }
     
     @IBAction func increaseWoundCount(_ sender: Any) {
@@ -208,6 +229,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    @objc func handleConditionsLongPress(_ sender: UILongPressGestureRecognizer) {
+        
+    }
     
     @IBAction func actionTapped(_ sender: Any) {
         var xInset: CGFloat = 0.0
@@ -272,7 +296,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             for i in self.conditions {
                 let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
                 actionsLabel.font = UIFont(name: "Oxanium", size: 14)
-                actionsLabel.text = i
+                actionsLabel.text = i.title
                 actionsLabel.textAlignment = .center
                 actionsLabel.textColor = .white
                 actionsLabel.backgroundColor = UIColor(named: "SWRed")
@@ -301,7 +325,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 for i in self.conditions {
                     let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
                     actionsLabel.font = UIFont(name: "Oxanium", size: 14)
-                    actionsLabel.text = i
+                    actionsLabel.text = i.title
                     actionsLabel.textAlignment = .center
                     actionsLabel.textColor = .white
                     actionsLabel.backgroundColor = UIColor(named: "SWRed")
@@ -525,10 +549,13 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func launchCharacterCreation() {
         let characterCreationVC: SWHeroCreationViewController = SWHeroCreationViewController()
         characterCreationVC.modalPresentationStyle = .overCurrentContext
+        characterCreationVC.heroViewController = self
         self.present(characterCreationVC, animated: true, completion: nil)
     }
     
-    
+    func activatePower(power: PowerModel) {
+        
+    }
     
     
     @objc func dismissView() {

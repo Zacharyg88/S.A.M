@@ -17,12 +17,12 @@ class SWHeroCreationViewController: UIViewController {
     @IBOutlet weak var progress5View: UIView!
     @IBOutlet weak var progress6View: UIView!
     @IBOutlet weak var progress7View: UIView!
-    @IBOutlet weak var progress8View: UIView!
     @IBOutlet weak var creationStageContainerView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
 
     var newHero: HeroModel = HeroModel()
+    var heroViewController: SWHeroViewController?
     var heroImage: UIImage?
     var hindrancePoints: Int = 0 {
         didSet {
@@ -35,7 +35,7 @@ class SWHeroCreationViewController: UIViewController {
     var creationStageViewsArray: [UIView] = []
     var currentStage: Int = 0 {
         didSet {
-            for i in 0...7 {
+            for i in 0...6 {
                 if i <= currentStage {
                     progressViewArray[i].backgroundColor = UIColor(named: "SWBacking")
                 }else {
@@ -45,6 +45,14 @@ class SWHeroCreationViewController: UIViewController {
                     view.removeFromSuperview()
                     view.willMove(toSuperview: nil)
                 }
+            }
+            if currentStage == 0 {
+                self.backButton.setTitle("Cancel", for: UIControl.State())
+            }
+            if currentStage == 6 {
+                self.continueButton.setTitle("Create Character", for: UIControl.State())
+            }
+            if currentStage < 7 {
                 creationStageContainerView.addSubview(creationStageViewsArray[currentStage])
             }
         }
@@ -53,7 +61,7 @@ class SWHeroCreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.layer.cornerRadius = 8
-        progressViewArray = [progress1View, progress2View, progress3View, progress4View, progress5View, progress6View, progress7View, progress8View]
+        progressViewArray = [progress1View, progress2View, progress3View, progress4View, progress5View, progress6View, progress7View]
         for view in progressViewArray {
             view.layer.cornerRadius = view.frame.height / 2
         }
@@ -79,16 +87,23 @@ class SWHeroCreationViewController: UIViewController {
         edgesView.pointsRemaining = self.hindrancePoints
         edgesView.hostVC = self
         
+        let gearShopView: HeroCreationGearView = HeroCreationGearView(frame: frame)
+        gearShopView.hostVC = self
         
-        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView, skillsView, edgesView]
         
+        creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView, skillsView, edgesView, gearShopView]
+        newHero.gold = 1500
         currentStage = 0
     }
     
     
     
     @IBAction func backTapped(_ sender: Any) {
-        self.currentStage -= 1
+        if currentStage > 0 {
+            self.currentStage -= 1
+        }else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func continueTapped(_ sender: Any) {
@@ -96,9 +111,18 @@ class SWHeroCreationViewController: UIViewController {
         case 0:
             //Concept
             if let conceptView: HeroConceptCreationView = creationStageViewsArray[0] as? HeroConceptCreationView {
-                self.newHero.concept = conceptView.conceptTextView.text
-                if conceptView.image != nil {
-                    self.heroImage = conceptView.image
+                if (conceptView.nameTextField.text?.count ?? 0) > 0 {
+                    self.newHero.concept = conceptView.conceptTextView.text
+                    self.newHero.firstName = conceptView.nameTextField.text ?? ""
+                    self.newHero.lastName = conceptView.nickNameTextField.text ?? ""
+                    if conceptView.image != nil {
+                        self.heroImage = conceptView.image
+                    }
+                }else {
+                    let nameAlert: UIAlertController = UIAlertController(title: "Name your Hero", message: "Please enter a name for your new hero before continuing.", preferredStyle: .alert)
+                    let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    nameAlert.addAction(okAction)
+                    self.present(nameAlert, animated: true, completion: nil)
                 }
             }
         case 1:
@@ -140,8 +164,21 @@ class SWHeroCreationViewController: UIViewController {
             if let skillsView: HeroCreationSkillsView = creationStageViewsArray[4] as? HeroCreationSkillsView {
                 self.newHero.skills = skillsView.allSkills
             }
+        case 5:
+            if let edgesView: HeroCreationEdgesView = creationStageViewsArray[5] as? HeroCreationEdgesView {
+                self.newHero.edges = edgesView.selectedEdges
+            }
         default:
             print("default")
+            
+            databaseManager.postHeroToDatabase(hero: self.newHero, image: self.heroImage) { success, error in
+                if error != nil {
+                    print("There was an error posting the hero to the datbase \(error)")
+                }else {
+                    self.heroViewController?.getHeroesFromDB()
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
         self.currentStage += 1
     }

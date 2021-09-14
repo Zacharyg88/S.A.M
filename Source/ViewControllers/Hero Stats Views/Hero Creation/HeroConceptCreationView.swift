@@ -13,6 +13,8 @@ import Photos
 class HeroConceptCreationView: UIView, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var conceptTextView: UITextView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var addImageButton: UIButton!
     
     var image: UIImage?
@@ -41,7 +43,16 @@ class HeroConceptCreationView: UIView, UITextViewDelegate, UIImagePickerControll
         addImageButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
         self.clipsToBounds = true
         
+        let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.addGestureRecognizer(dismissKeyboardTap)
+        
 
+    }
+    
+    @objc func dismissKeyboard() {
+        self.nameTextField.resignFirstResponder()
+        self.nickNameTextField.resignFirstResponder()
+        self.conceptTextView.resignFirstResponder()
     }
     
     @IBAction func addPhoto(_ sender: Any) {

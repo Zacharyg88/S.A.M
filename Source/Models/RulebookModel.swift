@@ -10,6 +10,7 @@ var ruleBook = RulebookModel()
 class RulebookModel: NSObject {
     var slug: String?
     var attributes = Attributes()
+    var conditions = Conditions()
     var skills = Skills()
     var races = Races()
     var hinderances = Hinderances()
@@ -18,6 +19,7 @@ class RulebookModel: NSObject {
     func generateDictFromModel() -> [String: Any] {
         let dict: [String: Any] = [
             "attributes": attributes.generateDictFromObject(),
+            "conditions": conditions.generateDictFromModel(),
             "skills": skills.generateDictFromObject(),
             "races": races.generateDictFromObject(),
             "hindrances": hinderances.generateDictFromObject(),
@@ -32,6 +34,15 @@ class RulebookModel: NSObject {
         if let attributes: [String: Any] = dict["attributes"] as? [String: Any] {
             newRulebook.attributes = Attributes().generateObjectFromDict(dict: attributes)
         }
+        var conditionsArray:[ConditionModel] = []
+        if let conditions: [[String: Any]] = dict["conditions"] as? [[String: Any]] {
+            for i in conditions {
+                conditionsArray.append(ConditionModel().generateObjectFromDict(dict: i))
+            }
+        }
+        var newConditions: Conditions = Conditions()
+        newConditions.conditions = conditionsArray
+        newRulebook.conditions = newConditions
         if let skills: [String: Any] = dict["skills"] as? [String: Any] {
             newRulebook.skills = Skills().generateModelFromDict(dict: skills)
         }
@@ -49,6 +60,53 @@ class RulebookModel: NSObject {
     }
     
     
+}
+
+class Conditions: NSObject {
+    var conditions: [ConditionModel] = []
+    
+    func generateDictFromModel() -> [String: Any] {
+        var dict: [String: Any] = [:]
+        var dictArray: [[String: Any]] = []
+        for condition in conditions {
+            dictArray.append(condition.generateDictFromObject())
+        }
+        dict["conditions"] = dictArray
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> Conditions {
+        let newConditions = Conditions()
+        if let dictArray: [[String: Any]] = dict["conditions"] as? [[String: Any]] {
+            for dict in dictArray {
+                newConditions.conditions.append(ConditionModel().generateObjectFromDict(dict: dict))
+            }
+        }
+        return newConditions
+    }
+    
+}
+
+
+class ConditionModel: NSObject {
+    var title: String?
+    var summary: String?
+    
+    func generateDictFromObject() -> [String: Any] {
+        let dict: [String: Any] = [
+            "title": self.title,
+            "summary": self.summary
+        ]
+        return dict
+    }
+    
+    func generateObjectFromDict(dict: [String: Any]) -> ConditionModel {
+        let newCondition = ConditionModel()
+        newCondition.title = dict["title"] as! String?
+        newCondition.summary = dict["summary"] as! String?
+        
+        return newCondition
+    }
 }
 
 class RB_Race: NSObject {

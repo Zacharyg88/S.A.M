@@ -12,6 +12,13 @@
 		BB15CFFB26E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15CFF926E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib */; };
 		BB15CFFE26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15CFFC26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift */; };
 		BB15CFFF26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15CFFD26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib */; };
+		BB15D00126EB9F750094DB39 /* GearShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15D00026EB9F750094DB39 /* GearShopModel.swift */; };
+		BB15D00326EBBF550094DB39 /* HeroCreationGearShopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15D00226EBBF550094DB39 /* HeroCreationGearShopHeaderView.swift */; };
+		BB15D00526EBBF650094DB39 /* HeroCreationGearShopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15D00426EBBF650094DB39 /* HeroCreationGearShopHeaderView.xib */; };
+		BB15D01326F038710094DB39 /* SWHeroConditionActionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15D01226F038700094DB39 /* SWHeroConditionActionSelectionView.swift */; };
+		BB15D01526F038820094DB39 /* SWHeroConditionActionSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15D01426F038820094DB39 /* SWHeroConditionActionSelectionView.xib */; };
+		BB15D01826F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB15D01626F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.swift */; };
+		BB15D01926F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB15D01726F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.xib */; };
 		BB4A0ECE26D6ACA9000AFE66 /* S_A_MTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A0ECD26D6ACA9000AFE66 /* S_A_MTests.swift */; };
 		BB4A0ED926D6ACA9000AFE66 /* S_A_MUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A0ED826D6ACA9000AFE66 /* S_A_MUITests.swift */; };
 		BB4A342926DBE6930050B288 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A33E626DBE6930050B288 /* UserInfoViewController.swift */; };
@@ -134,6 +141,13 @@
 		BB15CFF926E3E2180094DB39 /* HeroCreationRaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationRaceTableViewCell.xib; sourceTree = "<group>"; };
 		BB15CFFC26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationHindranceTableViewCell.swift; sourceTree = "<group>"; };
 		BB15CFFD26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationHindranceTableViewCell.xib; sourceTree = "<group>"; };
+		BB15D00026EB9F750094DB39 /* GearShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShopModel.swift; sourceTree = "<group>"; };
+		BB15D00226EBBF550094DB39 /* HeroCreationGearShopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationGearShopHeaderView.swift; sourceTree = "<group>"; };
+		BB15D00426EBBF650094DB39 /* HeroCreationGearShopHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationGearShopHeaderView.xib; sourceTree = "<group>"; };
+		BB15D01226F038700094DB39 /* SWHeroConditionActionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroConditionActionSelectionView.swift; sourceTree = "<group>"; };
+		BB15D01426F038820094DB39 /* SWHeroConditionActionSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroConditionActionSelectionView.xib; sourceTree = "<group>"; };
+		BB15D01626F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroConditionActionCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB15D01726F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroConditionActionCollectionViewCell.xib; sourceTree = "<group>"; };
 		BB4A0EB326D6ACA7000AFE66 /* S.A.M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S.A.M.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4A0EC926D6ACA9000AFE66 /* S.A.MTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = S.A.MTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4A0ECD26D6ACA9000AFE66 /* S_A_MTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S_A_MTests.swift; sourceTree = "<group>"; };
@@ -374,6 +388,7 @@
 				BB4A33FE26DBE6930050B288 /* DiceModel.swift */,
 				BB4A340026DBE6930050B288 /* ItemModels.swift */,
 				BBA411B826E06FFB0019EC39 /* RulebookModel.swift */,
+				BB15D00026EB9F750094DB39 /* GearShopModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -434,6 +449,8 @@
 				BBBC4ED226DFF4EB0065509A /* HeroPowersView.xib */,
 				BBBC4EEF26E00EA40065509A /* HeroObjectDetailsView.swift */,
 				BBBC4EF426E00FC60065509A /* HeroObjectDetailsView.xib */,
+				BB15D01226F038700094DB39 /* SWHeroConditionActionSelectionView.swift */,
+				BB15D01426F038820094DB39 /* SWHeroConditionActionSelectionView.xib */,
 			);
 			path = "Hero Stats Views";
 			sourceTree = "<group>";
@@ -472,6 +489,8 @@
 				BB8B010D26E2A35C00C3646F /* HeroCreationGearView.xib */,
 				BBBFEA3B26E7F02700AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.swift */,
 				BBBFEA4026E7F04400AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.xib */,
+				BB15D00226EBBF550094DB39 /* HeroCreationGearShopHeaderView.swift */,
+				BB15D00426EBBF650094DB39 /* HeroCreationGearShopHeaderView.xib */,
 			);
 			path = "Hero Creation";
 			sourceTree = "<group>";
@@ -506,6 +525,8 @@
 				BB8B015B26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.xib */,
 				BBBFEA3026E7E0B600AF0E42 /* SWHeroEdgesTableViewCell.swift */,
 				BBBFEA3126E7E0B600AF0E42 /* SWHeroEdgesTableViewCell.xib */,
+				BB15D01626F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.swift */,
+				BB15D01726F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -618,6 +639,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB15D01926F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.xib in Resources */,
 				BB8B00D226E2A18900C3646F /* HeroCreationRaceView.xib in Resources */,
 				BB8B00F026E2A26100C3646F /* HeroCreationSkillsView.xib in Resources */,
 				BB4A342E26DBE6930050B288 /* LoginViewController.xib in Resources */,
@@ -651,7 +673,9 @@
 				BB4A343426DBE6930050B288 /* Assets.xcassets in Resources */,
 				BB4A344A26DBE6940050B288 /* SWMissionLogTableViewCell.xib in Resources */,
 				BBBFEA3326E7E0B600AF0E42 /* SWHeroEdgesTableViewCell.xib in Resources */,
+				BB15D00526EBBF650094DB39 /* HeroCreationGearShopHeaderView.xib in Resources */,
 				BB4A344926DBE6940050B288 /* SWCreateCollectionViewCell.xib in Resources */,
+				BB15D01526F038820094DB39 /* SWHeroConditionActionSelectionView.xib in Resources */,
 				BBBFEA4126E7F04400AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.xib in Resources */,
 				BB4A345926DBE6940050B288 /* SWRulesViewController.xib in Resources */,
 				BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */,
@@ -786,8 +810,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB15D00126EB9F750094DB39 /* GearShopModel.swift in Sources */,
 				BB4A344726DBE6940050B288 /* StringExtensions.swift in Sources */,
 				BB4A343326DBE6930050B288 /* DatabaseManager.swift in Sources */,
+				BB15D01326F038710094DB39 /* SWHeroConditionActionSelectionView.swift in Sources */,
 				BB8B00EB26E2A24C00C3646F /* HeroCreationSkillsView.swift in Sources */,
 				BBA411AF26E0681B0019EC39 /* HeroConceptCreationView.swift in Sources */,
 				BB4A343526DBE6930050B288 /* LauncherViewController.swift in Sources */,
@@ -799,6 +825,7 @@
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,
 				BB4A343C26DBE6940050B288 /* User.swift in Sources */,
 				BB8B00D726E2A1C200C3646F /* HeroCreationHindrancesView.swift in Sources */,
+				BB15D00326EBBF550094DB39 /* HeroCreationGearShopHeaderView.swift in Sources */,
 				BB8B015C26E53E3400C3646F /* HeroCreationSkillsCollectionViewCell.swift in Sources */,
 				BBBC4EF026E00EA40065509A /* HeroObjectDetailsView.swift in Sources */,
 				BB4A345526DBE6940050B288 /* SWRulesViewController.swift in Sources */,
@@ -821,6 +848,7 @@
 				BB4A345B26DBE6940050B288 /* AppDelegate.swift in Sources */,
 				BB8B00FF26E2A2D100C3646F /* HeroCreationEdgesView.swift in Sources */,
 				BB4A345626DBE6940050B288 /* SWProfileViewController.swift in Sources */,
+				BB15D01826F03EF50094DB39 /* SWHeroConditionActionCollectionViewCell.swift in Sources */,
 				BB4A344D26DBE6940050B288 /* SWHeroViewController.swift in Sources */,
 				BB91EEA326DDCD1200D3FD15 /* HeroGearView.swift in Sources */,
 				BB91EE9326DDBCAA00D3FD15 /* TabBarItem.swift in Sources */,

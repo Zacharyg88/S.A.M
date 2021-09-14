@@ -20,6 +20,7 @@ class HeroModel: NSObject {
     var backstory: String?
     var skills: [SkillModel] = []
     var gold: Int?
+    var level: Int?
     var items: [NSObject] = []
     var powers: [PowerModel] = []
     var powerPoints: Int?
@@ -86,6 +87,23 @@ class HeroModel: NSObject {
         return SkillModel()
     }
     
+    func getLevelString() -> String {
+        var categoryString: String = ""
+        switch self.level ?? 0 {
+        case 0...3:
+            categoryString = "Novice"
+        case 4...7:
+            categoryString = "Seasoned"
+        case 8...11:
+            categoryString = "Veteran"
+        case 12...15:
+            categoryString = "Heroic"
+        default:
+            categoryString = "Legendary"
+        }
+        return "\(self.level ?? 0) - " + categoryString
+    }
+    
     func createDictForValues() -> [String: Any] {
         var valueDict: [String: Any] = [:]
         valueDict["isCurrentHero"] = self.isCurrentHero
@@ -96,6 +114,7 @@ class HeroModel: NSObject {
         valueDict["concept"] = self.concept
         valueDict["backstory"] = self.backstory
         valueDict["gold"] = self.gold
+        valueDict["level"] = self.level
         valueDict["powerPoints"] = self.powerPoints
         var skillsDictArray: [[String: Any]] = [[:]]
         for skill in self.skills {
@@ -166,6 +185,7 @@ class HeroModel: NSObject {
         newHero.slug = slug
         newHero.isCurrentHero = data["isCurrentHero"] as? Bool ?? false
         newHero.gold = data["gold"] as? Int
+        newHero.level = data["level"] as? Int
         newHero.powerPoints = data["powerPoints"] as? Int
         newHero.firstName = data["firstName"] as? String
         newHero.race = data["race"] as? String

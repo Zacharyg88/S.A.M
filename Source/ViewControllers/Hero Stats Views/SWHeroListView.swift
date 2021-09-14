@@ -54,6 +54,7 @@ class SWHeroListView: UIView, UITableViewDelegate, UITableViewDataSource {
             }else {
                 cell.heroContainerView.backgroundColor = .clear
             }
+            
             cell.backgroundColor = .clear
             return cell
         }

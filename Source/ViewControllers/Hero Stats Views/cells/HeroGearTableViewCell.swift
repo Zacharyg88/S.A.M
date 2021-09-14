@@ -28,6 +28,16 @@ class HeroGearTableViewCell: UITableViewCell {
     @IBOutlet weak var activatePowerButton: UIButton!
 
     var itemType: String = ""
+    var isGearShop: Bool = false {
+        didSet {
+            if isGearShop {
+                self.quantityLabel.isHidden = true
+                self.activatePowerButton.isHidden = false
+                self.activatePowerButton.setTitle("Purchase", for: UIControl.State())
+                self.activatePowerButton.backgroundColor = UIColor(named: "SWStrength_Vigor")
+            }
+        }
+    }
     var weaponItem: WeaponModel? {
         didSet {
             self.itemType = "weapon"
@@ -51,6 +61,7 @@ class HeroGearTableViewCell: UITableViewCell {
             self.apStatLabel.isHidden = false
             self.weightLabel.text = "Weight"
             self.weightStatLabel.text = "\(weaponItem?.weight ?? 0)" + " lbs"
+            
         }
     }
     var armorItem: ArmorModel? {
@@ -131,7 +142,26 @@ class HeroGearTableViewCell: UITableViewCell {
             self.weightStatLabel.text = "\(armorItem?.weight ?? 0)" + " lbs"
         }
     }
-    
+    var vehicleItem: VehicleModel? {
+        didSet {
+            
+            self.gearCellBanner.backgroundColor = UIColor.brown
+            self.gearTypeLabel.text = "Vehicle"
+            self.gearNameLabel.text = vehicleItem?.title ?? ""
+            self.damageLabel.text = "Size"
+            self.damageStatsLabel.text = vehicleItem?.size ?? ""
+            self.rangeLabel.text = "Top Speed"
+            self.rangeStatsLabel.text = "\(vehicleItem?.topSpeed ?? 0)" + "mph"
+            self.weightLabel.text = "cost"
+            self.weightStatLabel.text = "\(vehicleItem?.cost ?? 0)"
+            self.rofLabel.text = "Toughness"
+            self.rofStatLabel.text = "\(vehicleItem?.toughness ?? 0)"
+            self.notesLabel.isHidden = true
+            self.notesDescriptionLabel.isHidden = true
+            self.apLabel.isHidden = true
+            self.apStatLabel.isHidden = true
+        }
+    }
     var powerItem: PowerModel? {
         didSet {
             self.itemType = "power"
@@ -159,6 +189,9 @@ class HeroGearTableViewCell: UITableViewCell {
         }
     }
     
+    var gearShopView: HeroCreationGearView?
+    var heroViewController: SWHeroViewController?
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backgroundColor = .clear
@@ -181,5 +214,16 @@ class HeroGearTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func activateTapped(_ sender: Any) {
+        if isGearShop {
+            self.gearShopView?.purchaseItem(weapon: self.weaponItem, armor: self.armorItem, shield: self.shieldItem, item: self.itemItem, vehicle: self.vehicleItem)
+            self.activatePowerButton.setTitle("Purchased", for: UIControl.State())
+            
+        }else {
+            self.heroViewController?.activatePower(power: self.powerItem ?? PowerModel())
+        }
+    }
+    
     
 }

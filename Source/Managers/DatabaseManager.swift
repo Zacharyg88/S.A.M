@@ -112,9 +112,36 @@ class DatabaseManager: NSObject {
         }
     }
     
+    func postImageToStorage(image: UIImage, imageLocation: String, completion: @escaping(_ success: Bool, _ error: Error?) -> Void) {
+        let storeRef = storage.reference()
+        let imageRef = storeRef.child(imageLocation)
+        let data = image.jpegData(compressionQuality: 0.75)
+        let uploadTask = imageRef.putData(data ?? Data(), metadata: nil) { (metadata, error) in
+            print(metadata, error)
+            
+        }
+        
+        
+    }
     
     
     
+    //Gear Requests
+    func getGearShopFromDatabase(completion: @escaping (_ shop: GearShopModel?, _ error: Error?) -> Void) {
+        var gearShopRef = database.collection("gear_shops")
+        gearShopRef.getDocuments { snapshot, error in
+            if error != nil {
+                print("There was an error getting the gear shop \(error)")
+                completion(nil, error)
+            }else {
+                for document in snapshot?.documents ?? [QueryDocumentSnapshot]() {
+                    if let doc: QueryDocumentSnapshot = document as? QueryDocumentSnapshot, doc.exists {
+                        completion(GearShopModel().generageObjectFromDict(dict: doc.data()), nil)
+                    }
+                }
+            }
+        }
+    }
     
     
     //Mission Requests
@@ -149,9 +176,16 @@ class DatabaseManager: NSObject {
         }
     }
     
-    func postHeroToDatabase(hero: HeroModel, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+    func postHeroToDatabase(hero: HeroModel, image: UIImage?, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         let heroesRef = database.collection("heroes").document()
         let id = heroesRef.documentID
+        if image != nil {
+            hero.imageName = "Images/hero_\(id)"
+            self.postImageToStorage(image: image ?? UIImage(), imageLocation: hero.imageName ?? "") { success, error in
+                print(success, error)
+            }
+        }
+        
         heroesRef.setData(hero.createDictForValues(), merge: true) { (error) in
             if error != nil {
                 completion(false, error)

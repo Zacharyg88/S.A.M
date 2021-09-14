@@ -27,6 +27,7 @@ class SWHeroListTableViewCell: UITableViewCell {
             if hero?.lastName != nil {
                 heroNameLabel.text = (hero?.firstName ?? "") + " " + (hero?.lastName ?? "")
             }
+            heroLevelLabel.text = hero?.getLevelString()
         }
     }
     

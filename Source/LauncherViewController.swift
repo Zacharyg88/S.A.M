@@ -13,10 +13,8 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var terminalLabel: UILabel!
-    @IBOutlet weak var usernameImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailErrorLabel: UILabel!
-    @IBOutlet weak var passwordImageView: UIImageView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
@@ -25,7 +23,7 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
     var emailHasError: Bool  = false
     var passwordHasError: Bool = false
     var loginViewController: LoginViewController?
-    var loginStringArray = ">> PLEASE LOGIN TO CONTINUE"
+    var loginStringArray = ">> PLEASE VERIFY YOUR CREDENTIALS..."
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loginButton.alpha = 0
@@ -62,10 +60,8 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
         submitButton.layer.shadowRadius = 8
         submitButton.layer.shadowOpacity = 0.8
         
-        usernameImageView.alpha = 0
         usernameTextField.alpha = 0
         emailErrorLabel.isHidden = true
-        passwordImageView.alpha = 0
         passwordTextField.alpha = 0
         passwordErrorLabel.isHidden = true
         submitButton.alpha = 0
@@ -86,9 +82,7 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
             }
         }else {
             UIView.animate(withDuration: 0.3) {
-                self.usernameImageView.alpha = 1
                 self.usernameTextField.alpha = 1
-                self.passwordImageView.alpha = 1
                 self.passwordTextField.alpha = 1
                 self.submitButton.alpha = 1
                 self.forgotPassButton.alpha = 1
@@ -135,11 +129,17 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.tag == 1 {
+            if textField.text == "Username" {
+                textField.text = ""
+            }
             if emailHasError {
                 self.emailErrorLabel.isHidden = true
                 self.emailHasError = false
             }
         }else {
+            if textField.text == "Password" {
+                textField.text = ""
+            }
             if passwordHasError {
                 self.passwordErrorLabel.isHidden = true
                 self.passwordHasError = false
@@ -174,9 +174,6 @@ class LauncherViewController: UIViewController, UITextFieldDelegate {
         let tabBarController: SWTabBarControllerViewController = SWTabBarControllerViewController()
         tabBarController.modalPresentationStyle = .overCurrentContext
         self.present(tabBarController, animated: true, completion: nil)
-//        let mainViewController = MainMenuViewController()
-//        mainViewController.modalPresentationStyle = .fullScreen
-//        self.present(mainViewController, animated: true, completion: nil)
     }
     
 }
