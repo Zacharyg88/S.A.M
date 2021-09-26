@@ -14,6 +14,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var heroProfileView: UIView!
     @IBOutlet weak var heroLevelLabel: UILabel!
     @IBOutlet weak var heroNameLabel: UILabel!
+    @IBOutlet weak var globalPenaltyLabel: UILabel!
     @IBOutlet weak var editHeroButton: UIButton!
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var parryLabel: UILabel!
@@ -50,17 +51,31 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    var isDistracted: Bool = false
+    var isDistracted: Bool = false {
+        didSet {
+            self.toggleGlobalPenalty(isOn: isDistracted, penaltyString: "-2 to All Actions")
+        }
+    }
     var isEntangled: Bool = false
     var isExhausted: Bool = false
     var isFatigued: Bool = false
-    var isIncapacitated: Bool = false
-    var isStunned: Bool = false
+    var isIncapacitated: Bool = false {
+        didSet {
+            self.toggleGlobalPenalty(isOn: isIncapacitated, penaltyString: "Incapacitated! No Actions!")
+        }
+    }
+    var isStunned: Bool = false {
+        didSet {
+            self.toggleGlobalPenalty(isOn: isStunned, penaltyString: "Prone, No Movement or Actions")
+        }
+    }
     var isVulnerable: Bool = false {
         didSet {
+            self.toggleGlobalPenalty(isOn: isVulnerable, penaltyString: " +2 to All Actions Against!")
             
         }
     }
+    var hasGlobalPenalty: Bool = false
     var currentSwitchSelection: Int = 0 {
         didSet {
             switch currentSwitchSelection {
@@ -78,6 +93,33 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var woundCount: Int = 0 {
         didSet {
             self.woundsLabel.text = "\(woundCount)"
+            var textColor = UIColor.white
+            var stringSuffix = ""
+            if woundCount > 0 {
+                textColor = UIColor.red
+                woundsDownButton.isHidden = false
+                stringSuffix = " - \(woundCount)"
+            }else {
+                woundsDownButton.isHidden = true
+            }
+            paceLabel.textColor = textColor
+            paceLabel.text = "\((hero?.pace ?? 0) - woundCount)"
+            if let traitsView: HeroTraitsView = switchContainerViews[0] as? HeroTraitsView {
+                traitsView.agilityDiceLabel.textColor = textColor
+                traitsView.agilityDiceLabel.text = "d\(self.hero?.attributes[0].dice?.sides ?? 0)" + stringSuffix
+                
+                traitsView.smartsDiceLabel.textColor = textColor
+                traitsView.smartsDiceLabel.text = "d\(self.hero?.attributes[1].dice?.sides ?? 0)" + stringSuffix
+                
+                traitsView.spiritDiceLabel.textColor = textColor
+                traitsView.spiritDiceLabel.text = "d\(self.hero?.attributes[2].dice?.sides ?? 0)"  + stringSuffix
+                
+                traitsView.strengthDiceLabel.textColor = textColor
+                traitsView.strengthDiceLabel.text = "d\(self.hero?.attributes[3].dice?.sides ?? 0)"  + stringSuffix
+                
+                traitsView.vigorDiceLabel.textColor = textColor
+                traitsView.vigorDiceLabel.text = "d\(self.hero?.attributes[4].dice?.sides ?? 0)" + stringSuffix
+            }
         }
     }
     var tabViews: [UIView] = []
@@ -117,46 +159,14 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     var activeConditions: [ConditionModel] = [] {
         didSet {
-            for condition in activeConditions {
-                switch condition.title {
-                case "Bound":
-                    if !activeConditions.contains(self.getConditionFromName(name: "Vulnerable")) {
-                        activeConditions.append(self.getConditionFromName(name: "Vulnerable"))
-                    }
-                    self.isBound = true
-                case "Distracted":
-                    self.isDistracted = true
-                case "Entangled":
-                    self.isEntangled = true
-                    if !activeConditions.contains(self.getConditionFromName(name: "Distracted")) {
-                        activeConditions.append(self.getConditionFromName(name: "Distracted"))
-                    }
-                case "Fatigued":
-                    self.isFatigued = true
-                case "Exhausted":
-                    self.isExhausted = true
-                case "Incapacitated":
-                    self.isIncapacitated = true
-                case "Shaken":
-                    self.isShaken = true
-                case "Stunned":
-                    self.isStunned = true
-                    if !activeConditions.contains(self.getConditionFromName(name: "Distracted")) {
-                        activeConditions.append(self.getConditionFromName(name: "Distracted"))
-                    }
-                case "Vulnerable":
-                    self.isVulnerable = true
-                default:
-                    print("Wounded")
-                }
-            }
+            setConditionalBooleans()
         }
     }
     var stackViewIsShown: Bool = false
     var currentStackHost: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        globalPenaltyLabel.isHidden = true
         let dismissTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         self.SAMImageView.addGestureRecognizer(dismissTap)
         self.SAMImageView.isUserInteractionEnabled = true
@@ -207,6 +217,41 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         edgesTableView.register(UINib(nibName: "HinderanceEdgeTableViewCell", bundle: nil), forCellReuseIdentifier: "HinderanceEdgeTableViewCell")
         
         getHeroesFromDB()
+        
+    }
+    func setConditionalBooleans() {
+        if activeConditions.contains(self.getConditionFromName(name: "Bound")) {
+            if !activeConditions.contains(self.getConditionFromName(name: "Vulnerable")) {
+                activeConditions.append(self.getConditionFromName(name: "Vulnerable"))
+            }
+            self.isBound = true
+        }else {
+            self.isBound = false
+        }
+        
+        self.isDistracted = activeConditions.contains(self.getConditionFromName(name: "Distracted"))
+        if activeConditions.contains(self.getConditionFromName(name: "Entangled")) {
+            self.isEntangled = true
+            if !activeConditions.contains(self.getConditionFromName(name: "Distracted")) {
+                activeConditions.append(self.getConditionFromName(name: "Distracted"))
+            }
+        }else {
+            self.isEntangled = false
+        }
+        
+        self.isFatigued = activeConditions.contains(self.getConditionFromName(name: "Fatigued"))
+        self.isExhausted = activeConditions.contains(self.getConditionFromName(name: "Exhausted"))
+        self.isIncapacitated = activeConditions.contains(self.getConditionFromName(name: "Incapacitated"))
+        self.isShaken = activeConditions.contains(self.getConditionFromName(name: "Shaken"))
+        if activeConditions.contains(self.getConditionFromName(name: "Stunned")) {
+            self.isStunned = true
+            if !activeConditions.contains(self.getConditionFromName(name: "Distracted")) {
+                activeConditions.append(self.getConditionFromName(name: "Distracted"))
+            }
+        }else {
+            self.isStunned = false
+        }
+        self.isVulnerable = activeConditions.contains(self.getConditionFromName(name: "Vulnerable"))
         
     }
     
@@ -275,7 +320,30 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if tableView.tag == 0 {
+            let hindrance: HindranceModel = hero?.hinderances[indexPath.row] ?? HindranceModel()
+            self.showDetailForItem(object: hindrance)
+        }else {
+            let edge: EdgeModel = hero?.edges[indexPath.row] ?? EdgeModel()
+            self.showDetailForItem(object: edge)
+            
+        }
+    }
+    
     @IBAction func editHeroTapped(_ sender: Any) {
+    }
+    
+    func toggleGlobalPenalty(isOn: Bool, penaltyString: String?) {
+        if isOn {
+            self.globalPenaltyLabel.isHidden = false
+            self.globalPenaltyLabel.text = penaltyString ?? ""
+            self.heroProfileView.backgroundColor = .red
+        }else {
+            self.globalPenaltyLabel.isHidden = true
+            self.heroProfileView.backgroundColor = UIColor(named: "SWBacking")
+        }
     }
     
     @objc func changeHeroTapped(_ sender: Any) {
@@ -369,6 +437,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     return false
                 }
             }
+            
+            sender.view?.removeFromSuperview()
         }
     }
     
@@ -430,9 +500,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func setViewsInStack(isConditions: Bool) {
-        
-    }
+
     
     @IBAction func shakenTapped(_ sender: Any) {
         if isShaken {
@@ -545,7 +613,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             detailView.rightHeader3.text = "Weight"
             detailView.rightDescription3.text = "\(weapon.weight ?? 0) lbs"
             detailView.leftHeader4.text = weapon.classification ?? ""
-            detailView.leftDescription4.text = weapon.description ?? ""
+            detailView.leftDescription4.text = weapon.notes ?? ""
             
         }
         if let armor: ArmorModel = object as? ArmorModel {
@@ -635,6 +703,49 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             detailView.leftHeader4.isHidden = true
             detailView.leftDescription4.isHidden = true
         }
+        
+        if let hindrance: HindranceModel = object as? HindranceModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWDry_Planet")
+            detailView.typeLabel.text = "Hindrance"
+            detailView.nameLabel.text = hindrance.title ?? ""
+            detailView.leftHeader1.text = "Level"
+            detailView.leftDescription1.text = hindrance.level ?? ""
+            detailView.leftHeader2.text = "Summary"
+            detailView.leftDescription2.text = hindrance.summary ?? ""
+            
+            detailView.rightHeader1.isHidden = true
+            detailView.rightDescription1.isHidden = true
+            detailView.rightHeader2.isHidden = true
+            detailView.rightDescription2.isHidden = true
+            detailView.leftHeader3.isHidden = true
+            detailView.leftDescription3.isHidden = true
+            detailView.rightHeader3.isHidden = true
+            detailView.rightDescription3.isHidden = true
+            detailView.leftHeader4.isHidden = true
+            detailView.leftDescription4.isHidden = true
+        }
+        
+        if let edge: EdgeModel = object as? EdgeModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWCore_Planet")
+            detailView.typeLabel.text = "Edge"
+            detailView.nameLabel.text = edge.title ?? ""
+            detailView.leftHeader1.text = "Summary"
+            detailView.leftDescription1.text = edge.summary ?? ""
+            
+            detailView.leftHeader2.isHidden = true
+            detailView.leftDescription2.isHidden = true
+            detailView.rightHeader1.isHidden = true
+            detailView.rightDescription1.isHidden = true
+            detailView.rightHeader2.isHidden = true
+            detailView.rightDescription2.isHidden = true
+            detailView.leftHeader3.isHidden = true
+            detailView.leftDescription3.isHidden = true
+            detailView.rightHeader3.isHidden = true
+            detailView.rightDescription3.isHidden = true
+            detailView.leftHeader4.isHidden = true
+            detailView.leftDescription4.isHidden = true
+        }
+        
         self.view.addSubview(detailView)
         self.view.bringSubviewToFront(detailView)
         UIView.animate(withDuration: 0.5) {

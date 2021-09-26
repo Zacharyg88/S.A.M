@@ -48,5 +48,7 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
         }
         return UITableViewCell()
     }
+    
+    
 
 }

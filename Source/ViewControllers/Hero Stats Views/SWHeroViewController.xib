@@ -24,6 +24,7 @@
                 <outlet property="edgesTableView" destination="IEf-NW-znu" id="TyX-30-BoW"/>
                 <outlet property="editHeroButton" destination="irK-8e-o8x" id="xjH-HC-DbO"/>
                 <outlet property="gearButton" destination="PHN-hM-fe6" id="9hN-LX-y4k"/>
+                <outlet property="globalPenaltyLabel" destination="yqL-ci-9WF" id="Q80-ho-Dbj"/>
                 <outlet property="heroImageView" destination="AXr-ce-JIY" id="4oO-d5-DHR"/>
                 <outlet property="heroLevelLabel" destination="t3L-Eo-h4X" id="NHx-EP-hmE"/>
                 <outlet property="heroNameLabel" destination="k03-Wf-Vjv" id="hBF-Vh-xhm"/>
@@ -381,8 +382,8 @@
                                                 <constraint firstAttribute="width" constant="60" id="nLW-SL-h61"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lvl 0 - Novice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3L-Eo-h4X">
-                                            <rect key="frame" x="82" y="36" width="86.5" height="16.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lvl 0 - Novice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3L-Eo-h4X">
+                                            <rect key="frame" x="82" y="36" width="86.5" height="14"/>
                                             <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                                             <color key="textColor" name="SWSubheading"/>
                                             <nil key="highlightedColor"/>
@@ -393,6 +394,12 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Global Penalty!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yqL-ci-9WF">
+                                            <rect key="frame" x="82" y="51" width="135" height="21"/>
+                                            <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" name="SWBacking"/>
                                     <constraints>
@@ -400,7 +407,10 @@
                                         <constraint firstAttribute="height" constant="72" id="DJ8-KW-dco"/>
                                         <constraint firstItem="t3L-Eo-h4X" firstAttribute="top" secondItem="k03-Wf-Vjv" secondAttribute="bottom" id="W9G-OQ-LRx"/>
                                         <constraint firstItem="k03-Wf-Vjv" firstAttribute="leading" secondItem="AXr-ce-JIY" secondAttribute="trailing" constant="14" id="ZUX-wx-7da"/>
+                                        <constraint firstItem="yqL-ci-9WF" firstAttribute="leading" secondItem="t3L-Eo-h4X" secondAttribute="leading" id="cKc-tQ-26v"/>
                                         <constraint firstItem="AXr-ce-JIY" firstAttribute="leading" secondItem="oyD-Hx-GZf" secondAttribute="leading" constant="8" id="f48-Vu-ZqO"/>
+                                        <constraint firstAttribute="bottom" secondItem="yqL-ci-9WF" secondAttribute="bottom" id="gkV-1P-C2q"/>
+                                        <constraint firstItem="yqL-ci-9WF" firstAttribute="top" secondItem="t3L-Eo-h4X" secondAttribute="bottom" id="rWm-uJ-eWa"/>
                                         <constraint firstAttribute="width" constant="270" id="sdE-Jv-c6s"/>
                                         <constraint firstItem="k03-Wf-Vjv" firstAttribute="bottom" secondItem="AXr-ce-JIY" secondAttribute="centerY" id="sxu-QD-5y1"/>
                                         <constraint firstItem="k03-Wf-Vjv" firstAttribute="top" secondItem="AXr-ce-JIY" secondAttribute="top" id="y40-zQ-O41"/>
@@ -487,6 +497,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yqL-ci-9WF" secondAttribute="trailing" constant="8" id="4WU-t1-1kV"/>
                 <constraint firstItem="qFt-QH-GPh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qld-d2-u09"/>
                 <constraint firstAttribute="bottom" secondItem="qFt-QH-GPh" secondAttribute="bottom" id="Z1E-g0-XdU"/>
                 <constraint firstAttribute="trailing" secondItem="dOO-eJ-ndS" secondAttribute="trailing" id="Zfz-oC-xfL"/>

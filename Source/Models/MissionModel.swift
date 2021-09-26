@@ -19,17 +19,8 @@ class MissionModel: NSObject {
     var imageURL: String?
     var missionType: String?
     var missionLocation: String?
+    var votes: [String]?
     
-//    public init(slug: String?, title: String?, missionDetailsShort: String?, target: String?, missionDetailsLong: String?, imageURL: String?, missionType: String?, missionLocation: String?) {
-//        self.slug = slug
-//        self.title = title
-//        self.missionDetailsShort = missionDetailsShort
-//        self.target = target
-//        self.missionDetailsLong = missionDetailsLong
-//        self.imageURL = imageURL
-//        self.missionType = missionType
-//        self.missionLocation = missionLocation
-//    }
     
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
@@ -40,6 +31,7 @@ class MissionModel: NSObject {
         valuesDict["imageURL"] = self.imageURL
         valuesDict["missionType"] = self.missionType
         valuesDict["missionLocation"] = self.missionLocation
+        valuesDict["votes"] = self.votes
         return valuesDict
     }
     
@@ -53,7 +45,7 @@ class MissionModel: NSObject {
         newMission.imageURL = data["imageURL"] as? String
         newMission.missionType = data["missionType"] as? String
         newMission.missionLocation = data["missionLocation"] as? String
-        
+        newMission.votes = data["votes"] as? [String]
         return newMission
     }
     

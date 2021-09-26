@@ -35,7 +35,7 @@ class HeroObjectDetailsView: UIView {
 
     
     var delegate: DetailAddDelegate?
-    
+    var viewIsFullScreen: Bool = false
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()
@@ -53,10 +53,14 @@ class HeroObjectDetailsView: UIView {
         self.layer.shadowOffset = CGSize(width: 8, height: -20)
         self.layer.shadowRadius = 20
         self.layer.shadowOpacity = 0.75
-        self.layer.cornerRadius = 12
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDismiss))
+        self.clipsToBounds = false
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureHandler(_:)))
         swipeGestureRecognizer.direction = .down
         self.addGestureRecognizer(swipeGestureRecognizer)
+        
+        let swipeUpGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureHandler(_:)))
+        swipeUpGestureRecognizer.direction = .up
+        self.addGestureRecognizer(swipeUpGestureRecognizer)
         
         plusButton.layer.cornerRadius = plusButton.frame.height / 2
         plusButton.layer.borderWidth = 1.5
@@ -79,5 +83,31 @@ class HeroObjectDetailsView: UIView {
     @IBAction func plusButtonTapped(_ sender: Any) {
         self.swipeToDismiss()
         self.delegate?.detailViewAddTapped()
+    }
+    
+    @objc func swipeGestureHandler(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .up {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
+                self.frame = CGRect(x: 0, y: 36, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 36)
+            } completion: { done in
+                if done {
+                    self.viewIsFullScreen = true
+                }
+            }
+
+        }else {
+            if self.viewIsFullScreen {
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
+                    self.frame = CGRect(x: 0, y: UIScreen.main.bounds.midY, width: self.frame.width, height: UIScreen.main.bounds.height / 2)
+                } completion: { done in
+                    if done {
+                        self.viewIsFullScreen = false
+                    }
+                }
+
+            }else {
+                swipeToDismiss()
+            }
+        }
     }
 }
