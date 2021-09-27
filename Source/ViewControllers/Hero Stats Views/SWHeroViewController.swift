@@ -53,7 +53,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     var isDistracted: Bool = false {
         didSet {
-            self.toggleGlobalPenalty(isOn: isDistracted, penaltyString: "-2 to All Actions")
+            if oldValue != isDistracted {
+                self.toggleGlobalPenalty(isOn: isDistracted, penaltyString: "-2 to All Actions")
+            }
         }
     }
     var isEntangled: Bool = false
@@ -61,17 +63,23 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isFatigued: Bool = false
     var isIncapacitated: Bool = false {
         didSet {
-            self.toggleGlobalPenalty(isOn: isIncapacitated, penaltyString: "Incapacitated! No Actions!")
+            if oldValue != isIncapacitated {
+                self.toggleGlobalPenalty(isOn: isIncapacitated, penaltyString: "Incapacitated! No Actions!")
+            }
         }
     }
     var isStunned: Bool = false {
         didSet {
-            self.toggleGlobalPenalty(isOn: isStunned, penaltyString: "Prone, No Movement or Actions")
+            if oldValue != isStunned {
+                self.toggleGlobalPenalty(isOn: isStunned, penaltyString: "Prone, No Movement or Actions")
+            }
         }
     }
     var isVulnerable: Bool = false {
         didSet {
-            self.toggleGlobalPenalty(isOn: isVulnerable, penaltyString: " +2 to All Actions Against!")
+            if oldValue != isVulnerable {
+                self.toggleGlobalPenalty(isOn: isVulnerable, penaltyString: " +2 to All Actions Against!")
+            }
             
         }
     }
@@ -330,11 +338,13 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func toggleGlobalPenalty(isOn: Bool, penaltyString: String?) {
-        if isOn {
+        if isOn && !self.hasGlobalPenalty {
+            self.hasGlobalPenalty = true
             self.globalPenaltyLabel.isHidden = false
             self.globalPenaltyLabel.text = penaltyString ?? ""
             self.heroProfileView.backgroundColor = .red
         }else {
+            
             self.globalPenaltyLabel.isHidden = true
             self.heroProfileView.backgroundColor = UIColor(named: "SWBacking")
         }
@@ -431,8 +441,16 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     return false
                 }
             }
-            
-            sender.view?.removeFromSuperview()
+            sender.view?.superview?.removeFromSuperview()
+        }else {
+            if let plusImageView: UIImageView = sender.view as? UIImageView {
+                let conditionsView: SWHeroConditionActionSelectionView = SWHeroConditionActionSelectionView()
+                conditionsView.hostVC = self
+                conditionsView.conditions = self.conditions
+                self.view.addSubview(conditionsView)
+                self.view.bringSubviewToFront(conditionsView)
+                conditionsView.animateToHalf()
+            }
         }
     }
     
@@ -444,7 +462,15 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.currentStackHost = "conditions"
             self.horizontalStackView.isHidden = false
             conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
+            let plusImageView: UIImageView = UIImageView(frame: CGRect(x: xInset, y: 0, width: 24, height: 24))
+            plusImageView.image = UIImage(systemName: "plus.circle")
+            plusImageView.tintColor = .white
+            plusImageView.addGestureRecognizer(activeConditionTap)
+            plusImageView.isUserInteractionEnabled = true
+            xInset = 36
+            self.horizontalStackView.addSubview(plusImageView)
             for i in self.activeConditions {
+
                 let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
                 actionsLabel.font = UIFont(name: "Oxanium", size: 14)
                 actionsLabel.text = i.title
@@ -453,11 +479,17 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 actionsLabel.backgroundColor = UIColor(named: "SWRed")
                 actionsLabel.layer.cornerRadius = 12
                 actionsLabel.clipsToBounds = true
-                actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+                actionsLabel.frame = CGRect(x: 0, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
                 actionsLabel.addGestureRecognizer(activeConditionTap)
                 actionsLabel.isUserInteractionEnabled = true
-                xInset += actionsLabel.intrinsicContentSize.width + 24
-                self.horizontalStackView.addSubview(actionsLabel)
+                let conditionView: UIView = UIView(frame: CGRect(x: xInset, y: 0, width: actionsLabel.frame.width + 16, height: 24))
+                let minusImageView: UIImageView = UIImageView(frame: CGRect(x: actionsLabel.frame.width - 6, y: 0, width: 12, height: 12))
+                minusImageView.image = UIImage(systemName: "minus.circle")
+                minusImageView.tintColor = .white
+                conditionView.addSubview(actionsLabel)
+                conditionView.addSubview(minusImageView)
+                xInset += actionsLabel.intrinsicContentSize.width + 36
+                self.horizontalStackView.addSubview(conditionView)
             }
             self.conditionsBottomConstraint.constant = 64
             stackViewIsShown = true

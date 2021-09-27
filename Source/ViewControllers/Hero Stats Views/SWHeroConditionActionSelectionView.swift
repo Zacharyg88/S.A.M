@@ -56,7 +56,7 @@ class SWHeroConditionActionSelectionView: UIView, UICollectionViewDelegate, UICo
     
     @objc func animateToClosed() {
         UIView.animate(withDuration: 0.3) {
-            self.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+            self.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY - self.collectionView.contentSize.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.removeFromSuperview()
