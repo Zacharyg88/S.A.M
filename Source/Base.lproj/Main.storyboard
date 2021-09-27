@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="amK-Xq-DdN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="amK-Xq-DdN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Oxanium-VariableFont_wght.ttf">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
@@ -83,19 +83,6 @@
                                     <constraint firstAttribute="width" constant="100" id="WbS-LJ-ajx"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBJ-IF-LU7">
-                                <rect key="frame" x="326" y="64" width="64" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="dUE-WA-9uz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="csW-mh-ANX"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;&gt; RETRIEVING PRIMARY MENU..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCK-UA-yP6">
                                 <rect key="frame" x="40" y="119" width="310" height="21"/>
                                 <constraints>
@@ -115,40 +102,19 @@
                                 <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTS-lf-X7b">
-                                <rect key="frame" x="283" y="294" width="95" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="95" id="FcZ-0l-jK6"/>
-                                    <constraint firstAttribute="height" constant="45" id="Usc-cG-xZ8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="18"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l8C-Oe-yEx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-7E-6Sm">
-                                <rect key="frame" x="24" y="303.5" width="92" height="26"/>
-                                <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="12"/>
-                                <state key="normal" title="Forgot Password">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-1N-Cqa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-1N-Cqa">
                                 <rect key="frame" x="24" y="150" width="354" height="14"/>
                                 <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0h-6p-p67">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0h-6p-p67">
                                 <rect key="frame" x="36" y="226" width="342" height="14"/>
                                 <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0S-bY-z0r">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" placeholder="Email" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0S-bY-z0r">
                                 <rect key="frame" x="24" y="164" width="366" height="48"/>
                                 <color key="backgroundColor" name="SWBacking"/>
                                 <constraints>
@@ -158,49 +124,75 @@
                                 <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg4-ve-RlK">
+                                <rect key="frame" x="223" y="304" width="167" height="50"/>
+                                <color key="backgroundColor" name="SWBlue_Light"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZP7-tS-UIP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LDm-Vp-Md1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-8m-Gyx">
+                                <rect key="frame" x="24" y="304" width="167" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FFN-ZN-sj0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
+                                <state key="normal" title="Create An Account">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHR-FK-PpF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Y0h-6p-p67" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="0Y0-Bo-GM6"/>
                             <constraint firstItem="KOb-1N-Cqa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="2ym-Mv-1L7"/>
-                            <constraint firstItem="mfK-7E-6Sm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="68f-ur-I6d"/>
+                            <constraint firstItem="Zzt-8m-Gyx" firstAttribute="trailing" secondItem="Ep3-20-TnF" secondAttribute="centerX" constant="-16" id="85T-sS-ciZ"/>
                             <constraint firstItem="Ep3-20-TnF" firstAttribute="leading" secondItem="i0S-bY-z0r" secondAttribute="leading" id="AjK-wN-T2L"/>
                             <constraint firstItem="i0S-bY-z0r" firstAttribute="top" secondItem="KCK-UA-yP6" secondAttribute="bottom" constant="24" id="CBx-Do-Ngd"/>
                             <constraint firstItem="knF-kq-Xpg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="DJ1-XU-cwR"/>
                             <constraint firstItem="i0S-bY-z0r" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-24" id="GV3-Uk-8RY"/>
-                            <constraint firstItem="dBJ-IF-LU7" firstAttribute="top" secondItem="knF-kq-Xpg" secondAttribute="top" id="HXw-yU-YqA"/>
                             <constraint firstItem="Ep3-20-TnF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="OHe-CP-SHA"/>
                             <constraint firstItem="KCK-UA-yP6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="QFg-xf-LU7"/>
                             <constraint firstItem="PtQ-YR-jW9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Qj7-vr-Pwh"/>
                             <constraint firstItem="knF-kq-Xpg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="UKU-vi-STv"/>
+                            <constraint firstItem="Zzt-8m-Gyx" firstAttribute="top" secondItem="Ep3-20-TnF" secondAttribute="bottom" constant="20" id="Vau-dR-a83"/>
                             <constraint firstItem="Ep3-20-TnF" firstAttribute="trailing" secondItem="i0S-bY-z0r" secondAttribute="trailing" id="WVR-Mf-6Gj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jTS-lf-X7b" secondAttribute="trailing" constant="36" id="YX9-7c-2WT"/>
+                            <constraint firstItem="Zzt-8m-Gyx" firstAttribute="leading" secondItem="Ep3-20-TnF" secondAttribute="leading" id="ZXa-hW-zDY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KCK-UA-yP6" secondAttribute="trailing" constant="64" id="a1G-4g-LDT"/>
                             <constraint firstItem="Ep3-20-TnF" firstAttribute="top" secondItem="Y0h-6p-p67" secondAttribute="bottom" constant="-4" id="c3J-Aj-XUv"/>
                             <constraint firstItem="i0S-bY-z0r" firstAttribute="top" secondItem="KOb-1N-Cqa" secondAttribute="bottom" id="cFk-gG-Az8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KOb-1N-Cqa" secondAttribute="trailing" constant="36" id="cG2-jT-L4A"/>
+                            <constraint firstItem="Xg4-ve-RlK" firstAttribute="top" secondItem="Ep3-20-TnF" secondAttribute="bottom" constant="20" id="dzJ-qM-wnr"/>
                             <constraint firstItem="i0S-bY-z0r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="fRM-Ib-RG8"/>
                             <constraint firstAttribute="bottom" secondItem="PtQ-YR-jW9" secondAttribute="bottom" id="gFW-GG-jLh"/>
+                            <constraint firstItem="Xg4-ve-RlK" firstAttribute="trailing" secondItem="Ep3-20-TnF" secondAttribute="trailing" id="i1P-QO-gEX"/>
                             <constraint firstItem="Ep3-20-TnF" firstAttribute="top" secondItem="i0S-bY-z0r" secondAttribute="bottom" constant="24" id="kUv-ca-Vge"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dBJ-IF-LU7" secondAttribute="trailing" constant="24" id="nsC-43-2il"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y0h-6p-p67" secondAttribute="trailing" constant="36" id="pQH-im-yEb"/>
                             <constraint firstItem="KCK-UA-yP6" firstAttribute="top" secondItem="knF-kq-Xpg" secondAttribute="bottom" constant="24" id="pgb-qD-bxk"/>
-                            <constraint firstItem="jTS-lf-X7b" firstAttribute="top" secondItem="Ep3-20-TnF" secondAttribute="bottom" constant="10" id="sA0-UE-cPE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ep3-20-TnF" secondAttribute="trailing" constant="24" id="xDo-KP-LcS"/>
-                            <constraint firstItem="mfK-7E-6Sm" firstAttribute="centerY" secondItem="jTS-lf-X7b" secondAttribute="centerY" id="yA3-BG-HBn"/>
+                            <constraint firstItem="Xg4-ve-RlK" firstAttribute="leading" secondItem="Ep3-20-TnF" secondAttribute="centerX" constant="16" id="xMR-NG-yCD"/>
                             <constraint firstItem="PtQ-YR-jW9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yDy-vQ-uHM"/>
                             <constraint firstItem="PtQ-YR-jW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yqZ-aY-yMH"/>
-                            <constraint firstItem="dBJ-IF-LU7" firstAttribute="bottom" secondItem="knF-kq-Xpg" secondAttribute="bottom" id="zha-ug-JFC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createAccountButton" destination="Zzt-8m-Gyx" id="UIN-63-05c"/>
                         <outlet property="emailErrorLabel" destination="KOb-1N-Cqa" id="V6k-v8-0BT"/>
-                        <outlet property="forgotPassButton" destination="mfK-7E-6Sm" id="6Er-Dn-aSr"/>
-                        <outlet property="loginButton" destination="dBJ-IF-LU7" id="Zjj-DS-TKA"/>
+                        <outlet property="loginButton" destination="Xg4-ve-RlK" id="qba-ep-Xfg"/>
                         <outlet property="passwordErrorLabel" destination="Y0h-6p-p67" id="hRw-2H-FLF"/>
                         <outlet property="passwordTextField" destination="Ep3-20-TnF" id="gh6-Nd-xDq"/>
-                        <outlet property="submitButton" destination="jTS-lf-X7b" id="uvS-4K-ESw"/>
                         <outlet property="terminalLabel" destination="KCK-UA-yP6" id="kRB-to-zXR"/>
                         <outlet property="usernameTextField" destination="i0S-bY-z0r" id="hFQ-FG-Tuq"/>
                     </connections>
@@ -216,12 +208,12 @@
         <namedColor name="SWBacking">
             <color red="0.15686274509803921" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="SWBlue_Light">
+            <color red="0.13333333333333333" green="0.60392156862745094" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SWSubheading">
             <color red="1" green="1" blue="1" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

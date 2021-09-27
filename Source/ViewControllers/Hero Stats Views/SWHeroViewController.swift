@@ -76,18 +76,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     var hasGlobalPenalty: Bool = false
-    var currentSwitchSelection: Int = 0 {
-        didSet {
-            switch currentSwitchSelection {
-            case 0:
-                print(currentSwitchSelection)
-            case 1:
-                print(currentSwitchSelection)
-            default:
-                print(currentSwitchSelection)
-            }
-        }
-    }
+    var currentSwitchSelection: Int = 0
     var switchContainerViews:[UIView] = []
     var isShaken: Bool = false
     var woundCount: Int = 0 {
@@ -276,6 +265,11 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.heroesArray.append(heroObject)
                 }
             }
+        }
+        if self.heroesArray.isEmpty {
+            self.heroNameLabel.text = "Tap here to start Creating your First Hero!"
+            self.heroImageView.image = UIImage(named:"icon_add")?.imageWithTint(.white)
+            
         }
     }
     func getConditionFromName(name: String) -> ConditionModel {
@@ -513,24 +507,30 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func traitsTapped(_ sender: Any) {
-        traitsButton.backgroundColor = UIColor(named: "SWBacking")
-        gearButton.backgroundColor = UIColor(named: "SWBackground")
-        powersButton.backgroundColor = UIColor(named: "SWBackground")
-        self.setViewInContainer(index: 0)
+        if !(switchContainerViews.isEmpty ?? false) {
+            traitsButton.backgroundColor = UIColor(named: "SWBacking")
+            gearButton.backgroundColor = UIColor(named: "SWBackground")
+            powersButton.backgroundColor = UIColor(named: "SWBackground")
+            self.setViewInContainer(index: 0)
+        }
     }
     
     @IBAction func gearTapped(_ sender: Any) {
-        traitsButton.backgroundColor = UIColor(named: "SWBackground")
-        gearButton.backgroundColor = UIColor(named: "SWBacking")
-        powersButton.backgroundColor = UIColor(named: "SWBackground")
-        self.setViewInContainer(index: 1)
+        if !(switchContainerViews.isEmpty ?? false) {
+            traitsButton.backgroundColor = UIColor(named: "SWBackground")
+            gearButton.backgroundColor = UIColor(named: "SWBacking")
+            powersButton.backgroundColor = UIColor(named: "SWBackground")
+            self.setViewInContainer(index: 1)
+        }
     }
     
     @IBAction func powersTapped(_ sender: Any) {
-        traitsButton.backgroundColor = UIColor(named: "SWBackground")
-        gearButton.backgroundColor = UIColor(named: "SWBackground")
-        powersButton.backgroundColor = UIColor(named: "SWBacking")
-        self.setViewInContainer(index: 2)
+        if !(switchContainerViews.isEmpty ?? false) {
+            traitsButton.backgroundColor = UIColor(named: "SWBackground")
+            gearButton.backgroundColor = UIColor(named: "SWBackground")
+            powersButton.backgroundColor = UIColor(named: "SWBacking")
+            self.setViewInContainer(index: 2)
+        }
     }
     
     func setViewInContainer(index: Int) {
