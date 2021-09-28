@@ -217,6 +217,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     func setConditionalBooleans() {
+        if stackViewIsShown && currentStackHost == "conditions" {
+            setConditionsInStackView()
+        }
+        
         if activeConditions.contains(self.getConditionFromName(name: "Bound")) {
             if !activeConditions.contains(self.getConditionFromName(name: "Vulnerable")) {
                 activeConditions.append(self.getConditionFromName(name: "Vulnerable"))
@@ -462,35 +466,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.currentStackHost = "conditions"
             self.horizontalStackView.isHidden = false
             conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
-            let plusImageView: UIImageView = UIImageView(frame: CGRect(x: xInset, y: 0, width: 24, height: 24))
-            plusImageView.image = UIImage(systemName: "plus.circle")
-            plusImageView.tintColor = .white
-            plusImageView.addGestureRecognizer(activeConditionTap)
-            plusImageView.isUserInteractionEnabled = true
-            xInset = 36
-            self.horizontalStackView.addSubview(plusImageView)
-            for i in self.activeConditions {
-
-                let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
-                actionsLabel.font = UIFont(name: "Oxanium", size: 14)
-                actionsLabel.text = i.title
-                actionsLabel.textAlignment = .center
-                actionsLabel.textColor = .white
-                actionsLabel.backgroundColor = UIColor(named: "SWRed")
-                actionsLabel.layer.cornerRadius = 12
-                actionsLabel.clipsToBounds = true
-                actionsLabel.frame = CGRect(x: 0, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
-                actionsLabel.addGestureRecognizer(activeConditionTap)
-                actionsLabel.isUserInteractionEnabled = true
-                let conditionView: UIView = UIView(frame: CGRect(x: xInset, y: 0, width: actionsLabel.frame.width + 16, height: 24))
-                let minusImageView: UIImageView = UIImageView(frame: CGRect(x: actionsLabel.frame.width - 6, y: 0, width: 12, height: 12))
-                minusImageView.image = UIImage(systemName: "minus.circle")
-                minusImageView.tintColor = .white
-                conditionView.addSubview(actionsLabel)
-                conditionView.addSubview(minusImageView)
-                xInset += actionsLabel.intrinsicContentSize.width + 36
-                self.horizontalStackView.addSubview(conditionView)
-            }
+            setConditionsInStackView()
             self.conditionsBottomConstraint.constant = 64
             stackViewIsShown = true
         }else {
@@ -506,23 +482,52 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.actionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
                 self.currentStackHost = "conditions"
                 self.horizontalStackView.isHidden = false
-                conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
-                for i in self.conditions {
-                    let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
-                    actionsLabel.font = UIFont(name: "Oxanium", size: 14)
-                    actionsLabel.text = i.title
-                    actionsLabel.textAlignment = .center
-                    actionsLabel.textColor = .white
-                    actionsLabel.backgroundColor = UIColor(named: "SWRed")
-                    actionsLabel.layer.cornerRadius = 12
-                    actionsLabel.clipsToBounds = true
-                    actionsLabel.frame = CGRect(x: xInset, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
-                    xInset += actionsLabel.intrinsicContentSize.width + 24
-                    self.horizontalStackView.addSubview(actionsLabel)
-                }
+                setConditionsInStackView()
                 self.conditionsBottomConstraint.constant = 64
                 stackViewIsShown = true
             }
+        }
+    }
+    
+    func setConditionsInStackView() {
+        for view in horizontalStackView.subviews {
+            view.removeFromSuperview()
+            view.willMove(toSuperview: nil)
+        }
+        
+        var conditionCount = 0
+        var xInset: CGFloat = 0.0
+        
+        let plusImageView: UIImageView = UIImageView(frame: CGRect(x: xInset, y: 0, width: 24, height: 24))
+        plusImageView.image = UIImage(systemName: "plus.circle")
+        plusImageView.tintColor = .white
+        let activeConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
+        plusImageView.addGestureRecognizer(activeConditionTap)
+        plusImageView.isUserInteractionEnabled = true
+        xInset = 36
+        self.horizontalStackView.addSubview(plusImageView)
+        for i in self.activeConditions {
+
+            let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
+            actionsLabel.font = UIFont(name: "Oxanium", size: 14)
+            actionsLabel.text = i.title
+            actionsLabel.textAlignment = .center
+            actionsLabel.textColor = .white
+            actionsLabel.backgroundColor = UIColor(named: "SWRed")
+            actionsLabel.layer.cornerRadius = 12
+            actionsLabel.clipsToBounds = true
+            actionsLabel.frame = CGRect(x: 0, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
+            let activeConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
+            actionsLabel.addGestureRecognizer(activeConditionTap)
+            actionsLabel.isUserInteractionEnabled = true
+            let conditionView: UIView = UIView(frame: CGRect(x: xInset, y: 0, width: actionsLabel.frame.width + 16, height: 24))
+            let minusImageView: UIImageView = UIImageView(frame: CGRect(x: actionsLabel.frame.width - 6, y: 0, width: 12, height: 12))
+            minusImageView.image = UIImage(systemName: "minus.circle")
+            minusImageView.tintColor = .white
+            conditionView.addSubview(actionsLabel)
+            conditionView.addSubview(minusImageView)
+            xInset += actionsLabel.intrinsicContentSize.width + 36
+            self.horizontalStackView.addSubview(conditionView)
         }
     }
     
