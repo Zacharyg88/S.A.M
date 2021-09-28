@@ -50,7 +50,7 @@ class HeroCreationGearView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView: HeroCreationGearShopHeaderView = HeroCreationGearShopHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 88))
+        let headerView: HeroCreationGearShopHeaderView = HeroCreationGearShopHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 64))
         headerView.headerImageView.tintColor = .white
         switch section {
         case 0:
@@ -84,7 +84,7 @@ class HeroCreationGearView: UIView, UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 88
+        return 64
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -152,6 +152,8 @@ class HeroCreationGearView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: HeroGearTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeroGearTableViewCell", for: indexPath) as? HeroGearTableViewCell {
             cell.quantityLabel.isHidden = true
+            cell.damageLabel.isHidden = true
+            cell.damageStatsLabel.isHidden = true
             cell.activatePowerButton.isHidden = false
             cell.activatePowerButton.setTitle("Purchase", for: UIControl.State())
             cell.activatePowerButton.backgroundColor = UIColor(named: "SWStrength_Vigor")
@@ -172,6 +174,35 @@ class HeroCreationGearView: UIView, UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            // Weapons
+            let weapon: WeaponModel = gearShop?.weapons[indexPath.row] ?? WeaponModel()
+            self.hostVC?.showDetailForItem(object: weapon)
+        case 1:
+            //Armor
+            let armor: ArmorModel = gearShop?.armor[indexPath.row] ?? ArmorModel()
+            self.hostVC?.showDetailForItem(object: armor)
+
+        case 2:
+            //Shields
+            let shield: ShieldModel = gearShop?.shields[indexPath.row] ?? ShieldModel()
+            self.hostVC?.showDetailForItem(object: shield)
+
+        case 3:
+            //Items
+            let item: ItemModel = gearShop?.items[indexPath.row] ?? ItemModel()
+            self.hostVC?.showDetailForItem(object: item)
+
+        default:
+            //Vehicles
+            let vehicle: VehicleModel = gearShop?.vehicles[indexPath.row] ?? VehicleModel()
+            self.hostVC?.showDetailForItem(object: vehicle)
+        }
     }
     
     func purchaseItem(weapon: WeaponModel?, armor: ArmorModel?, shield: ShieldModel?, item: ItemModel?, vehicle: VehicleModel?) {

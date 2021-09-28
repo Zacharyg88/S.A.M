@@ -14,11 +14,13 @@ class HeroCreationRaceTableViewCell: UITableViewCell {
     @IBOutlet weak var disclosureImageView: UIImageView!
 
     var hostVC: HeroCreationRaceView?
+    var hasSelectedRace: Bool = false
     override func awakeFromNib() {
         super.awakeFromNib()
         let selectRaceTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectRaceTapped))
         self.disclosureImageView.isUserInteractionEnabled = true
         self.disclosureImageView.addGestureRecognizer(selectRaceTap)
+        self.disclosureImageView.tintColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,8 +36,8 @@ class HeroCreationRaceTableViewCell: UITableViewCell {
     }
     
     @objc func selectRaceTapped() {
-        self.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor
-        self.hostVC?.currentRace = self.raceTitleLabel.text
+        hostVC?.currentRace = self.raceTitleLabel.text
+        hostVC?.layoutCellsForSelection()
     }
     
 }

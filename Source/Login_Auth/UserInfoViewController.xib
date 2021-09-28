@@ -11,12 +11,12 @@
         <array key="BrunoAce-Regular.ttf">
             <string>BrunoAce-Regular</string>
         </array>
-        <array key="Oxanium-VariableFont_wght.ttf">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController" customModule="SWTestApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
                 <outlet property="firstNameTextField" destination="FfR-r4-ztJ" id="AKD-Ci-FGp"/>
                 <outlet property="lastNameTextField" destination="HRI-k1-1Os" id="d1F-3F-Xrb"/>
@@ -30,9 +30,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SW_Background_Layered" translatesAutoresizingMaskIntoConstraints="NO" id="lr1-xo-7bj">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SW_Background_Layered" translatesAutoresizingMaskIntoConstraints="NO" id="lr1-xo-7bj">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just a little more information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0w-x7-3AE">
                     <rect key="frame" x="20" y="108" width="374" height="20"/>
@@ -99,16 +98,20 @@
                 <constraint firstItem="ofL-E0-WEr" firstAttribute="top" secondItem="rcJ-L0-e5e" secondAttribute="bottom" constant="8" symbolic="YES" id="GF3-z1-ggm"/>
                 <constraint firstItem="J0w-x7-3AE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="SvD-hT-Iin"/>
                 <constraint firstItem="rcJ-L0-e5e" firstAttribute="top" secondItem="HRI-k1-1Os" secondAttribute="bottom" constant="8" symbolic="YES" id="UO4-UD-nac"/>
+                <constraint firstItem="lr1-xo-7bj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="axB-jA-fog"/>
                 <constraint firstItem="rcJ-L0-e5e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hcz-hz-Y3D"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HRI-k1-1Os" secondAttribute="trailing" constant="20" id="lKV-pq-OHW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J0w-x7-3AE" secondAttribute="trailing" constant="20" id="qd4-qA-URb"/>
                 <constraint firstItem="ofL-E0-WEr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rJB-et-RGe"/>
+                <constraint firstItem="lr1-xo-7bj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="szr-V7-viA"/>
+                <constraint firstItem="lr1-xo-7bj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tWn-2H-cgz"/>
+                <constraint firstAttribute="bottom" secondItem="lr1-xo-7bj" secondAttribute="bottom" id="vNB-ms-qRu"/>
             </constraints>
             <point key="canvasLocation" x="-58" y="79"/>
         </view>
     </objects>
     <resources>
-        <image name="SW_Background_Layered" width="400" height="300"/>
+        <image name="SW_Background_Layered" width="187.5" height="399"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

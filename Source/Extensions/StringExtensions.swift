@@ -13,7 +13,7 @@ import CoreGraphics
 
 extension String {
     func isValidPassword() -> Bool {
-        if self.count > 7 {
+        if self.count >= 7 {
             var foundFault = false
             for i in self {
                 if i == " " {

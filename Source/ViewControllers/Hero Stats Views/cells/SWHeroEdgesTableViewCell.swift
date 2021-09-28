@@ -22,6 +22,8 @@ class SWHeroEdgesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor(named: "SWStrength_Vigor")
+
         // Initialization code
     }
 
@@ -33,14 +35,16 @@ class SWHeroEdgesTableViewCell: UITableViewCell {
     @IBAction func selectEdgeTapped(_ sender: Any) {
         if !hasSelectedEdge {
             self.delegate?.didSelectEdge(edge: self.cellEdge ?? EdgeModel())
-            self.addButton.setImage(UIImage(named: "icon_minus_button"), for: UIControl.State())
+            self.addButton.setImage(UIImage(systemName: "minus"), for: UIControl.State())
             self.hasSelectedEdge = true
-            self.backgroundColor = UIColor(named: "SWPower_Light")
+            self.layer.borderColor = UIColor(named: "SWBacking")?.cgColor
+            self.layer.borderWidth = 1.5
         }else {
             self.delegate?.didDeSelectEdge(edge: self.cellEdge ?? EdgeModel())
-            self.addButton.setImage(UIImage(named: "icon_plus_button"), for: UIControl.State())
+            self.addButton.setImage(UIImage(systemName: "plus"), for: UIControl.State())
             self.hasSelectedEdge = false
-            self.backgroundColor = UIColor(named: "SWStrength_Vigor")
+            self.layer.borderColor = UIColor(named: "SWBacking")?.cgColor
+            self.layer.borderWidth = 0
         }
     }
     

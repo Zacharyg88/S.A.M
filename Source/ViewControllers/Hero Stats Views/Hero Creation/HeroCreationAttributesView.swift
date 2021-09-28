@@ -13,18 +13,30 @@ class HeroCreationAttributesView: UIView {
     @IBOutlet weak var remainingPointsLabel: UILabel!
     @IBOutlet weak var agilityDieLabel: UILabel!
     @IBOutlet weak var agilityDieImageView: UIImageView!
+    @IBOutlet weak var agilityDownButton: UIButton!
+    @IBOutlet weak var agilityUPButton: UIButton!
     @IBOutlet weak var smartsDieLabel: UILabel!
     @IBOutlet weak var smartsDieImageView: UIImageView!
+    @IBOutlet weak var smartsDownButton: UIButton!
+    @IBOutlet weak var smartsUpButton: UIButton!
     @IBOutlet weak var spiritDieLabel: UILabel!
     @IBOutlet weak var spiritDieImageView: UIImageView!
+    @IBOutlet weak var spiritDownButton: UIButton!
+    @IBOutlet weak var spiritUpButton: UIButton!
     @IBOutlet weak var strengthDieLabel: UILabel!
     @IBOutlet weak var strengthDieImageView: UIImageView!
+    @IBOutlet weak var strengthDownButton: UIButton!
+    @IBOutlet weak var strengthUpButton: UIButton!
     @IBOutlet weak var vigorDieLabel: UILabel!
     @IBOutlet weak var vigorDieImageView: UIImageView!
+    @IBOutlet weak var vigorDownButton: UIButton!
+    @IBOutlet weak var vigorUpButton: UIButton!
     
     var agilityDice = DiceModel() {
         didSet {
             agilityDieLabel.text = agilityDice.title ?? ""
+            agilityUPButton.isEnabled = agilityDice.sides ?? 0 < 12
+            agilityDownButton.isEnabled = agilityDice.sides ?? 0 > 4
             agilityDieImageView.image = UIImage(named: "icon_\(agilityDice.title ?? "")")
         }
     }
@@ -32,24 +44,35 @@ class HeroCreationAttributesView: UIView {
         didSet {
             smartsDieLabel.text = smartsDice.title ?? ""
             smartsDieImageView.image = UIImage(named: "icon_\(smartsDice.title ?? "")")
+            smartsUpButton.isEnabled = smartsDice.sides ?? 0 < 12
+            smartsDownButton.isEnabled = smartsDice.sides ?? 0 > 4
         }
     }
     var spiritDice = DiceModel() {
         didSet {
             spiritDieLabel.text = spiritDice.title ?? ""
             spiritDieImageView.image = UIImage(named: "icon_\(spiritDice.title ?? "")")
+            
+            spiritUpButton.isEnabled = spiritDice.sides ?? 0 < 12
+            spiritDownButton.isEnabled = spiritDice.sides ?? 0 > 4
         }
     }
     var strengthDice = DiceModel() {
         didSet {
             strengthDieLabel.text = strengthDice.title ?? ""
             strengthDieImageView.image = UIImage(named: "icon_\(strengthDice.title ?? "")")
+            
+            strengthUpButton.isEnabled = strengthDice.sides ?? 0 < 12
+            strengthDownButton.isEnabled = strengthDice.sides ?? 0 > 4
         }
     }
     var vigorDice = DiceModel() {
         didSet {
             vigorDieLabel.text = vigorDice.title ?? ""
             vigorDieImageView.image = UIImage(named: "icon_\(vigorDice.title ?? "")")
+            
+            vigorUpButton.isEnabled = vigorDice.sides ?? 0 < 12
+            vigorDownButton.isEnabled = vigorDice.sides ?? 0 > 4
         }
     }
     var hostVC: SWHeroCreationViewController?
@@ -93,7 +116,11 @@ class HeroCreationAttributesView: UIView {
             die.sides = 4
             die.title = "d4"
         }
-        
+        agilityDownButton.isEnabled = false
+        smartsDownButton.isEnabled = false
+        spiritDownButton.isEnabled = false
+        strengthDownButton.isEnabled = false
+        vigorDownButton.isEnabled = false
         
     }
     
@@ -109,47 +136,62 @@ class HeroCreationAttributesView: UIView {
     
     @IBAction func smartsUp(_ sender: Any) {
         smartsDice = smartsDice.incrementDieType(isIncrease: true)
+        smartsUpButton.isEnabled = smartsDice.sides ?? 0 < 12
+
         remainingPoints -= 1
 
     }
     
     @IBAction func smartsDown(_ sender: Any) {
         smartsDice = smartsDice.incrementDieType(isIncrease: false)
+        smartsDownButton.isEnabled = smartsDice.sides ?? 0 > 4
+
         remainingPoints += 1
 
     }
     
     @IBAction func spiritUp(_ sender: Any) {
         spiritDice = spiritDice.incrementDieType(isIncrease: true)
+        spiritUpButton.isEnabled = spiritDice.sides ?? 0 < 12
+
         remainingPoints -= 1
 
     }
     
     @IBAction func spiritDown(_ sender: Any) {
         spiritDice = spiritDice.incrementDieType(isIncrease: false)
+        spiritDownButton.isEnabled = spiritDice.sides ?? 0 > 4
+
         remainingPoints += 1
 
     }
     
     @IBAction func strengthUp(_ sender: Any) {
         strengthDice = strengthDice.incrementDieType(isIncrease: true)
+        strengthUpButton.isEnabled = strengthDice.sides ?? 0 < 12
+
         remainingPoints -= 1
 
     }
     @IBAction func strengthDown(_ sender: Any) {
         strengthDice = strengthDice.incrementDieType(isIncrease: false)
+        strengthDownButton.isEnabled = strengthDice.sides ?? 0 > 4
+
         remainingPoints += 1
 
     }
     
     @IBAction func vigorUp(_ sender: Any) {
         vigorDice = vigorDice.incrementDieType(isIncrease: true)
+        vigorUpButton.isEnabled = vigorDice.sides ?? 0 < 12
+
         remainingPoints -= 1
 
     }
     
     @IBAction func vigorDown(_ sender: Any) {
         vigorDice = vigorDice.incrementDieType(isIncrease: false)
+        vigorDownButton.isEnabled = vigorDice.sides ?? 0 > 4
         remainingPoints += 1
 
     }

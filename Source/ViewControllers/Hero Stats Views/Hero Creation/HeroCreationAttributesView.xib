@@ -17,15 +17,25 @@
             <connections>
                 <outlet property="agilityDieImageView" destination="Zte-gn-KRT" id="MYL-Yg-7uT"/>
                 <outlet property="agilityDieLabel" destination="v0Q-Mb-njf" id="Fw9-S7-dqe"/>
+                <outlet property="agilityDownButton" destination="OKl-mK-c5e" id="P1F-0F-XxO"/>
+                <outlet property="agilityUPButton" destination="9oe-sW-Kgl" id="MiD-XM-sc8"/>
                 <outlet property="remainingPointsLabel" destination="5t7-Ne-aP3" id="0I7-7K-IUf"/>
                 <outlet property="smartsDieImageView" destination="mi1-Gt-lf7" id="OOq-mH-5Hg"/>
                 <outlet property="smartsDieLabel" destination="zUG-oz-Dvj" id="6fS-cz-6PW"/>
+                <outlet property="smartsDownButton" destination="UaC-1o-1Va" id="7fR-bx-ZO6"/>
+                <outlet property="smartsUpButton" destination="7um-8m-8dg" id="Ye9-BX-hfz"/>
                 <outlet property="spiritDieImageView" destination="DoP-pK-Ibx" id="CHq-5f-A9V"/>
                 <outlet property="spiritDieLabel" destination="Ag9-Ok-t6F" id="PIX-5A-c2F"/>
+                <outlet property="spiritDownButton" destination="C2H-kb-xBP" id="Sxt-cI-NY9"/>
+                <outlet property="spiritUpButton" destination="ydD-YF-1ud" id="KO0-3F-of5"/>
                 <outlet property="strengthDieImageView" destination="XJx-Hb-SrA" id="SnV-jl-vJe"/>
                 <outlet property="strengthDieLabel" destination="eLU-8k-1tu" id="zdg-g9-ppo"/>
+                <outlet property="strengthDownButton" destination="vKI-sF-Y9G" id="ndY-th-43f"/>
+                <outlet property="strengthUpButton" destination="eeC-m3-2fg" id="tZQ-Bs-tGP"/>
                 <outlet property="vigorDieImageView" destination="yhi-qL-1IK" id="8Ue-Qb-Ati"/>
                 <outlet property="vigorDieLabel" destination="dgT-sc-mM5" id="7vK-ly-WW9"/>
+                <outlet property="vigorDownButton" destination="POy-O7-cSC" id="Djz-Pm-nNr"/>
+                <outlet property="vigorUpButton" destination="uq3-Z1-kKZ" id="4D0-sB-cFy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

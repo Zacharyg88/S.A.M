@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Oxanium-VariableFont_wght.ttf">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
@@ -141,7 +141,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QM4-se-vy3">
-                        <rect key="frame" x="71.5" y="64" width="27" height="13"/>
+                        <rect key="frame" x="70" y="64" width="27" height="13"/>
                         <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="11"/>
                         <color key="textColor" name="SWSubheading"/>
                         <nil key="highlightedColor"/>
@@ -158,10 +158,10 @@
                     <constraint firstItem="Gzr-QM-zjv" firstAttribute="leading" secondItem="QNI-FQ-nYN" secondAttribute="trailing" constant="4" id="0oY-gt-GUf"/>
                     <constraint firstItem="86K-7f-WAo" firstAttribute="centerX" secondItem="N4A-gf-crs" secondAttribute="centerX" id="1VV-bR-2Iq"/>
                     <constraint firstAttribute="trailing" secondItem="iEQ-AS-y9I" secondAttribute="trailing" constant="4" id="2MC-wI-2zg"/>
+                    <constraint firstItem="N4A-gf-crs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YP6-7c-j4S" secondAttribute="trailing" constant="16" id="8bI-Nb-z8V"/>
                     <constraint firstItem="KcD-Vm-4br" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9eq-mF-dlh"/>
                     <constraint firstItem="KcD-Vm-4br" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9ra-da-bPg"/>
                     <constraint firstAttribute="bottom" secondItem="Gzr-QM-zjv" secondAttribute="bottom" constant="4" id="BZe-Mc-Ove"/>
-                    <constraint firstItem="QM4-se-vy3" firstAttribute="centerX" secondItem="YP6-7c-j4S" secondAttribute="centerX" id="Jy8-jJ-cnm"/>
                     <constraint firstAttribute="trailing" secondItem="KcD-Vm-4br" secondAttribute="trailing" id="NYB-cN-EQU"/>
                     <constraint firstAttribute="bottom" secondItem="YP6-7c-j4S" secondAttribute="bottom" constant="4" id="OVy-0Z-s3E"/>
                     <constraint firstItem="qAy-q5-PpH" firstAttribute="centerX" secondItem="QNI-FQ-nYN" secondAttribute="centerX" id="OuH-je-JTG"/>
@@ -171,6 +171,7 @@
                     <constraint firstItem="xyT-Il-jCE" firstAttribute="top" secondItem="hsD-du-SeQ" secondAttribute="bottom" constant="8" id="XpX-aP-r21"/>
                     <constraint firstItem="hsD-du-SeQ" firstAttribute="leading" secondItem="xyT-Il-jCE" secondAttribute="leading" id="Yut-dc-V5Q"/>
                     <constraint firstItem="QNI-FQ-nYN" firstAttribute="leading" secondItem="N4A-gf-crs" secondAttribute="trailing" constant="4" id="ZvE-Rn-GfX"/>
+                    <constraint firstItem="YP6-7c-j4S" firstAttribute="leading" secondItem="QM4-se-vy3" secondAttribute="leading" id="cQR-Ca-i8k"/>
                     <constraint firstAttribute="trailing" secondItem="Gzr-QM-zjv" secondAttribute="trailing" constant="4" id="mlM-7I-7IA"/>
                     <constraint firstItem="xyT-Il-jCE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="n8y-7c-Tox"/>
                     <constraint firstAttribute="bottom" secondItem="N4A-gf-crs" secondAttribute="bottom" constant="4" id="nhf-Ni-VUd"/>

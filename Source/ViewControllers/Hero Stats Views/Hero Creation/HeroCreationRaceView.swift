@@ -64,6 +64,7 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
                     cell.raceImageView.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
                 }
             }
+            cell.hostVC = self
             cell.contentView.layer.borderWidth = 2
             cell.contentView.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
             cell.raceTitleLabel.text = race.title
@@ -80,7 +81,6 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
         raceImageView.contentMode = .scaleAspectFill
         if let raceCell: HeroCreationRaceTableViewCell = tableView.cellForRow(at: indexPath) as? HeroCreationRaceTableViewCell {
             raceImageView.image = raceCell.raceImageView.image
-            //raceCell.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor
         }
         
         detailView.bannerView.addSubview(raceImageView)
@@ -114,8 +114,11 @@ class HeroCreationRaceView: UIView, UITableViewDelegate, UITableViewDataSource {
             if let cell: HeroCreationRaceTableViewCell = raceTableView.cellForRow(at: IndexPath(item: i, section: 0)) as? HeroCreationRaceTableViewCell {
                 if cell.raceTitleLabel.text == self.currentRace {
                     cell.contentView.layer.borderColor = UIColor(named: "SWBlue_Light")?.cgColor
+                    cell.disclosureImageView.image = UIImage(systemName: "minus")
                 }else {
                     cell.contentView.layer.borderColor = UIColor(named: "SWStrength_Vigor")?.cgColor
+                    cell.disclosureImageView.image = UIImage(systemName: "plus")
+
                 }
             }
         }

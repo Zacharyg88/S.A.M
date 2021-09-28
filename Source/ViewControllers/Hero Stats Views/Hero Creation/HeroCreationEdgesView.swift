@@ -18,6 +18,7 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource,
     
     var hostVC: SWHeroCreationViewController?
     var selectedEdges: [EdgeModel] = []
+    var openedSections: [Int] = []
     var pointsRemaining: Int = 0 {
         didSet {
             self.pointsRemainingLabel.text = "\(pointsRemaining)"
@@ -49,7 +50,7 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view: HeroCreationEdgesTableViewSectionHeaderView = HeroCreationEdgesTableViewSectionHeaderView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 56))
+        let view: HeroCreationEdgesTableViewSectionHeaderView = HeroCreationEdgesTableViewSectionHeaderView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 64))
         switch section {
         case 0:
             view.headerLabel.text = "Background Edges"
@@ -68,23 +69,48 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource,
         default:
             view.headerLabel.text = "Legendary Edges"
         }
+        view.tag = section
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleSectionHeader(_:)))
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
+        view.layer.borderWidth = 1.5
+        view.layer.borderColor = UIColor(named: "SWStrength_Vigor")?.cgColor
         return view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 64
+    }
+    @objc func toggleSectionHeader(_ sender: UITapGestureRecognizer) {
+        if openedSections.contains(sender.view?.tag ?? 0) {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: sender.view?.tag ?? 0), at: .top, animated: true)
+            openedSections.remove(at: openedSections.firstIndex(of: sender.view?.tag ?? 0) ?? 0)
+        }else {
+            self.openedSections.append(sender.view?.tag ?? 0)
+        }
+        self.tableView.reloadSections([sender.view?.tag ?? 0], with: .automatic)
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getLibraryForSection(section: section).edges.count
+        if openedSections.contains(section) {
+            return getLibraryForSection(section: section).edges.count
+        }else {
+            return 0
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let edges: [EdgeModel] = getLibraryForSection(section: indexPath.section).edges
         if let edgeCell: SWHeroEdgesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SWHeroEdgesTableViewCell", for: indexPath) as? SWHeroEdgesTableViewCell {
             edgeCell.edgeLabel.text = edges[indexPath.row].title
             edgeCell.cellEdge = edges[indexPath.row]
+            edgeCell.addButton.tintColor = UIColor(named: "SWBacking")
             if self.selectedEdges.contains(edges[indexPath.row]) {
-                edgeCell.addButton.setImage(UIImage(named: "icon_minus_button"), for: UIControl.State())
+                edgeCell.addButton.setImage(UIImage(systemName: "minus"), for: UIControl.State())
                 edgeCell.backgroundColor = UIColor(named: "SWPower_Light")
             }else {
-                edgeCell.addButton.setImage(UIImage(named: "icon_plus_button"), for: UIControl.State())
+                edgeCell.addButton.setImage(UIImage(systemName: "plus"), for: UIControl.State())
                 edgeCell.backgroundColor = UIColor(named: "SWStrength_Vigor")
             }
             edgeCell.delegate = self
@@ -112,8 +138,10 @@ class HeroCreationEdgesView: UIView, UITableViewDelegate, UITableViewDataSource,
         UIView.animate(withDuration: 0.5) {
             detailView.frame = CGRect(x: 0, y: UIScreen.main.bounds.midY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
         }
-        
-        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 48
     }
     
     

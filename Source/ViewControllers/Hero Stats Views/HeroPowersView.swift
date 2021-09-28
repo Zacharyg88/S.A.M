@@ -69,7 +69,7 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.showDetailForItem(object: powers[indexPath.row])
+        delegate?.showDetailViewForItem(object: powers[indexPath.row])
     }
     
 }

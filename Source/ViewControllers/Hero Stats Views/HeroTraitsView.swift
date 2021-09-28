@@ -58,6 +58,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
     }
+    var penaltyModifier: Int = 0
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()
@@ -127,5 +128,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             return colors.StrengthColor
         }
     }
+    
+    
     
 }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "mission_vote_button.png",
+      "filename" : "icon_mission_voted.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mission_vote_button@2x.png",
+      "filename" : "icon_mission_voted@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mission_vote_button@3x.png",
+      "filename" : "icon_mission_voted@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

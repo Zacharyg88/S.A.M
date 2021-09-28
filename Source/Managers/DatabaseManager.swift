@@ -48,7 +48,7 @@ class DatabaseManager: NSObject {
                 let documentReference = self.database.collection("users").document(result?.user.uid ?? "")
                 documentReference.getDocument { (document, error) in
                     if let doc = document, doc.exists {
-                        let currentUser: User = User(slug: doc.documentID, firstName: doc["firstName"] as! String, lastName: doc["lastName"] as! String, email: doc["email"] as! String, phoneNumber: doc["phoneNumber"] as! String, isAdmin: doc["isAdmin"] as! Bool)
+                        let currentUser: User = User(slug: doc.documentID, firstName: doc["firstName"] as? String ?? "", lastName: doc["lastName"] as? String ?? "", email: doc["email"] as? String ?? "", phoneNumber: doc["phoneNumber"] as? String ?? "", isAdmin: doc["isAdmin"] as! Bool? ?? false)
                         currentUser.heroSlugs = doc["heroSlugs"] as? [String] ?? [String]()
                         userManager.currentUser = currentUser
                         completion(true, nil)
@@ -160,6 +160,11 @@ class DatabaseManager: NSObject {
                 completion(missionArray, nil)
             }
         }
+    }
+    
+    func postMissionVote(mission: MissionModel, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        var missionRef = database.collection("missions").document(mission.slug ?? "")
+        missionRef.updateData(["votes": mission.votes])
     }
     
     // Hero Requests

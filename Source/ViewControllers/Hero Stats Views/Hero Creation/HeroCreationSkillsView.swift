@@ -67,14 +67,21 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
             _ = cell.contentView
             let skill: SkillModel = allSkills[indexPath.row]
             cell.skillName = skill.title ?? ""
-            cell.diceLabel.text = skill.dice?.title ?? ""
-            cell.diceImageView.image = UIImage(named: "icon_\(skill.dice?.title ?? "")")
+            cell.diceLabel.text = skill.dice?.title ?? "-"
+            if let diceImage = UIImage(named: "icon_\(skill.dice?.title ?? "")") {
+                cell.imageViewWidth.constant = 10
+                cell.diceImageView.image = diceImage.imageWithTint(.gray)
+            }else {
+                cell.imageViewWidth.constant = -16
+            }
             if skill.attribute != "Strength" && skill.attribute != "Vigor" {
                 let colorString: String = "SW\(skill.attribute ?? "")"
                 cell.skillLabel.textColor = UIColor(named: colorString)
             }else {
                 cell.skillLabel.textColor = UIColor(named: "SWStrength_Vigor")
             }
+            cell.minusButton.isEnabled = skill.dice?.sides ?? 0 >= 4
+            cell.plusButton.isEnabled = skill.dice?.sides ?? 0 < 12
             cell.hostVC = self
             return cell
         }
@@ -137,7 +144,6 @@ class HeroCreationSkillsView: UIView, UICollectionViewDelegate, UICollectionView
             }
         }
         skillsCollectionView.reloadData()
-
     }
     
     func setDefaultDiceValues() {

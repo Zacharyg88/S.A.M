@@ -48,6 +48,8 @@ class SWHeroCreationViewController: UIViewController {
             }
             if currentStage == 0 {
                 self.backButton.setTitle("Cancel", for: UIControl.State())
+            }else  {
+                self.backButton.setTitle("Back", for: UIControl.State())
             }
             if currentStage == 6 {
                 self.continueButton.setTitle("Create Character", for: UIControl.State())
@@ -65,6 +67,22 @@ class SWHeroCreationViewController: UIViewController {
         for view in progressViewArray {
             view.layer.cornerRadius = view.frame.height / 2
         }
+        continueButton.titleLabel?.numberOfLines = 0
+        setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupViews()
+    }
+    
+    
+    func setupViews() {
         var frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.creationStageContainerView.frame.height)
         self.creationStageContainerView.clipsToBounds = true
         self.view.clipsToBounds = true
@@ -92,6 +110,7 @@ class SWHeroCreationViewController: UIViewController {
         
         
         creationStageViewsArray = [conceptView, raceView, hindranceView, attributesView, skillsView, edgesView, gearShopView]
+        creationStageContainerView.clipsToBounds = true
         newHero.gold = 1500
         currentStage = 0
     }

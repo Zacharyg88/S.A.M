@@ -96,6 +96,8 @@
 		BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */; };
 		BBB09FA526DC634E0086FCE1 /* SWTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */; };
 		BBB09FA626DC634E0086FCE1 /* SWTabBarControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */; };
+		BBB88DF72703A16F00094C7A /* SWMissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB88DF52703A16F00094C7A /* SWMissionDetailViewController.swift */; };
+		BBB88DF82703A16F00094C7A /* SWMissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB88DF62703A16F00094C7A /* SWMissionDetailViewController.xib */; };
 		BBBC4E6B26DE86690065509A /* SWGearTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */; };
 		BBBC4E7026DE86C10065509A /* SWGearTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */; };
 		BBBC4EBD26DFCC9D0065509A /* SWHeroListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC4EBC26DFCC9D0065509A /* SWHeroListView.swift */; };
@@ -231,6 +233,8 @@
 		BBB09F8326DC61540086FCE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB09FA326DC634E0086FCE1 /* SWTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		BBB09FA426DC634E0086FCE1 /* SWTabBarControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWTabBarControllerViewController.xib; sourceTree = "<group>"; };
+		BBB88DF52703A16F00094C7A /* SWMissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMissionDetailViewController.swift; sourceTree = "<group>"; };
+		BBB88DF62703A16F00094C7A /* SWMissionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWMissionDetailViewController.xib; sourceTree = "<group>"; };
 		BBBC4E6A26DE86690065509A /* SWGearTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWGearTableViewHeaderView.swift; sourceTree = "<group>"; };
 		BBBC4E6F26DE86C10065509A /* SWGearTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWGearTableViewHeaderView.xib; sourceTree = "<group>"; };
 		BBBC4EBC26DFCC9D0065509A /* SWHeroListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroListView.swift; sourceTree = "<group>"; };
@@ -401,9 +405,8 @@
 		BB4A340B26DBE6930050B288 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BBB88DF32703A12A00094C7A /* Missions */,
 				BB4A340C26DBE6930050B288 /* Cells */,
-				BB4A341226DBE6930050B288 /* SWMissionLogViewController.swift */,
-				BB4A341326DBE6930050B288 /* SWMissionLogViewController.xib */,
 				BB4A341426DBE6930050B288 /* MainMenuViewController.swift */,
 				BB4A341F26DBE6930050B288 /* MainMenuViewController.xib */,
 				BB4A341526DBE6930050B288 /* Hero Stats Views */,
@@ -418,10 +421,8 @@
 		BB4A340C26DBE6930050B288 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BB4A340D26DBE6930050B288 /* SWCreateCollectionViewCell.xib */,
-				BB4A340E26DBE6930050B288 /* SWMissionLogTableViewCell.xib */,
 				BB4A340F26DBE6930050B288 /* SWCreateCollectionViewCell.swift */,
-				BB4A341026DBE6930050B288 /* SWMissionLogTableViewCell.swift */,
+				BB4A340D26DBE6930050B288 /* SWCreateCollectionViewCell.xib */,
 				BB91EE8B26DD652200D3FD15 /* HinderanceEdgeTableViewCell.swift */,
 				BB91EE8C26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib */,
 			);
@@ -500,6 +501,27 @@
 				BB91EE9726DDBF9C00D3FD15 /* TabNavigationMenu.swift */,
 			);
 			path = SWTabBar;
+			sourceTree = "<group>";
+		};
+		BBB88DF32703A12A00094C7A /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				BBB88DF42703A13800094C7A /* Cells */,
+				BB4A341226DBE6930050B288 /* SWMissionLogViewController.swift */,
+				BB4A341326DBE6930050B288 /* SWMissionLogViewController.xib */,
+				BBB88DF52703A16F00094C7A /* SWMissionDetailViewController.swift */,
+				BBB88DF62703A16F00094C7A /* SWMissionDetailViewController.xib */,
+			);
+			path = Missions;
+			sourceTree = "<group>";
+		};
+		BBB88DF42703A13800094C7A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BB4A341026DBE6930050B288 /* SWMissionLogTableViewCell.swift */,
+				BB4A340E26DBE6930050B288 /* SWMissionLogTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BBBC4EBB26DFCC760065509A /* cells */ = {
@@ -663,6 +685,7 @@
 				BB15CFFF26E3F78B0094DB39 /* HeroCreationHindranceTableViewCell.xib in Resources */,
 				BB4A344F26DBE6940050B288 /* SWMissionLogViewController.xib in Resources */,
 				BB8B00DC26E2A1DB00C3646F /* HeroCreationHindrancesView.xib in Resources */,
+				BBB88DF82703A16F00094C7A /* SWMissionDetailViewController.xib in Resources */,
 				BBB09F8426DC61540086FCE1 /* GoogleService-Info.plist in Resources */,
 				BBA411AA26E062100019EC39 /* SWHeroCreationViewController.xib in Resources */,
 				BB91EE8726DD409100D3FD15 /* SWHeroViewController.xib in Resources */,
@@ -828,6 +851,7 @@
 				BBBC4EC826DFD0420065509A /* SWHeroListTableViewCell.swift in Sources */,
 				BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */,
 				BB91EE9826DDBF9C00D3FD15 /* TabNavigationMenu.swift in Sources */,
+				BBB88DF72703A16F00094C7A /* SWMissionDetailViewController.swift in Sources */,
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,
 				BB4A343C26DBE6940050B288 /* User.swift in Sources */,
 				BB8B00D726E2A1C200C3646F /* HeroCreationHindrancesView.swift in Sources */,

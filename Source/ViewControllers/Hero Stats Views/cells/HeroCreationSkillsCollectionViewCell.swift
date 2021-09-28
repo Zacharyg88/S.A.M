@@ -14,6 +14,7 @@ class HeroCreationSkillsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var diceImageView: UIImageView!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
 
     var hostVC: HeroCreationSkillsView?
     var skillName: String = "" {
@@ -23,6 +24,7 @@ class HeroCreationSkillsCollectionViewCell: UICollectionViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        diceImageView.tintColor = .white
         // Initialization code
     }
     @IBAction func minusTapped(_ sender: Any) {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol HeroItemDetailDelegate {
-    func showDetailForItem(object: Any)
+    func showDetailViewForItem(object: Any)
 }
 
 class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
@@ -107,15 +107,15 @@ class HeroGearView: UIView, UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             //weapons
-            delegate?.showDetailForItem(object: weapons[indexPath.row])
+            delegate?.showDetailViewForItem(object: weapons[indexPath.row])
         case 1:
             if indexPath.row > self.armor.count {
-                delegate?.showDetailForItem(object: self.armor[indexPath.row])
+                delegate?.showDetailViewForItem(object: self.armor[indexPath.row])
             }else {
-                delegate?.showDetailForItem(object: self.shields[indexPath.row - self.armor.count])
+                delegate?.showDetailViewForItem(object: self.shields[indexPath.row - self.armor.count])
             }
         default:
-            delegate?.showDetailForItem(object: items[indexPath.row])
+            delegate?.showDetailViewForItem(object: items[indexPath.row])
         }
     }
     

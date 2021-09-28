@@ -33,7 +33,7 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 120
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +47,13 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let missionDetailVC: SWMissionDetailViewController = SWMissionDetailViewController()
+        _ = missionDetailVC.view
+        missionDetailVC.mission = missions[indexPath.row]
+        self.present(missionDetailVC, animated: true)
     }
     
     

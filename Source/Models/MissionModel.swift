@@ -20,6 +20,7 @@ class MissionModel: NSObject {
     var missionType: String?
     var missionLocation: String?
     var votes: [String]?
+    var headers: [[String: Any]]?
     
     
     func generateDictForValues() -> [String: Any] {
@@ -32,6 +33,7 @@ class MissionModel: NSObject {
         valuesDict["missionType"] = self.missionType
         valuesDict["missionLocation"] = self.missionLocation
         valuesDict["votes"] = self.votes
+        valuesDict["headers"] = self.headers
         return valuesDict
     }
     
@@ -46,6 +48,7 @@ class MissionModel: NSObject {
         newMission.missionType = data["missionType"] as? String
         newMission.missionLocation = data["missionLocation"] as? String
         newMission.votes = data["votes"] as? [String]
+        newMission.headers = data["headers"] as? [[String: Any]]
         return newMission
     }
     
