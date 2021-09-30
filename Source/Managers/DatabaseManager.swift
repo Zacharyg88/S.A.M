@@ -59,6 +59,15 @@ class DatabaseManager: NSObject {
         }
     }
     
+    func signOutUser(completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        do { try Auth.auth().signOut()
+            completion(true, nil)
+        }
+        catch {
+            completion(false, error)
+        }
+    }
+    
     func getUserFromDatabase(slug: String, completion: @escaping (_ user: User?) -> Void) {
         var user: User?
         let userRef = database.collection("users").document(slug)

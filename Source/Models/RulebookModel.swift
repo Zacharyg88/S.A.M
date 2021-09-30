@@ -169,6 +169,8 @@ class Races: NSObject {
 
 class Attributes: NSObject {
     
+    var attributes = [String]()
+    
     var generalDescription = """
 Attributes don’t directly affect skill rolls. Savage Worlds treats learned knowledge and training as the most relevant and direct factors. A high attribute allows one to increase a skill faster and opens up options to Edges that greatly differentiate two characters with the same skill.
     Every character starts with a d4 in each of five attributes

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Medium</string>
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SWProfileHeaderTableViewCell" rowHeight="194" id="KGk-i7-Jjw" customClass="SWProfileHeaderTableViewCell" customModule="S_A_M" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="194"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="453" height="194"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifQ-SS-sZL">
+                        <rect key="frame" x="0.0" y="0.0" width="453" height="127"/>
+                        <color key="backgroundColor" name="SWBlue"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Htf-cX-2Fi">
+                        <rect key="frame" x="12" y="66" width="116" height="116"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Htf-cX-2Fi" secondAttribute="height" multiplier="1:1" id="gTZ-oh-jNc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-zs-zyX">
+                        <rect key="frame" x="140" y="66" width="133" height="33"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Medium" family="Oxanium" pointSize="28"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-dV-NJr">
+                        <rect key="frame" x="140" y="107" width="170" height="20"/>
+                        <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
+                        <color key="textColor" name="SWSubheading"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="w0E-dV-NJr" firstAttribute="top" secondItem="dm7-zs-zyX" secondAttribute="bottom" constant="8" id="2MI-HT-T9X"/>
+                    <constraint firstItem="ifQ-SS-sZL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="35D-nA-VXC"/>
+                    <constraint firstItem="ifQ-SS-sZL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9x4-mS-kuy"/>
+                    <constraint firstItem="w0E-dV-NJr" firstAttribute="leading" secondItem="Htf-cX-2Fi" secondAttribute="trailing" constant="12" id="UAt-Et-xcu"/>
+                    <constraint firstItem="Htf-cX-2Fi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="66" id="X3c-4X-GhY"/>
+                    <constraint firstItem="dm7-zs-zyX" firstAttribute="leading" secondItem="Htf-cX-2Fi" secondAttribute="trailing" constant="12" id="Xie-n6-nhl"/>
+                    <constraint firstItem="ifQ-SS-sZL" firstAttribute="bottom" secondItem="w0E-dV-NJr" secondAttribute="bottom" id="ihi-B0-QSb"/>
+                    <constraint firstAttribute="trailing" secondItem="ifQ-SS-sZL" secondAttribute="trailing" id="qcd-or-weu"/>
+                    <constraint firstItem="dm7-zs-zyX" firstAttribute="top" secondItem="Htf-cX-2Fi" secondAttribute="top" id="sha-el-ukd"/>
+                    <constraint firstItem="Htf-cX-2Fi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="ukx-zt-TxK"/>
+                    <constraint firstAttribute="bottom" secondItem="Htf-cX-2Fi" secondAttribute="bottom" constant="12" id="wCo-ph-aoG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="SWBacking"/>
+            <connections>
+                <outlet property="fullNameLabel" destination="w0E-dV-NJr" id="ivU-63-eil"/>
+                <outlet property="profileImageView" destination="Htf-cX-2Fi" id="GDV-jk-Hv8"/>
+                <outlet property="usernameLabel" destination="dm7-zs-zyX" id="irG-Kr-Qui"/>
+            </connections>
+            <point key="canvasLocation" x="76.08695652173914" y="152.00892857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="SWBacking">
+            <color red="0.15686274509803921" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWBlue">
+            <color red="0.078431372549019607" green="0.39215686274509803" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWSubheading">
+            <color red="1" green="1" blue="1" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

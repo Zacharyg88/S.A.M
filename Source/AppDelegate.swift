@@ -42,8 +42,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
             }
         }
-
         return true
+    }
+    
+    func loadApp() {
+        if let currentUserSlug = UserDefaults.standard.string(forKey: "CurrentUserSlug") {
+            databaseManager.getUserFromDatabase(slug: currentUserSlug) { (user) in
+                if user == nil {
+                    print("Couldn't get user from database")
+                    try! Auth.auth().signOut()
+                }else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                        userManager.currentUser = user
+                        let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+                    }
+                }
+            }
+        }else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                let launcherStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                UIApplication.shared.keyWindow?.rootViewController = launcherStoryBoard.instantiateViewController(withIdentifier: "LauncherViewController")
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle

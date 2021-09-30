@@ -8,8 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWRulesViewController" customModule="SWTestApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWRulesViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="NS4-yo-2Pr" id="YKf-TT-i2O"/>
+                <outlet property="tableView" destination="sXn-ei-r68" id="qWA-x7-gXl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,20 +23,39 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SW_Background_Layered" translatesAutoresizingMaskIntoConstraints="NO" id="R9F-LF-gat">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <searchBar contentMode="redraw" barStyle="black" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="NS4-yo-2Pr">
+                    <rect key="frame" x="0.0" y="44" width="414" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="1sZ-90-V7f"/>
+                    </constraints>
+                    <color key="tintColor" red="0.043137254899999998" green="0.1019607843" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sXn-ei-r68">
+                    <rect key="frame" x="0.0" y="108" width="414" height="788"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="R9F-LF-gat" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0h3-B9-wrw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sXn-ei-r68" secondAttribute="trailing" id="1mZ-RT-Dzp"/>
                 <constraint firstItem="R9F-LF-gat" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Ns-f8-S1r"/>
+                <constraint firstItem="NS4-yo-2Pr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="6WM-dG-tQN"/>
+                <constraint firstItem="sXn-ei-r68" firstAttribute="top" secondItem="NS4-yo-2Pr" secondAttribute="bottom" id="Daq-Z8-YZT"/>
+                <constraint firstItem="NS4-yo-2Pr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="M5P-qI-hod"/>
                 <constraint firstAttribute="bottom" secondItem="R9F-LF-gat" secondAttribute="bottom" id="Nv9-Rc-b8O"/>
                 <constraint firstItem="R9F-LF-gat" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fFq-hd-m7U"/>
+                <constraint firstAttribute="bottom" secondItem="sXn-ei-r68" secondAttribute="bottom" id="nFo-ut-jAc"/>
+                <constraint firstItem="NS4-yo-2Pr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qZ2-Ry-B9R"/>
+                <constraint firstItem="sXn-ei-r68" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="x8o-vh-IoR"/>
             </constraints>
             <point key="canvasLocation" x="106" y="86"/>
         </view>
     </objects>
     <resources>
-        <image name="SW_Background_Layered" width="400" height="300"/>
+        <image name="SW_Background_Layered" width="187.5" height="399"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

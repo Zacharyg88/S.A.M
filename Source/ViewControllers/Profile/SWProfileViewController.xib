@@ -8,8 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWProfileViewController" customModule="SWTestApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWProfileViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="qWi-G4-K8x" id="5fW-X6-YG5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,20 +22,28 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SW_Background_Layered" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-h5-bKw">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qWi-G4-K8x">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="qWi-G4-K8x" secondAttribute="bottom" id="2Z3-hI-STq"/>
                 <constraint firstItem="yXC-h5-bKw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3dw-AA-Nd3"/>
+                <constraint firstItem="qWi-G4-K8x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Vd-1T-F2G"/>
                 <constraint firstAttribute="bottom" secondItem="yXC-h5-bKw" secondAttribute="bottom" id="6i7-vL-i4j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qWi-G4-K8x" secondAttribute="trailing" id="6y3-mP-ihq"/>
                 <constraint firstItem="yXC-h5-bKw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ull-zI-LRg"/>
+                <constraint firstItem="qWi-G4-K8x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c9T-0i-dZp"/>
                 <constraint firstItem="yXC-h5-bKw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dO1-10-825"/>
             </constraints>
             <point key="canvasLocation" x="141" y="86"/>
         </view>
     </objects>
     <resources>
-        <image name="SW_Background_Layered" width="400" height="300"/>
+        <image name="SW_Background_Layered" width="187.5" height="399"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
