@@ -34,10 +34,11 @@ class SWMissionDetailViewController: UIViewController {
                 }else {
                     self.imageView.image = image
                     let gradient = CAGradientLayer()
-                    gradient.colors = [UIColor.clear, UIColor.black]
-                    gradient.locations = [0.0, 1.0]
+                    gradient.colors = [UIColor.clear.cgColor, UIColor(named: "SWBackground")?.cgColor]
+                    gradient.locations = [0.35, 0.85]
+                    self.gradientContainerView.layer.addSublayer(gradient)
                     gradient.frame = self.gradientContainerView.bounds
-                    self.gradientContainerView.layer.insertSublayer(gradient, at: 0)
+
                 }
             }
             self.titleLabel.text = mission?.title
