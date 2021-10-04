@@ -107,6 +107,14 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
             
             edgesResults = allEdgeResults
             
+            attributesResults = ruleBook.attributes.attributes.filter({ attribute in
+                if attribute.title?.contains(searchText) ?? false {
+                    return true
+                }else {
+                    return false
+                }
+            })
+            
             hindranceResults = ruleBook.hinderances.hinderances?.filter({ (hindrance) -> Bool in
                 if hindrance.title?.contains(searchText) ?? false {
                     return true
@@ -148,6 +156,7 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
         allEdges.append(contentsOf: ruleBook.edges.Weird_Edges?.edges ?? [EdgeModel]())
         allEdges.append(contentsOf: ruleBook.edges.Legendary_Edges?.edges ?? [EdgeModel]())
         self.edgesResults = allEdges
+        self.attributesResults = ruleBook.attributes.attributes
         self.hindranceResults = ruleBook.hinderances.hinderances
         self.raceResults = ruleBook.races.racesArray
         self.skillResults = ruleBook.skills.skills
@@ -180,19 +189,21 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
             headerView.titleLabel.text = "Open Rulebook PDF"
         }
         if self.expandedSections.contains(section) {
-            headerView.disclosureButton.setImage(UIImage(named: "icon_arrow_up"), for: UIControl.State())
+            headerView.disclosureButton.setImage(UIImage(named: "icon_arrow_up")?.imageWithTint(UIColor(named: "SWStrength_Vigor")!), for: UIControl.State())
         }else {
-            headerView.disclosureButton.setImage(UIImage(named: "icon_arrow_down"), for: UIControl.State())
+            headerView.disclosureButton.setImage(UIImage(named: "icon_arrow_down")?.imageWithTint(UIColor(named: "SWStrength_Vigor")!), for: UIControl.State())
         }
         
         if section == 6 {
             headerView.disclosureButton.setImage(UIImage(systemName: "doc.text"), for: UIControl.State())
+            headerView.disclosureButton.tintColor = UIColor(named: "SWStrength_Vigor")!
         }
         var gradient = CAGradientLayer()
         gradient.locations = [0.0, 1.0]
         gradient.colors = [UIColor.clear.cgColor, UIColor(named: "SWStrength_Vigor")?.cgColor]
         gradient.frame = headerView.frame
-        headerView.layer.addSublayer(gradient)
+        gradient.apply(angle: -45)
+        headerView.gradientView.layer.addSublayer(gradient)
         headerView.disclosureButton.tag = section
         headerView.disclosureButton.addTarget(self, action: #selector(toggleSectionExpansion(_:)), for: .touchUpInside)
         
@@ -218,6 +229,10 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
                 }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 36
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -265,6 +280,28 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
             
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            self.showDetailForItem(object: attributesResults?[indexPath.row], image: nil)
+        case 1:
+            self.showDetailForItem(object: conditionResults?[indexPath.row], image: nil)
+        case 2:
+            self.showDetailForItem(object: edgesResults?[indexPath.row], image: nil)
+        case 3:
+            self.showDetailForItem(object: hindranceResults?[indexPath.row], image: nil)
+        case 4:
+            databaseManager.getImageFromStorage(imageName: self.raceResults?[indexPath.row].imageLocation ?? "") { image, error in
+                self.showDetailForItem(object: self.raceResults?[indexPath.row], image: image)
+            }
+        case 5:
+            self.showDetailForItem(object: skillResults?[indexPath.row], image: nil)
+        default:
+            print("Default")
+        }
     }
     
 

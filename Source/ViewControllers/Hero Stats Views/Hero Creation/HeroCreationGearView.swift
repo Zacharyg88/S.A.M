@@ -182,26 +182,26 @@ class HeroCreationGearView: UIView, UITableViewDelegate, UITableViewDataSource {
         case 0:
             // Weapons
             let weapon: WeaponModel = gearShop?.weapons[indexPath.row] ?? WeaponModel()
-            self.hostVC?.showDetailForItem(object: weapon)
+            self.hostVC?.showDetailForItem(object: weapon, image: nil)
         case 1:
             //Armor
             let armor: ArmorModel = gearShop?.armor[indexPath.row] ?? ArmorModel()
-            self.hostVC?.showDetailForItem(object: armor)
+            self.hostVC?.showDetailForItem(object: armor, image: nil)
 
         case 2:
             //Shields
             let shield: ShieldModel = gearShop?.shields[indexPath.row] ?? ShieldModel()
-            self.hostVC?.showDetailForItem(object: shield)
+            self.hostVC?.showDetailForItem(object: shield, image: nil)
 
         case 3:
             //Items
             let item: ItemModel = gearShop?.items[indexPath.row] ?? ItemModel()
-            self.hostVC?.showDetailForItem(object: item)
+            self.hostVC?.showDetailForItem(object: item, image: nil)
 
         default:
             //Vehicles
             let vehicle: VehicleModel = gearShop?.vehicles[indexPath.row] ?? VehicleModel()
-            self.hostVC?.showDetailForItem(object: vehicle)
+            self.hostVC?.showDetailForItem(object: vehicle, image: nil)
         }
     }
     

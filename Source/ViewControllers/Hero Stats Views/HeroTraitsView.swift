@@ -97,7 +97,7 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             
             let skill: SkillModel = skills[indexPath.row]
             cell.skillTitleLabel.text = skill.title
-            cell.skillTitleLabel.textColor = getColorFromAttribute(attribute: skill.attribute ?? "")
+            cell.skillTitleLabel.textColor = UIColor().getColorFromAttribute(attribute: skill.attribute ?? "")
             cell.diceLabel.text = skill.dice?.title
             cell.diceImageView.image = UIImage(named: "icon_" + (skill.dice?.title ?? ""))
             
@@ -115,19 +115,6 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
     
-    
-    func getColorFromAttribute(attribute: String) -> UIColor {
-        switch attribute {
-        case "Agility":
-            return colors.AgilityColor
-        case "Spirit":
-            return colors.SpiritColor
-        case "Smarts":
-            return colors.SmartsColor
-        default:
-            return colors.StrengthColor
-        }
-    }
     
     
     

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Oxanium-VariableFont_wght.ttf">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
             <string>OxaniumRoman-Regular</string>
         </array>
     </customFonts>
@@ -16,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWRulebookHeaderView" customModule="S_A_M" customModuleProvider="target">
             <connections>
                 <outlet property="disclosureButton" destination="Zd3-n9-Jta" id="11P-YN-PQI"/>
+                <outlet property="gradientView" destination="0NQ-nd-stC" id="dUD-Qk-po3"/>
                 <outlet property="titleLabel" destination="l35-oN-vUP" id="4bu-j1-xt5"/>
             </connections>
         </placeholder>
@@ -24,10 +26,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NQ-nd-stC">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l35-oN-vUP">
-                    <rect key="frame" x="12" y="12" width="81" height="40"/>
+                    <rect key="frame" x="12" y="12" width="82.5" height="40"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="33"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" name="SWBackground"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zd3-n9-Jta">
@@ -39,11 +45,15 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="SWBackground"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Zd3-n9-Jta" secondAttribute="bottom" constant="12" id="0jb-wB-cCy"/>
+                <constraint firstItem="0NQ-nd-stC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="95d-ah-Rtk"/>
+                <constraint firstAttribute="trailing" secondItem="0NQ-nd-stC" secondAttribute="trailing" id="E7I-qY-OBZ"/>
+                <constraint firstAttribute="bottom" secondItem="0NQ-nd-stC" secondAttribute="bottom" id="MXk-fe-Zjh"/>
                 <constraint firstItem="l35-oN-vUP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="Ts6-dI-1Mk"/>
                 <constraint firstItem="Zd3-n9-Jta" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="avh-yT-dyb"/>
+                <constraint firstItem="0NQ-nd-stC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bp0-2R-V2r"/>
                 <constraint firstItem="l35-oN-vUP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="kQT-yG-vYZ"/>
                 <constraint firstItem="Zd3-n9-Jta" firstAttribute="bottom" secondItem="l35-oN-vUP" secondAttribute="bottom" id="lQZ-bq-f50"/>
                 <constraint firstAttribute="trailing" secondItem="Zd3-n9-Jta" secondAttribute="trailing" constant="12" id="xT5-uH-2j7"/>
@@ -54,8 +64,8 @@
     </objects>
     <resources>
         <image name="icon_arrow_up" width="50" height="50"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="SWBackground">
+            <color red="0.043137254901960784" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

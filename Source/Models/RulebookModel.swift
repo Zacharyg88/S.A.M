@@ -169,38 +169,29 @@ class Races: NSObject {
 
 class Attributes: NSObject {
     
-    var attributes = [String]()
-    
-    var generalDescription = """
-Attributes don’t directly affect skill rolls. Savage Worlds treats learned knowledge and training as the most relevant and direct factors. A high attribute allows one to increase a skill faster and opens up options to Edges that greatly differentiate two characters with the same skill.
-    Every character starts with a d4 in each of five attributes
-"""
-    var Agility = "Agility is a measure of a character’s nimble- ness, dexterity, and general coordination."
-    var Smarts = "Smarts measures raw intelligence, mental acuity, and how fast a heroine thinks on her feet. It’s used to resist certain types of mental and social attacks"
-    var Spirit = "Spirit is self-confidence, backbone, and willpower. It’s used to resist social and supernatural attacks as well as fear."
-    var Strength = "Strength is physical power and fitness. It’s also used as the basis of a warrior’s damage in hand-to-hand combat, and to determine how much he can wear or carry."
-    var Vigor = "Vigor represents an individual’s endurance, resistance to disease, poison, or toxins, and how much physical damage she can take before she can’t go on. It is most often used to resist Fatigue effects, and as the basis for the derived stat of Toughness."
+    var attributes = [AttributeModel]()
+    var generalDescription = String?
     
     func generateDictFromObject() -> [String: Any] {
         var dict: [String: Any] = [
-            "generalDescription": self.generalDescription,
-            "Agility": self.Agility,
-            "Smarts": self.Smarts,
-            "Spirit": self.Spirit,
-            "Strength": self.Strength,
-            "Vigor": self.Vigor
+            "generalDescription": self.generalDescription
         ]
+        var attributeArray: [[String: Any]] = []
+        for attribute in attributes {
+            attributeArray.append(attribute.generateDictForValues())
+        }
+        dict["attributes"] = attributeArray
         return dict
     }
     
     func generateObjectFromDict(dict: [String: Any]) -> Attributes {
         var newAttributes: Attributes = Attributes()
-        newAttributes.generalDescription = dict["generalDescription"] as! String
-        newAttributes.Agility = dict["Agility"] as! String
-        newAttributes.Smarts = dict["Smarts"] as! String
-        newAttributes.Spirit = dict["Spirit"] as! String
-        newAttributes.Strength = dict["Strength"] as! String
-        newAttributes.Vigor = dict["Vigor"] as! String
+        newAttributes.generalDescription = dict["generalDescription"] as? String
+        if let attributeArray: [[String: Any]] = dict["attributes"] as? [[String: Any]] {
+            for dict in attributeArray {
+                newAttributes.attributes.append(AttributeModel().generateModelFromDict(data: dict))
+            }
+        }
         
         return newAttributes
     }

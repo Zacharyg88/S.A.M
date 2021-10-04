@@ -266,7 +266,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func showDetailViewForItem(object: Any) {
-        self.showDetailForItem(object: object)
+        self.showDetailForItem(object: object, image: nil)
     }
     
     func getHeroesFromDB() {
@@ -334,10 +334,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
         if tableView.tag == 0 {
             let hindrance: HindranceModel = hero?.hinderances[indexPath.row] ?? HindranceModel()
-            self.showDetailForItem(object: hindrance)
+            self.showDetailForItem(object: hindrance, image: nil)
         }else {
             let edge: EdgeModel = hero?.edges[indexPath.row] ?? EdgeModel()
-            self.showDetailForItem(object: edge)
+            self.showDetailForItem(object: edge, image: nil)
             
         }
     }

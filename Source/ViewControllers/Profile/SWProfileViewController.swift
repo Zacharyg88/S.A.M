@@ -33,6 +33,7 @@ class SWProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         default:
             print("Sign Out")
         }
+        return UITableViewCell()
     }
     
     @IBAction func signOutTapped(_ sender: Any) {
