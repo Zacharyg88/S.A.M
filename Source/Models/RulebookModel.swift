@@ -170,7 +170,7 @@ class Races: NSObject {
 class Attributes: NSObject {
     
     var attributes = [AttributeModel]()
-    var generalDescription = String?
+    var generalDescription: String?
     
     func generateDictFromObject() -> [String: Any] {
         var dict: [String: Any] = [

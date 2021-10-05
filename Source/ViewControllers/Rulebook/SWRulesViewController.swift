@@ -25,6 +25,7 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SWRulebookEntryTableViewCell", bundle: nil), forCellReuseIdentifier: "SWRulebookEntryTableViewCell")
+        tableView.tableFooterView = UIView()
         clearSearch()
         // Do any additional setup after loading the view.
     }
@@ -163,7 +164,11 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        searchBar.resignFirstResponder()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

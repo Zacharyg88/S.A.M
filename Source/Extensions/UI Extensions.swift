@@ -216,7 +216,7 @@ extension UIViewController {
         }
         
         if let attribute: AttributeModel = object as? AttributeModel {
-            detailView.bannerView.backgroundColor = UIColor().getColorFromAttribute(attribute: attribute.title)
+            detailView.bannerView.backgroundColor = UIColor().getColorFromAttribute(attribute: attribute.title ?? "")
             detailView.typeLabel.text = "Attribute"
             detailView.nameLabel.text = attribute.title ?? ""
             detailView.leftHeader1.text = "Summary"
@@ -225,7 +225,7 @@ extension UIViewController {
         }
         
         for label in labelArray {
-            if !((label.text?.count ?? 0) > 0) {
+            if !((label?.text?.count ?? 0) > 0) {
                 label?.isHidden = true
             }
         }
