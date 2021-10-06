@@ -32,7 +32,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var shakenButton: UIButton!
     @IBOutlet weak var hinderancesTableView: UITableView!
     @IBOutlet weak var edgesTableView: UITableView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var traitsButton: UIButton!
     @IBOutlet weak var gearButton: UIButton!
     @IBOutlet weak var powersButton: UIButton!
@@ -56,12 +56,25 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         didSet {
             if oldValue != isDistracted {
                 self.toggleGlobalPenalty(isOn: isDistracted, penaltyString: "-2 to All Actions")
+                if isDistracted {
+                    self.setGlobalModifier(isNegative: true, mod: 2)
+                }else {
+                    self.setGlobalModifier(isNegative: false, mod: nil)
+                }
             }
         }
     }
     var isEntangled: Bool = false
     var isExhausted: Bool = false
-    var isFatigued: Bool = false
+    var isFatigued: Bool = false {
+        didSet {
+            if isFatigued {
+                self.setGlobalModifier(isNegative: true, mod: 1)
+            }else {
+                self.setGlobalModifier(isNegative: false, mod: nil)
+            }
+        }
+    }
     var isIncapacitated: Bool = false {
         didSet {
             if oldValue != isIncapacitated {
@@ -102,24 +115,27 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             paceLabel.textColor = textColor
             paceLabel.text = "\((hero?.pace ?? 0) - woundCount)"
-            if let traitsView: HeroTraitsView = switchContainerViews[0] as? HeroTraitsView {
-                traitsView.agilityDiceLabel.textColor = textColor
-                traitsView.agilityDiceLabel.text = "d\(self.hero?.attributes[0].dice?.sides ?? 0)" + stringSuffix
-                
-                traitsView.smartsDiceLabel.textColor = textColor
-                traitsView.smartsDiceLabel.text = "d\(self.hero?.attributes[1].dice?.sides ?? 0)" + stringSuffix
-                
-                traitsView.spiritDiceLabel.textColor = textColor
-                traitsView.spiritDiceLabel.text = "d\(self.hero?.attributes[2].dice?.sides ?? 0)"  + stringSuffix
-                
-                traitsView.strengthDiceLabel.textColor = textColor
-                traitsView.strengthDiceLabel.text = "d\(self.hero?.attributes[3].dice?.sides ?? 0)"  + stringSuffix
-                
-                traitsView.vigorDiceLabel.textColor = textColor
-                traitsView.vigorDiceLabel.text = "d\(self.hero?.attributes[4].dice?.sides ?? 0)" + stringSuffix
+            if woundCount > 0 {
+                self.setGlobalModifier(isNegative: true, mod: woundCount)
+            }else {
+                self.setGlobalModifier(isNegative: false, mod: nil)
             }
         }
     }
+    
+    func setGlobalModifier(isNegative: Bool, mod: Int?) {
+        if !(switchContainerViews.isEmpty ?? false) {
+            if let traitsView: HeroTraitsView = switchContainerViews[0] as? HeroTraitsView {
+                traitsView.globalModIsNegative = isNegative
+                traitsView.globalMod = mod
+            }
+            if let powersView: HeroPowersView = switchContainerViews[2] as? HeroPowersView {
+                powersView.globalMod = mod
+                powersView.globalModIsNegative = isNegative
+            }
+        }
+    }
+    
     var tabViews: [UIView] = []
     var heroesArray: [HeroModel] = []
     var hero: HeroModel? {
@@ -149,7 +165,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    var actions: [String] = ["Defend", "Hold"]
+    var actions: [String] = []
     var conditions: [ConditionModel] {
         get {
             return ruleBook.conditions.conditions
@@ -197,6 +213,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         woundsView.layer.borderColor = colors.buttonBorder.cgColor
         woundsView.layer.borderWidth = 1
         woundsView.backgroundColor = colors.buttonBackground
+        woundCount = 0
         
         hinderancesTableView.delegate = self
         hinderancesTableView.dataSource = self
@@ -266,7 +283,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func showDetailViewForItem(object: Any) {
-        self.showDetailForItem(object: object)
+        self.showDetailForItem(object: object, image: nil)
     }
     
     func getHeroesFromDB() {
@@ -334,10 +351,10 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
         if tableView.tag == 0 {
             let hindrance: HindranceModel = hero?.hinderances[indexPath.row] ?? HindranceModel()
-            self.showDetailForItem(object: hindrance)
+            self.showDetailForItem(object: hindrance, image: nil)
         }else {
             let edge: EdgeModel = hero?.edges[indexPath.row] ?? EdgeModel()
-            self.showDetailForItem(object: edge)
+            self.showDetailForItem(object: edge, image: nil)
             
         }
     }
@@ -396,6 +413,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.horizontalStackView.addSubview(actionsLabel)
             }
             self.conditionsBottomConstraint.constant = 64
+            self.scrollView.contentSize.height += 40
             stackViewIsShown = true
         }else {
             for view in self.horizontalStackView.subviews {
@@ -404,6 +422,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if currentStackHost == "actions" {
                 actionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
                 self.conditionsBottomConstraint.constant = 24
+                self.scrollView.contentSize.height -= 40
+
                 self.horizontalStackView.isHidden = true
                 stackViewIsShown = false
             }else {
@@ -462,6 +482,9 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             conditionsButton.layer.borderColor = UIColor(named: "SWRed")?.cgColor
             setConditionsInStackView()
             self.conditionsBottomConstraint.constant = 64
+            self.scrollView.contentSize.height += 40
+
+            
             stackViewIsShown = true
         }else {
             for view in self.horizontalStackView.subviews {
@@ -470,6 +493,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if self.currentStackHost == "conditions" {
                 conditionsButton.layer.borderColor = UIColor(named: "SWButton_Border")?.cgColor
                 self.conditionsBottomConstraint.constant = 24
+                self.scrollView.contentSize.height -= 40
+
                 self.horizontalStackView.isHidden = true
                 stackViewIsShown = false
             }else {
@@ -478,6 +503,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.horizontalStackView.isHidden = false
                 setConditionsInStackView()
                 self.conditionsBottomConstraint.constant = 64
+                self.scrollView.contentSize.height += 40
                 stackViewIsShown = true
             }
         }

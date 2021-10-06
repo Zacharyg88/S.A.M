@@ -20,7 +20,10 @@ class SWTabBarControllerViewController: UITabBarController {
     func loadTabBar() {
             // We'll create and load our custom tab bar here
         
-        let tabItems: [TabBarItem] = [.heroes, .missions, .rules, .profile]
+        var tabItems: [TabBarItem] = [.heroes, .missions, .rules, .profile]
+        if currentUserIsAdmin {
+            tabItems = [.heroes, .missions, .admin, .rules, .profile]
+        }
         self.setupCustomTabMenu(tabItems) { (controllers) in
             self.viewControllers = controllers
         }

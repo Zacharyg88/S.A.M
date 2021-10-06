@@ -34,6 +34,7 @@
                 <outlet property="paceLabel" destination="WSa-Fi-s5x" id="FRw-3E-SFZ"/>
                 <outlet property="parryLabel" destination="iP1-yf-qR0" id="Kqh-qp-B0e"/>
                 <outlet property="powersButton" destination="0m1-Er-Zhy" id="y7O-kr-xNe"/>
+                <outlet property="scrollView" destination="dOO-eJ-ndS" id="do4-Oh-Gs2"/>
                 <outlet property="shakenButton" destination="47M-dr-8yG" id="uYR-W7-k21"/>
                 <outlet property="switchContainerView" destination="zMt-sW-hVR" id="Cqb-Ou-xmr"/>
                 <outlet property="toughnessArmorLabel" destination="VSP-vy-Nko" id="UMq-Ku-kxJ"/>

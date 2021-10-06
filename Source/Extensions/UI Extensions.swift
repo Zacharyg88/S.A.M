@@ -27,6 +27,19 @@ extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
+    
+    func getColorFromAttribute(attribute: String) -> UIColor {
+        switch attribute {
+        case "Agility":
+            return colors.AgilityColor
+        case "Spirit":
+            return colors.SpiritColor
+        case "Smarts":
+            return colors.SmartsColor
+        default:
+            return colors.StrengthColor
+        }
+    }
 }
 
 
@@ -67,9 +80,9 @@ extension UIImage {
 extension UIViewController {
     
     
-    func showDetailForItem(object: Any) {
+    func showDetailForItem(object: Any, image: UIImage?) {
         var detailView: HeroObjectDetailsView = HeroObjectDetailsView(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: self.view.frame.width, height: UIScreen.main.bounds.height / 2))
-        
+        let labelArray = [detailView.leftHeader1, detailView.leftHeader2, detailView.leftHeader3, detailView.leftHeader4, detailView.leftDescription1, detailView.leftDescription2, detailView.leftDescription3, detailView.leftDescription4, detailView.rightHeader1, detailView.rightHeader2, detailView.rightHeader3, detailView.rightDescription1, detailView.rightDescription2, detailView.rightDescription3]
         if let weapon: WeaponModel = object as? WeaponModel {
             detailView.bannerView.backgroundColor = UIColor(named: "SWRed")
             detailView.typeLabel.text = "Weapon"
@@ -108,14 +121,8 @@ extension UIViewController {
                 }
             }
             detailView.leftDescription2.text = protectedString
-            detailView.rightHeader2.isHidden = true
-            detailView.rightDescription2.isHidden = true
             detailView.leftHeader3.text = "Notes"
             detailView.leftDescription3.text = armor.notes ?? ""
-            detailView.rightHeader3.isHidden = true
-            detailView.rightDescription3.isHidden = true
-            detailView.leftHeader4.isHidden = true
-            detailView.leftDescription4.isHidden = true
             
         }
         if let shield: ShieldModel = object as? ShieldModel {
@@ -128,14 +135,9 @@ extension UIViewController {
             detailView.rightDescription1.text = "\(shield.weight ?? 0) lbs"
             detailView.leftHeader2.text = "Parry"
             detailView.leftDescription2.text = "+ \(shield.parry ?? 0) to parry"
-            detailView.rightHeader2.isHidden = true
-            detailView.rightDescription2.isHidden = true
             detailView.leftHeader3.text = "Notes"
             detailView.leftDescription3.text = shield.notes ?? ""
-            detailView.rightHeader3.isHidden = true
-            detailView.rightDescription3.isHidden = true
-            detailView.leftHeader4.isHidden = true
-            detailView.leftDescription4.isHidden = true
+
         }
         
         if let power: PowerModel = object as? PowerModel {
@@ -148,14 +150,9 @@ extension UIViewController {
             detailView.rightDescription1.text = "\(power.powerPoints ?? 0)"
             detailView.leftHeader2.text = "Rank"
             detailView.leftDescription2.text = power.rank ?? ""
-            detailView.rightHeader2.isHidden = true
-            detailView.rightDescription2.isHidden = true
             detailView.leftHeader3.text = "Notes"
             detailView.leftDescription3.text = power.notes ?? ""
-            detailView.rightHeader3.isHidden = true
-            detailView.rightDescription3.isHidden = true
-            detailView.leftHeader4.isHidden = true
-            detailView.leftDescription4.isHidden = true
+
             
         }
         if let item: ItemModel = object as? ItemModel {
@@ -164,18 +161,6 @@ extension UIViewController {
             detailView.nameLabel.text = item.title ?? ""
             detailView.leftHeader1.text = "Notes"
             detailView.leftDescription1.text = item.notes
-            detailView.rightHeader1.isHidden = true
-            detailView.rightDescription1.isHidden = true
-            detailView.leftHeader2.isHidden = true
-            detailView.leftDescription2.isHidden = true
-            detailView.rightHeader2.isHidden = true
-            detailView.rightDescription2.isHidden = true
-            detailView.leftHeader3.isHidden = true
-            detailView.leftDescription3.isHidden = true
-            detailView.rightHeader3.isHidden = true
-            detailView.rightDescription3.isHidden = true
-            detailView.leftHeader4.isHidden = true
-            detailView.leftDescription4.isHidden = true
         }
         
         if let hindrance: HindranceModel = object as? HindranceModel {
@@ -187,16 +172,6 @@ extension UIViewController {
             detailView.leftHeader2.text = "Summary"
             detailView.leftDescription2.text = hindrance.summary ?? ""
             
-            detailView.rightHeader1.isHidden = true
-            detailView.rightDescription1.isHidden = true
-            detailView.rightHeader2.isHidden = true
-            detailView.rightDescription2.isHidden = true
-            detailView.leftHeader3.isHidden = true
-            detailView.leftDescription3.isHidden = true
-            detailView.rightHeader3.isHidden = true
-            detailView.rightDescription3.isHidden = true
-            detailView.leftHeader4.isHidden = true
-            detailView.leftDescription4.isHidden = true
         }
         
         if let edge: EdgeModel = object as? EdgeModel {
@@ -205,26 +180,77 @@ extension UIViewController {
             detailView.nameLabel.text = edge.title ?? ""
             detailView.leftHeader1.text = "Summary"
             detailView.leftDescription1.text = edge.summary ?? ""
+        }
+        
+        if let race: RB_Race = object as? RB_Race {
+            let raceImageView: UIImageView = UIImageView(frame: detailView.bannerView.frame)
+            raceImageView.contentMode = .scaleAspectFill
+            raceImageView.image = image
+            detailView.bannerView.addSubview(raceImageView)
+            detailView.bannerView.bringSubviewToFront(raceImageView)
+            detailView.typeLabel.text = "Race"
+            detailView.nameLabel.text = race.title
+            detailView.leftHeader1.text = "Description"
+            detailView.leftDescription1.text = race.generalDescription
             
-            detailView.leftHeader2.isHidden = true
-            detailView.leftDescription2.isHidden = true
-            detailView.rightHeader1.isHidden = true
-            detailView.rightDescription1.isHidden = true
-            detailView.rightHeader2.isHidden = true
-            detailView.rightDescription2.isHidden = true
-            detailView.leftHeader3.isHidden = true
-            detailView.leftDescription3.isHidden = true
-            detailView.rightHeader3.isHidden = true
-            detailView.rightDescription3.isHidden = true
-            detailView.leftHeader4.isHidden = true
-            detailView.leftDescription4.isHidden = true
+        }
+        
+        if let skill: RB_Skill = object as? RB_Skill {
+            
+            detailView.bannerView.backgroundColor = UIColor().getColorFromAttribute(attribute: skill.attribute)
+            detailView.typeLabel.text = "Skill"
+            detailView.nameLabel.text = skill.title ?? ""
+            detailView.leftHeader1.text = "Attribute"
+            detailView.leftDescription1.text = skill.attribute ?? ""
+            detailView.leftHeader2.text = "Summary"
+            detailView.leftDescription2.text = skill.summary ?? ""
+            
+        }
+        
+        if let condition: ConditionModel = object as? ConditionModel {
+            detailView.bannerView.backgroundColor = UIColor(named: "SWRed")
+            detailView.typeLabel.text = "Condition"
+            detailView.nameLabel.text = condition.title ?? ""
+            detailView.leftHeader1.text = "Summary"
+            detailView.leftDescription1.text = condition.summary ?? ""
+        }
+        
+        if let attribute: AttributeModel = object as? AttributeModel {
+            detailView.bannerView.backgroundColor = UIColor().getColorFromAttribute(attribute: attribute.title ?? "")
+            detailView.typeLabel.text = "Attribute"
+            detailView.nameLabel.text = attribute.title ?? ""
+            detailView.leftHeader1.text = "Summary"
+            detailView.leftDescription1.text = attribute.summary ?? ""
+
+        }
+        
+        for label in labelArray {
+            if !((label?.text?.count ?? 0) > 0) {
+                label?.isHidden = true
+            }
         }
         
         self.view.addSubview(detailView)
         self.view.bringSubviewToFront(detailView)
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
             detailView.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY / 2, width: self.view.frame.width, height: UIScreen.main.bounds.height / 2)
         }
     }
+    
+}
+
+extension CAGradientLayer {
+    
+    func apply(angle : Double) {
+        let x: Double! = angle / 360.0
+        let a = pow(sinf(Float(2.0 * Double.pi * ((x + 0.75) / 2.0))),2.0);
+        let b = pow(sinf(Float(2*Double.pi*((x+0.0)/2))),2);
+        let c = pow(sinf(Float(2*Double.pi*((x+0.25)/2))),2);
+        let d = pow(sinf(Float(2*Double.pi*((x+0.5)/2))),2);
+        
+        endPoint = CGPoint(x: CGFloat(c),y: CGFloat(d))
+        startPoint = CGPoint(x: CGFloat(a),y:CGFloat(b))
+    }
+    
     
 }

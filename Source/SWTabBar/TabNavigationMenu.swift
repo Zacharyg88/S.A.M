@@ -23,18 +23,22 @@ class TabNavigationMenu: UIView {
         self.init(frame: frame)
         self.layer.backgroundColor = UIColor(named: "SWBackground")?.cgColor
         for i in 0 ..< menuItems.count {
-            let itemWidth = self.frame.width / CGFloat(menuItems.count)
+            let itemWidth = (UIScreen.main.bounds.width / CGFloat(menuItems.count))
             let leadingAnchor = itemWidth * CGFloat(i)
-            
             let itemView = self.createTabItem(item: menuItems[i])
             itemView.translatesAutoresizingMaskIntoConstraints = false
-            itemView.clipsToBounds = true
+            if i == 2 && currentUserIsAdmin {
+                itemView.clipsToBounds = false
+            }else {
+                itemView.clipsToBounds = true
+            }
             itemView.tag = i
             self.addSubview(itemView)
             NSLayoutConstraint.activate([
                 itemView.heightAnchor.constraint(equalTo: heightAnchor, constant: -24),
                 itemView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingAnchor),
                 itemView.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
+                itemView.widthAnchor.constraint(equalToConstant: itemWidth)
             ])
         }
         self.setNeedsLayout()
@@ -52,21 +56,24 @@ class TabNavigationMenu: UIView {
         itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         itemTitleLabel.clipsToBounds = true
         itemTitleLabel.font = UIFont(name: "Oxanium", size: 11)
+        itemTitleLabel.textColor = UIColor(named: "SWStrength_Vigor")
         
         itemIconView.image = item.icon.withRenderingMode(.automatic)
+        itemIconView.tintColor = UIColor(named: "SWStrength_Vigor")
         itemIconView.translatesAutoresizingMaskIntoConstraints = false
         itemIconView.clipsToBounds = true
         tabBarItem.layer.backgroundColor = UIColor(named: "SWBackground")?.cgColor
         tabBarItem.addSubview(itemIconView)
         tabBarItem.addSubview(itemTitleLabel)
         tabBarItem.translatesAutoresizingMaskIntoConstraints = false
+        
         tabBarItem.clipsToBounds = true
     NSLayoutConstraint.activate([
             itemIconView.heightAnchor.constraint(equalToConstant: 20), // Fixed height for our tab item(25pts)
             itemIconView.widthAnchor.constraint(equalToConstant: 20), // Fixed width for our tab item icon
             itemIconView.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor),
             itemIconView.topAnchor.constraint(equalTo: tabBarItem.topAnchor, constant: 16), // Position menu item icon 8pts from the top of it's parent view
-            itemIconView.leadingAnchor.constraint(equalTo: tabBarItem.leadingAnchor, constant: 35),
+            //itemIconView.leadingAnchor.constraint(equalTo: tabBarItem.leadingAnchor, constant: 35),
             itemTitleLabel.heightAnchor.constraint(equalToConstant: 13), // Fixed height for title label
             itemTitleLabel.widthAnchor.constraint(equalTo: tabBarItem.widthAnchor), // Position label full width across tab bar item
             itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: 8), // Position title label 4pts below item icon

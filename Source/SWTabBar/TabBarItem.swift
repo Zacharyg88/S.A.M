@@ -12,6 +12,7 @@ import UIKit
 enum TabBarItem: String, CaseIterable {
     case heroes = "Heroes"
     case missions = "Missions"
+    case admin = "Admin"
     case rules = "Rules"
     case profile = "Profile"
     
@@ -19,9 +20,10 @@ var viewController: UIViewController {
         switch self {
         case .heroes:
             return SWHeroViewController()
-    
         case .missions:
             return SWMissionLogViewController()
+        case .admin:
+            return SWAdminPanelViewController()
         case .rules:
             return SWRulesViewController()
         case .profile:
@@ -33,9 +35,10 @@ var viewController: UIViewController {
         switch self {
         case .heroes:
             return UIImage(named: "sw_icon_heroes")!
-        
         case .missions:
             return UIImage(named: "sw_icon_missions")!
+        case .admin:
+            return UIImage(systemName: "plus")!
         case .rules:
             return UIImage(named: "sw_icon_rules")!
         case .profile:

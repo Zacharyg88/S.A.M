@@ -13,6 +13,7 @@ class SWRulebookHeaderView: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var disclosureButton: UIButton!
+    @IBOutlet weak var gradientView: UIView!
     
     
     required init?(coder: NSCoder) {

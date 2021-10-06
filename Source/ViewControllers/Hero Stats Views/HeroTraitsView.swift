@@ -33,32 +33,20 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     @IBOutlet weak var dividerView: UIView!
     @IBOutlet weak var skillsCollectionView: UICollectionView!
     
+    var globalMod: Int? {
+        didSet {
+            skillsCollectionView.reloadData()
+            setAttributeLabels()
+        }
+    }
+    var globalModIsNegative: Bool = true
     
     var skills: [SkillModel] = []
     var attributes: [AttributeModel] = [] {
         didSet {
-            for attribute in attributes {
-                switch attribute.title {
-                case "Agility":
-                    self.agilityDiceLabel.text = attribute.dice?.title ?? ""
-                    self.agilityDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
-                case "Smarts":
-                    self.smartsDiceLabel.text = attribute.dice?.title ?? ""
-                    self.smartsDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
-                case "Spirit":
-                    self.spiritDiceLabel.text = attribute.dice?.title ?? ""
-                    self.spiritDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
-                case "Strength":
-                    self.strengthDiceLabel.text = attribute.dice?.title ?? ""
-                    self.strengthDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
-                default:
-                    self.vigorDiceLabel.text = attribute.dice?.title ?? ""
-                    self.vigorDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
-                }
-            }
+            setAttributeLabels()
         }
     }
-    var penaltyModifier: Int = 0
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadAndShowNib()
@@ -97,16 +85,27 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             
             let skill: SkillModel = skills[indexPath.row]
             cell.skillTitleLabel.text = skill.title
-            cell.skillTitleLabel.textColor = getColorFromAttribute(attribute: skill.attribute ?? "")
+            cell.skillTitleLabel.textColor = UIColor().getColorFromAttribute(attribute: skill.attribute ?? "")
             cell.diceLabel.text = skill.dice?.title
+            cell.diceLabel.textColor = UIColor(named: "SWStrength_Vigor")
+            if globalMod != nil {
+                var modString = ""
+                if globalModIsNegative {
+                    modString.append(" - ")
+                    cell.diceLabel.textColor = .red
+                }else {
+                    modString.append(" + ")
+                    cell.diceLabel.textColor = UIColor(named: "SWGreen")
+                }
+                modString.append("\(globalMod ?? 0)")
+                cell.diceLabel.text?.append(modString)
+            }
             cell.diceImageView.image = UIImage(named: "icon_" + (skill.dice?.title ?? ""))
             
             if skill.dice?.title == nil || skill.dice?.sides == 0 {
-                cell.diceLabelTrailing.constant = 8
                 cell.diceImageView.isHidden = true
                 cell.diceLabel.text = " - "
             }else {
-                cell.diceLabelTrailing.constant = 36
                 cell.diceImageView.isHidden = false
             }
             return cell
@@ -116,19 +115,43 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     
-    func getColorFromAttribute(attribute: String) -> UIColor {
-        switch attribute {
-        case "Agility":
-            return colors.AgilityColor
-        case "Spirit":
-            return colors.SpiritColor
-        case "Smarts":
-            return colors.SmartsColor
-        default:
-            return colors.StrengthColor
+    func setAttributeLabels() {
+        var stringSuffix = ""
+        var textColor = UIColor(named: "SWStrength_Vigor")
+        if globalMod != nil {
+            if globalModIsNegative {
+                stringSuffix.append(" - \(globalMod ?? 0)")
+                textColor = UIColor.red
+            }else {
+                stringSuffix.append(" + \(globalMod ?? 0)")
+                textColor = UIColor(named: "SWGreen")
+            }
+        }
+
+        for attribute in attributes {
+            switch attribute.title {
+            case "Agility":
+                self.agilityDiceLabel.text = (attribute.dice?.title ?? "") + stringSuffix
+                self.agilityDiceLabel.textColor = textColor
+                self.agilityDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+            case "Smarts":
+                self.smartsDiceLabel.text = (attribute.dice?.title ?? "") + stringSuffix
+                self.smartsDiceLabel.textColor = textColor
+                self.smartsDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+            case "Spirit":
+                self.spiritDiceLabel.text = (attribute.dice?.title ?? "") + stringSuffix
+                self.spiritDiceLabel.textColor = textColor
+                self.spiritDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+            case "Strength":
+                self.strengthDiceLabel.text = (attribute.dice?.title ?? "") + stringSuffix
+                self.strengthDiceLabel.textColor = textColor
+                self.strengthDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+            default:
+                self.vigorDiceLabel.text = (attribute.dice?.title ?? "") + stringSuffix
+                self.vigorDiceLabel.textColor = textColor
+                self.vigorDiceImageView.image = UIImage(named: "icon_\(attribute.dice?.title ?? "")")
+            }
         }
     }
-    
-    
     
 }

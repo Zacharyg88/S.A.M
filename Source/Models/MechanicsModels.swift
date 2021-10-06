@@ -37,11 +37,13 @@ class SkillModel: NSObject {
 
 class AttributeModel: NSObject {
     var title: String?
+    var summary: String?
     var dice: DiceModel?
     
     func generateDictForValues() -> [String: Any] {
         var valuesDict: [String: Any] = [:]
         valuesDict["title"] = self.title
+        valuesDict["summary"] = self.summary
         valuesDict["dice"] = self.dice?.generateDictForValues()
         return valuesDict
     }
@@ -49,6 +51,7 @@ class AttributeModel: NSObject {
     func generateModelFromDict(data: [String: Any]) -> AttributeModel {
         var newAttribute = AttributeModel()
         newAttribute.title = data["title"] as? String
+        newAttribute.summary = data["summary"] as? String
         if let diceDict: [String: Any] = data["dice"] as? [String: Any] {
             newAttribute.dice = DiceModel().generateModelFromDict(data: diceDict)
         }
