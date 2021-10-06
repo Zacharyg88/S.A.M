@@ -232,7 +232,7 @@ extension UIViewController {
         
         self.view.addSubview(detailView)
         self.view.bringSubviewToFront(detailView)
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
             detailView.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY / 2, width: self.view.frame.width, height: UIScreen.main.bounds.height / 2)
         }
     }

@@ -14,6 +14,7 @@ import FirebaseStorage
 var databaseManager = DatabaseManager()
 var userManager = UserManager()
 var dbKeys = DatabaseKeys()
+var currentUserIsAdmin: Bool = userManager.currentUser?.isAdmin ?? false
 class DatabaseManager: NSObject {
     
     var database = Firestore.firestore()

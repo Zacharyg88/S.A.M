@@ -128,6 +128,8 @@
 		BBBFEA3326E7E0B600AF0E42 /* SWHeroEdgesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBFEA3126E7E0B600AF0E42 /* SWHeroEdgesTableViewCell.xib */; };
 		BBBFEA3C26E7F02700AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBFEA3B26E7F02700AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.swift */; };
 		BBBFEA4126E7F04400AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBFEA4026E7F04400AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.xib */; };
+		BBC710E2270E1BF600332EF9 /* SWAdminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC710E0270E1BF600332EF9 /* SWAdminPanelViewController.swift */; };
+		BBC710E3270E1BF600332EF9 /* SWAdminPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC710E1270E1BF600332EF9 /* SWAdminPanelViewController.xib */; };
 		F5DCA95B000A0749B09B6C84 /* Pods_S_A_M_S_A_MUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1071D05E7226D5D21FBDEE3 /* Pods_S_A_M_S_A_MUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -281,6 +283,8 @@
 		BBBFEA3126E7E0B600AF0E42 /* SWHeroEdgesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroEdgesTableViewCell.xib; sourceTree = "<group>"; };
 		BBBFEA3B26E7F02700AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreationEdgesTableViewSectionHeaderView.swift; sourceTree = "<group>"; };
 		BBBFEA4026E7F04400AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCreationEdgesTableViewSectionHeaderView.xib; sourceTree = "<group>"; };
+		BBC710E0270E1BF600332EF9 /* SWAdminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAdminPanelViewController.swift; sourceTree = "<group>"; };
+		BBC710E1270E1BF600332EF9 /* SWAdminPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWAdminPanelViewController.xib; sourceTree = "<group>"; };
 		EC560FE49844FC7560141717 /* Pods_S_A_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9731DFC1C3182336AA98E9 /* Pods_S_A_MTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_A_MTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12C5702FBBCD6A20FEA7FE3 /* Pods-S.A.M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.A.M.release.xcconfig"; path = "Target Support Files/Pods-S.A.M/Pods-S.A.M.release.xcconfig"; sourceTree = "<group>"; };
@@ -437,6 +441,7 @@
 		BB4A340B26DBE6930050B288 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BBC710DF270E1BD100332EF9 /* Admin */,
 				BBB88F1827063CFA00094C7A /* Profile */,
 				BBB88E562704B8A700094C7A /* Rulebook */,
 				BBB88DF32703A12A00094C7A /* Missions */,
@@ -629,6 +634,15 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		BBC710DF270E1BD100332EF9 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				BBC710E0270E1BF600332EF9 /* SWAdminPanelViewController.swift */,
+				BBC710E1270E1BF600332EF9 /* SWAdminPanelViewController.xib */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		D699F72DEDC78F1CDEF4E04B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +790,7 @@
 				BB4A345326DBE6940050B288 /* HeroSkillsCollectionViewCell.xib in Resources */,
 				BB4A342C26DBE6930050B288 /* UserInfoViewController.xib in Resources */,
 				BBB88F2727063DC300094C7A /* SWProfileInfoTableViewCell.xib in Resources */,
+				BBC710E3270E1BF600332EF9 /* SWAdminPanelViewController.xib in Resources */,
 				BB4A345E26DBE6940050B288 /* BrunoAce-Regular 2.ttf in Resources */,
 				BB4A345C26DBE6940050B288 /* BrunoAce-Regular.ttf in Resources */,
 				BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */,
@@ -981,6 +996,7 @@
 				BB4A344326DBE6940050B288 /* InitialViewController.swift in Sources */,
 				BB8B00CD26E2A17E00C3646F /* HeroCreationRaceView.swift in Sources */,
 				BBBC4EBD26DFCC9D0065509A /* SWHeroListView.swift in Sources */,
+				BBC710E2270E1BF600332EF9 /* SWAdminPanelViewController.swift in Sources */,
 				BB4A344C26DBE6940050B288 /* SWMissionLogTableViewCell.swift in Sources */,
 				BB4A345226DBE6940050B288 /* HeroSkillsCollectionViewCell.swift in Sources */,
 				BB4A343226DBE6930050B288 /* Structs.swift in Sources */,

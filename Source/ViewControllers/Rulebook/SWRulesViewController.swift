@@ -161,6 +161,7 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
         self.hindranceResults = ruleBook.hinderances.hinderances
         self.raceResults = ruleBook.races.racesArray
         self.skillResults = ruleBook.skills.skills
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -176,7 +177,7 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
-        let headerView: SWRulebookHeaderView = SWRulebookHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64))
+        let headerView: SWRulebookHeaderView = SWRulebookHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 48))
         switch section {
         case 0:
             headerView.titleLabel.text = "Attributes"
@@ -216,7 +217,7 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 64
+        return 48
     }
     
     @objc func toggleSectionExpansion(_ sender: UIButton) {
@@ -241,7 +242,7 @@ class SWRulesViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if expandedSections.contains(section) {
+        if expandedSections.contains(section) || searchBar.text != "" {
             switch section {
             case 0:
                 return attributesResults?.count ?? 0

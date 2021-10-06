@@ -22,10 +22,10 @@ class SWMissionDetailViewController: UIViewController {
     @IBOutlet weak var header3Label: UILabel!
     @IBOutlet weak var description3Label: UILabel!
     @IBOutlet weak var header4Label: UILabel!
-    @IBOutlet weak var description4Label: UILabel!
+    @IBOutlet weak var description4Label: UITextView!
 
     var headerArray = [UILabel]()
-    var descriptionArray = [UILabel]()
+    var descriptionArray = [UIView]()
     var mission: MissionModel? {
         didSet {
             databaseManager.getImageFromStorage(imageName: mission?.imageURL ?? "") { (image, error) in
@@ -68,7 +68,12 @@ class SWMissionDetailViewController: UIViewController {
                     header.isHidden = false
                     header.text = dict["title"] as? String
                     description.isHidden = false
-                    description.text = dict["description"] as? String
+                    if let desc = description as? UILabel {
+                        desc.text = dict["description"] as? String
+                    }
+                    if let descView = description as? UITextView {
+                        descView.text = dict["description"] as? String
+                    }
                 }
             }
         }

@@ -18,6 +18,12 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
     var powers: [PowerModel] = []
     var hostVC: SWHeroViewController?
     var delegate: HeroItemDetailDelegate?
+    var globalMod: Int? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var globalModIsNegative: Bool = false
     var currentPowerPoints: Int = 0 {
         didSet {
             self.ppCountLabel.text = "\(currentPowerPoints)"

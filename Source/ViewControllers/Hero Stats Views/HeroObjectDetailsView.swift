@@ -69,7 +69,7 @@ class HeroObjectDetailsView: UIView {
     }
     
     @objc func swipeToDismiss() {
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
             self.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
         } completion: { (done) in
            
@@ -87,7 +87,7 @@ class HeroObjectDetailsView: UIView {
     
     @objc func swipeGestureHandler(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .up {
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut) {
                 self.frame = CGRect(x: 0, y: 36, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 36)
             } completion: { done in
                 if done {
@@ -97,7 +97,7 @@ class HeroObjectDetailsView: UIView {
 
         }else {
             if self.viewIsFullScreen {
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
+                UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut) {
                     self.frame = CGRect(x: 0, y: UIScreen.main.bounds.midY, width: self.frame.width, height: UIScreen.main.bounds.height / 2)
                 } completion: { done in
                     if done {
