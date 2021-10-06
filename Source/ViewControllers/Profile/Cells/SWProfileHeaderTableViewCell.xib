@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Oxanium-VariableFont_wght.ttf">
+        <array key="Oxanium-VariableFont_wght 2.ttf">
             <string>OxaniumRoman-Medium</string>
             <string>OxaniumRoman-Regular</string>
         </array>
@@ -24,7 +24,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifQ-SS-sZL">
-                        <rect key="frame" x="0.0" y="0.0" width="453" height="127"/>
+                        <rect key="frame" x="0.0" y="0.0" width="453" height="119"/>
                         <color key="backgroundColor" name="SWBlue"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Htf-cX-2Fi">
@@ -34,13 +34,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-zs-zyX">
-                        <rect key="frame" x="140" y="66" width="133" height="33"/>
+                        <rect key="frame" x="140" y="66" width="137.5" height="28"/>
                         <fontDescription key="fontDescription" name="OxaniumRoman-Medium" family="Oxanium" pointSize="28"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-dV-NJr">
-                        <rect key="frame" x="140" y="107" width="170" height="20"/>
+                        <rect key="frame" x="140" y="102" width="174" height="17"/>
                         <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
                         <color key="textColor" name="SWSubheading"/>
                         <nil key="highlightedColor"/>
@@ -61,8 +61,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" name="SWBacking"/>
+            <color key="backgroundColor" name="SWBackground"/>
             <connections>
+                <outlet property="bannerView" destination="ifQ-SS-sZL" id="5O7-0g-2b4"/>
                 <outlet property="fullNameLabel" destination="w0E-dV-NJr" id="ivU-63-eil"/>
                 <outlet property="profileImageView" destination="Htf-cX-2Fi" id="GDV-jk-Hv8"/>
                 <outlet property="usernameLabel" destination="dm7-zs-zyX" id="irG-Kr-Qui"/>
@@ -71,8 +72,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="SWBacking">
-            <color red="0.15686274509803921" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="SWBackground">
+            <color red="0.043137254901960784" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SWBlue">
             <color red="0.078431372549019607" green="0.39215686274509803" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -8,6 +8,9 @@
 import UIKit
 
 class SWProfileSignOutTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var signOutButton: UIButton!
+    var hostVC: SWProfileViewController?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +22,10 @@ class SWProfileSignOutTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func signOutTapped(_ sender: Any) {
+        hostVC?.signOutTapped(self)
+    }
+    
     
 }

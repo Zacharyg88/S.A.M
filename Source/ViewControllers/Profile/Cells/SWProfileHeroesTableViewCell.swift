@@ -15,7 +15,18 @@ class SWProfileHeroesTableViewCell: UITableViewCell, UICollectionViewDelegate, U
     var heroes: [HeroModel] = []
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.collectionView.register(UINib(nibName: "SWProfileHeroCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SWProfileHeroCollectionViewCell")
+        
+        for slug in userManager.currentUser?.heroSlugs ?? [String]() {
+            databaseManager.getHeroFromSlug(slug: slug) { hero, error in
+                if error != nil {
+                    print("There was an error getting the hero \(error)")
+                }else {
+                    self.heroes.append(hero!)
+                }
+            }
+            collectionView.reloadData()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,11 +41,23 @@ class SWProfileHeroesTableViewCell: UITableViewCell, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == heroes.count {
-            // Plus Cell
-        }else {
-            // Hero Cell
+        if let cell: SWProfileHeroCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SWProfileHeroCollectionViewCell", for: indexPath) as? SWProfileHeroCollectionViewCell {
+            let hero = heroes[indexPath.row]
+            if indexPath.row < heroes.count {
+                let image = databaseManager.getImageFromStorage(imageName: hero.imageName ?? "") { image, error in
+                    cell.heroImageView.image = image
+                }
+                cell.heroNameLabel.text = (hero.firstName ?? "") + " " + (hero.lastName ?? "")
+                cell.heroLevelLabel.text = hero.getLevelString()
+            }else {
+                cell.heroImageView.image = UIImage(systemName: "plus")
+                cell.heroImageView.tintColor = UIColor(named: "SWStrength_Vigor")
+                cell.backgroundColor = UIColor.darkGray
+                cell.heroNameLabel.isHidden = true
+                cell.heroLevelLabel.isHidden = true
+            }
         }
+        
         
         return UICollectionViewCell()
     }

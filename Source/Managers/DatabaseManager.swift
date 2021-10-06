@@ -24,8 +24,13 @@ class DatabaseManager: NSObject {
             if error != nil {
                 completion(nil, error)
             }else {
-                //Map Data to new User object and add it to User Table in Database
-                var newUser: User = User(slug: data?.user.uid, firstName: nil, lastName: nil, email: data?.user.email, phoneNumber: nil, isAdmin: false)
+                var newUser: User = User()
+                newUser.slug = data?.user.uid
+                newUser.firstName = nil
+                newUser.lastName = nil
+                newUser.email = data?.user.email
+                newUser.phoneNumber = nil
+                newUser.isAdmin = false
                 userManager.currentUser = newUser
                 self.updateUserInDataBase(user: newUser) { (success, error) in
                     if success {
@@ -48,8 +53,12 @@ class DatabaseManager: NSObject {
                 let documentReference = self.database.collection("users").document(result?.user.uid ?? "")
                 documentReference.getDocument { (document, error) in
                     if let doc = document, doc.exists {
-                        let currentUser: User = User(slug: doc.documentID, firstName: doc["firstName"] as? String ?? "", lastName: doc["lastName"] as? String ?? "", email: doc["email"] as? String ?? "", phoneNumber: doc["phoneNumber"] as? String ?? "", isAdmin: doc["isAdmin"] as! Bool? ?? false)
-                        currentUser.heroSlugs = doc["heroSlugs"] as? [String] ?? [String]()
+                        let currentUser = User().generateModelFromDict(data: doc.data() ?? [String: Any](), slug: doc.documentID)
+//                        let currentUser: User = User(slug: doc.documentID, firstName: doc["firstName"] as? String ?? "", lastName: doc["lastName"] as? String ?? "", email: doc["email"] as? String ?? "", phoneNumber: doc["phoneNumber"] as? String ?? "", isAdmin: doc["isAdmin"] as! Bool? ?? false)
+//                        currentUser.heroSlugs = doc["heroSlugs"] as? [String] ??
+//                            [String]()
+//                        currentUser.username = doc["username"] as? String
+//                        currentUser
                         userManager.currentUser = currentUser
                         completion(true, nil)
                         
@@ -73,14 +82,8 @@ class DatabaseManager: NSObject {
         let userRef = database.collection("users").document(slug)
         userRef.getDocument { (document, error) in
             if let doc = document, doc.exists {
-                let slug: String = document?.documentID ?? ""
-                let firstName: String = (doc["firstName"]) as? String ?? ""
-                let lastName: String = (doc["lastName"]) as? String ?? ""
-                let email: String = (doc["email"]) as? String ?? ""
-                let phoneNumber: String = (doc["phoneNumber"]) as? String ?? ""
-                let isAdmin: Bool = doc["isAdmin"] as? Bool ?? false
-                let currentUser: User = User(slug: slug, firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, isAdmin: isAdmin)
-                currentUser.heroSlugs = doc["heroSlugs"] as? [String] ?? [String]()
+                var currentUser = User().generateModelFromDict(data: doc.data() ?? [:], slug: doc.documentID)
+                
                 userManager.currentUser = currentUser
                 completion(currentUser)
             }else {

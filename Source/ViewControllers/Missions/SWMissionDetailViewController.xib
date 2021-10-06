@@ -49,7 +49,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gk2-FV-aH2">
-                    <rect key="frame" x="24" y="229" width="78" height="26"/>
+                    <rect key="frame" x="24" y="226" width="75" height="29"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="14"/>
                     <state key="normal" title="Assassinate">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,61 +63,61 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jiq-qc-7Uk">
-                    <rect key="frame" x="331" y="237.5" width="27" height="11"/>
+                    <rect key="frame" x="331" y="236.5" width="27" height="13"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nh-Lw-2vF">
-                    <rect key="frame" x="24" y="182" width="57.5" height="23"/>
+                    <rect key="frame" x="24" y="175" width="56.5" height="27"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="23"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgE-DN-M8y">
-                    <rect key="frame" x="24" y="279" width="47.5" height="14"/>
+                    <rect key="frame" x="24" y="279" width="46" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-SemiBold" family="Oxanium" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kI-3E-4dH">
-                    <rect key="frame" x="24" y="301" width="366" height="14"/>
+                    <rect key="frame" x="24" y="303.5" width="366" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Light" family="Oxanium" pointSize="14"/>
                     <color key="textColor" name="SWSubheading"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jv2-7q-Jwu">
-                    <rect key="frame" x="24" y="361" width="366" height="14"/>
+                    <rect key="frame" x="24" y="368.5" width="366" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Light" family="Oxanium" pointSize="14"/>
                     <color key="textColor" name="SWSubheading"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZ4-iY-DIh">
-                    <rect key="frame" x="24" y="421" width="366" height="14"/>
+                    <rect key="frame" x="24" y="433.5" width="366" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Light" family="Oxanium" pointSize="14"/>
                     <color key="textColor" name="SWSubheading"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-RT-YFg">
-                    <rect key="frame" x="24" y="339" width="47.5" height="14"/>
+                    <rect key="frame" x="24" y="344" width="46" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-SemiBold" family="Oxanium" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-RU-NmL">
-                    <rect key="frame" x="24" y="399" width="47.5" height="14"/>
+                    <rect key="frame" x="24" y="409" width="46" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-SemiBold" family="Oxanium" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL1-wQ-whq">
-                    <rect key="frame" x="24" y="459" width="47.5" height="14"/>
+                    <rect key="frame" x="24" y="474" width="46" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-SemiBold" family="Oxanium" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rlg-92-aoZ">
-                    <rect key="frame" x="24" y="481" width="366" height="14"/>
+                    <rect key="frame" x="24" y="498.5" width="366" height="16.5"/>
                     <fontDescription key="fontDescription" name="OxaniumRoman-Light" family="Oxanium" pointSize="14"/>
                     <color key="textColor" name="SWSubheading"/>
                     <nil key="highlightedColor"/>
