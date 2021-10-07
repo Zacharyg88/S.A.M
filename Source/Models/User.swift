@@ -17,6 +17,7 @@ class User: NSObject {
     var email: String?
     var phoneNumber: String?
     var heroSlugs: [String] = []
+    var DOB: String?
     var isAdmin: Bool = false
     var profile_image_name: String?
     var party: [String] = []

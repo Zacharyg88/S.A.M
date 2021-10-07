@@ -87,8 +87,13 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             cell.skillTitleLabel.text = skill.title
             cell.skillTitleLabel.textColor = UIColor().getColorFromAttribute(attribute: skill.attribute ?? "")
             cell.diceLabel.text = skill.dice?.title
+            if globalMod == 0 {
+                cell.diceLabel.alpha = 0.25
+            }else {
+                cell.diceLabel.alpha = 1
+            }
             cell.diceLabel.textColor = UIColor(named: "SWStrength_Vigor")
-            if globalMod != nil {
+            if globalMod != nil && globalMod != 0 {
                 var modString = ""
                 if globalModIsNegative {
                     modString.append(" - ")
@@ -119,15 +124,18 @@ class HeroTraitsView: UIView, UICollectionViewDelegate, UICollectionViewDataSour
         var stringSuffix = ""
         var textColor = UIColor(named: "SWStrength_Vigor")
         if globalMod != nil {
-            if globalModIsNegative {
+            if globalModIsNegative && globalMod != 0 {
                 stringSuffix.append(" - \(globalMod ?? 0)")
                 textColor = UIColor.red
             }else {
                 stringSuffix.append(" + \(globalMod ?? 0)")
-                textColor = UIColor(named: "SWGreen")
+                if globalMod == 0 {
+                    textColor = UIColor(named: "SWGreen")?.withAlphaComponent(0.25)
+                }else {
+                    textColor = UIColor(named: "SWGreen")
+                }
             }
         }
-
         for attribute in attributes {
             switch attribute.title {
             case "Agility":

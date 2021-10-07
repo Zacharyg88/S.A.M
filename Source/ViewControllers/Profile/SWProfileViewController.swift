@@ -22,6 +22,7 @@ class SWProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.register(UINib(nibName: "SWProfileSignOutTableViewCell", bundle: nil), forCellReuseIdentifier: "SWProfileSignOutTableViewCell")
 
         tableView.tableFooterView = UIView()
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

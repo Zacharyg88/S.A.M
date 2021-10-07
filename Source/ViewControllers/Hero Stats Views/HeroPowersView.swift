@@ -20,6 +20,17 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
     var delegate: HeroItemDetailDelegate?
     var globalMod: Int? {
         didSet {
+            if globalMod == 0 {
+                ppCountLabel.alpha = 0.25
+                addPPButton.isEnabled = false
+                minusPPButton.isEnabled = false
+                tableView.isUserInteractionEnabled = false
+            }else {
+                ppCountLabel.alpha = 1
+                addPPButton.isEnabled = true
+                minusPPButton.isEnabled = true
+                tableView.isUserInteractionEnabled = true
+            }
             self.tableView.reloadData()
         }
     }
@@ -62,19 +73,44 @@ class HeroPowersView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: HeroGearTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeroGearTableViewCell", for: indexPath) as? HeroGearTableViewCell {
             cell.powerItem = powers[indexPath.row]
+            if globalMod != nil {
+                if globalMod == 0 {
+                    cell.activatePowerButton.isEnabled = false
+                    cell.contentView.alpha = 0.25
+                }else {
+                    var modString = ""
+                    var textColor = UIColor(named: "SWSubheading")
+                    if globalModIsNegative {
+                        modString.append(" - ")
+                        textColor = UIColor.red
+                    }else {
+                        modString.append(" + ")
+                        textColor = UIColor(named: "SWGreen")
+                    }
+                    modString.append("\(globalMod)")
+                    cell.damageStatsLabel.text?.append(modString)
+                    cell.damageStatsLabel.textColor = textColor
+                }
+            }else {
+                cell.activatePowerButton.isEnabled = true
+                cell.contentView.alpha = 1
+            }
             cell.heroViewController = self.hostVC
             return cell
         }
         return UITableViewCell()
     }
+    
     @IBAction func plusButtonTapped(_ sender: Any) {
         self.currentPowerPoints += 1
     }
+    
     @IBAction func minusButtonTapped(_ sender: Any) {
         self.currentPowerPoints -= 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         delegate?.showDetailViewForItem(object: powers[indexPath.row])
     }
     

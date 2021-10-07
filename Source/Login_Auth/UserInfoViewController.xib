@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,10 +19,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
+                <outlet property="DOBTextField" destination="MW3-TF-kGO" id="fju-ec-hKT"/>
                 <outlet property="firstNameTextField" destination="FfR-r4-ztJ" id="AKD-Ci-FGp"/>
                 <outlet property="lastNameTextField" destination="HRI-k1-1Os" id="d1F-3F-Xrb"/>
                 <outlet property="phoneNumberTextField" destination="rcJ-L0-e5e" id="q6T-dz-tTN"/>
                 <outlet property="submitButton" destination="ofL-E0-WEr" id="WtY-Ga-Q1T"/>
+                <outlet property="usernameTextField" destination="ZgJ-zb-7Ti" id="SD3-eW-YXY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,21 +45,21 @@
                     <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FfR-r4-ztJ">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FfR-r4-ztJ">
                     <rect key="frame" x="20" y="136" width="374" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="SiG-ss-Vzm"/>
                     </constraints>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" name="SWStrength_Vigor"/>
                     <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="given-name"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRI-k1-1Os">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRI-k1-1Os">
                     <rect key="frame" x="20" y="178" width="374" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="I9Z-up-WCQ"/>
                     </constraints>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" name="SWStrength_Vigor"/>
                     <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="family-name"/>
                 </textField>
@@ -65,12 +68,21 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="HrY-X8-eJQ"/>
                     </constraints>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" name="SWStrength_Vigor"/>
+                    <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" textContentType="tel"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MW3-TF-kGO">
+                    <rect key="frame" x="20" y="262" width="374" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="MLj-hM-VyG"/>
+                    </constraints>
+                    <color key="textColor" name="SWStrength_Vigor"/>
                     <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="tel"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofL-E0-WEr">
-                    <rect key="frame" x="20" y="262" width="374" height="64"/>
+                    <rect key="frame" x="20" y="362" width="374" height="64"/>
                     <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="iay-FB-tbc"/>
@@ -83,6 +95,15 @@
                         <action selector="submitTapped:" destination="-1" eventType="touchUpInside" id="Nuq-kb-xw8"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgJ-zb-7Ti">
+                    <rect key="frame" x="20" y="304" width="374" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="a2v-ro-I3N"/>
+                    </constraints>
+                    <color key="textColor" name="SWStrength_Vigor"/>
+                    <fontDescription key="fontDescription" name="BrunoAce-Regular" family="Bruno Ace" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" textContentType="tel"/>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,23 +116,32 @@
                 <constraint firstItem="FfR-r4-ztJ" firstAttribute="top" secondItem="J0w-x7-3AE" secondAttribute="bottom" constant="8" id="BmI-An-6e6"/>
                 <constraint firstItem="J0w-x7-3AE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="C9R-eq-6I9"/>
                 <constraint firstItem="FfR-r4-ztJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="CF3-aB-ZWG"/>
-                <constraint firstItem="ofL-E0-WEr" firstAttribute="top" secondItem="rcJ-L0-e5e" secondAttribute="bottom" constant="8" symbolic="YES" id="GF3-z1-ggm"/>
+                <constraint firstItem="ofL-E0-WEr" firstAttribute="top" secondItem="ZgJ-zb-7Ti" secondAttribute="bottom" constant="24" id="GF3-z1-ggm"/>
+                <constraint firstItem="MW3-TF-kGO" firstAttribute="top" secondItem="rcJ-L0-e5e" secondAttribute="bottom" constant="8" symbolic="YES" id="Lmt-hM-oks"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MW3-TF-kGO" secondAttribute="trailing" constant="20" id="PCk-tq-MI7"/>
                 <constraint firstItem="J0w-x7-3AE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="SvD-hT-Iin"/>
                 <constraint firstItem="rcJ-L0-e5e" firstAttribute="top" secondItem="HRI-k1-1Os" secondAttribute="bottom" constant="8" symbolic="YES" id="UO4-UD-nac"/>
+                <constraint firstItem="MW3-TF-kGO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Xej-dv-Ciw"/>
                 <constraint firstItem="lr1-xo-7bj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="axB-jA-fog"/>
                 <constraint firstItem="rcJ-L0-e5e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hcz-hz-Y3D"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZgJ-zb-7Ti" secondAttribute="trailing" constant="20" id="kIY-hD-8h7"/>
+                <constraint firstItem="ZgJ-zb-7Ti" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kYW-Zy-hVq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HRI-k1-1Os" secondAttribute="trailing" constant="20" id="lKV-pq-OHW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J0w-x7-3AE" secondAttribute="trailing" constant="20" id="qd4-qA-URb"/>
                 <constraint firstItem="ofL-E0-WEr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rJB-et-RGe"/>
                 <constraint firstItem="lr1-xo-7bj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="szr-V7-viA"/>
                 <constraint firstItem="lr1-xo-7bj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tWn-2H-cgz"/>
+                <constraint firstItem="ZgJ-zb-7Ti" firstAttribute="top" secondItem="MW3-TF-kGO" secondAttribute="bottom" constant="8" symbolic="YES" id="vGE-Fz-OEk"/>
                 <constraint firstAttribute="bottom" secondItem="lr1-xo-7bj" secondAttribute="bottom" id="vNB-ms-qRu"/>
             </constraints>
-            <point key="canvasLocation" x="-58" y="79"/>
+            <point key="canvasLocation" x="-59.420289855072468" y="78.348214285714278"/>
         </view>
     </objects>
     <resources>
         <image name="SW_Background_Layered" width="187.5" height="399"/>
+        <namedColor name="SWStrength_Vigor">
+            <color red="0.80784313725490198" green="0.82352941176470584" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

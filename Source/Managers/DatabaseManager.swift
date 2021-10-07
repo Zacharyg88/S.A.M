@@ -100,6 +100,8 @@ class DatabaseManager: NSObject {
             dbKeys.lastName : user.lastName,
             dbKeys.email: user.email,
             dbKeys.phoneNumber: user.phoneNumber,
+            "username": user.username,
+            "DOB": user.DOB,
             "heroSlugs": user.heroSlugs,
             dbKeys.isAdmin: user.isAdmin
         ], merge: true) { err in

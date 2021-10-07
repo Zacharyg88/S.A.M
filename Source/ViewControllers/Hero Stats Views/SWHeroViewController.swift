@@ -46,10 +46,17 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 //self.hero?.pace = 0
                 self.paceLabel.text = "0"
                 self.paceLabel.textColor = .red
+                if oldValue != isBound {
+                    setGlobalModifier(isNegative: true, mod: 0)
+                }
             }else {
                 self.paceLabel.text = "\(self.hero?.pace ?? 0)"
                 self.paceLabel.textColor = .white
+                if oldValue != isBound {
+                    setGlobalModifier(isNegative: false, mod: nil)
+                }
             }
+
         }
     }
     var isDistracted: Bool = false {
@@ -68,10 +75,12 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isExhausted: Bool = false
     var isFatigued: Bool = false {
         didSet {
-            if isFatigued {
-                self.setGlobalModifier(isNegative: true, mod: 1)
-            }else {
-                self.setGlobalModifier(isNegative: false, mod: nil)
+            if oldValue != isFatigued {
+                if isFatigued {
+                    self.setGlobalModifier(isNegative: true, mod: 1)
+                }else {
+                    self.setGlobalModifier(isNegative: false, mod: nil)
+                }
             }
         }
     }
@@ -100,7 +109,17 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var hasGlobalPenalty: Bool = false
     var currentSwitchSelection: Int = 0
     var switchContainerViews:[UIView] = []
-    var isShaken: Bool = false
+    var isShaken: Bool = false {
+        didSet {
+            if oldValue != isShaken {
+                if isShaken {
+                    setGlobalModifier(isNegative: true, mod: 0)
+                }else {
+                    setGlobalModifier(isNegative: false, mod: nil)
+                }
+            }
+        }
+    }
     var woundCount: Int = 0 {
         didSet {
             self.woundsLabel.text = "\(woundCount)"
@@ -459,6 +478,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     return false
                 }
             }
+            self.setConditionalBooleans()
             sender.view?.superview?.removeFromSuperview()
         }else {
             if let plusImageView: UIImageView = sender.view as? UIImageView {
@@ -475,7 +495,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func conditionsTapped(_ sender: Any) {
         var conditionCount = 0
         var xInset: CGFloat = 0.0
-        var activeConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
         if !stackViewIsShown {
             self.currentStackHost = "conditions"
             self.horizontalStackView.isHidden = false
@@ -483,8 +502,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             setConditionsInStackView()
             self.conditionsBottomConstraint.constant = 64
             self.scrollView.contentSize.height += 40
-
-            
             stackViewIsShown = true
         }else {
             for view in self.horizontalStackView.subviews {
@@ -521,13 +538,12 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let plusImageView: UIImageView = UIImageView(frame: CGRect(x: xInset, y: 0, width: 24, height: 24))
         plusImageView.image = UIImage(systemName: "plus.circle")
         plusImageView.tintColor = .white
-        let activeConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
-        plusImageView.addGestureRecognizer(activeConditionTap)
+        let addConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
+        plusImageView.addGestureRecognizer(addConditionTap)
         plusImageView.isUserInteractionEnabled = true
         xInset = 36
         self.horizontalStackView.addSubview(plusImageView)
         for i in self.activeConditions {
-
             let actionsLabel: UILabel = UILabel(frame: CGRect.zero)
             actionsLabel.font = UIFont(name: "Oxanium", size: 14)
             actionsLabel.text = i.title
@@ -538,20 +554,20 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             actionsLabel.clipsToBounds = true
             actionsLabel.frame = CGRect(x: 0, y: 0, width: actionsLabel.intrinsicContentSize.width + 16, height: 24)
             let activeConditionTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(activeConditionTapped(_:)))
-            actionsLabel.addGestureRecognizer(activeConditionTap)
             actionsLabel.isUserInteractionEnabled = true
+            actionsLabel.addGestureRecognizer(activeConditionTap)
             let conditionView: UIView = UIView(frame: CGRect(x: xInset, y: 0, width: actionsLabel.frame.width + 16, height: 24))
             let minusImageView: UIImageView = UIImageView(frame: CGRect(x: actionsLabel.frame.width - 6, y: 0, width: 12, height: 12))
             minusImageView.image = UIImage(systemName: "minus.circle")
             minusImageView.tintColor = .white
+            minusImageView.isUserInteractionEnabled = false
             conditionView.addSubview(actionsLabel)
             conditionView.addSubview(minusImageView)
+            conditionView.isUserInteractionEnabled = true
             xInset += actionsLabel.intrinsicContentSize.width + 36
             self.horizontalStackView.addSubview(conditionView)
         }
     }
-    
-
     
     @IBAction func shakenTapped(_ sender: Any) {
         if isShaken {
@@ -650,7 +666,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    
     func launchCharacterCreation() {
         let characterCreationVC: SWHeroCreationViewController = SWHeroCreationViewController()
         characterCreationVC.modalPresentationStyle = .overCurrentContext
@@ -663,7 +678,6 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             powersView.currentPowerPoints -= (power.powerPoints ?? 0)
         }
     }
-    
     
     @objc func dismissView() {
         UIView.animate(withDuration: 0.3) {
