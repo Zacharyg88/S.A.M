@@ -466,6 +466,8 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
+        userManager.currentUser?.getHeroesFromSlugs()
+        
     }
     
     @objc func activeConditionTapped(_ sender: UITapGestureRecognizer) {

@@ -17,10 +17,12 @@ class User: NSObject {
     var email: String?
     var phoneNumber: String?
     var heroSlugs: [String] = []
+    var heroes: [HeroModel] = []
     var DOB: String?
     var isAdmin: Bool = false
     var profile_image_name: String?
     var party: [String] = []
+    var notes: [NoteModel] = []
     
     func createDictForValues() -> [String: Any] {
         var valueDict = [String: Any]()
@@ -34,6 +36,19 @@ class User: NSObject {
         valueDict["profile_image_name"] = self.profile_image_name
         valueDict["party"] = self.party
         valueDict["username"] = self.username
+        var noteArray = [[String: Any]]()
+        for note in self.notes {
+            noteArray.append(note.createDictForValues())
+        }
+        valueDict["notes"] = noteArray
+        
+        var heroArray = [[String: Any]]()
+        for hero in self.heroes {
+            heroArray.append(hero.createDictForValues())
+        }
+        valueDict["heroes"] = heroArray
+        
+        
         return valueDict
     }
     
@@ -51,6 +66,37 @@ class User: NSObject {
         newUser.username = data["username"] as? String
         return newUser
     }
+    
+}
+
+
+class NoteModel: NSObject {
+    var note: String?
+    var created_ts: String?
+    var last_updated_ts: String?
+    var author_slug: String?
+    var mission_slug: String?
+    
+    func createDictForValues() -> [String: Any] {
+        var valueDict = [String: Any]()
+        valueDict["note"] = self.note
+        valueDict["created_ts"] = self.created_ts
+        valueDict["last_updated_ts"] = self.last_updated_ts
+        valueDict["author_slug"] = self.author_slug
+        valueDict["mission_slug"] = self.mission_slug
+        return valueDict
+    }
+    
+    func generateModelFromDict(dict: [String: Any]) -> NoteModel {
+        var newNote = NoteModel()
+        newNote.note = dict["note"] as? String
+        newNote.created_ts = dict["created_ts"] as? String
+        newNote.last_updated_ts = dict["last_updated_ts"] as? String
+        newNote.author_slug = dict["author_slug"] as? String
+        newNote.mission_slug = dict["mission_slug"] as? String
+        return newNote
+    }
+    
     
 }
 

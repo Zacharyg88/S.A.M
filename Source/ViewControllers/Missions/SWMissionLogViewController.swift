@@ -11,11 +11,40 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
     
 
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var missionsButton: UIButton!
+    @IBOutlet weak var notesButton: UIButton!
+    @IBOutlet weak var notesTableView: UITableView!
+    var isMissionView: Bool = true {
+        didSet {
+            if isMissionView {
+                notesTableView.isHidden = true
+                tableView?.isHidden = false
+                missionsButton.setTitleColor(UIColor.white, for: UIControl.State())
+                missionsButton.backgroundColor = UIColor(named: "SWBacking")
+                notesButton.setTitleColor(UIColor(named: "SWStrength_Vigor"), for: UIControl.State())
+                notesButton.backgroundColor = UIColor(named: "SWBackground")
+            }else {
+                tableView?.isHidden = true
+                notesTableView.isHidden = false
+                notesButton.setTitleColor(UIColor.white, for: UIControl.State())
+                notesButton.backgroundColor = UIColor(named: "SWBacking")
+                missionsButton.setTitleColor(UIColor(named: "SWStrength_Vigor"), for: UIControl.State())
+                missionsButton.backgroundColor = UIColor(named: "SWBackground")
+            }
+        }
+    }
+    
     var missions: [MissionModel] = [] {
         didSet {
             self.tableView?.reloadData()
         }
     }
+    var notes: [Any] = [] {
+        didSet {
+            self.notesTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         databaseManager.getAllMissionsFromDatabase { (missions, error) in
@@ -30,6 +59,11 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
         tableView?.register(UINib(nibName: "SWMissionLogTableViewCell", bundle: nil), forCellReuseIdentifier: "SWMissionLogTableViewCell")
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView?.tag = 0
+        
+        notesTableView.delegate = self
+        notesTableView.dataSource = self
+        notesTableView.tag = 1
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -37,7 +71,11 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return missions.count
+        if tableView.tag == 0 {
+            return missions.count
+        }else {
+            return notes.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +94,13 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
         self.present(missionDetailVC, animated: true)
     }
     
+    @IBAction func missionsTapped(_ sender: Any) {
+        self.isMissionView = true
+    }
+    
+    @IBAction func notesTapped(_ sender: Any) {
+        self.isMissionView = false
+    }
     
 
 }

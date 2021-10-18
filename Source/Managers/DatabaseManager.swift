@@ -95,16 +95,8 @@ class DatabaseManager: NSObject {
     
     
     func updateUserInDataBase(user: User, _ completion: @escaping(_ success: Bool, _ error: Error?) -> Void) {
-        database.collection("users").document(user.slug!).setData([
-            dbKeys.firstName : user.firstName,
-            dbKeys.lastName : user.lastName,
-            dbKeys.email: user.email,
-            dbKeys.phoneNumber: user.phoneNumber,
-            "username": user.username,
-            "DOB": user.DOB,
-            "heroSlugs": user.heroSlugs,
-            dbKeys.isAdmin: user.isAdmin
-        ], merge: true) { err in
+        
+        database.collection("users").document(user.slug!).setData(user.createDictForValues(), merge: true) { err in
             if err != nil {
                 completion(false, err)
             }else {
@@ -197,25 +189,27 @@ class DatabaseManager: NSObject {
     }
     
     func postHeroToDatabase(hero: HeroModel, image: UIImage?, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
-        let heroesRef = database.collection("heroes").document()
-        let id = heroesRef.documentID
-        if image != nil {
-            hero.imageName = "Images/hero_\(id)"
-            self.postImageToStorage(image: image ?? UIImage(), imageLocation: hero.imageName ?? "") { success, error in
-                print(success, error)
+        if let userSlug = userManager.currentUser?.slug {
+            let heroesRef = database.collection("users").document(userSlug).collection("Heroes").document(userSlug + "_\(hero.firstName)_\(hero.lastName)")
+            let id = heroesRef.documentID
+            if image != nil {
+                hero.imageName = "Images/hero_\(id)"
+                self.postImageToStorage(image: image ?? UIImage(), imageLocation: hero.imageName ?? "") { success, error in
+                    print(success, error)
+                }
             }
-        }
-        
-        heroesRef.setData(hero.createDictForValues(), merge: true) { (error) in
-            if error != nil {
-                completion(false, error)
-            }else {
-                userManager.currentUser?.heroSlugs.append(id)
-                self.updateUserInDataBase(user: userManager.currentUser!) { (success, error) in
-                    if error != nil {
-                        completion(true, error)
-                    }else {
-                        completion(true, nil)
+            
+            heroesRef.setData(hero.createDictForValues(), merge: true) { (error) in
+                if error != nil {
+                    completion(false, error)
+                }else {
+                    userManager.currentUser?.heroSlugs.append(id)
+                    self.updateUserInDataBase(user: userManager.currentUser!) { (success, error) in
+                        if error != nil {
+                            completion(true, error)
+                        }else {
+                            completion(true, nil)
+                        }
                     }
                 }
             }

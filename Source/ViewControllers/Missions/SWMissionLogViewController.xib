@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxanium-VariableFont_wght.ttf">
+            <string>OxaniumRoman-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWMissionLogViewController" customModule="SWTestApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWMissionLogViewController" customModule="S_A_M" customModuleProvider="target">
             <connections>
+                <outlet property="missionsButton" destination="j5Z-eZ-Ufi" id="Q91-58-JFn"/>
+                <outlet property="notesButton" destination="B9G-i5-ZAn" id="6kI-fm-6Qf"/>
+                <outlet property="notesTableView" destination="7dE-dB-6FE" id="YG6-Aq-frA"/>
                 <outlet property="tableView" destination="obF-TQ-4k1" id="hKT-1X-0Mk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,27 +32,79 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="obF-TQ-4k1">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5Z-eZ-Ufi">
+                    <rect key="frame" x="0.0" y="44" width="207" height="56"/>
+                    <color key="backgroundColor" name="SWBacking"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="4RO-JI-uzL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
+                    <state key="normal" title="Missions">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="missionsTapped:" destination="-1" eventType="touchUpInside" id="xaJ-Oy-sof"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9G-i5-ZAn">
+                    <rect key="frame" x="207" y="44" width="207" height="56"/>
+                    <color key="backgroundColor" name="SWBackground"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="GY7-Pv-8cj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OxaniumRoman-Regular" family="Oxanium" pointSize="17"/>
+                    <state key="normal" title="Notes">
+                        <color key="titleColor" name="SWStrength_Vigor"/>
+                    </state>
+                    <connections>
+                        <action selector="notesTapped:" destination="-1" eventType="touchUpInside" id="IWg-g6-x4F"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7dE-dB-6FE">
+                    <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="7dE-dB-6FE" firstAttribute="top" secondItem="j5Z-eZ-Ufi" secondAttribute="bottom" id="2ko-I0-tC2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="obF-TQ-4k1" secondAttribute="trailing" id="6bn-DR-XCD"/>
+                <constraint firstAttribute="bottom" secondItem="7dE-dB-6FE" secondAttribute="bottom" id="ARj-Zv-eQg"/>
                 <constraint firstAttribute="bottom" secondItem="fu3-g2-rmL" secondAttribute="bottom" id="DSF-qU-Hgr"/>
+                <constraint firstItem="obF-TQ-4k1" firstAttribute="top" secondItem="B9G-i5-ZAn" secondAttribute="bottom" id="DeW-aX-q8z"/>
+                <constraint firstItem="B9G-i5-ZAn" firstAttribute="width" secondItem="j5Z-eZ-Ufi" secondAttribute="width" id="LAi-A8-bsw"/>
+                <constraint firstItem="j5Z-eZ-Ufi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ONz-OG-Vbo"/>
+                <constraint firstItem="obF-TQ-4k1" firstAttribute="top" secondItem="j5Z-eZ-Ufi" secondAttribute="bottom" id="OpI-Er-s2H"/>
+                <constraint firstItem="j5Z-eZ-Ufi" firstAttribute="width" secondItem="fu3-g2-rmL" secondAttribute="width" multiplier="0.5" id="PNl-1c-0Y4"/>
                 <constraint firstItem="obF-TQ-4k1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RAM-pR-CfO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7dE-dB-6FE" secondAttribute="trailing" id="U4Z-Yp-OMk"/>
+                <constraint firstItem="7dE-dB-6FE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="acp-CA-0hn"/>
                 <constraint firstItem="fu3-g2-rmL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fDs-AB-I8D"/>
+                <constraint firstItem="B9G-i5-ZAn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iHc-fu-mLF"/>
                 <constraint firstItem="fu3-g2-rmL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ifz-gr-dS9"/>
+                <constraint firstItem="B9G-i5-ZAn" firstAttribute="top" secondItem="j5Z-eZ-Ufi" secondAttribute="top" id="pp3-Vg-BeC"/>
                 <constraint firstItem="fu3-g2-rmL" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="qvk-Fc-hDI"/>
-                <constraint firstItem="obF-TQ-4k1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="z0G-sO-z4T"/>
+                <constraint firstItem="j5Z-eZ-Ufi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vha-Zn-FuP"/>
                 <constraint firstAttribute="bottom" secondItem="obF-TQ-4k1" secondAttribute="bottom" id="zfC-8I-Tw0"/>
             </constraints>
             <point key="canvasLocation" x="-58" y="79"/>
         </view>
     </objects>
     <resources>
-        <image name="SW_Background_Layered" width="400" height="300"/>
+        <image name="SW_Background_Layered" width="187.5" height="399"/>
+        <namedColor name="SWBackground">
+            <color red="0.043137254901960784" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWBacking">
+            <color red="0.15686274509803921" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SWStrength_Vigor">
+            <color red="0.80784313725490198" green="0.82352941176470584" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

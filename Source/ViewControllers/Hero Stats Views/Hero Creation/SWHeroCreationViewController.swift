@@ -190,14 +190,14 @@ class SWHeroCreationViewController: UIViewController {
         default:
             print("default")
             
-            databaseManager.postHeroToDatabase(hero: self.newHero, image: self.heroImage) { success, error in
-                if error != nil {
-                    print("There was an error posting the hero to the datbase \(error)")
-                }else {
-                    self.heroViewController?.getHeroesFromDB()
-                    self.dismiss(animated: true, completion: nil)
-                }
-            }
+//            databaseManager.postHeroToDatabase(hero: self.newHero, image: self.heroImage) { success, error in
+//                if error != nil {
+//                    print("There was an error posting the hero to the datbase \(error)")
+//                }else {
+//                    self.heroViewController?.getHeroesFromDB()
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            }
         }
         self.currentStage += 1
     }
