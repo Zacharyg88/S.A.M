@@ -23,10 +23,7 @@ class SWHeroListTableViewCell: UITableViewCell {
                     self.heroImageView.image = image
                 }
             }
-            heroNameLabel.text = hero?.firstName
-            if hero?.lastName != nil {
-                heroNameLabel.text = (hero?.firstName ?? "") + " " + (hero?.lastName ?? "")
-            }
+            heroNameLabel.text = hero?.heroName
             heroLevelLabel.text = hero?.getLevelString()
         }
     }

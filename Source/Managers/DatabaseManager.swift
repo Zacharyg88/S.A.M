@@ -174,26 +174,28 @@ class DatabaseManager: NSObject {
         missionRef.updateData(["votes": mission.votes])
     }
     
-    // Hero Requests
-    func getHeroFromSlug(slug: String, completion: @escaping (_ hero: HeroModel?, _ error: Error?)-> Void) {
-        let heroRef = database.collection("heroes").document(slug)
-        heroRef.getDocument { (snapshot, error) in
+    
+    func getHeroesForUser(userSlug: String, completion: @escaping (_ heroes: [HeroModel], _ error: Error?) -> Void) {
+        var heroArray = [HeroModel]()
+        let ref = database.collection("users").document(userSlug).collection("Heroes").getDocuments { snapshot, error in
             if error != nil {
-                print("There was an error getting the Hero from the databsse")
-                completion(nil, error)
+                print("There was an error getting the Hero Data for user \(userSlug)")
+                completion(heroArray, error)
             }else {
-                let heroObject: HeroModel = HeroModel().createObjectFromDict(data: snapshot?.data() as! [String: Any], slug: snapshot?.documentID ?? "")
-                completion(heroObject, nil)
+                for document in snapshot?.documents ?? [QueryDocumentSnapshot]() {
+                    heroArray.append(HeroModel().createObjectFromDict(data: document.data(), slug: document.documentID))
+                }
+                completion(heroArray, nil)
             }
         }
     }
     
     func postHeroToDatabase(hero: HeroModel, image: UIImage?, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         if let userSlug = userManager.currentUser?.slug {
-            let heroesRef = database.collection("users").document(userSlug).collection("Heroes").document(userSlug + "_\(hero.firstName)_\(hero.lastName)")
+            let heroesRef = database.collection("users").document(userSlug).collection("Heroes").document(userSlug + "_\(hero.heroName ?? "")")
             let id = heroesRef.documentID
             if image != nil {
-                hero.imageName = "Images/hero_\(id)"
+                hero.imageName = "Images/Users/\(userSlug)/Heroes/\(id)"
                 self.postImageToStorage(image: image ?? UIImage(), imageLocation: hero.imageName ?? "") { success, error in
                     print(success, error)
                 }
@@ -203,7 +205,6 @@ class DatabaseManager: NSObject {
                 if error != nil {
                     completion(false, error)
                 }else {
-                    userManager.currentUser?.heroSlugs.append(id)
                     self.updateUserInDataBase(user: userManager.currentUser!) { (success, error) in
                         if error != nil {
                             completion(true, error)

@@ -71,7 +71,7 @@ class SWProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         default:
             print("Sign Out")
             if let cell: SWProfileSignOutTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SWProfileSignOutTableViewCell", for: indexPath) as? SWProfileSignOutTableViewCell {
-                
+                cell.hostVC = self
                 return cell
             }
         }
@@ -85,6 +85,7 @@ class SWProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             databaseManager.signOutUser { (success, error) in
                 if success {
                     UserDefaults.standard.removeObject(forKey: "CurrentUserSlug")
+                    userManager.currentUser = nil
                     if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                         self.dismiss(animated: true) {
                             appDelegate.loadApp()

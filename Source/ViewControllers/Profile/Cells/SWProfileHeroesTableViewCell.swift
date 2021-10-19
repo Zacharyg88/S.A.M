@@ -16,16 +16,13 @@ class SWProfileHeroesTableViewCell: UITableViewCell, UICollectionViewDelegate, U
     override func awakeFromNib() {
         super.awakeFromNib()
         self.collectionView.register(UINib(nibName: "SWProfileHeroCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SWProfileHeroCollectionViewCell")
-        
-        for slug in userManager.currentUser?.heroSlugs ?? [String]() {
-            databaseManager.getHeroFromSlug(slug: slug) { hero, error in
-                if error != nil {
-                    print("There was an error getting the hero \(error)")
-                }else {
-                    self.heroes.append(hero!)
-                }
+        databaseManager.getHeroesForUser(userSlug: userManager.currentUser?.slug ?? "") { heroes, error in
+            if error != nil {
+                
+            }else {
+                self.heroes = heroes
             }
-            collectionView.reloadData()
+            self.collectionView.reloadData()
         }
     }
 
@@ -47,7 +44,7 @@ class SWProfileHeroesTableViewCell: UITableViewCell, UICollectionViewDelegate, U
                 let image = databaseManager.getImageFromStorage(imageName: hero.imageName ?? "") { image, error in
                     cell.heroImageView.image = image
                 }
-                cell.heroNameLabel.text = (hero.firstName ?? "") + " " + (hero.lastName ?? "")
+                cell.heroNameLabel.text = (hero.heroName ?? "")
                 cell.heroLevelLabel.text = hero.getLevelString()
             }else {
                 cell.heroImageView.image = UIImage(systemName: "plus")

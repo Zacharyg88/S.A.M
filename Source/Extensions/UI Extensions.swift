@@ -178,8 +178,10 @@ extension UIViewController {
             detailView.bannerView.backgroundColor = UIColor(named: "SWCore_Planet")
             detailView.typeLabel.text = "Edge"
             detailView.nameLabel.text = edge.title ?? ""
-            detailView.leftHeader1.text = "Summary"
-            detailView.leftDescription1.text = edge.summary ?? ""
+            detailView.leftHeader1.text = "Rank"
+            detailView.leftDescription1.text = edge.requiredExperience
+            detailView.leftHeader2.text = "Summary"
+            detailView.leftDescription2.text = edge.summary ?? ""
         }
         
         if let race: RB_Race = object as? RB_Race {

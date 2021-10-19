@@ -12,8 +12,7 @@ class HeroModel: NSObject {
     
     var slug: String?
     var isCurrentHero: Bool = false
-    var firstName: String?
-    var lastName: String?
+    var heroName: String?
     var imageName: String?
     var concept: String?
     var race: String?
@@ -107,8 +106,7 @@ class HeroModel: NSObject {
     func createDictForValues() -> [String: Any] {
         var valueDict: [String: Any] = [:]
         valueDict["isCurrentHero"] = self.isCurrentHero
-        valueDict["firstName"] = self.firstName
-        valueDict["lastName"] = self.lastName
+        valueDict["heroName"] = self.heroName
         valueDict["imageName"] = self.imageName
         valueDict["race"] = self.race
         valueDict["concept"] = self.concept
@@ -187,9 +185,8 @@ class HeroModel: NSObject {
         newHero.gold = data["gold"] as? Int
         newHero.level = data["level"] as? Int
         newHero.powerPoints = data["powerPoints"] as? Int
-        newHero.firstName = data["firstName"] as? String
+        newHero.heroName = data["heroName"] as? String
         newHero.race = data["race"] as? String
-        newHero.lastName = data["lastName"] as? String
         newHero.imageName = data["imageName"] as? String
         newHero.concept = data["concept"] as? String
         newHero.backstory = data["backstory"] as? String

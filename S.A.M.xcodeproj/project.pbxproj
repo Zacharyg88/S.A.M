@@ -87,6 +87,8 @@
 		BB91EEA826DDCD2100D3FD15 /* HeroGearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */; };
 		BB91EEAE26DDCF2800D3FD15 /* HeroGearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */; };
 		BB91EEAF26DDCF2800D3FD15 /* HeroGearTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */; };
+		BBA0DFB6271F5C68004389FB /* SWMissionNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA0DFB4271F5C68004389FB /* SWMissionNoteTableViewCell.swift */; };
+		BBA0DFB7271F5C68004389FB /* SWMissionNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA0DFB5271F5C68004389FB /* SWMissionNoteTableViewCell.xib */; };
 		BBA411A926E062100019EC39 /* SWHeroCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA411A726E062100019EC39 /* SWHeroCreationViewController.swift */; };
 		BBA411AA26E062100019EC39 /* SWHeroCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA411A826E062100019EC39 /* SWHeroCreationViewController.xib */; };
 		BBA411AF26E0681B0019EC39 /* HeroConceptCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA411AE26E0681B0019EC39 /* HeroConceptCreationView.swift */; };
@@ -242,6 +244,8 @@
 		BB91EEA726DDCD2100D3FD15 /* HeroGearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroGearView.xib; sourceTree = "<group>"; };
 		BB91EEAC26DDCF2800D3FD15 /* HeroGearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroGearTableViewCell.swift; sourceTree = "<group>"; };
 		BB91EEAD26DDCF2800D3FD15 /* HeroGearTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroGearTableViewCell.xib; sourceTree = "<group>"; };
+		BBA0DFB4271F5C68004389FB /* SWMissionNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMissionNoteTableViewCell.swift; sourceTree = "<group>"; };
+		BBA0DFB5271F5C68004389FB /* SWMissionNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWMissionNoteTableViewCell.xib; sourceTree = "<group>"; };
 		BBA411A726E062100019EC39 /* SWHeroCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHeroCreationViewController.swift; sourceTree = "<group>"; };
 		BBA411A826E062100019EC39 /* SWHeroCreationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWHeroCreationViewController.xib; sourceTree = "<group>"; };
 		BBA411AE26E0681B0019EC39 /* HeroConceptCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroConceptCreationView.swift; sourceTree = "<group>"; };
@@ -555,6 +559,8 @@
 			children = (
 				BB4A341026DBE6930050B288 /* SWMissionLogTableViewCell.swift */,
 				BB4A340E26DBE6930050B288 /* SWMissionLogTableViewCell.xib */,
+				BBA0DFB4271F5C68004389FB /* SWMissionNoteTableViewCell.swift */,
+				BBA0DFB5271F5C68004389FB /* SWMissionNoteTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				BB4A344926DBE6940050B288 /* SWCreateCollectionViewCell.xib in Resources */,
 				BB15D01526F038820094DB39 /* SWHeroConditionActionSelectionView.xib in Resources */,
 				BBBFEA4126E7F04400AF0E42 /* HeroCreationEdgesTableViewSectionHeaderView.xib in Resources */,
+				BBA0DFB7271F5C68004389FB /* SWMissionNoteTableViewCell.xib in Resources */,
 				BB4A345926DBE6940050B288 /* SWRulesViewController.xib in Resources */,
 				BBB09F6F26DC10DA0086FCE1 /* Main.storyboard in Resources */,
 				BB91EE8E26DD652200D3FD15 /* HinderanceEdgeTableViewCell.xib in Resources */,
@@ -954,6 +961,7 @@
 				BBA411B926E06FFB0019EC39 /* RulebookModel.swift in Sources */,
 				BBBC4EC826DFD0420065509A /* SWHeroListTableViewCell.swift in Sources */,
 				BB4A343F26DBE6940050B288 /* DiceModel.swift in Sources */,
+				BBA0DFB6271F5C68004389FB /* SWMissionNoteTableViewCell.swift in Sources */,
 				BB91EE9826DDBF9C00D3FD15 /* TabNavigationMenu.swift in Sources */,
 				BBB88DF72703A16F00094C7A /* SWMissionDetailViewController.swift in Sources */,
 				BB4A345026DBE6940050B288 /* MainMenuViewController.swift in Sources */,

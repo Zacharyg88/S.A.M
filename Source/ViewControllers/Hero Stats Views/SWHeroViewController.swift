@@ -156,7 +156,15 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     var tabViews: [UIView] = []
-    var heroesArray: [HeroModel] = []
+    var heroesArray: [HeroModel] = [] {
+        didSet {
+            for hero in heroesArray {
+                if hero.isCurrentHero {
+                    self.hero = hero
+                }
+            }
+        }
+    }
     var hero: HeroModel? {
         didSet {
             let heroImage = databaseManager.getImageFromStorage(imageName: hero?.imageName ?? "") { (image, error) in
@@ -168,10 +176,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             
-            heroNameLabel.text = (hero?.firstName ?? "")
-            if hero?.lastName != nil {
-                heroNameLabel.text = (heroNameLabel.text ?? "") + " " + (hero?.lastName ?? "")
-            }
+            heroNameLabel.text = (hero?.heroName ?? "")
             heroLevelLabel.text = hero?.getLevelString()
             
             paceLabel.text = "\(hero?.pace ?? 6)"
@@ -307,20 +312,18 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func getHeroesFromDB() {
         self.heroesArray.removeAll()
-        for slug in userManager.currentUser?.heroSlugs ?? [String]() {
-            databaseManager.getHeroFromSlug(slug: slug) { (hero, error) in
-                if let heroObject = hero as? HeroModel {
-                    if heroObject.isCurrentHero {
-                        self.hero = hero
-                    }
-                    self.heroesArray.append(heroObject)
+        databaseManager.getHeroesForUser(userSlug: userManager.currentUser?.slug ?? "") { heroes, error in
+            if error != nil {
+                print("There was an error getting the heroes for user \(userManager.currentUser)")
+            }else {
+                if heroes.count > 0 {
+                    self.heroesArray = heroes
                 }
             }
         }
         if self.heroesArray.isEmpty {
             self.heroNameLabel.text = "Tap here to start Creating your First Hero!"
             self.heroImageView.image = UIImage(named:"icon_add")?.imageWithTint(.white)
-            
         }
     }
     
@@ -466,7 +469,7 @@ class SWHeroViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
-        userManager.currentUser?.getHeroesFromSlugs()
+        //userManager.currentUser?.getHeroesFromSlugs()
         
     }
     

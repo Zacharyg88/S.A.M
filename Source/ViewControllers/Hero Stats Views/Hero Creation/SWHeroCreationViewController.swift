@@ -69,6 +69,10 @@ class SWHeroCreationViewController: UIViewController {
         }
         continueButton.titleLabel?.numberOfLines = 0
         setupViews()
+        newHero.level = 1
+        newHero.bennies = 2
+        newHero.gold = 1500
+        newHero.isCurrentHero = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -132,8 +136,7 @@ class SWHeroCreationViewController: UIViewController {
             if let conceptView: HeroConceptCreationView = creationStageViewsArray[0] as? HeroConceptCreationView {
                 if (conceptView.nameTextField.text?.count ?? 0) > 0 {
                     self.newHero.concept = conceptView.conceptTextView.text
-                    self.newHero.firstName = conceptView.nameTextField.text ?? ""
-                    self.newHero.lastName = conceptView.nickNameTextField.text ?? ""
+                    self.newHero.heroName = conceptView.nameTextField.text ?? ""
                     if conceptView.image != nil {
                         self.heroImage = conceptView.image
                     }
@@ -190,14 +193,14 @@ class SWHeroCreationViewController: UIViewController {
         default:
             print("default")
             
-//            databaseManager.postHeroToDatabase(hero: self.newHero, image: self.heroImage) { success, error in
-//                if error != nil {
-//                    print("There was an error posting the hero to the datbase \(error)")
-//                }else {
-//                    self.heroViewController?.getHeroesFromDB()
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//            }
+            databaseManager.postHeroToDatabase(hero: self.newHero, image: self.heroImage) { success, error in
+                if error != nil {
+                    print("There was an error posting the hero to the datbase \(error)")
+                }else {
+                    self.heroViewController?.getHeroesFromDB()
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
         self.currentStage += 1
     }

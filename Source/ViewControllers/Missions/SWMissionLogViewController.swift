@@ -39,7 +39,7 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
             self.tableView?.reloadData()
         }
     }
-    var notes: [Any] = [] {
+    var notes: [NoteModel] = [] {
         didSet {
             self.notesTableView.reloadData()
         }
@@ -60,10 +60,13 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.tag = 0
+        tableView?.tableFooterView = UIView()
         
+        notesTableView.register(UINib(nibName: "SWMissionNoteTableViewCell", bundle: nil), forCellReuseIdentifier: "SWMissionNoteTableViewCell")
         notesTableView.delegate = self
         notesTableView.dataSource = self
         notesTableView.tag = 1
+        self.isMissionView = true
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,10 +82,20 @@ class SWMissionLogViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: SWMissionLogTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SWMissionLogTableViewCell", for: indexPath) as? SWMissionLogTableViewCell {
-            cell.mission = missions[indexPath.row]
-            
-            return cell
+        if tableView.tag == 0 {
+            if let cell: SWMissionLogTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SWMissionLogTableViewCell", for: indexPath) as? SWMissionLogTableViewCell {
+                cell.mission = missions[indexPath.row]
+                
+                return cell
+            }
+        }else {
+            if let cell: SWMissionNoteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SWMissionNoteTableViewCell", for: indexPath) as? SWMissionNoteTableViewCell {
+                let note = self.notes[indexPath.row]
+                cell.createdLabel.text = "Created: \(note.created_ts)"
+                cell.userLabel.text = note.author_slug
+                cell.noteTextView.text = note.note
+                return cell
+            }
         }
         return UITableViewCell()
     }

@@ -16,13 +16,10 @@ class User: NSObject {
     var lastName: String?
     var email: String?
     var phoneNumber: String?
-    var heroSlugs: [String] = []
-    var heroes: [HeroModel] = []
     var DOB: String?
     var isAdmin: Bool = false
     var profile_image_name: String?
     var party: [String] = []
-    var notes: [NoteModel] = []
     
     func createDictForValues() -> [String: Any] {
         var valueDict = [String: Any]()
@@ -31,24 +28,10 @@ class User: NSObject {
         valueDict["lastName"] = self.lastName
         valueDict["email"] = self.email
         valueDict["phoneNumber"] = self.phoneNumber
-        valueDict["heroSlugs"] = self.heroSlugs
         valueDict["isAdmin"] = self.isAdmin
         valueDict["profile_image_name"] = self.profile_image_name
         valueDict["party"] = self.party
         valueDict["username"] = self.username
-        var noteArray = [[String: Any]]()
-        for note in self.notes {
-            noteArray.append(note.createDictForValues())
-        }
-        valueDict["notes"] = noteArray
-        
-        var heroArray = [[String: Any]]()
-        for hero in self.heroes {
-            heroArray.append(hero.createDictForValues())
-        }
-        valueDict["heroes"] = heroArray
-        
-        
         return valueDict
     }
     
@@ -60,7 +43,6 @@ class User: NSObject {
         newUser.email = data["email"] as? String
         newUser.phoneNumber = data["phoneNumber"] as? String
         newUser.isAdmin = data["isAdmin"] as? Bool ?? false
-        newUser.heroSlugs = data["heroSlugs"] as? [String] ?? []
         newUser.party = data["party"] as? [String] ?? []
         newUser.profile_image_name = data["profile_image_name"] as? String
         newUser.username = data["username"] as? String
